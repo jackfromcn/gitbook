@@ -12,4 +12,4 @@
 
 ![graphql解析入参](./graphql解析入参.png)
 
-`graphql`  将 `variables` 参数解析为 `linkedHashMap`，`graphql` 定义了`Instrumentation` 可以在 `graphql` 执行的各个阶段进行拦截处理，类似 `spring` 的 `Interceptor`，因为
+`graphql`  将 `variables` 参数解析为 `linkedHashMap`，`graphql` 定义了`Instrumentation` 可以在 `graphql` 执行的各个阶段进行拦截处理，类似 `spring` 的 `Interceptor`，因为定义参数校验的方式可以如下：<br/>

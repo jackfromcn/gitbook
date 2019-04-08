@@ -53,3 +53,8 @@ public class InstrumentationConfig {
 }
 ```
 
+使用上面 `graphql` 定义的参数校验方式，很繁琐，也不容易复用。因此还是希望通过之前 `spring mvc` 的 `validation` 方式来校验。而且 `graphql` 也不关注参数校验和权限校验，只关注对应的资源获取。
+
+
+
+## 

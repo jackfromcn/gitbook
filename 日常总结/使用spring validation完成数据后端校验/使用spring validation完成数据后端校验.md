@@ -177,3 +177,77 @@ public class ValidatorAspect {
 
 ### 方式二：2019年04月08日
 
+使用 `javax.validation.Validator` 自己校验。代码如下：<br/>
+
+```java
+import com.enums.ErrorCode;
+import com.exception.ServiceException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Set;
+
+/**
+ *
+ * @author wencheng
+ * @date 2019/3/22
+ */
+@Component
+@Aspect
+@Order(2)
+@Slf4j
+public class ValidatorAspect {
+
+    @Pointcut("(execution(public * com.graphql.mutation.*.*(..))) ||" +
+            "(execution(public * com.graphql.query.*.*(..)))")
+    public void validatePointCuts() {
+    }
+
+    @Around(value = "validatePointCuts()")
+    public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        IHandlerMethod iHandlerMethod = new IHandlerMethod(joinPoint.getThis(), method);
+        MethodParameter[] parameters = iHandlerMethod.getMethodParameters();
+
+        ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
+        javax.validation.Validator validator = vf.getValidator();
+        for (MethodParameter parameter: parameters) {
+            Object args = joinPoint.getArgs()[parameter.getParameterIndex()];
+            Annotation[] annotations = parameter.getParameterAnnotations();
+            StringBuilder errMsgBuider = new StringBuilder();
+            for (Annotation ann : annotations) {
+                Validated validatedAnn = AnnotationUtils.getAnnotation(ann, Validated.class);
+                if (validatedAnn != null || ann.annotationType().getSimpleName().startsWith("Valid")) {
+                    Class<?>[] validationHints = (validatedAnn != null ? validatedAnn.value() : new Class[0]);
+                    Set<ConstraintViolation<Object>> constraintViolationSet = validator.validate(args, validationHints);
+                    for (ConstraintViolation<?> constraintViolation : constraintViolationSet) {
+                        errMsgBuider.append(constraintViolation.getMessage()).append(";");
+                    }
+                }
+            }
+            if (StringUtils.isNotBlank(errMsgBuider.toString())) {
+                throw new ServiceException(errMsgBuider.toString(), ErrorCode.INVALID_ARGUMENT.getCode());
+            }
+        }
+
+        return joinPoint.proceed();
+    }
+
+}
+```
+

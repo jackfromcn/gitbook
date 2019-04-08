@@ -61,4 +61,105 @@ public class InstrumentationConfig {
 
 方式一：2019年03月23日
 
-`spring mvc` 实现基于 `validation` 的后端 `POJO` 对象参数校验，其内部还是调用 `javax.validation.Validator` 的
+`spring mvc` 实现基于 `validation` 的后端 `POJO` 对象参数校验，其内部还是调用 `javax.validation.Validator#validate` 方法进行校验，于是通过自己 `debug` 方式，将 `spring mvc` 中对应的方法拷贝出来，实现了对应的功能。代码如下：<br/>
+
+```java
+import com.enums.ErrorCode;
+import com.exception.ServiceException;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Conventions;
+import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.core.annotation.Order;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
+import org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+
+/**
+ *
+ * @author wencheng
+ * @date 2019/3/22
+ */
+@Component
+@Aspect
+@Order(2)//注意order优先级要比TransactionInterceptor高
+@Slf4j
+public class ValidatorAspect {
+
+    @Autowired
+    private FormattingConversionService mvcConversionService;
+
+    @Autowired
+    private Validator mvcValidator;
+
+    @Pointcut("(execution(public * com.graphql.mutation.*.*(..))) ||" +
+            "(execution(public * com.graphql.query.*.*(..)))")
+    public void validatePointCuts() {
+    }
+
+    @Around(value = "validatePointCuts()")
+    public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        IHandlerMethod iHandlerMethod = new IHandlerMethod(joinPoint.getThis(), method);
+        MethodParameter[] parameters = iHandlerMethod.getMethodParameters();
+        for (MethodParameter parameter: parameters) {
+            parameter = parameter.nestedIfOptional();
+            ConfigurableWebBindingInitializer initializer = new ConfigurableWebBindingInitializer();
+            initializer.setConversionService(mvcConversionService);
+            initializer.setValidator(mvcValidator);
+            initializer.setMessageCodesResolver(null);
+
+            String name = Conventions.getVariableNameForParameter(parameter);
+            WebDataBinder binder = new ExtendedServletRequestDataBinder(joinPoint.getArgs()[parameter.getParameterIndex()], name);
+            if (initializer != null) {
+                initializer.initBinder(binder, null);
+            }
+
+            if (joinPoint.getArgs() != null) {
+                validateIfApplicable(binder, parameter);
+                if (binder.getBindingResult().hasErrors() && isBindExceptionRequired(binder, parameter)) {
+                    throw new ServiceException(binder.getBindingResult().getFieldError().getDefaultMessage(), ErrorCode.INVALID_ARGUMENT.getCode());
+                }
+            }
+        }
+
+        return joinPoint.proceed();
+    }
+
+    protected void validateIfApplicable(WebDataBinder binder, MethodParameter parameter) {
+        Annotation[] annotations = parameter.getParameterAnnotations();
+        for (Annotation ann : annotations) {
+            Validated validatedAnn = AnnotationUtils.getAnnotation(ann, Validated.class);
+            if (validatedAnn != null || ann.annotationType().getSimpleName().startsWith("Valid")) {
+                Object hints = (validatedAnn != null ? validatedAnn.value() : AnnotationUtils.getValue(ann));
+                Object[] validationHints = (hints instanceof Object[] ? (Object[]) hints : new Object[] {hints});
+                binder.validate(validationHints);
+                break;
+            }
+        }
+    }
+
+    protected boolean isBindExceptionRequired(WebDataBinder binder, MethodParameter parameter) {
+        int i = parameter.getParameterIndex();
+        Class<?>[] paramTypes = parameter.getMethod().getParameterTypes();
+        boolean hasBindingResult = (paramTypes.length > (i + 1) && Errors.class.isAssignableFrom(paramTypes[i + 1]));
+        return !hasBindingResult;
+    }
+
+}
+```
+

@@ -11,3 +11,5 @@
 但是 `graphql` 请求方式，使用的是 `graphql` 官方语法定义的 `graphql-tools` 来进行参数解析和绑定。示例如下：<br/>![graphql请求参数](./graphql请求参数.png)
 
 ![graphql解析入参](./graphql解析入参.png)
+
+`graphql`  将 `variables` 参数解析为 `linkedHashMap`，`graphql` 定义了

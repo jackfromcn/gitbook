@@ -251,3 +251,4 @@ public class ValidatorAspect {
 }
 ```
 
+上面代码，避免直接拷贝 `spring mvc` 实现方式，简化了实现方式。

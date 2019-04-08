@@ -59,4 +59,6 @@ public class InstrumentationConfig {
 
 ## 通过 `spring aop` 方式完成 spring validation数据后端校验
 
-方式一：2019年04月08日
+方式一：2019年03月23日
+
+`spring mvc` 实现基于 `validation` 的后端 `POJO` 对象参数校验，其内部还是调用 `javax.validation.Validator` 的

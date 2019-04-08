@@ -171,4 +171,4 @@ public class ValidatorAspect {
 问题：
 
 1. 直接拷贝 `spring mvc` 框架的代码，其实现比较繁杂，直接拷贝，其中包含很多无用代码。
-2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 `RuntimeException`，因此，运行过程中是feishoujian
+2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 `RuntimeException`，所以抛出了**非受检时异常**，`spring aop` 中，对于抛出的**非受检时异常**，如果没有自己处理，

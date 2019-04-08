@@ -13,3 +13,43 @@
 ![graphql解析入参](./graphql解析入参.png)
 
 `graphql`  将 `variables` 参数解析为 `linkedHashMap`，`graphql` 定义了`Instrumentation` 可以在 `graphql` 执行的各个阶段进行拦截处理，类似 `spring` 的 `Interceptor`，因为定义参数校验的方式可以如下：<br/>
+
+```java
+import graphql.GraphQLError;
+import graphql.execution.ExecutionPath;
+import graphql.execution.instrumentation.fieldvalidation.*;
+import graphql.execution.instrumentation.fieldvalidation.FieldValidation;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import graphql.execution.instrumentation.Instrumentation;
+import java.util.Optional;
+import java.util.function.BiFunction;
+
+/**
+ *
+ * @author wencheng
+ * @date 2019/3/27
+ */
+@Configuration
+public class InstrumentationConfig {
+
+    @Bean
+    public Instrumentation instrumentation() {
+        // 参数校验的请求路径，这里对应于 addSeqGroup 方法
+        ExecutionPath fieldPath = ExecutionPath.parse("/addSeqGroup");
+        FieldValidation fieldValidation = new SimpleFieldValidation()
+                .addRule(fieldPath, new BiFunction<FieldAndArguments, FieldValidationEnvironment, Optional<GraphQLError>>() {
+                    @Override
+                    public Optional<GraphQLError> apply(FieldAndArguments fieldAndArguments, FieldValidationEnvironment environment) {
+                        // 获取到对应请求路径的方法的参数后，下面就需要自己定义参数校验规则了
+                        Object input = fieldAndArguments.getArgumentValue("input");
+                        return Optional.empty();
+                    }
+                });
+        return new FieldValidationInstrumentation(fieldValidation);
+    }
+
+}
+```
+

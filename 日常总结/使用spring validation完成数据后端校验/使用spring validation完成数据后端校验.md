@@ -163,3 +163,7 @@ public class ValidatorAspect {
 }
 ```
 
+这样做的目的：
+
+1. 直接参考 `spring mvc` 框架实现方式，拷贝其代码，系统运行中，兼容度比较强，bug 可控。
+2. 项目

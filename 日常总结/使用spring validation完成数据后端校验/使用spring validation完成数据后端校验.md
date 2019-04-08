@@ -59,7 +59,7 @@ public class InstrumentationConfig {
 
 ## 通过 `spring aop` 方式完成 spring validation数据后端校验
 
-方式一：2019年03月23日
+### 方式一：2019年03月23日
 
 `spring mvc` 实现基于 `validation` 的后端 `POJO` 对象参数校验，其内部还是调用 `javax.validation.Validator#validate` 方法进行校验，于是通过自己 `debug` 方式，将 `spring mvc` 中对应的方法拷贝出来，实现了对应的功能。代码如下：<br/>
 
@@ -172,4 +172,8 @@ public class ValidatorAspect {
 
 1. 直接拷贝 `spring mvc` 框架的代码，其实现比较繁杂，直接拷贝，其中包含很多无用代码。
 2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 `RuntimeException`，所以抛出了**非受检时异常**，`spring aop` 中，对于抛出的**非受检时异常**，如果没有自己处理，会将其包装成 `UndeclaredThrowableException`，因此 `@ControllerAdvice` 定义的异常处理就无法执行。在 `UndeclaredThrowableException` 中获取原始异常，还需要通过以下方式。![UndeclaredThrowableException获取原始异常](./UndeclaredThrowableException获取原始异常.png)
+
+
+
+### 方式二：2019年04月08日
 

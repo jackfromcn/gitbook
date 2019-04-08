@@ -171,3 +171,4 @@ public class ValidatorAspect {
 问题：
 
 1. 直接拷贝 `spring mvc` 框架的代码，其实现比较繁杂，直接拷贝，其中包含很多无用代码。
+2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 

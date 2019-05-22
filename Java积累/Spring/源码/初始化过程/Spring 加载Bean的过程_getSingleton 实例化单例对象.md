@@ -4,7 +4,7 @@
 
 ## 关键字段
 
-- <span id="factoryBeanInstanceCache_desc">**factoryBeanInstanceCache**</span>: 
+- <span id="factoryBeanInstanceCache_desc">**factoryBeanInstanceCache**</span>: 未完成的FactoryBean实例的缓存，beanName --> BeanWrapper
 
 
 

@@ -15,7 +15,7 @@
 
 
 
-##### <span id="method_createBean_main_process">AbstractBeanFactory#createBean() 方法主流程</span>
+### <span id="method_createBean_main_process">AbstractBeanFactory#createBean() 方法主流程</span>
 
 - 通过 `RootBeanDefinition` 定义解析出实例化的 **Class** 对象，并判断是否需要添加到定义的 `RootBeanDefinition#beanClass` 中。
   - 主要是因为该动态解析的 class 无法保存到到共享的 BeanDefinition
@@ -25,11 +25,11 @@
 
 
 
-###### <span id="method_doCreateBean_main_process">doCreateBean() 方法主流程</span>
+#### <span id="method_doCreateBean_main_process">doCreateBean() 方法主流程</span>
 
 
 
-##### <span id="method_addSingleton_main_process">addSingleton() 方法主流程</span>
+### <span id="method_addSingleton_main_process">addSingleton() 方法主流程</span>
 
 - **Lock**: [**singletonObjects**](#singletonObjects_desc) 作为锁。
 - [**singletonObjects**](#singletonObjects_desc) 添加 beanName ——> instance。

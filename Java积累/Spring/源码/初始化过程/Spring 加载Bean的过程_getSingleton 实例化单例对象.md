@@ -6,8 +6,8 @@
 
 主流程：<br/>
 
-- **Lock**: [**singletonObjects**](#singletonObjects_desc) 作为锁
-- **双重判断**，从 [**singletonObjects**](#singletonObjects_desc) 中获取实例 bean，如果能获取到，则直接返回。否则，继续实例化。
+- **Lock**: [**singletonObjects**](Spring加载Bean的过程.html#singletonObjects_desc) 作为锁
+- **双重判断**，从 [**singletonObjects**](Spring加载Bean的过程.html#singletonObjects_desc) 中获取实例 bean，如果能获取到，则直接返回。否则，继续实例化。
 - **`beforeSingletonCreation`**: 加载前置处理。
 - `ObjectFactory#getObject()`: 调用其入参中的 **ObjectFactory** 来实例化对象。其 `getObject()` 方法在前面匿名方法中定义的还是调用 [**`AbstractBeanFactory#createBean()`**](#method_createBean_main_process) 方法。 
 - **`afterSingletonCreation`**: 后置处理

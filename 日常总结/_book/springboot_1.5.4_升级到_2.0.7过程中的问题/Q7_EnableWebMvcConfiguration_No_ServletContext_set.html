@@ -1,0 +1,460 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Q7_EnableWebMvcConfiguration No ServletContext set · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html" />
+    
+    
+    <link rel="prev" href="Q6_graphqil&voyager调整.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../使用spring validation完成数据后端校验.html">
+            
+                <a href="../使用spring validation完成数据后端校验.html">
+            
+                    
+                    使用spring validation完成数据后端校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../feign不使用eureka调用外部系统.html">
+            
+                <a href="../feign不使用eureka调用外部系统.html">
+            
+                    
+                    feign不使用eureka 调用外部系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../shiro cas-client端登录重定向次数过多.html">
+            
+                <a href="../shiro cas-client端登录重定向次数过多.html">
+            
+                    
+                    Shiro Cas-client端登录重定向次数过多
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                <a href="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                    
+                    Shiro之前后端分离权限验证返回302错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                <a href="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                    
+                    Shiro集成CAS登录成功跳转地址问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                <a href="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                    
+                    springboot 1.5.4 升级到 2.0.7 过程中的问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Q1_Feign过时.html">
+            
+                <a href="Q1_Feign过时.html">
+            
+                    
+                    Q1_Feign 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                <a href="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                    
+                    Q2_WebMvcConfigurerAdapter 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Q3_监控 Actuator&Prometheus调整.html">
+            
+                <a href="Q3_监控 Actuator&Prometheus调整.html">
+            
+                    
+                    Q3_监控 Actuator&Prometheus 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                <a href="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                    
+                    Q4_Actuator与Spring security 安全性校验调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                <a href="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                    
+                    Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="Q6_graphqil&voyager调整.html">
+            
+                <a href="Q6_graphqil&voyager调整.html">
+            
+                    
+                    Q6_graphqil & voyager 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.7" data-path="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                <a href="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                    
+                    Q7_EnableWebMvcConfiguration No ServletContext set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                <a href="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                    
+                    Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Q7_EnableWebMvcConfiguration No ServletContext set</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="q7enablewebmvcconfiguration-no-servletcontext-set">Q7_EnableWebMvcConfiguration No ServletContext set</h1>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;&#x9879;&#x76EE;&#x5C06; <code>spring-boot-starter-parent</code> &#x7684;&#x7248;&#x672C;&#x4ECE; <code>1.5.4.RELEASE</code> &#x5347;&#x7EA7;&#x5230;&#x4E86; <code>2.0.7.RELEASE</code>&#x3002;&#x9879;&#x76EE;&#x4E2D; <code>graphql starter</code> &#x7248;&#x672C;&#x4ECE; <code>4.0.0</code> &#x5347;&#x7EA7;&#x5230;&#x4E86; <code>5.0.2</code>&#x3002;</p>
+</blockquote>
+<h2 id="&#x95EE;&#x9898;&#x53D1;&#x73B0;">&#x95EE;&#x9898;&#x53D1;&#x73B0;</h2>
+<p>&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x80CC;&#x666F;&#xFF0C;&#x672C;&#x4EE5;&#x4E3A;&#x9879;&#x76EE;&#x914D;&#x7F6E;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5728;&#x4E00;&#x6B21;&#x5408;&#x5E76;&#x4EE3;&#x7801;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x4E86;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x3002;<br></p>
+<pre><code class="lang-bash">org.springframework.beans.factory.BeanCreationException: Error creating bean with name <span class="hljs-string">&apos;resourceHandlerMapping&apos;</span> defined <span class="hljs-keyword">in</span> class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration<span class="hljs-variable">$EnableWebMvcConfiguration</span>.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method <span class="hljs-string">&apos;resourceHandlerMapping&apos;</span> threw exception; nested exception is java.lang.IllegalStateException: No ServletContext <span class="hljs-built_in">set</span>
+    at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:591)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1246)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+    at org.springframework.beans.factory.support.AbstractBeanFactory.lambda<span class="hljs-variable">$doGetBean</span><span class="hljs-variable">$0</span>(AbstractBeanFactory.java:317)
+    at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+    at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759)
+    at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+    at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548)
+    at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+    at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+    at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386)
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242)
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230)
+    at com.ke.ehr.personnel.EhrKeApplication.main(EhrKeApplication.java:22)
+</code></pre>
+<p>&#x63D0;&#x793A;&#x5173;&#x952E;&#x5B57; <code>resourceHandlerMapping</code>&#x3001;<code>WebMvcAutoConfiguration$EnableWebMvcConfiguration.class</code>&#x3001;<strong>No ServletContext set</strong>&#x3002;</p>
+<p><strong>&#x548B;&#x4E00;&#x770B;&#xFF0C;&#x63D0;&#x793A;&#x6709;&#x70B9;&#x5413;&#x4EBA;&#x3002;</strong>(&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x786E;&#x5B9E;&#x662F;&#xFF0C;&#x5728;&#x6392;&#x67E5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4ECE;&#x65E5;&#x5FD7;&#x63D0;&#x793A;&#x6765;&#x6392;&#x67E5;&#xFF0C;&#x603B;&#x662F;&#x6293;&#x4E0D;&#x4F4F;&#x5173;&#x952E;&#x70B9;)</p>
+<h2 id="&#x95EE;&#x9898;&#x6392;&#x67E5;">&#x95EE;&#x9898;&#x6392;&#x67E5;</h2>
+<p>&#x4ECE;&#x65E5;&#x5FD7;&#x63D0;&#x793A;&#x4E0A;&#xFF0C;&#x731C;&#x60F3;&#x53EF;&#x80FD;&#x662F; <strong>WebMvcConfigurerAdapter</strong> &#x8FC7;&#x65F6;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x95EE;&#x9898;&#x94FE;&#x63A5;&#x3002;<a href="Q2_WebMvcConfigurerAdapter%20&#x8FC7;&#x65F6;.md">Q2_WebMvcConfigurerAdapter &#x8FC7;&#x65F6;</a></p>
+<p>&#x4F46;&#x662F;&#x4E0D;&#x7BA1;&#x600E;&#x4E48;&#x6309;&#x6807;&#x51C6;&#x4FEE;&#x6539;&#xFF0C;&#x8FD8;&#x662F;&#x63D0;&#x793A;&#x540C;&#x6837;&#x7684;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x3002;</p>
+<p>&#x4ECE; <strong>No ServletContext set</strong> &#x5173;&#x952E;&#x5B57;&#x63D0;&#x793A;&#xFF0C;&#x80FD;&#x731C;&#x60F3;&#x5230;&#x662F; <strong>Servlet</strong> &#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x90A3;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#x3002;<strong>Spring MVC</strong> &#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x662F; <code>DispatcherServlet</code>&#xFF0C;&#x800C; <code>graphql starter</code> &#x4E2D;&#x5B9E;&#x73B0;&#x4E5F;&#x662F;&#x901A;&#x8FC7; <strong>Servlet</strong>&#xFF0C;&#x4E3B;&#x8981;&#x6838;&#x5FC3;&#x903B;&#x8F91;&#x5904;&#x7406;&#x662F; <code>graphql.servlet.AbstractGraphQLHttpServlet</code>&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4E24;&#x4E2A; <strong>Servlet</strong> &#x80FD;&#x6709;&#x4EA4;&#x96C6;&#x7684;&#x53EA;&#x6709; <strong>filter</strong> &#x5B9A;&#x4E49;&#x4E86;&#x3002;(&#x4ECE;&#x6700;&#x540E;&#x7ED3;&#x679C;&#x4E0A;&#x770B;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E5F;&#x4E0D;&#x662F;&#x5173;&#x952E;&#x70B9;)</p>
+<h2 id="&#x95EE;&#x9898;&#x5173;&#x952E;">&#x95EE;&#x9898;&#x5173;&#x952E;</h2>
+<p>&#x5F53;&#x5C06;&#x89E3;&#x51B3;&#x597D;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x7684;&#x95EE;&#x9898;&#x5206;&#x652F;&#x56DE;&#x9000;&#x5230;&#x5408;&#x5E76;&#x5176;&#x4ED6;&#x5206;&#x652F;&#x7684;&#x4EE3;&#x7801;&#x7248;&#x672C;&#x65F6;&#xFF0C;&#x5176;&#x8FD0;&#x884C;&#x65F6;&#x6B63;&#x5E38;&#x7684;&#x3002;</p>
+<p>&#x5F53;&#x65F6;&#x867D;&#x7136;&#x5F88;&#x5FEB;&#x53D1;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x4E00;&#x76F4;&#x6000;&#x7591;&#x56E0;&#x4E3A;&#x9ED8;&#x5199;&#x7EC6;&#x8282;&#x6CA1;&#x6709;&#x5904;&#x7406;&#x5230;&#x4F4D;&#xFF0C;<strong>springboot</strong> <code>2.0.*</code> &#x4E0E; <code>1.5.*</code> &#x7684;&#x7248;&#x672C;&#x6709;&#x4E86;&#x8F83;&#x5927;&#x6539;&#x52A8;&#xFF0C;<code>graphql starter</code> &#x7684; <code>4.0.0</code> &#x4E0E; <code>5.0.2</code> &#x4E5F;&#x6709;&#x4E86;&#x8F83;&#x5927;&#x8C03;&#x6574;&#x3002;&#x6240;&#x4EE5;&#x4E00;&#x76F4;&#x6000;&#x7591;&#x6709;&#x9ED8;&#x5199;&#x6F5C;&#x5728;&#x7684; <strong>bug</strong>&#x3002;</p>
+<p>&#x5728;&#x4E0D;&#x65AD;&#x7684;&#x5206;&#x652F;&#x4EE3;&#x7801;&#x4E00;&#x70B9;&#x4E00;&#x70B9;&#x7684;&#x56DE;&#x9000;&#x4E0E;&#x5BF9;&#x6BD4;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x53D1;&#x73B0;&#x4E86;&#x5728;&#x67D0;&#x4E2A; <strong>Service</strong> &#x4E2D;&#x4F9D;&#x8D56;&#x4E86;&#x67D0;&#x4E2A; <strong>Service</strong> &#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x63D0;&#x793A;&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x4F46;&#x662F; <strong>spring IOC</strong> &#x5DF2;&#x7ECF;&#x5C06;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x7684;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x4E86;(&#x53EA;&#x8981;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x5668;&#x6CE8;&#x5165;)&#xFF0C;&#x800C;&#x4E14;&#x9879;&#x76EE;&#x4E2D;&#x90FD;&#x662F;&#x901A;&#x8FC7; <code>@Autowired</code> &#x6CE8;&#x89E3;&#x6765;&#x6CE8;&#x5165;&#x7684;&#x3002;&#x5E94;&#x8BE5;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x4E14;&#x63D0;&#x793A;&#x4E5F;&#x4E0D;&#x5BF9;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5BF9;&#x6700;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x95EE;&#x9898;&#x731C;&#x6D4B;&#xFF0C;&#x5C31;&#x662F;<strong>&#x4E24;&#x4E2A;Service</strong> &#x90FD;&#x901A;&#x8FC7; <code>@Autowired</code> &#x6CE8;&#x89E3;&#x6CE8;&#x5165;&#x4E86; <a href="Q5_Graphql_starter-4.0.0&#x5347;&#x7EA7;&#x5230;5.0.2&#x4E2D;&#x7684;&#x95EE;&#x9898;.html"><code>IGraphQL</code></a>  &#x5BF9;&#x8C61;&#x3002;&#x4E8E;&#x662F;&#x901A;&#x8FC7; <strong>ApplicationContext</strong> &#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684; <strong>Bean</strong>&#xFF0C;&#x907F;&#x514D; <code>GraphQL</code> &#x5185;&#x90E8;&#x52A0;&#x8F7D;&#x5230;&#x5BFC;&#x81F4;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x95EE;&#x9898;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Q6_graphqil&voyager调整.html" class="navigation navigation-prev " aria-label="Previous page: Q6_graphqil & voyager 调整">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html" class="navigation navigation-next " aria-label="Next page: Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Q7_EnableWebMvcConfiguration No ServletContext set","level":"1.7.7","depth":2,"next":{"title":"Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available","level":"1.7.8","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.md","articles":[]},"previous":{"title":"Q6_graphqil & voyager 调整","level":"1.7.6","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.md","mtime":"2019-05-05T10:02:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-05T10:13:18.369Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

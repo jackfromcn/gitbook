@@ -1,0 +1,526 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Q3_监控 Actuator&Prometheus 调整 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Q4_Actuator与Spring_security安全性校验调整.html" />
+    
+    
+    <link rel="prev" href="Q2_WebMvcConfigurerAdapter过时.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../使用spring validation完成数据后端校验.html">
+            
+                <a href="../使用spring validation完成数据后端校验.html">
+            
+                    
+                    使用spring validation完成数据后端校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../feign不使用eureka调用外部系统.html">
+            
+                <a href="../feign不使用eureka调用外部系统.html">
+            
+                    
+                    feign不使用eureka 调用外部系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../shiro cas-client端登录重定向次数过多.html">
+            
+                <a href="../shiro cas-client端登录重定向次数过多.html">
+            
+                    
+                    Shiro Cas-client端登录重定向次数过多
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                <a href="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                    
+                    Shiro之前后端分离权限验证返回302错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                <a href="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                    
+                    Shiro集成CAS登录成功跳转地址问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                <a href="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                    
+                    springboot 1.5.4 升级到 2.0.7 过程中的问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Q1_Feign过时.html">
+            
+                <a href="Q1_Feign过时.html">
+            
+                    
+                    Q1_Feign 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                <a href="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                    
+                    Q2_WebMvcConfigurerAdapter 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="Q3_监控 Actuator&Prometheus调整.html">
+            
+                <a href="Q3_监控 Actuator&Prometheus调整.html">
+            
+                    
+                    Q3_监控 Actuator&Prometheus 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                <a href="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                    
+                    Q4_Actuator与Spring security 安全性校验调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                <a href="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                    
+                    Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="Q6_graphqil&voyager调整.html">
+            
+                <a href="Q6_graphqil&voyager调整.html">
+            
+                    
+                    Q6_graphqil & voyager 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                <a href="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                    
+                    Q7_EnableWebMvcConfiguration No ServletContext set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                <a href="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                    
+                    Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Q3_监控 Actuator&Prometheus 调整</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="q3&#x76D1;&#x63A7;-actuatorprometheus-&#x8C03;&#x6574;">Q3_&#x76D1;&#x63A7; Actuator&amp;Prometheus &#x8C03;&#x6574;</h1>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;</p>
+</blockquote>
+<h2 id="154release-&#x7684;&#x914D;&#x7F6E;">1.5.4.RELEASE &#x7684;&#x914D;&#x7F6E;</h2>
+<h3 id="pomxml-&#x4F9D;&#x8D56;&#x914D;&#x7F6E;"><strong><code>pom.xml</code></strong> &#x4F9D;&#x8D56;&#x914D;&#x7F6E;</h3>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; start --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-spring-legacy<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-registry-prometheus<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-registry-influx<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.mweirauch<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-jvm-extras<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; end --&gt;</span>
+</code></pre>
+<h3 id="applicationyml-&#x914D;&#x7F6E;"><strong><code>application.yml</code></strong> &#x914D;&#x7F6E;</h3>
+<pre><code class="lang-yaml"><span class="hljs-comment">#&#x5B89;&#x5168;&#x8BA4;&#x8BC1; https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html</span>
+<span class="hljs-attr">management:</span>
+<span class="hljs-attr">  context-path:</span> /actuator
+<span class="hljs-attr">  security:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  info:</span>
+<span class="hljs-attr">    git:</span>
+<span class="hljs-attr">      mode:</span> full
+<span class="hljs-comment">#  metrics:</span>
+<span class="hljs-comment">#    export:</span>
+<span class="hljs-comment">#      influx:</span>
+<span class="hljs-comment">#        enabled: true</span>
+<span class="hljs-comment">#        db: ${spring.application.name}</span>
+<span class="hljs-comment">#        uri: http://tx-node1:8086</span>
+<span class="hljs-comment">##        user-name:</span>
+<span class="hljs-comment">##        password:</span>
+<span class="hljs-comment">#        connect-timeout: 1s</span>
+<span class="hljs-comment">#        read-timeout: 10s</span>
+<span class="hljs-comment">#        auto-create-db: true</span>
+<span class="hljs-comment">#        step: 1m</span>
+<span class="hljs-comment">#        num-threads: 2</span>
+<span class="hljs-comment">#        consistency: one</span>
+<span class="hljs-comment">#        compressed: true</span>
+<span class="hljs-comment">#        batch-size: 10000</span>
+<span class="hljs-attr">security:</span>
+<span class="hljs-attr">  user:</span>
+<span class="hljs-attr">    name:</span> kehr
+<span class="hljs-attr">    password:</span> kehr123456
+<span class="hljs-attr">  basic:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">endpoints:</span>
+<span class="hljs-attr">  enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  sensitive:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  health:</span>
+<span class="hljs-attr">    sensitive:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">  info:</span>
+<span class="hljs-attr">    sensitive:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<h2 id="207release-&#x7684;&#x914D;&#x7F6E;">2.0.7.RELEASE &#x7684;&#x914D;&#x7F6E;</h2>
+<h3 id="pomxml-&#x4F9D;&#x8D56;&#x914D;&#x7F6E;"><strong><code>pom.xml</code></strong> &#x4F9D;&#x8D56;&#x914D;&#x7F6E;</h3>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; start --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-registry-prometheus<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; end --&gt;</span>
+</code></pre>
+<h3 id="applicationyml-&#x914D;&#x7F6E;"><strong><code>application.yml</code></strong> &#x914D;&#x7F6E;</h3>
+<pre><code class="lang-yaml"><span class="hljs-comment">#&#x5B89;&#x5168;&#x8BA4;&#x8BC1; https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html</span>
+<span class="hljs-attr">management:</span>
+<span class="hljs-attr">  endpoints:</span>
+<span class="hljs-attr">    web:</span>
+<span class="hljs-attr">      base-path:</span> /actuator
+<span class="hljs-attr">      exposure:</span>
+<span class="hljs-attr">        include:</span> <span class="hljs-string">&quot;*&quot;</span>
+<span class="hljs-attr">  endpoint:</span>
+<span class="hljs-attr">    health:</span>
+<span class="hljs-attr">      show-details:</span> WHEN_AUTHORIZED
+<span class="hljs-attr">      roles:</span> <span class="hljs-string">&quot;ADMIN&quot;</span>
+<span class="hljs-attr">    prometheus:</span>
+<span class="hljs-attr">      enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  metrics:</span>
+<span class="hljs-attr">    export:</span>
+<span class="hljs-attr">      prometheus:</span>
+<span class="hljs-attr">        enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        step:</span> <span class="hljs-number">1</span>m
+<span class="hljs-attr">        descriptions:</span> <span class="hljs-literal">true</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Q2_WebMvcConfigurerAdapter过时.html" class="navigation navigation-prev " aria-label="Previous page: Q2_WebMvcConfigurerAdapter 过时">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Q4_Actuator与Spring_security安全性校验调整.html" class="navigation navigation-next " aria-label="Next page: Q4_Actuator与Spring security 安全性校验调整">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Q3_监控 Actuator&Prometheus 调整","level":"1.7.3","depth":2,"next":{"title":"Q4_Actuator与Spring security 安全性校验调整","level":"1.7.4","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","articles":[]},"previous":{"title":"Q2_WebMvcConfigurerAdapter 过时","level":"1.7.2","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.md","mtime":"2019-05-05T08:44:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-05T10:13:18.369Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,653 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用spring validation完成数据后端校验 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="feign不使用eureka调用外部系统.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="使用spring validation完成数据后端校验.html">
+            
+                <a href="使用spring validation完成数据后端校验.html">
+            
+                    
+                    使用spring validation完成数据后端校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="feign不使用eureka调用外部系统.html">
+            
+                <a href="feign不使用eureka调用外部系统.html">
+            
+                    
+                    feign不使用eureka 调用外部系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="shiro cas-client端登录重定向次数过多.html">
+            
+                <a href="shiro cas-client端登录重定向次数过多.html">
+            
+                    
+                    Shiro Cas-client端登录重定向次数过多
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Shiro之前后端分离权限验证返回302错误.html">
+            
+                <a href="Shiro之前后端分离权限验证返回302错误.html">
+            
+                    
+                    Shiro之前后端分离权限验证返回302错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Shiro集成CAS登录成功跳转地址问题.html">
+            
+                <a href="Shiro集成CAS登录成功跳转地址问题.html">
+            
+                    
+                    Shiro集成CAS登录成功跳转地址问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                    
+                    springboot 1.5.4 升级到 2.0.7 过程中的问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.html">
+            
+                    
+                    Q1_Feign 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.html">
+            
+                    
+                    Q2_WebMvcConfigurerAdapter 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.html">
+            
+                    
+                    Q3_监控 Actuator&Prometheus 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                    
+                    Q4_Actuator与Spring security 安全性校验调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                    
+                    Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.html">
+            
+                    
+                    Q6_graphqil & voyager 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                    
+                    Q7_EnableWebMvcConfiguration No ServletContext set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                    
+                    Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >使用spring validation完成数据后端校验</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;spring-validation&#x5B8C;&#x6210;&#x6570;&#x636E;&#x540E;&#x7AEF;&#x6821;&#x9A8C;">&#x4F7F;&#x7528;spring validation&#x5B8C;&#x6210;&#x6570;&#x636E;&#x540E;&#x7AEF;&#x6821;&#x9A8C;</h1>
+<p>&#x53C2;&#x8003;&#x94FE;&#x63A5;(<a href="https://www.cnkirito.moe/" target="_blank"> &#x5F90;&#x9756;&#x5CF0;|&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</a>)&#xFF1A;<a href="https://www.cnkirito.moe/spring-validation/" target="_blank">https://www.cnkirito.moe/spring-validation/</a></p>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;&#x9879;&#x76EE;&#x51C6;&#x5907;&#x5C06; <code>restful</code> &#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x6539;&#x9020;&#x6210; <code>graphql</code> &#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#xFF0C;&#x9879;&#x76EE;&#x662F;&#x9762;&#x5411; B &#x7AEF;&#x7684;&#xFF0C;PC &#x7AEF;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x53C2;&#x6570;&#x5185;&#x5BB9;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x4E5F;&#x6BD4;&#x8F83;&#x591A;&#x3002;</p>
+</blockquote>
+<h2 id="restful-&#x4E0E;-graphql-&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x5BF9;&#x6BD4;"><code>restful</code> &#x4E0E; <code>graphql</code> &#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x5BF9;&#x6BD4;</h2>
+<p>&#x4F7F;&#x7528; <code>spring mvc</code> &#x7684; <code>restful</code> &#x8BF7;&#x6C42;&#xFF0C;<code>spring mvc</code>  &#x6846;&#x67B6; &#x4E2D; <code>WebDataBinder</code>  &#x53EF;&#x4EE5;&#x5C06; <code>request</code> &#x4E2D;&#x7684;&#x53C2;&#x6570;&#x81EA;&#x52A8;&#x7ED1;&#x5B9A;&#x5230; <code>POJO</code> &#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>spring validation</code> &#x5B8C;&#x6210;&#x540E;&#x7AEF;&#x6821;&#x9A8C;&#x3002;</p>
+<p>&#x4F46;&#x662F; <code>graphql</code> &#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F; <code>graphql</code> &#x5B98;&#x65B9;&#x8BED;&#x6CD5;&#x5B9A;&#x4E49;&#x7684; <code>graphql-tools</code> &#x6765;&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x548C;&#x7ED1;&#x5B9A;&#x3002;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;<br><img src="images/graphql&#x8BF7;&#x6C42;&#x53C2;&#x6570;.png" alt="graphql&#x8BF7;&#x6C42;&#x53C2;&#x6570;"></p>
+<p><img src="images/graphql&#x89E3;&#x6790;&#x5165;&#x53C2;.png" alt="graphql&#x89E3;&#x6790;&#x5165;&#x53C2;"></p>
+<p><code>graphql</code>  &#x5C06; <code>variables</code> &#x53C2;&#x6570;&#x89E3;&#x6790;&#x4E3A; <code>linkedHashMap</code>&#xFF0C;<code>graphql</code> &#x5B9A;&#x4E49;&#x4E86;<code>Instrumentation</code> &#x53EF;&#x4EE5;&#x5728; <code>graphql</code> &#x6267;&#x884C;&#x7684;&#x5404;&#x4E2A;&#x9636;&#x6BB5;&#x8FDB;&#x884C;&#x62E6;&#x622A;&#x5904;&#x7406;&#xFF0C;&#x7C7B;&#x4F3C; <code>spring</code> &#x7684; <code>Interceptor</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5B9A;&#x4E49;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> graphql.GraphQLError;
+<span class="hljs-keyword">import</span> graphql.execution.ExecutionPath;
+<span class="hljs-keyword">import</span> graphql.execution.instrumentation.fieldvalidation.*;
+<span class="hljs-keyword">import</span> graphql.execution.instrumentation.fieldvalidation.FieldValidation;
+<span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;
+<span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;
+
+<span class="hljs-keyword">import</span> graphql.execution.instrumentation.Instrumentation;
+<span class="hljs-keyword">import</span> java.util.Optional;
+<span class="hljs-keyword">import</span> java.util.function.BiFunction;
+
+<span class="hljs-comment">/**
+ *
+ * <span class="hljs-doctag">@author</span> wencheng
+ * <span class="hljs-doctag">@date</span> 2019/3/27
+ */</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InstrumentationConfig</span> </span>{
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Instrumentation <span class="hljs-title">instrumentation</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// &#x53C2;&#x6570;&#x6821;&#x9A8C;&#x7684;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#xFF0C;&#x8FD9;&#x91CC;&#x5BF9;&#x5E94;&#x4E8E; addSeqGroup &#x65B9;&#x6CD5;</span>
+        ExecutionPath fieldPath = ExecutionPath.parse(<span class="hljs-string">&quot;/addSeqGroup&quot;</span>);
+        FieldValidation fieldValidation = <span class="hljs-keyword">new</span> SimpleFieldValidation()
+                .addRule(fieldPath, <span class="hljs-keyword">new</span> BiFunction&lt;FieldAndArguments, FieldValidationEnvironment, Optional&lt;GraphQLError&gt;&gt;() {
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;GraphQLError&gt; <span class="hljs-title">apply</span><span class="hljs-params">(FieldAndArguments fieldAndArguments, FieldValidationEnvironment environment)</span> </span>{
+                        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5230;&#x5BF9;&#x5E94;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x540E;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x4E86;</span>
+                        Object input = fieldAndArguments.getArgumentValue(<span class="hljs-string">&quot;input&quot;</span>);
+                        <span class="hljs-keyword">return</span> Optional.empty();
+                    }
+                });
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FieldValidationInstrumentation(fieldValidation);
+    }
+
+}
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x4E0A;&#x9762; <code>graphql</code> &#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x65B9;&#x5F0F;&#xFF0C;&#x5F88;&#x7E41;&#x7410;&#xFF0C;&#x4E5F;&#x4E0D;&#x5BB9;&#x6613;&#x590D;&#x7528;&#x3002;&#x56E0;&#x6B64;&#x8FD8;&#x662F;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x4E4B;&#x524D; <code>spring mvc</code> &#x7684; <code>validation</code> &#x65B9;&#x5F0F;&#x6765;&#x6821;&#x9A8C;&#x3002;&#x800C;&#x4E14; <code>graphql</code> &#x4E5F;&#x4E0D;&#x5173;&#x6CE8;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x548C;&#x6743;&#x9650;&#x6821;&#x9A8C;&#xFF0C;&#x53EA;&#x5173;&#x6CE8;&#x5BF9;&#x5E94;&#x7684;&#x8D44;&#x6E90;&#x83B7;&#x53D6;&#x3002;</p>
+<h2 id="&#x901A;&#x8FC7;-spring-aop-&#x65B9;&#x5F0F;&#x5B8C;&#x6210;-spring-validation&#x6570;&#x636E;&#x540E;&#x7AEF;&#x6821;&#x9A8C;">&#x901A;&#x8FC7; <code>spring aop</code> &#x65B9;&#x5F0F;&#x5B8C;&#x6210; spring validation&#x6570;&#x636E;&#x540E;&#x7AEF;&#x6821;&#x9A8C;</h2>
+<h3 id="&#x65B9;&#x5F0F;&#x4E00;&#xFF1A;2019&#x5E74;03&#x6708;23&#x65E5;">&#x65B9;&#x5F0F;&#x4E00;&#xFF1A;2019&#x5E74;03&#x6708;23&#x65E5;</h3>
+<p><code>spring mvc</code> &#x5B9E;&#x73B0;&#x57FA;&#x4E8E; <code>validation</code> &#x7684;&#x540E;&#x7AEF; <code>POJO</code> &#x5BF9;&#x8C61;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x8FD8;&#x662F;&#x8C03;&#x7528; <code>javax.validation.Validator#validate</code> &#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6821;&#x9A8C;&#xFF0C;&#x4E8E;&#x662F;&#x901A;&#x8FC7;&#x81EA;&#x5DF1; <code>debug</code> &#x65B9;&#x5F0F;&#xFF0C;&#x5C06; <code>spring mvc</code> &#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x62F7;&#x8D1D;&#x51FA;&#x6765;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x5BF9;&#x5E94;&#x7684;&#x529F;&#x80FD;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> com.enums.ErrorCode;
+<span class="hljs-keyword">import</span> com.exception.ServiceException;
+<span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;
+<span class="hljs-keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Around;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Aspect;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Pointcut;
+<span class="hljs-keyword">import</span> org.aspectj.lang.reflect.MethodSignature;
+<span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="hljs-keyword">import</span> org.springframework.core.Conventions;
+<span class="hljs-keyword">import</span> org.springframework.core.MethodParameter;
+<span class="hljs-keyword">import</span> org.springframework.core.annotation.AnnotationUtils;
+<span class="hljs-keyword">import</span> org.springframework.core.annotation.Order;
+<span class="hljs-keyword">import</span> org.springframework.format.support.FormattingConversionService;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.validation.Errors;
+<span class="hljs-keyword">import</span> org.springframework.validation.Validator;
+<span class="hljs-keyword">import</span> org.springframework.validation.annotation.Validated;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.WebDataBinder;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
+<span class="hljs-keyword">import</span> org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder;
+
+<span class="hljs-keyword">import</span> java.lang.annotation.Annotation;
+<span class="hljs-keyword">import</span> java.lang.reflect.Method;
+
+<span class="hljs-comment">/**
+ *
+ * <span class="hljs-doctag">@author</span> wencheng
+ * <span class="hljs-doctag">@date</span> 2019/3/22
+ */</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-meta">@Aspect</span>
+<span class="hljs-meta">@Order</span>(<span class="hljs-number">2</span>)<span class="hljs-comment">//&#x6CE8;&#x610F;order&#x4F18;&#x5148;&#x7EA7;&#x8981;&#x6BD4;TransactionInterceptor&#x9AD8;</span>
+<span class="hljs-meta">@Slf</span>4j
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidatorAspect</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> FormattingConversionService mvcConversionService;
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> Validator mvcValidator;
+
+    <span class="hljs-meta">@Pointcut</span>(<span class="hljs-string">&quot;(execution(public * com.graphql.mutation.*.*(..))) ||&quot;</span> +
+            <span class="hljs-string">&quot;(execution(public * com.graphql.query.*.*(..)))&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validatePointCuts</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-meta">@Around</span>(value = <span class="hljs-string">&quot;validatePointCuts()&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">validate</span><span class="hljs-params">(ProceedingJoinPoint joinPoint)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        IHandlerMethod iHandlerMethod = <span class="hljs-keyword">new</span> IHandlerMethod(joinPoint.getThis(), method);
+        MethodParameter[] parameters = iHandlerMethod.getMethodParameters();
+        <span class="hljs-keyword">for</span> (MethodParameter parameter: parameters) {
+            parameter = parameter.nestedIfOptional();
+            ConfigurableWebBindingInitializer initializer = <span class="hljs-keyword">new</span> ConfigurableWebBindingInitializer();
+            initializer.setConversionService(mvcConversionService);
+            initializer.setValidator(mvcValidator);
+            initializer.setMessageCodesResolver(<span class="hljs-keyword">null</span>);
+
+            String name = Conventions.getVariableNameForParameter(parameter);
+            WebDataBinder binder = <span class="hljs-keyword">new</span> ExtendedServletRequestDataBinder(joinPoint.getArgs()[parameter.getParameterIndex()], name);
+            <span class="hljs-keyword">if</span> (initializer != <span class="hljs-keyword">null</span>) {
+                initializer.initBinder(binder, <span class="hljs-keyword">null</span>);
+            }
+
+            <span class="hljs-keyword">if</span> (joinPoint.getArgs() != <span class="hljs-keyword">null</span>) {
+                validateIfApplicable(binder, parameter);
+                <span class="hljs-keyword">if</span> (binder.getBindingResult().hasErrors() &amp;&amp; isBindExceptionRequired(binder, parameter)) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(binder.getBindingResult().getFieldError().getDefaultMessage(), ErrorCode.INVALID_ARGUMENT.getCode());
+                }
+            }
+        }
+
+        <span class="hljs-keyword">return</span> joinPoint.proceed();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validateIfApplicable</span><span class="hljs-params">(WebDataBinder binder, MethodParameter parameter)</span> </span>{
+        Annotation[] annotations = parameter.getParameterAnnotations();
+        <span class="hljs-keyword">for</span> (Annotation ann : annotations) {
+            Validated validatedAnn = AnnotationUtils.getAnnotation(ann, Validated.class);
+            <span class="hljs-keyword">if</span> (validatedAnn != <span class="hljs-keyword">null</span> || ann.annotationType().getSimpleName().startsWith(<span class="hljs-string">&quot;Valid&quot;</span>)) {
+                Object hints = (validatedAnn != <span class="hljs-keyword">null</span> ? validatedAnn.value() : AnnotationUtils.getValue(ann));
+                Object[] validationHints = (hints <span class="hljs-keyword">instanceof</span> Object[] ? (Object[]) hints : <span class="hljs-keyword">new</span> Object[] {hints});
+                binder.validate(validationHints);
+                <span class="hljs-keyword">break</span>;
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isBindExceptionRequired</span><span class="hljs-params">(WebDataBinder binder, MethodParameter parameter)</span> </span>{
+        <span class="hljs-keyword">int</span> i = parameter.getParameterIndex();
+        Class&lt;?&gt;[] paramTypes = parameter.getMethod().getParameterTypes();
+        <span class="hljs-keyword">boolean</span> hasBindingResult = (paramTypes.length &gt; (i + <span class="hljs-number">1</span>) &amp;&amp; Errors.class.isAssignableFrom(paramTypes[i + <span class="hljs-number">1</span>]));
+        <span class="hljs-keyword">return</span> !hasBindingResult;
+    }
+
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x505A;&#x7684;&#x76EE;&#x7684;&#xFF1A;</p>
+<ol>
+<li>&#x76F4;&#x63A5;&#x53C2;&#x8003; <code>spring mvc</code> &#x6846;&#x67B6;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF0C;&#x62F7;&#x8D1D;&#x5176;&#x4EE3;&#x7801;&#xFF0C;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x517C;&#x5BB9;&#x5EA6;&#x6BD4;&#x8F83;&#x5F3A;&#xFF0C;bug &#x53EF;&#x63A7;&#x3002;</li>
+<li>&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x8FDB;&#x5EA6;&#x6BD4;&#x8F83;&#x7D27;&#xFF0C;&#x901A;&#x8FC7;&#x67E5;&#x8BE2;&#x8D44;&#x6599;&#xFF0C;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x4E00;&#x5B9A;&#x80FD;&#x5728;&#x8F83;&#x77ED;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x8FBE;&#x5230;&#x9879;&#x76EE;&#x53EF;&#x7528;&#x4E14;&#x7A33;&#x5B9A;&#x7684;&#x76EE;&#x7684;&#x3002;</li>
+</ol>
+<p>&#x95EE;&#x9898;&#xFF1A;</p>
+<ol>
+<li>&#x76F4;&#x63A5;&#x62F7;&#x8D1D; <code>spring mvc</code> &#x6846;&#x67B6;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x5B9E;&#x73B0;&#x6BD4;&#x8F83;&#x7E41;&#x6742;&#xFF0C;&#x76F4;&#x63A5;&#x62F7;&#x8D1D;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5F88;&#x591A;&#x65E0;&#x7528;&#x4EE3;&#x7801;&#x3002;</li>
+<li>&#x5728; <code>spring aop</code> &#x4E2D; &#x629B;&#x51FA;&#x4E86; <code>MethodArgumentNotValidException</code>&#xFF0C;&#x5176;&#x5F02;&#x5E38;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x81EA; <code>Exception</code>&#xFF0C;&#x4E0D;&#x662F; <code>RuntimeException</code>&#xFF0C;&#x6240;&#x4EE5;&#x629B;&#x51FA;&#x4E86;<strong>&#x975E;&#x53D7;&#x68C0;&#x65F6;&#x5F02;&#x5E38;</strong>&#xFF0C;<code>spring aop</code> &#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x629B;&#x51FA;&#x7684;<strong>&#x975E;&#x53D7;&#x68C0;&#x65F6;&#x5F02;&#x5E38;</strong>&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x5904;&#x7406;&#xFF0C;&#x4F1A;&#x5C06;&#x5176;&#x5305;&#x88C5;&#x6210; <code>UndeclaredThrowableException</code>&#xFF0C;&#x56E0;&#x6B64; <code>@ControllerAdvice</code> &#x5B9A;&#x4E49;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5C31;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#x3002;&#x5728; <code>UndeclaredThrowableException</code> &#x4E2D;&#x83B7;&#x53D6;&#x539F;&#x59CB;&#x5F02;&#x5E38;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x3002;<img src="images/UndeclaredThrowableException&#x83B7;&#x53D6;&#x539F;&#x59CB;&#x5F02;&#x5E38;.png" alt="UndeclaredThrowableException&#x83B7;&#x53D6;&#x539F;&#x59CB;&#x5F02;&#x5E38;"></li>
+</ol>
+<h3 id="&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;2019&#x5E74;04&#x6708;08&#x65E5;">&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;2019&#x5E74;04&#x6708;08&#x65E5;</h3>
+<p>&#x4F7F;&#x7528; <code>javax.validation.Validator</code> &#x81EA;&#x5DF1;&#x6821;&#x9A8C;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> com.enums.ErrorCode;
+<span class="hljs-keyword">import</span> com.exception.ServiceException;
+<span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;
+<span class="hljs-keyword">import</span> org.apache.commons.lang3.StringUtils;
+<span class="hljs-keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Around;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Aspect;
+<span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Pointcut;
+<span class="hljs-keyword">import</span> org.aspectj.lang.reflect.MethodSignature;
+<span class="hljs-keyword">import</span> org.springframework.core.MethodParameter;
+<span class="hljs-keyword">import</span> org.springframework.core.annotation.AnnotationUtils;
+<span class="hljs-keyword">import</span> org.springframework.core.annotation.Order;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.validation.annotation.Validated;
+
+<span class="hljs-keyword">import</span> javax.validation.ConstraintViolation;
+<span class="hljs-keyword">import</span> javax.validation.Validation;
+<span class="hljs-keyword">import</span> javax.validation.ValidatorFactory;
+<span class="hljs-keyword">import</span> java.lang.annotation.Annotation;
+<span class="hljs-keyword">import</span> java.lang.reflect.Method;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-comment">/**
+ *
+ * <span class="hljs-doctag">@author</span> wencheng
+ * <span class="hljs-doctag">@date</span> 2019/3/22
+ */</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-meta">@Aspect</span>
+<span class="hljs-meta">@Order</span>(<span class="hljs-number">2</span>)
+<span class="hljs-meta">@Slf</span>4j
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidatorAspect</span> </span>{
+
+    <span class="hljs-meta">@Pointcut</span>(<span class="hljs-string">&quot;(execution(public * com.graphql.mutation.*.*(..))) ||&quot;</span> +
+            <span class="hljs-string">&quot;(execution(public * com.graphql.query.*.*(..)))&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validatePointCuts</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-meta">@Around</span>(value = <span class="hljs-string">&quot;validatePointCuts()&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">validate</span><span class="hljs-params">(ProceedingJoinPoint joinPoint)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        IHandlerMethod iHandlerMethod = <span class="hljs-keyword">new</span> IHandlerMethod(joinPoint.getThis(), method);
+        MethodParameter[] parameters = iHandlerMethod.getMethodParameters();
+
+        ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
+        javax.validation.Validator validator = vf.getValidator();
+        <span class="hljs-keyword">for</span> (MethodParameter parameter: parameters) {
+            Object args = joinPoint.getArgs()[parameter.getParameterIndex()];
+            Annotation[] annotations = parameter.getParameterAnnotations();
+            StringBuilder errMsgBuider = <span class="hljs-keyword">new</span> StringBuilder();
+            <span class="hljs-keyword">for</span> (Annotation ann : annotations) {
+                Validated validatedAnn = AnnotationUtils.getAnnotation(ann, Validated.class);
+                <span class="hljs-keyword">if</span> (validatedAnn != <span class="hljs-keyword">null</span> || ann.annotationType().getSimpleName().startsWith(<span class="hljs-string">&quot;Valid&quot;</span>)) {
+                    Class&lt;?&gt;[] validationHints = (validatedAnn != <span class="hljs-keyword">null</span> ? validatedAnn.value() : <span class="hljs-keyword">new</span> Class[<span class="hljs-number">0</span>]);
+                    Set&lt;ConstraintViolation&lt;Object&gt;&gt; constraintViolationSet = validator.validate(args, validationHints);
+                    <span class="hljs-keyword">for</span> (ConstraintViolation&lt;?&gt; constraintViolation : constraintViolationSet) {
+                        errMsgBuider.append(constraintViolation.getMessage()).append(<span class="hljs-string">&quot;;&quot;</span>);
+                    }
+                }
+            }
+            <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(errMsgBuider.toString())) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(errMsgBuider.toString(), ErrorCode.INVALID_ARGUMENT.getCode());
+            }
+        }
+
+        <span class="hljs-keyword">return</span> joinPoint.proceed();
+    }
+
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#xFF0C;&#x907F;&#x514D;&#x76F4;&#x63A5;&#x62F7;&#x8D1D; <code>spring mvc</code> &#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF0C;&#x7B80;&#x5316;&#x4E86;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="feign不使用eureka调用外部系统.html" class="navigation navigation-next " aria-label="Next page: feign不使用eureka 调用外部系统">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用spring validation完成数据后端校验","level":"1.2","depth":1,"next":{"title":"feign不使用eureka 调用外部系统","level":"1.3","depth":1,"path":"feign不使用eureka调用外部系统.md","ref":"feign不使用eureka调用外部系统.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"使用spring validation完成数据后端校验.md","mtime":"2019-05-05T09:15:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-05T10:13:18.369Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

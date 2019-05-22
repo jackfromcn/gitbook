@@ -1,0 +1,809 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Q6_graphqil&voyager调整.html" />
+    
+    
+    <link rel="prev" href="Q4_Actuator与Spring_security安全性校验调整.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../使用spring validation完成数据后端校验.html">
+            
+                <a href="../使用spring validation完成数据后端校验.html">
+            
+                    
+                    使用spring validation完成数据后端校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../feign不使用eureka调用外部系统.html">
+            
+                <a href="../feign不使用eureka调用外部系统.html">
+            
+                    
+                    feign不使用eureka 调用外部系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../shiro cas-client端登录重定向次数过多.html">
+            
+                <a href="../shiro cas-client端登录重定向次数过多.html">
+            
+                    
+                    Shiro Cas-client端登录重定向次数过多
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                <a href="../Shiro之前后端分离权限验证返回302错误.html">
+            
+                    
+                    Shiro之前后端分离权限验证返回302错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                <a href="../Shiro集成CAS登录成功跳转地址问题.html">
+            
+                    
+                    Shiro集成CAS登录成功跳转地址问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                <a href="springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                    
+                    springboot 1.5.4 升级到 2.0.7 过程中的问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Q1_Feign过时.html">
+            
+                <a href="Q1_Feign过时.html">
+            
+                    
+                    Q1_Feign 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                <a href="Q2_WebMvcConfigurerAdapter过时.html">
+            
+                    
+                    Q2_WebMvcConfigurerAdapter 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Q3_监控 Actuator&Prometheus调整.html">
+            
+                <a href="Q3_监控 Actuator&Prometheus调整.html">
+            
+                    
+                    Q3_监控 Actuator&Prometheus 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                <a href="Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                    
+                    Q4_Actuator与Spring security 安全性校验调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.5" data-path="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                <a href="Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                    
+                    Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="Q6_graphqil&voyager调整.html">
+            
+                <a href="Q6_graphqil&voyager调整.html">
+            
+                    
+                    Q6_graphqil & voyager 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                <a href="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                    
+                    Q7_EnableWebMvcConfiguration No ServletContext set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                <a href="Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                    
+                    Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="q5graphql-starter-400-&#x5347;&#x7EA7;&#x5230;-502-&#x4E2D;&#x7684;&#x95EE;&#x9898;">Q5_Graphql starter 4.0.0 &#x5347;&#x7EA7;&#x5230; 5.0.2 &#x4E2D;&#x7684;&#x95EE;&#x9898;</h1>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;&#x9879;&#x76EE;&#x4E2D;&#x5F15;&#x5165;&#x4E86; <code>graphql starter</code>&#xFF0C;&#x5176;&#x4E0D;&#x5149;&#x524D;&#x7AEF;&#x4F1A;&#x4F7F;&#x7528;&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x903B;&#x8F91;&#x5904;&#x7406;&#x4E0A;&#xFF0C;&#x672C;&#x7CFB;&#x7EDF;&#x5185;&#x4E5F;&#x8C03;&#x7528;&#x4E86;&#x3002;</p>
+</blockquote>
+<h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
+<h3 id="schema-&#x5B9A;&#x4E49;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x95EE;&#x9898;">schema &#x5B9A;&#x4E49;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x95EE;&#x9898;</h3>
+<p><strong>GraphQL</strong> &#x6267;&#x884C;&#x5F15;&#x64CE;&#x4F1A;&#x68C0;&#x6D4B;&#x5176;&#x6267;&#x884C;&#x5F15;&#x64CE;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;&#x5373;&#xFF0C;&#x5F53;&#x524D; <strong>GraphQLSchemaProvider</strong> &#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x4F9D;&#x8D56;&#x4E86;&#x81EA;&#x5DF1;&#x7684; <strong>GraphQLSchemaProvider</strong>&#xFF0C;&#x5C31;&#x4F1A;&#x63D0;&#x793A;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;</p>
+<h3 id="spring-&#x4F9D;&#x8D56;&#x4E2D;&#x7684;&#x95EE;&#x9898;">spring &#x4F9D;&#x8D56;&#x4E2D;&#x7684;&#x95EE;&#x9898;</h3>
+<p><strong>Spring IOC</strong> &#x89E3;&#x51B3;&#x4E86;&#x5404; <strong>Bean</strong> &#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x5373;&#x4F7F;&#x5982;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x9879;&#x76EE;&#x5185;&#x90E8;&#x67D0;&#x4E2A; <strong>Service</strong> &#x4F9D;&#x8D56;&#x4E86; <strong>GraphQL</strong> &#x5B9A;&#x4E49;&#xFF0C;&#x5176;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x65F6;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x9519;&#x8BEF;&#x89C1;&#xFF1A;<a href="Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">Q7_EnableWebMvcConfiguration No ServletContext set</a></p>
+<h3 id="api-&#x5B9A;&#x4E49;&#x4FEE;&#x6539;">API &#x5B9A;&#x4E49;&#x4FEE;&#x6539;</h3>
+<p><code>graphql starter</code> &#x7248;&#x672C;&#x4F9D;&#x8D56;&#x4EE5;&#x7684; <code>graphql-java-tools</code> &#x7248;&#x672C;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#x56E0;&#x6B64; <strong>API</strong> &#x5B9A;&#x4E49;&#x4E5F;&#x6709;&#x4E9B;&#x4FEE;&#x6539;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x4F53;&#x73B0;&#x5230;&#x7CFB;&#x7EDF;&#x5185;&#x901A;&#x8FC7;&#x6267;&#x884C;&#x5F15;&#x64CE;&#x76F4;&#x63A5;&#x8C03;&#x7528; <strong>GrapQL</strong> &#x5B9A;&#x4E49;&#x7684;&#x8D44;&#x6E90;&#x3002;</p>
+<h4 id="400-&#x7248;&#x672C;">4.0.0 &#x7248;&#x672C;</h4>
+<p><code>pom.xml</code> &#x4F9D;&#x8D56;&#xFF1A;<br></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.graphql-java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>graphql-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.graphql-java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>graphql-java-tools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x5B9E;&#x73B0;&#x5185;&#x90E8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x7684; <strong>Java</strong> &#x4EE3;&#x7801;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> graphql.*;
+<span class="hljs-keyword">import</span> graphql.execution.instrumentation.Instrumentation;
+<span class="hljs-keyword">import</span> graphql.execution.instrumentation.NoOpInstrumentation;
+<span class="hljs-keyword">import</span> graphql.execution.preparsed.NoOpPreparsedDocumentProvider;
+<span class="hljs-keyword">import</span> graphql.execution.preparsed.PreparsedDocumentProvider;
+<span class="hljs-keyword">import</span> graphql.schema.GraphQLSchema;
+<span class="hljs-keyword">import</span> graphql.servlet.*;
+<span class="hljs-keyword">import</span> org.apache.commons.lang3.StringUtils;
+<span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.util.CollectionUtils;
+<span class="hljs-keyword">import</span> org.springframework.util.PathMatcher;
+
+<span class="hljs-keyword">import</span> java.util.*;
+<span class="hljs-keyword">import</span> java.util.stream.Collectors;
+
+<span class="hljs-comment">/**
+ *
+ * <span class="hljs-doctag">@author</span> wencheng
+ * <span class="hljs-doctag">@date</span> 2019/3/28
+ */</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IGraphQL</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> PathMatcher pathMatcher;
+
+    <span class="hljs-meta">@Autowired</span>
+    ExecutionStrategyProvider executionStrategyProvider;
+
+    <span class="hljs-meta">@Autowired</span>(required = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">private</span> Instrumentation instrumentation;
+
+    <span class="hljs-meta">@Autowired</span>(required = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">private</span> GraphQLContextBuilder contextBuilder;
+
+    <span class="hljs-meta">@Autowired</span>(required = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">private</span> GraphQLRootObjectBuilder rootObjectBuilder;
+
+    <span class="hljs-meta">@Autowired</span>(required = <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">private</span> PreparsedDocumentProvider preparsedDocumentProvider;
+
+    <span class="hljs-keyword">private</span> GraphQLSchema schema;
+
+    <span class="hljs-keyword">private</span> Object rootObject;
+
+    <span class="hljs-keyword">private</span> GraphQLContext context;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">execute</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables)</span> </span>{
+        <span class="hljs-keyword">return</span> graphQL().execute(<span class="hljs-keyword">new</span> ExecutionInput(query, operationName, context, rootObject, transformVariables(schema, query, variables)));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;&#x67E5;&#x8BE2;,&#x629B;&#x51FA;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5F02;&#x5E38;
+     *  &#x6CE8;&#x610F;: &#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38; &#x2014;&#x2014; errorPath &#x4E3A; null &#x6216;&#x8005; &#x5FFD;&#x7565;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;&#x5916;&#x7684;&#x5B57;&#x6BB5;&#x5F02;&#x5E38;
+     * <span class="hljs-doctag">@param</span> query
+     * <span class="hljs-doctag">@param</span> operationName
+     * <span class="hljs-doctag">@param</span> variables
+     * <span class="hljs-doctag">@param</span> ignorePatterns
+     * <span class="hljs-doctag">@return</span>
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">executeThrowsEAndIgnorePatterns</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables, Set&lt;String&gt; ignorePatterns)</span> </span>{
+        ExecutionResult executionResult = graphQL().execute(<span class="hljs-keyword">new</span> ExecutionInput(query, operationName, context, rootObject, transformVariables(schema, query, variables)));
+        List&lt;GraphQLError&gt; errors = executionResult.getErrors();
+        <span class="hljs-keyword">if</span> (!CollectionUtils.isEmpty(errors)) {
+            errors = errors.stream()
+                    .filter(e -&gt; {
+                        String errorPath = errorPath(e);
+                        <span class="hljs-keyword">return</span> Objects.nonNull(errorPath) &amp;&amp; !matchPath(ignorePatterns, errorPath);
+                    }).collect(Collectors.toList());
+            String message = errors.stream()
+                    .map(<span class="hljs-keyword">this</span>::extractException)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .map(Throwable::getMessage)
+                    .collect(Collectors.joining(<span class="hljs-string">&quot;;&quot;</span>));
+            <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(message)) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(message);
+            }
+        }
+        <span class="hljs-keyword">return</span> executionResult;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;&#x67E5;&#x8BE2;,&#x629B;&#x51FA;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5F02;&#x5E38;
+     *  &#x6CE8;&#x610F;: &#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38; &#x2014;&#x2014; errorPath &#x4E3A; null &#x6216;&#x8005; &#x4E3A;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;
+     * <span class="hljs-doctag">@param</span> query
+     * <span class="hljs-doctag">@param</span> operationName
+     * <span class="hljs-doctag">@param</span> variables
+     * <span class="hljs-doctag">@param</span> requiredPatterns
+     * <span class="hljs-doctag">@return</span>
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">executeThrowsEByRequired</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables, Set&lt;String&gt; requiredPatterns)</span> </span>{
+        ExecutionResult executionResult = graphQL().execute(<span class="hljs-keyword">new</span> ExecutionInput(query, operationName, context, rootObject, transformVariables(schema, query, variables)));
+        List&lt;GraphQLError&gt; errors = executionResult.getErrors();
+        <span class="hljs-keyword">if</span> (!CollectionUtils.isEmpty(errors)) {
+            errors = errors.stream()
+                    .filter(e -&gt; {
+                        String errorPath = errorPath(e);
+                        <span class="hljs-keyword">return</span> Objects.isNull(errorPath) || matchPath(requiredPatterns, errorPath);
+                    }).collect(Collectors.toList());
+            String message = errors.stream()
+                    .map(<span class="hljs-keyword">this</span>::extractException)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .map(Throwable::getMessage)
+                    .collect(Collectors.joining(<span class="hljs-string">&quot;;&quot;</span>));
+            <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(message)) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(message);
+            }
+        }
+        <span class="hljs-keyword">return</span> executionResult;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> GraphQL <span class="hljs-title">graphQL</span><span class="hljs-params">()</span> </span>{
+        GraphQLSchemaProvider schemaProvider = SpringContextUtil.getBean(GraphQLSchemaProvider.class);
+        <span class="hljs-keyword">if</span> (instrumentation == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.instrumentation = NoOpInstrumentation.INSTANCE;
+        }
+
+        <span class="hljs-keyword">if</span>(contextBuilder == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.contextBuilder = <span class="hljs-keyword">new</span> DefaultGraphQLContextBuilder();
+        }
+
+        <span class="hljs-keyword">if</span>(rootObjectBuilder == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.rootObjectBuilder = <span class="hljs-keyword">new</span> DefaultGraphQLRootObjectBuilder();
+        }
+
+        <span class="hljs-keyword">if</span>(preparsedDocumentProvider == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.preparsedDocumentProvider = NoOpPreparsedDocumentProvider.INSTANCE;
+        }
+
+        schema = schemaProvider.getReadOnlySchema(<span class="hljs-keyword">null</span>);
+        context = contextBuilder.build(Optional.empty(), Optional.empty());
+        rootObject = rootObjectBuilder.build(Optional.empty(), Optional.empty());
+        GraphQL graphQL = GraphQL.newGraphQL(schema)
+                .queryExecutionStrategy(<span class="hljs-keyword">this</span>.executionStrategyProvider.getQueryExecutionStrategy())
+                .mutationExecutionStrategy(<span class="hljs-keyword">this</span>.executionStrategyProvider.getMutationExecutionStrategy())
+                .subscriptionExecutionStrategy(<span class="hljs-keyword">this</span>.executionStrategyProvider.getSubscriptionExecutionStrategy())
+                .instrumentation(<span class="hljs-keyword">this</span>.instrumentation)
+                .preparsedDocumentProvider(<span class="hljs-keyword">this</span>.preparsedDocumentProvider)
+                .build();
+        <span class="hljs-keyword">return</span> graphQL;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Map&lt;String, Object&gt; <span class="hljs-title">transformVariables</span><span class="hljs-params">(GraphQLSchema schema, String query, Map&lt;String, Object&gt; variables)</span> </span>{
+        <span class="hljs-keyword">return</span> variables;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> Optional&lt;Throwable&gt; <span class="hljs-title">extractException</span><span class="hljs-params">(GraphQLError error)</span> </span>{
+        <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ExceptionWhileDataFetching) {
+            <span class="hljs-keyword">return</span> Optional.of(((ExceptionWhileDataFetching) error).getException());
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> SerializationError) {
+            <span class="hljs-keyword">return</span> Optional.of(((SerializationError) error).getException());
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> GraphQLException) {
+            <span class="hljs-keyword">return</span> Optional.of((GraphQLException) error);
+        }
+        <span class="hljs-keyword">return</span> Optional.of(<span class="hljs-keyword">new</span> ServiceException(error.getMessage()));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">errorPath</span><span class="hljs-params">(GraphQLError error)</span> </span>{
+        <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(error.getPath())) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+        <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ExceptionWhileDataFetching) {
+            <span class="hljs-comment">// format(&quot;Exception while fetching data (%s) : %s&quot;, path, exception.getMessage())</span>
+            <span class="hljs-keyword">int</span> startIndex = error.getMessage().indexOf(<span class="hljs-string">&quot;(&quot;</span>);
+            <span class="hljs-keyword">int</span> endIndex = error.getMessage().indexOf(<span class="hljs-string">&quot;)&quot;</span>);
+            <span class="hljs-keyword">return</span> error.getMessage().substring(startIndex + <span class="hljs-number">1</span>, endIndex);
+        }
+        StringBuilder builder = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;/&quot;</span>);
+        <span class="hljs-keyword">for</span> (Object path: error.getPath()) {
+            <span class="hljs-keyword">if</span> (path <span class="hljs-keyword">instanceof</span> String) {
+                builder.append(path).append(<span class="hljs-string">&quot;/&quot;</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (path <span class="hljs-keyword">instanceof</span> Integer) {
+                builder.delete(builder.length() - <span class="hljs-number">1</span>, builder.length())
+                        .append(<span class="hljs-string">&quot;[&quot;</span>)
+                        .append(path)
+                        .append(<span class="hljs-string">&quot;]&quot;</span>)
+                        .append(<span class="hljs-string">&quot;/&quot;</span>);
+            }
+        }
+        <span class="hljs-keyword">return</span> builder.deleteCharAt(builder.length()-<span class="hljs-number">1</span>).toString();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> Boolean <span class="hljs-title">matchPath</span><span class="hljs-params">(Set&lt;String&gt; patterns, String errorPath)</span> </span>{
+        <span class="hljs-keyword">for</span> (String ignorePath: patterns) {
+            <span class="hljs-keyword">if</span> (pathMatcher.match(ignorePath, errorPath)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+}
+</code></pre>
+<h4 id="&#x7248;&#x672C;-502">&#x7248;&#x672C; 5.0.2</h4>
+<p><code>pom.xml</code> &#x4F9D;&#x8D56;&#xFF1A;<br></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.graphql-java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>graphql-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.0.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.graphql-java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>graphql-java-tools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x5B9E;&#x73B0;&#x5185;&#x90E8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x7684; <strong>Java</strong> &#x4EE3;&#x7801;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> graphql.*;
+<span class="hljs-keyword">import</span> graphql.servlet.GraphQLInvocationInputFactory;
+<span class="hljs-keyword">import</span> graphql.servlet.GraphQLQueryInvoker;
+<span class="hljs-keyword">import</span> graphql.servlet.GraphQLSingleInvocationInput;
+<span class="hljs-keyword">import</span> graphql.servlet.internal.GraphQLRequest;
+<span class="hljs-keyword">import</span> org.apache.commons.lang3.StringUtils;
+<span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> org.springframework.util.CollectionUtils;
+<span class="hljs-keyword">import</span> org.springframework.util.PathMatcher;
+
+<span class="hljs-keyword">import</span> java.util.*;
+<span class="hljs-keyword">import</span> java.util.stream.Collectors;
+
+<span class="hljs-comment">/**
+ *
+ * <span class="hljs-doctag">@author</span> wencheng
+ * <span class="hljs-doctag">@date</span> 2019/3/28
+ */</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IGraphQL</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> PathMatcher pathMatcher;
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> GraphQLQueryInvoker queryInvoker;
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> GraphQLInvocationInputFactory invocationInputFactory;
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;&#x67E5;&#x8BE2;,&#x629B;&#x51FA;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5F02;&#x5E38;
+     *  &#x6CE8;&#x610F;: &#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38; &#x2014;&#x2014; errorPath &#x4E3A; null &#x6216;&#x8005; &#x5FFD;&#x7565;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;&#x5916;&#x7684;&#x5B57;&#x6BB5;&#x5F02;&#x5E38;
+     * <span class="hljs-doctag">@param</span> query
+     * <span class="hljs-doctag">@param</span> operationName
+     * <span class="hljs-doctag">@param</span> variables
+     * <span class="hljs-doctag">@param</span> ignorePatterns
+     * <span class="hljs-doctag">@return</span>
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">executeThrowsEAndIgnorePatterns</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables, Set&lt;String&gt; ignorePatterns)</span> </span>{
+        ExecutionResult executionResult = execute(query, operationName, variables);
+        List&lt;GraphQLError&gt; errors = executionResult.getErrors();
+        <span class="hljs-keyword">if</span> (!CollectionUtils.isEmpty(errors)) {
+            errors = errors.stream()
+                    .filter(e -&gt; {
+                        String errorPath = errorPath(e);
+                        <span class="hljs-keyword">return</span> Objects.nonNull(errorPath) &amp;&amp; !matchPath(ignorePatterns, errorPath);
+                    }).collect(Collectors.toList());
+            String message = errors.stream()
+                    .map(<span class="hljs-keyword">this</span>::extractException)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .map(Throwable::getMessage)
+                    .collect(Collectors.joining(<span class="hljs-string">&quot;;&quot;</span>));
+            <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(message)) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(message);
+            }
+        }
+        <span class="hljs-keyword">return</span> executionResult;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;&#x67E5;&#x8BE2;,&#x629B;&#x51FA;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5F02;&#x5E38;
+     *  &#x6CE8;&#x610F;: &#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38; &#x2014;&#x2014; errorPath &#x4E3A; null &#x6216;&#x8005; &#x4E3A;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;
+     * <span class="hljs-doctag">@param</span> query
+     * <span class="hljs-doctag">@param</span> operationName
+     * <span class="hljs-doctag">@param</span> variables
+     * <span class="hljs-doctag">@param</span> requiredPatterns
+     * <span class="hljs-doctag">@return</span>
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">executeThrowsEByRequired</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables, Set&lt;String&gt; requiredPatterns)</span> </span>{
+        ExecutionResult executionResult = execute(query, operationName, variables);
+        List&lt;GraphQLError&gt; errors = executionResult.getErrors();
+        <span class="hljs-keyword">if</span> (!CollectionUtils.isEmpty(errors)) {
+            errors = errors.stream()
+                    .filter(e -&gt; {
+                        String errorPath = errorPath(e);
+                        <span class="hljs-keyword">return</span> Objects.isNull(errorPath) || matchPath(requiredPatterns, errorPath);
+                    }).collect(Collectors.toList());
+            String message = errors.stream()
+                    .map(<span class="hljs-keyword">this</span>::extractException)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .map(Throwable::getMessage)
+                    .collect(Collectors.joining(<span class="hljs-string">&quot;;&quot;</span>));
+            <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(message)) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ServiceException(message);
+            }
+        }
+        <span class="hljs-keyword">return</span> executionResult;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6838;&#x5FC3;&#x65B9;&#x6CD5;
+     * <span class="hljs-doctag">@param</span> query
+     * <span class="hljs-doctag">@param</span> operationName
+     * <span class="hljs-doctag">@param</span> variables
+     * <span class="hljs-doctag">@return</span>
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ExecutionResult <span class="hljs-title">execute</span><span class="hljs-params">(String query, String operationName, Map&lt;String, Object&gt; variables)</span> </span>{
+        GraphQLSingleInvocationInput invocationInput = invocationInputFactory.create(<span class="hljs-keyword">new</span> GraphQLRequest(query, variables, operationName));
+        <span class="hljs-keyword">return</span> queryInvoker.query(invocationInput);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> Optional&lt;Throwable&gt; <span class="hljs-title">extractException</span><span class="hljs-params">(GraphQLError error)</span> </span>{
+        <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ExceptionWhileDataFetching) {
+            <span class="hljs-keyword">return</span> Optional.of(((ExceptionWhileDataFetching) error).getException());
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> SerializationError) {
+            <span class="hljs-keyword">return</span> Optional.of(((SerializationError) error).getException());
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> GraphQLException) {
+            <span class="hljs-keyword">return</span> Optional.of((GraphQLException) error);
+        }
+        <span class="hljs-keyword">return</span> Optional.of(<span class="hljs-keyword">new</span> ServiceException(error.getMessage()));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">errorPath</span><span class="hljs-params">(GraphQLError error)</span> </span>{
+        <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(error.getPath())) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+        <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ExceptionWhileDataFetching) {
+            <span class="hljs-comment">// format(&quot;Exception while fetching data (%s) : %s&quot;, path, exception.getMessage())</span>
+            <span class="hljs-keyword">int</span> startIndex = error.getMessage().indexOf(<span class="hljs-string">&quot;(&quot;</span>);
+            <span class="hljs-keyword">int</span> endIndex = error.getMessage().indexOf(<span class="hljs-string">&quot;)&quot;</span>);
+            <span class="hljs-keyword">return</span> error.getMessage().substring(startIndex + <span class="hljs-number">1</span>, endIndex);
+        }
+        StringBuilder builder = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;/&quot;</span>);
+        <span class="hljs-keyword">for</span> (Object path: error.getPath()) {
+            <span class="hljs-keyword">if</span> (path <span class="hljs-keyword">instanceof</span> String) {
+                builder.append(path).append(<span class="hljs-string">&quot;/&quot;</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (path <span class="hljs-keyword">instanceof</span> Integer) {
+                builder.delete(builder.length() - <span class="hljs-number">1</span>, builder.length())
+                        .append(<span class="hljs-string">&quot;[&quot;</span>)
+                        .append(path)
+                        .append(<span class="hljs-string">&quot;]&quot;</span>)
+                        .append(<span class="hljs-string">&quot;/&quot;</span>);
+            }
+        }
+        <span class="hljs-keyword">return</span> builder.deleteCharAt(builder.length()-<span class="hljs-number">1</span>).toString();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> Boolean <span class="hljs-title">matchPath</span><span class="hljs-params">(Set&lt;String&gt; patterns, String errorPath)</span> </span>{
+        <span class="hljs-keyword">for</span> (String ignorePath: patterns) {
+            <span class="hljs-keyword">if</span> (pathMatcher.match(ignorePath, errorPath)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Q4_Actuator与Spring_security安全性校验调整.html" class="navigation navigation-prev " aria-label="Previous page: Q4_Actuator与Spring security 安全性校验调整">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Q6_graphqil&voyager调整.html" class="navigation navigation-next " aria-label="Next page: Q6_graphqil & voyager 调整">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题","level":"1.7.5","depth":2,"next":{"title":"Q6_graphqil & voyager 调整","level":"1.7.6","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","articles":[]},"previous":{"title":"Q4_Actuator与Spring security 安全性校验调整","level":"1.7.4","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.md","mtime":"2019-05-05T10:15:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-05T10:13:18.369Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

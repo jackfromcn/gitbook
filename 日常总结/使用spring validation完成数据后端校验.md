@@ -8,9 +8,9 @@
 
 使用 `spring mvc` 的 `restful` 请求，`spring mvc`  框架 中 `WebDataBinder`  可以将 `request` 中的参数自动绑定到 `POJO` 对象中，可以使用 `spring validation` 完成后端校验。
 
-但是 `graphql` 请求方式，使用的是 `graphql` 官方语法定义的 `graphql-tools` 来进行参数解析和绑定。示例如下：<br/>![graphql请求参数](./graphql请求参数.png)
+但是 `graphql` 请求方式，使用的是 `graphql` 官方语法定义的 `graphql-tools` 来进行参数解析和绑定。示例如下：<br/>![graphql请求参数](images/graphql请求参数.png)
 
-![graphql解析入参](./graphql解析入参.png)
+![graphql解析入参](images/graphql解析入参.png)
 
 `graphql`  将 `variables` 参数解析为 `linkedHashMap`，`graphql` 定义了`Instrumentation` 可以在 `graphql` 执行的各个阶段进行拦截处理，类似 `spring` 的 `Interceptor`，因为定义参数校验的方式可以如下：<br/>
 
@@ -171,7 +171,7 @@ public class ValidatorAspect {
 问题：
 
 1. 直接拷贝 `spring mvc` 框架的代码，其实现比较繁杂，直接拷贝，其中包含很多无用代码。
-2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 `RuntimeException`，所以抛出了**非受检时异常**，`spring aop` 中，对于抛出的**非受检时异常**，如果没有自己处理，会将其包装成 `UndeclaredThrowableException`，因此 `@ControllerAdvice` 定义的异常处理就无法执行。在 `UndeclaredThrowableException` 中获取原始异常，还需要通过以下方式。![UndeclaredThrowableException获取原始异常](./UndeclaredThrowableException获取原始异常.png)
+2. 在 `spring aop` 中 抛出了 `MethodArgumentNotValidException`，其异常直接继承自 `Exception`，不是 `RuntimeException`，所以抛出了**非受检时异常**，`spring aop` 中，对于抛出的**非受检时异常**，如果没有自己处理，会将其包装成 `UndeclaredThrowableException`，因此 `@ControllerAdvice` 定义的异常处理就无法执行。在 `UndeclaredThrowableException` 中获取原始异常，还需要通过以下方式。![UndeclaredThrowableException获取原始异常](images/UndeclaredThrowableException获取原始异常.png)
 
 
 

@@ -1,0 +1,533 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Shiro集成CAS登录成功跳转地址问题 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html" />
+    
+    
+    <link rel="prev" href="Shiro之前后端分离权限验证返回302错误.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="使用spring validation完成数据后端校验.html">
+            
+                <a href="使用spring validation完成数据后端校验.html">
+            
+                    
+                    使用spring validation完成数据后端校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="feign不使用eureka调用外部系统.html">
+            
+                <a href="feign不使用eureka调用外部系统.html">
+            
+                    
+                    feign不使用eureka 调用外部系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="shiro cas-client端登录重定向次数过多.html">
+            
+                <a href="shiro cas-client端登录重定向次数过多.html">
+            
+                    
+                    Shiro Cas-client端登录重定向次数过多
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Shiro之前后端分离权限验证返回302错误.html">
+            
+                <a href="Shiro之前后端分离权限验证返回302错误.html">
+            
+                    
+                    Shiro之前后端分离权限验证返回302错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="Shiro集成CAS登录成功跳转地址问题.html">
+            
+                <a href="Shiro集成CAS登录成功跳转地址问题.html">
+            
+                    
+                    Shiro集成CAS登录成功跳转地址问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html">
+            
+                    
+                    springboot 1.5.4 升级到 2.0.7 过程中的问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.html">
+            
+                    
+                    Q1_Feign 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.html">
+            
+                    
+                    Q2_WebMvcConfigurerAdapter 过时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.html">
+            
+                    
+                    Q3_监控 Actuator&Prometheus 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.html">
+            
+                    
+                    Q4_Actuator与Spring security 安全性校验调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.html">
+            
+                    
+                    Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.html">
+            
+                    
+                    Q6_graphqil & voyager 调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.html">
+            
+                    
+                    Q7_EnableWebMvcConfiguration No ServletContext set
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.html">
+            
+                    
+                    Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Shiro集成CAS登录成功跳转地址问题</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="shiro&#x96C6;&#x6210;cas&#x767B;&#x5F55;&#x6210;&#x529F;&#x8DF3;&#x8F6C;&#x5730;&#x5740;&#x95EE;&#x9898;">Shiro&#x96C6;&#x6210;CAS&#x767B;&#x5F55;&#x6210;&#x529F;&#x8DF3;&#x8F6C;&#x5730;&#x5740;&#x95EE;&#x9898;</h1>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;&#x5728;&#x89E3;&#x51B3;&#x4E86;&#x4E0A;&#x9762; <code>shiro</code> &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E; <strong>302</strong> &#x95EE;&#x9898;&#x540E;&#xFF0C;&#x4ECA;&#x5929;&#x53C8;&#x51FA;&#x73B0;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6211;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x8FC7; <code>cas server</code> &#x7AEF;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x7684;&#x9996;&#x9875;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x4E8B;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8C03;&#x8F6C;&#x90FD;&#x662F;&#x914D;&#x7F6E;&#x7684; <strong>404</strong> &#x9875;&#x9762;&#x3002;</p>
+</blockquote>
+<h2 id="&#x901A;&#x8FC7;&#x65E5;&#x5FD7;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#x548C;&#x8FDC;&#x7A0B;-debug-&#x5BF9;&#x6BD4;&#x6392;&#x67E5;&#x95EE;&#x9898;">&#x901A;&#x8FC7;&#x65E5;&#x5FD7;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#x548C;&#x8FDC;&#x7A0B; <code>debug</code> &#x5BF9;&#x6BD4;&#x6392;&#x67E5;&#x95EE;&#x9898;</h2>
+<h3 id="&#x65E5;&#x5FD7;&#x6392;&#x67E5;">&#x65E5;&#x5FD7;&#x6392;&#x67E5;</h3>
+<p>&#x901A;&#x8FC7;&#x65E5;&#x5FD7;&#x6392;&#x67E5;&#x53D1;&#x73B0;&#xFF0C;&#x9664;&#x4E86;&#x6211;&#x4E4B;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x4EBA;&#x767B;&#x5F55;&#x540E;&#x90FD;&#x662F;&#x8DF3;&#x8F6C;&#x5230;&#x914D;&#x7F6E;&#x7684; <code>org.apache.shiro.cas.CasFilter#failureUrl</code>&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7528;&#x6237;&#x767B;&#x5F55;&#x6821;&#x9A8C;&#x8D70;&#x7684;&#x662F;&#x76F8;&#x540C;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x548C;&#x5176;&#x4ED6;&#x4EBA;&#x5F97;&#x5230;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;<br></p>
+<p>&#x6240;&#x4EE5;&#x6392;&#x9664;&#x4E86;&#x7528;&#x6237;&#x6743;&#x9650;&#x6821;&#x9A8C;&#x903B;&#x8F91;&#x4E2D;&#x7684;&#x95EE;&#x9898;&#x3002;<br></p>
+<h3 id="&#x8FDC;&#x7A0B;-debug-&#x6392;&#x67E5;">&#x8FDC;&#x7A0B; <code>debug</code> &#x6392;&#x67E5;</h3>
+<p>&#x5728; <code>CasFilter</code> &#x4E2D;&#x7684;&#x56DE;&#x8C03;&#x5904;&#x7406;&#x4E2D;&#x6253;&#x4E86;&#x65AD;&#x70B9;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;<br></p>
+<p><img src="images/image-20190415180837539.png" alt="image-20190415180837539"></p>
+<p>&#x7ED3;&#x679C;&#x53D1;&#x73B0; <code>subject.login(token)</code> &#x6B63;&#x5E38;&#x6267;&#x884C;&#xFF0C;&#x4E8E;&#x662F;&#x8DDF;&#x8E2A; <code>onLoginSuccess</code> &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLoginSuccess</span><span class="hljs-params">(AuthenticationToken token, Subject subject, ServletRequest request,
+                                 ServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    issueSuccessRedirect(request, response);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">issueSuccessRedirect</span><span class="hljs-params">(ServletRequest request, ServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    WebUtils.redirectToSavedRequest(request, response, getSuccessUrl());
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x90FD;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;<code>getSuccessUrl()</code> &#x65B9;&#x6CD5;&#x4E5F;&#x6B63;&#x786E;&#x8FD4;&#x56DE;&#x4E86;&#x914D;&#x7F6E;&#x7684;<strong>successUrl</strong>&#xFF0C;&#x4E8E;&#x662F;&#x7EE7;&#x7EED;&#x8DDF;&#x8E2A;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">redirectToSavedRequest</span><span class="hljs-params">(ServletRequest request, ServletResponse response, String fallbackUrl)</span>
+        <span class="hljs-keyword">throws</span> IOException </span>{
+    String successUrl = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">boolean</span> contextRelative = <span class="hljs-keyword">true</span>;
+    SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
+    <span class="hljs-keyword">if</span> (savedRequest != <span class="hljs-keyword">null</span> &amp;&amp; savedRequest.getMethod().equalsIgnoreCase(AccessControlFilter.GET_METHOD)) {
+        successUrl = savedRequest.getRequestUrl();
+        contextRelative = <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (successUrl == <span class="hljs-keyword">null</span>) {
+        successUrl = fallbackUrl;
+    }
+
+    <span class="hljs-keyword">if</span> (successUrl == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;Success URL not available via saved request or via the &quot;</span> +
+                <span class="hljs-string">&quot;successUrlFallback method parameter. One of these must be non-null for &quot;</span> +
+                <span class="hljs-string">&quot;issueSuccessRedirect() to work.&quot;</span>);
+    }
+
+    WebUtils.issueRedirect(request, response, successUrl, <span class="hljs-keyword">null</span>, contextRelative);
+}
+</code></pre>
+<p>&#x53D1;&#x73B0;&#x95EE;&#x9898;&#x51FA;&#x5728;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5982;&#x679C; <code>session</code> &#x4E2D;&#x5B58;&#x5728; <code>SavedRequest</code> &#xFF0C;&#x5219;&#x5C06;&#x4E4B;&#x524D;&#x7F13;&#x5B58;&#x7684; <code>request</code> &#x7684; <code>uri</code> &#x4F1A;&#x8986;&#x76D6;&#x8C03;&#x914D;&#x7F6E;&#x7684; <code>successUrl</code>&#x3002;&#x95EE;&#x9898;&#x53D1;&#x73B0;&#x4E86;&#x3002;&#x89E3;&#x51B3;&#x5C31;&#x7B80;&#x5355;&#x4E86;&#x3002;<br></p>
+<p>&#x81EA;&#x5DF1;&#x7EE7;&#x627F; <code>CasFilter</code> &#x91CD;&#x65B0;&#x5176; <code>AuthenticationFilter#issueSuccessRedirect()</code> &#x65B9;&#x6CD5;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x91CD;&#x5199;issueSuccessRedirect&#xFF0C;&#x76F4;&#x63A5;&#x8DF3;&#x8F6C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x7684;SuccessUrl</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">issueSuccessRedirect</span><span class="hljs-params">(ServletRequest request, ServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+
+    WebUtils.issueRedirect(request, response, <span class="hljs-keyword">this</span>.getSuccessUrl(), <span class="hljs-keyword">null</span>, <span class="hljs-keyword">true</span>);
+}
+</code></pre>
+<h2 id="&#x95EE;&#x9898;&#x89E3;&#x51B3;&#xFF0C;&#x601D;&#x8003;&#x6846;&#x67B6;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E48;&#x505A;">&#x95EE;&#x9898;&#x89E3;&#x51B3;&#xFF0C;&#x601D;&#x8003;&#x6846;&#x67B6;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E48;&#x505A;</h2>
+<p>&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x601D;&#x8003;&#x6846;&#x67B6;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x3002;</p>
+<p>&#x4E0A;&#x9762; <code>org.apache.shiro.web.util.WebUtils#getAndClearSavedRequest</code> &#x7684;&#x65B9;&#x6CD5;&#x83B7;&#x53D6; <code>SavedRequest</code> &#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SavedRequest <span class="hljs-title">getAndClearSavedRequest</span><span class="hljs-params">(ServletRequest request)</span> </span>{
+    SavedRequest savedRequest = getSavedRequest(request);
+    <span class="hljs-keyword">if</span> (savedRequest != <span class="hljs-keyword">null</span>) {
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        session.removeAttribute(SAVED_REQUEST_KEY);
+    }
+    <span class="hljs-keyword">return</span> savedRequest;
+}
+</code></pre>
+<p>&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4ECE; <code>session</code> &#x6839;&#x636E;&#x5BF9;&#x5E94;&#x7684; <code>key</code> &#x83B7;&#x53D6;&#x5230; <code>SavedRequet</code>&#x3002;&#x90A3;&#x4E48;&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BBE;&#x7F6E;&#x7684;&#x5462;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x5BF9;&#x5E94;&#x7684; <code>key</code> &#x5168;&#x5C40;&#x641C;&#x7D22;&#x53D1;&#x73B0;&#xFF0C;&#x6700;&#x540E;&#x8BBE;&#x7F6E;&#x7684;&#x65B9;&#x6CD5;&#x662F; <code>org.apache.shiro.web.util.WebUtils#saveRequest</code>&#xFF0C;&#x540C;&#x6837;&#x67E5;&#x8BE2;&#x5BF9;&#x5E94;&#x7684;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x8C03;&#x7528;&#x5728; <code>org.apache.shiro.web.filter.AccessControlFilter#saveRequest</code>&#x3002;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">saveRequest</span><span class="hljs-params">(ServletRequest request)</span> </span>{
+    WebUtils.saveRequest(request);
+}
+</code></pre>
+<p>&#x7EE7;&#x7EED;&#x641C;&#x7D22;&#x4E0A;&#x9762;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53D1;&#x73B0;&#x5728; <code>org.apache.shiro.web.filter.AccessControlFilter#saveRequestAndRedirectToLogin</code> &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">saveRequestAndRedirectToLogin</span><span class="hljs-params">(ServletRequest request, ServletResponse response)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    saveRequest(request);
+    redirectToLogin(request, response);
+}
+</code></pre>
+<p>&#x7EE7;&#x7EED;&#x641C;&#x7D22;&#xFF0C;&#x53D1;&#x73B0;&#x6700;&#x7EC8;&#x7684;&#x8C03;&#x7528;&#x89E6;&#x53D1;&#x65B9;&#x6CD5;&#x3002;<code>org.apache.shiro.web.filter.authc.FormAuthenticationFilter#onAccessDenied</code>&#x3002;<code>FormAuthenticationFilter</code> &#x5BF9;&#x5E94; <code>shiro</code> &#x4E2D; <code>authc</code> &#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x3002;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onAccessDenied</span><span class="hljs-params">(ServletRequest request, ServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    <span class="hljs-keyword">if</span> (isLoginRequest(request, response)) {
+        <span class="hljs-keyword">if</span> (isLoginSubmission(request, response)) {
+            <span class="hljs-keyword">if</span> (log.isTraceEnabled()) {
+                log.trace(<span class="hljs-string">&quot;Login submission detected.  Attempting to execute login.&quot;</span>);
+            }
+            <span class="hljs-keyword">return</span> executeLogin(request, response);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span> (log.isTraceEnabled()) {
+                log.trace(<span class="hljs-string">&quot;Login page view.&quot;</span>);
+            }
+            <span class="hljs-comment">//allow them to see the login page ;)</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (log.isTraceEnabled()) {
+            log.trace(<span class="hljs-string">&quot;Attempting to access a path which requires authentication.  Forwarding to the &quot;</span> +
+                    <span class="hljs-string">&quot;Authentication url [&quot;</span> + getLoginUrl() + <span class="hljs-string">&quot;]&quot;</span>);
+        }
+
+        saveRequestAndRedirectToLogin(request, response);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+}
+</code></pre>
+<p>&#x5927;&#x6982;&#x903B;&#x8F91;&#x662F;&#xFF0C;&#x5728;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7; <code>autch</code> &#x8FDB;&#x884C;&#x6821;&#x9A8C;&#xFF0C;&#x6821;&#x9A8C;&#x767B;&#x5F55;&#x6001;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x5176; <code>onAccessDenied()</code> &#x65B9;&#x6CD5;&#xFF0C;<code>onAccessDenied()</code> &#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x4E3B;&#x8981;&#x903B;&#x8F91;&#x662F;&#xFF1A;(&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x767B;&#x5F55;&#x6821;&#x9A8C;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x8BBF;&#x95EE;&#x62D2;&#x7EDD;&#x65B9;&#x6CD5;)</p>
+<ul>
+<li>&#x5982;&#x679C;&#x662F;&#x767B;&#x5F55;&#x8BF7;&#x6C42;&#xFF0C;&#x5219;&#x6267;&#x884C;&#x767B;&#x5F55;&#x8BF7;&#x6C42;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x662F;&#x767B;&#x5F55;&#x8BF7;&#x6C42;&#xFF0C;&#x5219;&#x8DEF;&#x7531;&#x5230;<strong>&#x767B;&#x5F55;</strong>&#x7684; <code>url</code>&#x3002;(&#x8DEF;&#x7531;&#x524D;&#xFF0C;&#x4F1A;&#x5148;&#x4FDD;&#x5B58;&#x5176;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x4FBF;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x56DE;&#x8C03;&#x65F6;&#xFF0C;&#x7EE7;&#x7EED;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x8BF7;&#x6C42; <code>url</code>)&#xFF0C;&#x5373;&#xFF0C;&#x767B;&#x5F55;&#x524D;&#x8BF7;&#x6C42;&#x7684; <code>url</code>&#xFF0C;&#x767B;&#x5F55;&#x6821;&#x9A8C;&#x6210;&#x529F;&#x540E;&#x7EE7;&#x7EED;&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x7684; <code>url</code>&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Shiro之前后端分离权限验证返回302错误.html" class="navigation navigation-prev " aria-label="Previous page: Shiro之前后端分离权限验证返回302错误">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.html" class="navigation navigation-next " aria-label="Next page: springboot 1.5.4 升级到 2.0.7 过程中的问题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Shiro集成CAS登录成功跳转地址问题","level":"1.6","depth":1,"next":{"title":"springboot 1.5.4 升级到 2.0.7 过程中的问题","level":"1.7","depth":1,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/springboot 1.5.4 升级到 2.0.7 过程中的问题.md","articles":[{"title":"Q1_Feign 过时","level":"1.7.1","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q1_Feign过时.md","articles":[]},{"title":"Q2_WebMvcConfigurerAdapter 过时","level":"1.7.2","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q2_WebMvcConfigurerAdapter过时.md","articles":[]},{"title":"Q3_监控 Actuator&Prometheus 调整","level":"1.7.3","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q3_监控 Actuator&Prometheus调整.md","articles":[]},{"title":"Q4_Actuator与Spring security 安全性校验调整","level":"1.7.4","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q4_Actuator与Spring_security安全性校验调整.md","articles":[]},{"title":"Q5_Graphql starter 4.0.0 升级到 5.0.2 中的问题","level":"1.7.5","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q5_Graphql_starter-4.0.0升级到5.0.2中的问题.md","articles":[]},{"title":"Q6_graphqil & voyager 调整","level":"1.7.6","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q6_graphqil&voyager调整.md","articles":[]},{"title":"Q7_EnableWebMvcConfiguration No ServletContext set","level":"1.7.7","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q7_EnableWebMvcConfiguration_No_ServletContext_set.md","articles":[]},{"title":"Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer not available","level":"1.7.8","depth":2,"path":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.md","ref":"springboot_1.5.4_升级到_2.0.7过程中的问题/Q8_整合websocket后运行测试类报错：javax.websocket.server.ServerContainer_not_available.md","articles":[]}]},"previous":{"title":"Shiro之前后端分离权限验证返回302错误","level":"1.5","depth":1,"path":"Shiro之前后端分离权限验证返回302错误.md","ref":"Shiro之前后端分离权限验证返回302错误.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Shiro集成CAS登录成功跳转地址问题.md","mtime":"2019-05-05T09:16:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-05T10:13:18.369Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

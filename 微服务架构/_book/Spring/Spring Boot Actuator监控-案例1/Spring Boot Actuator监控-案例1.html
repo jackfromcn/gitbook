@@ -1,0 +1,395 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring Boot Actuator监控-案例1 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    docker-compose
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../docker-compose/kafka、zookeeper/kafka、zookeeper.html">
+            
+                <a href="../../docker-compose/kafka、zookeeper/kafka、zookeeper.html">
+            
+                    
+                    kafka、zookeeper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../docker-compose/prometheus、alertmanager、grafana/prometheus、alertmanager、grafana.html">
+            
+                <a href="../../docker-compose/prometheus、alertmanager、grafana/prometheus、alertmanager、grafana.html">
+            
+                    
+                    prometheus、alertmanager、grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="Spring Boot Actuator监控-案例1.html">
+            
+                <a href="Spring Boot Actuator监控-案例1.html">
+            
+                    
+                    Spring Boot Actuator监控-案例1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Spring Boot Actuator监控-案例1</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spring-boot-actuator&#x76D1;&#x63A7;-&#x6848;&#x4F8B;1">Spring Boot Actuator&#x76D1;&#x63A7;-&#x6848;&#x4F8B;1</h1>
+<blockquote>
+<p>&#x80CC;&#x666F;&#xFF1A;</p>
+</blockquote>
+<h2 id="spring-boot-&#x9879;&#x76EE;&#x914D;&#x7F6E;">Spring Boot &#x9879;&#x76EE;&#x914D;&#x7F6E;</h2>
+<h2 id="pomxml">pom.xml</h2>
+<h3 id="spring-boot-&#x7248;&#x672C;">spring boot &#x7248;&#x672C;</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.5.14.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+</code></pre>
+<h3 id="spring-&#x76D1;&#x63A7;&#x6240;&#x9700;&#x4F9D;&#x8D56;">spring &#x76D1;&#x63A7;&#x6240;&#x9700;&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- spring boot actuator--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; start --&gt;</span>
+<span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; &#x89C4;&#x8303; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-spring-legacy<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- prometheus &#x8F93;&#x5165;&#x4F9D;&#x8D56; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.micrometer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-registry-prometheus<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- influxdb &#x8F93;&#x5165;&#x4F9D;&#x8D56; --&gt;</span>
+<span class="hljs-comment">&lt;!--&lt;dependency&gt;--&gt;</span>
+    <span class="hljs-comment">&lt;!--&lt;groupId&gt;io.micrometer&lt;/groupId&gt;--&gt;</span>
+    <span class="hljs-comment">&lt;!--&lt;artifactId&gt;micrometer-registry-influx&lt;/artifactId&gt;--&gt;</span>
+    <span class="hljs-comment">&lt;!--&lt;version&gt;1.0.6&lt;/version&gt;--&gt;</span>
+<span class="hljs-comment">&lt;!--&lt;/dependency&gt;--&gt;</span>
+
+<span class="hljs-comment">&lt;!-- jvm &#x8F93;&#x51FA;&#x89C4;&#x8303; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.mweirauch<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>micrometer-jvm-extras<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- &#x76D1;&#x63A7; end --&gt;</span>
+</code></pre>
+<h3 id="applicationyml">application.yml</h3>
+<pre><code class="lang-yaml"><span class="hljs-attr">management:</span>
+<span class="hljs-attr">  context-path:</span> /actuator
+<span class="hljs-attr">  security:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  info:</span>
+<span class="hljs-attr">    git:</span>
+<span class="hljs-attr">      mode:</span> full
+<span class="hljs-attr">  metrics:</span>
+<span class="hljs-attr">    export:</span>
+<span class="hljs-attr">      influx:</span>
+<span class="hljs-attr">        enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        db:</span> springboot
+<span class="hljs-attr">        uri:</span> http://tx-node1:<span class="hljs-number">8086</span>
+<span class="hljs-comment">#        user-name:</span>
+<span class="hljs-comment">#        password:</span>
+<span class="hljs-attr">        connect-timeout:</span> <span class="hljs-number">1</span>s
+<span class="hljs-attr">        read-timeout:</span> <span class="hljs-number">10</span>s
+<span class="hljs-attr">        auto-create-db:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        step:</span> <span class="hljs-number">1</span>m
+<span class="hljs-attr">        num-threads:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">        consistency:</span> one
+<span class="hljs-attr">        compressed:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        batch-size:</span> <span class="hljs-number">10000</span>
+<span class="hljs-attr">security:</span>
+<span class="hljs-attr">  user:</span>
+<span class="hljs-attr">    name:</span> username
+<span class="hljs-attr">    password:</span> user_password
+<span class="hljs-attr">  basic:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">endpoints:</span>
+<span class="hljs-attr">  enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  sensitive:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  health:</span>
+<span class="hljs-attr">    sensitive:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">  info:</span>
+<span class="hljs-attr">    sensitive:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<h3 id="&#x4EE3;&#x7801;&#x914D;&#x7F6E;">&#x4EE3;&#x7801;&#x914D;&#x7F6E;</h3>
+<p><code>prometheus</code> &#x6293;&#x53D6;&#x5BF9;&#x5E94;&#x4FE1;&#x606F;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x5176; <strong>application</strong> &#x7684;&#x6807;&#x7B7E;&#x3002;&#x4E00;&#x822C;&#x5BF9;&#x5E94;&#x4E3A; <code>${spring.application.name}</code>&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Bean</span>
+<span class="hljs-function">MeterRegistryCustomizer&lt;MeterRegistry&gt; <span class="hljs-title">configurer</span><span class="hljs-params">(
+        @Value(<span class="hljs-string">&quot;${spring.application.name}&quot;</span>)</span> String applicationName) </span>{
+    <span class="hljs-keyword">return</span> registry -&gt; registry.config().commonTags(<span class="hljs-string">&quot;application&quot;</span>, applicationName);
+}
+</code></pre>
+<h3 id="prometheus&#x3001;altermanager&#x3001;grafana-&#x76F8;&#x5173;&#x914D;&#x7F6E;"><a href="../../docker-compose/prometheus&#x3001;alertmanager&#x3001;grafana/prometheus&#x3001;alertmanager&#x3001;grafana.html">prometheus&#x3001;altermanager&#x3001;grafana &#x76F8;&#x5173;&#x914D;&#x7F6E;</a></h3>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring Boot Actuator监控-案例1","level":"1.3.1","depth":2,"previous":{"title":"Spring","level":"1.3","depth":1,"ref":"","articles":[{"title":"Spring Boot Actuator监控-案例1","level":"1.3.1","depth":2,"path":"Spring/Spring Boot Actuator监控-案例1/Spring Boot Actuator监控-案例1.md","ref":"Spring/Spring Boot Actuator监控-案例1/Spring Boot Actuator监控-案例1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/Spring Boot Actuator监控-案例1/Spring Boot Actuator监控-案例1.md","mtime":"2019-04-23T06:44:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T06:44:39.313Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

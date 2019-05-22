@@ -1,0 +1,500 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring  IOC 容器初始化过程_主要加载步骤 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Spring加载Bean的过程.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1.1.1" data-path="Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="Spring加载Bean的过程.html">
+            
+                <a href="Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../Aop/Aop.html">
+            
+                <a href="../Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../应用/Spel.html">
+            
+                <a href="../../应用/Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Spring  IOC 容器初始化过程_主要加载步骤</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spring--ioc-&#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x4E3B;&#x8981;&#x52A0;&#x8F7D;&#x6B65;&#x9AA4;">Spring  IOC &#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;_&#x4E3B;&#x8981;&#x52A0;&#x8F7D;&#x6B65;&#x9AA4;</h1>
+<h2 id="&#x65B9;&#x5F0F;1">&#x65B9;&#x5F0F;1</h2>
+<pre><code class="lang-java">XmlBeanFactory factory = <span class="hljs-keyword">new</span> XmlBeanFactory(<span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;beans.xml&quot;</span>));
+Person p = (Person) factroy.getBean(<span class="hljs-string">&quot;person&quot;</span>);
+</code></pre>
+<h2 id="&#x65B9;&#x5F0F;&#x4E8C;">&#x65B9;&#x5F0F;&#x4E8C;</h2>
+<pre><code class="lang-java">ClassPathResource resource = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;beans.xml&quot;</span>);
+DefaultListableBeanFactory factory = <span class="hljs-keyword">new</span> DefaultListableBeanFactory();
+XmlBeanDefinitionReader reader = <span class="hljs-keyword">new</span> XmlBeanDefinitionReader(factroy);
+reader.loadBeanDefinitions(resource);
+</code></pre>
+<h2 id="spring-&#x52A0;&#x8F7D;&#x8D44;&#x6E90;&#x5E76;&#x88C5;&#x914D;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;">Spring &#x52A0;&#x8F7D;&#x8D44;&#x6E90;&#x5E76;&#x88C5;&#x914D;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;</h2>
+<ol>
+<li>&#x5B9A;&#x4E49;&#x597D; <code>Spring</code> &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x901A;&#x8FC7; <code>Resource</code> &#x5BF9;&#x8C61;&#x5C06; <code>Spring</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x62BD;&#x8C61;&#x3002;&#x62BD;&#x8C61;&#x6210;&#x4E00;&#x4E2A; <code>Resource</code> &#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x5B9A;&#x4E49;&#x597D; <code>Bean</code> &#x5DE5;&#x5382;(&#x5404;&#x79CD; <code>BeanFactory</code>)&#x3002;</li>
+<li>&#x5B9A;&#x4E49;&#x597D; <code>XmlBeanDefinitionReader</code> &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x5DE5;&#x5382;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x8FDB;&#x5165;&#x4F9B;&#x540E;&#x7EED;&#x56DE;&#x8C03;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x901A;&#x8FC7; <code>XmlBeanDefinitionReader</code> &#x5BF9;&#x8C61;&#x8BFB;&#x53D6;&#x4E4B;&#x524D;&#x62BD;&#x8C61;&#x51FA;&#x7684; <code>Resource</code> &#x5BF9;&#x8C61;(&#x5305;&#x542B; <strong>XML</strong> &#x6587;&#x4EF6;&#x7684;&#x89E3;&#x6790;&#x8FC7;&#x7A0B;)&#x3002;</li>
+<li>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;<strong>XML</strong>&#x6587;&#x4EF6;&#x7684;&#x89E3;&#x6790;&#x662F;&#x6709; <code>XmlBeanDefinitionReader</code> &#x5BF9;&#x8C61;&#x4EA4;&#x7531; <code>BeanDefinitionParserDelegate</code> &#x59D4;&#x6258;&#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x5B9E;&#x8D28;&#x4E0A;&#x8FD9;&#x91CC;&#x9762;&#x4F7F;&#x7528;&#x5230;&#x4E86;&#x59D4;&#x6258;&#x6A21;&#x5F0F;&#x3002;</li>
+<li><code>IOC</code> &#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BB9;&#x5668;&#x83B7;&#x53D6;&#x5230;&#x6240;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x8C61;&#x4FE1;&#x606F;&#x3002;</li>
+</ol>
+<p><strong>&#x91CD;&#x8981;&#xFF1A;</strong>&#x5728; <code>DefaultBeanDefinitionDocumentReader</code> &#x7C7B;&#x4E2D;&#x7684; <code>doRegisterBeanDefinitions</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;&#x7ECF;&#x5178;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x6A21;&#x5F0F;&#xFF0C;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x91CD;&#x5199; <code>preProcessXml</code> &#x4E0E; <code>postProcessXml</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x73B0;&#x5BF9;<strong>XML</strong>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; <code>Junit</code> &#x7684; <code>setUp</code>&#xFF0C;<code>testXXX</code> &#x4E0E; <code>tearDown</code> &#x65B9;&#x6CD5;&#x3002;</p>
+<ol>
+<li><code>Spring</code> &#x7684; <code>Bean</code> &#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x7F13;&#x5B58;&#x5728; <code>CurrentHashMap</code> &#x5BF9;&#x8C61;&#x4E2D;&#x3002;</li>
+<li>&#x5728;&#x521B;&#x5EFA; <code>Bean</code> &#x4E4B;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x5C06;&#x8BE5; <code>Bean</code> &#x7684;&#x521B;&#x5EFA;&#x6807;&#x8BC6;&#x8BBE;&#x5B9A;&#x597D;&#xFF0C;&#x6807;&#x8BC6;&#x8BE5; <code>Bean</code> &#x5DF2;&#x7ECF;&#x6216;&#x5373;&#x5C06;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x4E3A;&#x7684;&#x662F;&#x589E;&#x5F3A;&#x7F13;&#x5B58;&#x7684;&#x6548;&#x7387;&#x3002;</li>
+<li>&#x6839;&#x636E; <code>Bean</code> &#x7684; <code>scope</code> &#x5C5E;&#x6027;&#x6765;&#x786E;&#x5B9A;&#x662F; <code>singleton</code> &#x8FD8;&#x662F; <code>prototype</code> &#x7B49;&#x8FD4;&#x56DE;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684; <code>Bean</code> &#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x901A;&#x8FC7;<strong>Java</strong>&#x53CD;&#x5C04;&#x6765;&#x521B;&#x5EFA; <code>Bean</code> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5728;&#x521B;&#x5EFA;&#x4E4B;&#x524D;&#x9996;&#x5148;&#x68C0;&#x67E5;&#x8BBF;&#x95EE;&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;<strong>public</strong>&#x7684;&#xFF0C;&#x5219;&#x8C03;&#x7528; <code>setAccessible(true)</code> &#x6765;&#x7A81;&#x7834;<strong>Java</strong>&#x7684;&#x8BED;&#x6CD5;&#x9650;&#x5236;&#xFF0C;&#x4F7F;&#x5F97;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x79C1;&#x6709;&#x7684;&#x6784;&#x9020;&#x5668;&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;</li>
+<li>&#x63A5;&#x4E0B;&#x6765;&#x5BFB;&#x627E; <code>Bean</code> &#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x6765;&#x5B8C;&#x6210;&#x5C5E;&#x6027;&#x7684;&#x6CE8;&#x5165;&#x3002;</li>
+<li>&#x5C06;&#x6240;&#x521B;&#x5EFA;&#x51FA;&#x7684; <code>singleton</code> &#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x4F9B;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Spring加载Bean的过程.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Spring加载Bean的过程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring  IOC 容器初始化过程_主要加载步骤","level":"1.3.1.1.1","depth":4,"next":{"title":"Spring加载Bean的过程","level":"1.3.1.1.2","depth":4,"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","ref":"Spring/源码/初始化过程/Spring加载Bean的过程.md","articles":[]},"previous":{"title":"初始化过程","level":"1.3.1.1","depth":3,"ref":"","articles":[{"title":"Spring  IOC 容器初始化过程_主要加载步骤","level":"1.3.1.1.1","depth":4,"path":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","ref":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","articles":[]},{"title":"Spring加载Bean的过程","level":"1.3.1.1.2","depth":4,"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","ref":"Spring/源码/初始化过程/Spring加载Bean的过程.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","mtime":"2019-05-22T03:03:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T04:05:55.825Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

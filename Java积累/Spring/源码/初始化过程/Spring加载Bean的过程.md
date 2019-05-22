@@ -103,3 +103,6 @@
 
 #### <span id="method_getObjectForBeanInstance_main_process">getObjectForBeanInstance() 方法主流程</span>
 
+
+
+[test](Spring-加载Bean的过程_getSingleton-实例化单例对象.md)

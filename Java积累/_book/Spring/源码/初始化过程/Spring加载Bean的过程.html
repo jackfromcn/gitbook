@@ -392,22 +392,75 @@
 <blockquote>
 <p>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;</p>
 </blockquote>
-<h2 id="abstractbeanfactorygetbean-&#x6D41;&#x7A0B;">AbstractBeanFactory#getBean() &#x6D41;&#x7A0B;</h2>
+<h2 id="&#x5173;&#x952E;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;">&#x5173;&#x952E;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;</h2>
+<p>&#x5173;&#x952E;&#x5C5E;&#x6027;&#x4ECB;&#x7ECD;&#xFF1A;<br></p>
+<ul>
+<li><span id="singletonObjects_desc"><strong>singletonObjects</strong></span>: beanName --&gt; beanInstance&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F;&#x5355;&#x4F8B; bean &#x7684;&#x6620;&#x5C04;&#x3002;</li>
+<li><p><span id="earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></span>: beanName --&gt; beanInstance&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F;&#x3010;&#x65E9;&#x671F;&#x3011;&#x7684;&#x5355;&#x4F8B; bean &#x7684;&#x6620;&#x5C04;&#x3002;</p>
+</li>
+<li><p><span id="singletonFactories_desc"><strong>singletonFactories</strong></span>:  beanName --&gt; ObjectFactory&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F; ObjectFactory &#x7684;&#x6620;&#x5C04;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x521B;&#x5EFA;&#x5355;&#x4F8B; bean &#x7684; factory &#x3002;</p>
+</li>
+<li><span id="singletonsCurrentlyInCreation_desc"><strong>singletonsCurrentlyInCreation</strong></span>: &#x6B63;&#x5728;&#x521B;&#x5EFA;&#x4E2D;&#x7684;&#x5355;&#x4F8B; Bean &#x7684;&#x540D;&#x5B57;&#x7684;&#x96C6;&#x5408;</li>
+</ul>
+<ul>
+<li><span id="registeredSingletons_desc"><strong>registeredSingletons</strong></span>&#xFF1A; &#x6CE8;&#x518C;&#x7684;&#x5355;&#x4F8B; bean</li>
+</ul>
+<h3 id="singletonobjects-&#x4E0E;-earlysingletonobjects-&#x7684;&#x533A;&#x522B;"><span id="singletonObjects_diff_with_earlySingletonObjects"><strong>singletonObjects</strong> &#x4E0E; <strong>earlySingletonObjects</strong> &#x7684;&#x533A;&#x522B;</span></h3>
+<p>&#x5B83;&#x4E0E; <strong>singletonObjects</strong> &#x7684;&#x533A;&#x522B;&#x533A;&#x522B;&#x5728;&#x4E8E; <strong>earlySingletonObjects</strong> &#x4E2D;&#x5B58;&#x653E;&#x7684; bean &#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x3002;&#x4ECE; <strong>getSingleton(String)</strong> &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#xFF0C;bean &#x5728;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x5DF2;&#x7ECF;&#x52A0;&#x5165;&#x5230; <strong>earlySingletonObjects</strong> &#x4E2D;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x5728; bean &#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>getBean()</code> &#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;&#x8FD9;&#x4E2A; Map &#x4E5F;&#x662F;&#x89E3;&#x51B3;&#x3010;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3011;&#x7684;&#x5173;&#x952E;&#x6240;&#x5728;&#x3002;</p>
+<h2 id="abstractbeanfactorydogetbean-&#x6D41;&#x7A0B;">AbstractBeanFactory#doGetBean() &#x6D41;&#x7A0B;</h2>
 <p><strong>&#x4E3B;&#x6D41;&#x7A0B;&#xFF1A;</strong></p>
 <ul>
 <li><code>getSingleton</code>&#xFF1A;<a href="#method_getSingleton_load_bean_from_cache">&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6; bean &#x5BF9;&#x8C61;</a>&#x3002;</li>
+<li>&#x5982;&#x679C; <code>AbstractBeanFactory#parentBeanFactory != null</code>&#xFF0C;&#x4E14;&#x5F53;&#x524D; <code>AbstractBeanFactory</code> &#x4E0D;&#x5305;&#x542B;&#x5176; <code>BeanDefinition</code> &#x7684;&#x5B9A;&#x4E49;&#x3002;&#x5219;&#x9012;&#x5F52;&#x4ECE;&#x5176;&#x7236;&#x7C7B; <code>BeanFactory</code> &#x4E2D;&#x52A0;&#x8F7D;&#x5176; bean &#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x3002;</li>
+<li>&#x4E0D;&#x6EE1;&#x8DB3;&#x4E0A;&#x9762;&#x6761;&#x4EF6;&#xFF0C;&#x5373;&#x9700;&#x8981;&#x4ECE;&#x5F53;&#x524D; <code>BeanFactory</code> &#x4E2D;&#x52A0;&#x8F7D; bean &#x5B9E;&#x4F8B;&#x3002;</li>
+<li><code>getMergedLocalBeanDefinition</code>: <a href="#method_getMergedLocalBeanDefinition">&#x4ECE;&#x5BB9;&#x5668;&#x4E2D;&#x83B7;&#x53D6; beanName &#x76F8;&#x5E94;&#x7684; GenericBeanDefinition &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A; RootBeanDefinition &#x5BF9;&#x8C61;</a></li>
+<li>&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1A;&#x6839;&#x636E;&#x5B9A;&#x4E49;&#x7684; scope &#x89C4;&#x5219;&#x8C03;&#x7528;&#x5176;&#x5B9E;&#x4F8B;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;<a href="#singleton_bean_instance_process">&#x8FD9;&#x91CC;&#x53EA;&#x4ECB;&#x7ECD;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;</a>&#x3002;&#x5927;&#x90E8;&#x5206;&#x903B;&#x8F91;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</li>
+<li>&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x6210;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x5316;&#x7684; bean&#x3002;</li>
 </ul>
 <h3 id="getsingleton-&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;-bean-&#x5BF9;&#x8C61;&#x6D41;&#x7A0B;"><span id="method_getSingleton_load_bean_from_cache">getSingleton() &#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6; bean &#x5BF9;&#x8C61;&#x6D41;&#x7A0B;</span></h3>
+<h4 id="&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_getSingleton_main_process">&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h4>
 <ul>
-<li><strong>singletonObjects</strong>: beanName --&gt; beanInstance&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F;&#x5355;&#x4F8B; bean &#x7684;&#x6620;&#x5C04;&#x3002;</li>
-<li><p><strong>earlySingletonObjects</strong>: beanName --&gt; beanInstance&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F;&#x3010;&#x65E9;&#x671F;&#x3011;&#x7684;&#x5355;&#x4F8B; bean &#x7684;&#x6620;&#x5C04;&#x3002;</p>
-</li>
-<li><p><strong>singletonFactories</strong>:  beanName --&gt; ObjectFactory&#xFF0C;&#x5B58;&#x653E;&#x7684;&#x662F; ObjectFactory &#x7684;&#x6620;&#x5C04;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x521B;&#x5EFA;&#x5355;&#x4F8B; bean &#x7684; factory &#x3002;</p>
-</li>
-<li><strong>singletonsCurrentlyInCreation</strong>: &#x6B63;&#x5728;&#x521B;&#x5EFA;&#x4E2D;&#x7684;&#x5355;&#x4F8B; Bean &#x7684;&#x540D;&#x5B57;&#x7684;&#x96C6;&#x5408;</li>
+<li>&#x5728; <a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4E2D;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; bean&#x3002;&#x5982;&#x679C;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x6839;&#x636E; <a href="#singletonsCurrentlyInCreation_desc"><strong>singletonsCurrentlyInCreation</strong></a> &#x5224;&#x65AD;&#x662F;&#x5426;&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5219;&#x4ECE;&#x4E0B;&#x9762;&#x7F13;&#x5B58;&#x4E2D;&#x7EE7;&#x7EED;&#x83B7;&#x53D6;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE; <strong>Null</strong>&#x3002;</li>
+<li><strong>Lock</strong>: <a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;&#x3002;</li>
+<li>&#x5728; <a href="#earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></a> &#x4E2D;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; bean&#x3002;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x5230;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x7EE7;&#x7EED;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</li>
+<li>&#x5728; <a href="#singletonFactories_desc"><strong>singletonFactories</strong></a> &#x4E2D;&#x83B7;&#x53D6;&#x5176;&#x5BF9;&#x8C61;&#x5DE5;&#x5382; <strong>ObjectFactory</strong>&#xFF0C;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#xFF0C;&#x5219;&#x901A;&#x8FC7; <strong>ObjectFactory#get()</strong> &#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316; bean &#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x5230; <a href="#earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></a> &#x4E2D;&#xFF0C;&#x4ECE; <a href="#singletonFactories_desc"><strong>singletonFactories</strong></a> &#x4E2D;&#x79FB;&#x9664;&#x5BF9;&#x5E94;&#x7684; <strong>ObjectFactory</strong>&#x3002;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x5316;&#x7684; bean&#x3002;&#x5426;&#x5219;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE; <strong>Null</strong>&#x3002;</li>
 </ul>
-<h4 id="singletonobjects-&#x4E0E;-earlysingletonobjects-&#x7684;&#x533A;&#x522B;"><span id="singletonObjects_diff_with_earlySingletonObjects"><strong>singletonObjects</strong> &#x4E0E; <strong>earlySingletonObjects</strong> &#x7684;&#x533A;&#x522B;</span></h4>
-<p>&#x5B83;&#x4E0E; <strong>singletonObjects</strong> &#x7684;&#x533A;&#x522B;&#x533A;&#x522B;&#x5728;&#x4E8E; <strong>earlySingletonObjects</strong> &#x4E2D;&#x5B58;&#x653E;&#x7684; bean &#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x3002;&#x4ECE; <strong>getSingleton(String)</strong> &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#xFF0C;bean &#x5728;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x5DF2;&#x7ECF;&#x52A0;&#x5165;&#x5230; <strong>earlySingletonObjects</strong> &#x4E2D;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x5728; bean &#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>getBean()</code> &#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;&#x8FD9;&#x4E2A; Map &#x4E5F;&#x662F;&#x89E3;&#x51B3;&#x3010;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3011;&#x7684;&#x5173;&#x952E;&#x6240;&#x5728;&#x3002;</p>
+<h3 id="getmergedlocalbeandefinition-&#x83B7;&#x53D6;-rootbeandefinition"><span id="method_getMergedLocalBeanDefinition">getMergedLocalBeanDefinition() &#x83B7;&#x53D6; RootBeanDefinition</span></h3>
+<h3 id="&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316;&#x8FC7;&#x7A0B;"><span id="getSingleton">&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316;&#x8FC7;&#x7A0B;</span></h3>
+<ul>
+<li>&#x5B9E;&#x4F8B;&#x5316;&#x533F;&#x540D; <strong>ObjectFactory</strong> &#x5BF9;&#x8C61;&#xFF0C;&#x4F5C;&#x4E3A; <code>getSingleton()</code> &#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li><a href="#method_getSingleton_main_process"><strong><code>getSingleton()</code></strong></a> &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;: &#x83B7;&#x53D6;&#x5355;&#x4F8B; bean &#x5B9E;&#x4F8B;&#x3002;</li>
+<li><a href="#method_getObjectForBeanInstance_main_process"><strong><code>getObjectForBeanInstance()</code></strong></a> &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;: &#x6839;&#x636E;&#x6307;&#x5B9A; beanName &#x8FD4;&#x56DE;&#x9700;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x3002;(beanName -&gt; &quot;&amp;beanName&quot;&#xFF0C;&#x8FD9;&#x79CD;&#x8FD9;&#x662F;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5DE5;&#x5382;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5DE5;&#x5382;&#x7C7B;&#x521B;&#x5EFA;&#x7684; bean)</li>
+</ul>
+<h4 id="getsingleton-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_getSingleton_main_process">getSingleton() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h4>
+<ul>
+<li><strong>Lock</strong>: <a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;</li>
+<li><strong>&#x53CC;&#x91CD;&#x5224;&#x65AD;</strong>&#xFF0C;&#x4ECE; <a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4E2D;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; bean&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x7EE7;&#x7EED;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</li>
+<li><strong><code>beforeSingletonCreation</code></strong>: &#x52A0;&#x8F7D;&#x524D;&#x7F6E;&#x5904;&#x7406;&#x3002;</li>
+<li><code>ObjectFactory#getObject()</code>: &#x8C03;&#x7528;&#x5176;&#x5165;&#x53C2;&#x4E2D;&#x7684; <strong>ObjectFactory</strong> &#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x3002;&#x5176; <code>getObject()</code> &#x65B9;&#x6CD5;&#x5728;&#x524D;&#x9762;&#x533F;&#x540D;&#x65B9;&#x6CD5;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x8FD8;&#x662F;&#x8C03;&#x7528; <a href="#method_createBean_main_process"><strong><code>AbstractBeanFactory#createBean()</code></strong></a> &#x65B9;&#x6CD5;&#x3002; </li>
+<li><strong><code>afterSingletonCreation</code></strong>: &#x540E;&#x7F6E;&#x5904;&#x7406;</li>
+<li><a href="#method_addSingleton_main_process"><strong><code>addSingleton()</code></strong></a>: &#x52A0;&#x5165;&#x7F13;&#x5B58;&#x4E2D;</li>
+</ul>
+<h5 id="abstractbeanfactorycreatebean-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_createBean_main_process">AbstractBeanFactory#createBean() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h5>
+<ul>
+<li>&#x901A;&#x8FC7; <code>RootBeanDefinition</code> &#x5B9A;&#x4E49;&#x89E3;&#x6790;&#x51FA;&#x5B9E;&#x4F8B;&#x5316;&#x7684; <strong>Class</strong> &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x5230;&#x5B9A;&#x4E49;&#x7684; <code>RootBeanDefinition#beanClass</code> &#x4E2D;&#x3002;<ul>
+<li>&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x52A8;&#x6001;&#x89E3;&#x6790;&#x7684; class &#x65E0;&#x6CD5;&#x4FDD;&#x5B58;&#x5230;&#x5230;&#x5171;&#x4EAB;&#x7684; BeanDefinition</li>
+</ul>
+</li>
+<li><code>AbstractBeanDefinition#prepareMethodOverrides</code>: &#x9A8C;&#x8BC1;&#x548C;&#x51C6;&#x5907;&#x8986;&#x76D6;&#x65B9;&#x6CD5;</li>
+<li><code>resolveBeforeInstantiation</code>: &#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x524D;&#x7F6E;&#x5904;&#x7406;</li>
+<li><a href="#method_doCreateBean_main_process"><strong><code>doCreateBean</code></strong></a>: &#x6838;&#x5FC3;&#x903B;&#x8F91;&#xFF0C;AOP &#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;</li>
+</ul>
+<h6 id="docreatebean-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_doCreateBean_main_process">doCreateBean() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h6>
+<h5 id="addsingleton-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_addSingleton_main_process">addSingleton() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h5>
+<ul>
+<li><strong>Lock</strong>: <a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;&#x3002;</li>
+<li><a href="#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x6DFB;&#x52A0; beanName &#x2014;&#x2014;&gt; instance&#x3002;</li>
+<li><a href="#singletonFactories_desc"><strong>singletonFactories</strong></a> &#x79FB;&#x9664; beanName&#xFF1A;&#x5B9E;&#x4F8B;&#x5316;&#x5B8C;&#x6210;&#xFF0C;&#x79FB;&#x9664;&#x5176; <strong>ObjectFactory</strong>&#x3002;</li>
+<li><a href="#earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></a> &#x79FB;&#x9664; beanName: &#x5B9E;&#x4F8B;&#x5316;&#x5B8C;&#x6210;&#xFF0C;&#x79FB;&#x9664;&#x5176; bean&#x3002;</li>
+<li><a href="#registeredSingletons_desc"><strong>registeredSingletons</strong></a> &#x6DFB;&#x52A0; beanName: &#x6CE8;&#x518C;&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316; beanName</li>
+</ul>
+<h4 id="getobjectforbeaninstance-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_getObjectForBeanInstance_main_process">getObjectForBeanInstance() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h4>
 
                                 
                                 </section>
@@ -447,7 +500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spring加载Bean的过程","level":"1.3.1.1.2","depth":4,"next":{"title":"Aop","level":"1.3.1.2","depth":3,"ref":"","articles":[{"title":"Aop","level":"1.3.1.2.1","depth":4,"path":"Spring/源码/Aop/Aop.md","ref":"Spring/源码/Aop/Aop.md","articles":[]}]},"previous":{"title":"Spring  IOC 容器初始化过程_主要加载步骤","level":"1.3.1.1.1","depth":4,"path":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","ref":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","mtime":"2019-05-22T04:18:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T04:05:55.825Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spring加载Bean的过程","level":"1.3.1.1.2","depth":4,"next":{"title":"Aop","level":"1.3.1.2","depth":3,"ref":"","articles":[{"title":"Aop","level":"1.3.1.2.1","depth":4,"path":"Spring/源码/Aop/Aop.md","ref":"Spring/源码/Aop/Aop.md","articles":[]}]},"previous":{"title":"Spring  IOC 容器初始化过程_主要加载步骤","level":"1.3.1.1.1","depth":4,"path":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","ref":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","mtime":"2019-05-22T09:36:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T09:35:56.593Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -34,11 +34,11 @@
 #### <span id="method_doCreateBean_main_process">doCreateBean() 方法主流程</span>
 
 - [**factoryBeanInstanceCache**](#factoryBeanInstanceCache_desc) 中 **remove**，BeanWrapper ==> 变量 instanceWrapper。
-- 如果变量 instanceWrapper 还是为 **Null**，则通过 [**`createBeanInstance()`**](#method_createBeanInstance_main_process) 方法
+- 如果变量 instanceWrapper 还是为 **Null**，则通过 [**`createBeanInstance()`**](#method_createBeanInstance_main_process) 方法实例化一个。
 
 
 
-##### <span id="method_createBeanInstance_main_process">createBeanInstance()</span>
+##### <span id="method_createBeanInstance_main_process">createBeanInstance() 实例化 BeanWrapper</span>
 
 
 

@@ -2,6 +2,12 @@
 
 
 
+## 关键字段
+
+- <span id="factoryBeanInstanceCache_desc">**factoryBeanInstanceCache**</span>: 
+
+
+
 ## <span id="method_getSingleton_main_process">getSingleton() 方法主流程</span>
 
 主流程：<br/>

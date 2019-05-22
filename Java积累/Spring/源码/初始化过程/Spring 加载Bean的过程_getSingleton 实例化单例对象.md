@@ -29,6 +29,8 @@
 
 
 
+
+
 ### <span id="method_addSingleton_main_process">addSingleton() 方法主流程</span>
 
 - **Lock**: [**singletonObjects**](#singletonObjects_desc) 作为锁。

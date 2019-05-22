@@ -59,5 +59,5 @@
 
 
 - 实例化匿名 **ObjectFactory** 对象，作为 `getSingleton()` 的参数。
-- [**`getSingleton()`**](#method_getSingleton_main_process) 方法主流程: 获取单例 bean 实例。
+- [**`getSingleton()`**](Spring 加载Bean的过程_getSingleton 实例化单例对象.html#method_getSingleton_main_process) 方法主流程: 获取单例 bean 实例。
 - [**`getObjectForBeanInstance()`**](#method_getObjectForBeanInstance_main_process) 方法主流程: 根据指定 beanName 返回需要的实例。(beanName -> "&beanName"，这种这是直接返回工厂类，而不是工厂类创建的 bean)

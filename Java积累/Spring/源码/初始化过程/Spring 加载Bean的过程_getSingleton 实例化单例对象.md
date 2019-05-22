@@ -34,7 +34,7 @@
 #### <span id="method_doCreateBean_main_process">doCreateBean() 方法主流程</span>
 
 - [**factoryBeanInstanceCache**](#factoryBeanInstanceCache_desc) 中 **remove**，BeanWrapper ==> 变量 instanceWrapper。
-- 如果变量 
+- 如果变量 instanceWrapper 还是为 **Null**，
 
 
 

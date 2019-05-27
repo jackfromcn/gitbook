@@ -1,0 +1,984 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springSourceCode_analysis_2_80169701.html" />
+    
+    
+    <link rel="prev" href="springSourceCode_analysis_1_78368930.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../../源码/Aop/Aop.html">
+            
+                <a href="../../源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Spel.html">
+            
+                <a href="../Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="springSourceCode_analysis_1_78368930.html">
+            
+                <a href="springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.3" data-path="springSourceCode_analysis_1_80138425.html">
+            
+                <a href="springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="springSourceCode_analysis_2_80169701.html">
+            
+                <a href="springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="springSourceCode_analysis_3_80223871.html">
+            
+                <a href="springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="springSourceCode_analysis_4_80226375.html">
+            
+                <a href="springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="springSourceCode_analysis_5_80238746.html">
+            
+                <a href="springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="springSourceCode_analysis_6_80287736.html">
+            
+                <a href="springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="springSourceCode_analysis_7_80289441.html">
+            
+                <a href="springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="springSourceCode_analysis_8_80291728.html">
+            
+                <a href="springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="springSourceCode_analysis_9_80299451.html">
+            
+                <a href="springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="springSourceCode_analysis_10_80301135.html">
+            
+                <a href="springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="springSourceCode_analysis_11_80321854.html">
+            
+                <a href="springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="springSourceCode_analysis_12_80348253.html">
+            
+                <a href="springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="springSourceCode_analysis_14_80363793.html">
+            
+                <a href="springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="springSourceCode_analysis_15_80385067.html">
+            
+                <a href="springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="springSourceCode_analysis_16_80389286.md">
+            
+                <span>
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8F6C;sring&#x6E90;&#x7801;&#x89E3;&#x6790;&#x4E00;spring&#x662F;&#x600E;&#x4E48;&#x8BFB;&#x53D6;&#x914D;&#x7F6E;xml&#x6587;&#x4EF6;&#x7684;">(&#x8F6C;)Sring&#x6E90;&#x7801;&#x89E3;&#x6790;(&#x4E00;)Spring&#x662F;&#x600E;&#x4E48;&#x8BFB;&#x53D6;&#x914D;&#x7F6E;Xml&#x6587;&#x4EF6;&#x7684;</h1>
+<h2 id="spring&#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">Spring&#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<h2 id="document">Document</h2>
+<p>&#x5728; <code>XmlBeanDefinitionReader.doLoadBeanDefinitions(InputSource inputSource, Resource resource)</code> &#x65B9;&#x6CD5;&#x4E2D;&#x5C06;Xml&#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210;Document&#x5BF9;&#x8C61;; 
+<code>Document doc = doLoadDocument(inputSource, resource);</code>
+<img src="../../../images/20180428164047190.png" alt="20180428164047190"></p>
+<h2 id="element">Element</h2>
+<p>org.w3c.dom.Element &#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3; <code>public interface Element extends Node</code>
+Spring &#x4E2D; <strong>DefaultBeanDefinitionDocumentReader</strong> &#x4E2D;</p>
+<pre><code class="lang-java">    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerBeanDefinitions</span><span class="hljs-params">(Document doc, XmlReaderContext readerContext)</span> </span>{
+        <span class="hljs-keyword">this</span>.readerContext = readerContext;
+        logger.debug(<span class="hljs-string">&quot;Loading bean definitions&quot;</span>);
+        <span class="hljs-comment">// &#x4ECE;Document&#x4E2D;&#x83B7;&#x53D6;Element</span>
+        Element root = doc.getDocumentElement();
+        <span class="hljs-comment">//&#x6CE8;&#x518C;BeanDefinitions</span>
+        doRegisterBeanDefinitions(root);
+    }
+</code></pre>
+<p>&#x5728; <code>DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(Element root)</code> &#x4E2D;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doRegisterBeanDefinitions</span><span class="hljs-params">(Element root)</span> </span>{
+        BeanDefinitionParserDelegate parent = <span class="hljs-keyword">this</span>.delegate;
+
+        <span class="hljs-comment">/**
+        1.&#x6839;&#x636E;Element root&#x521B;&#x5EFA;**BeanDefinitionParserDelegate**&#x5BF9;&#x8C61;
+        2.&#x89E3;&#x6790;Xml&#x6587;&#x4EF6;&#x5934;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x914D;&#x7F6E;&#x5230; BeanDefinitionParserDelegate&#x5C5E;&#x6027;&#xFF08;DocumentDefaultsDefinition&#xFF09;defaults&#xFF1B;
+        **/</span>
+        <span class="hljs-keyword">this</span>.delegate = createDelegate(getReaderContext(), root, parent);
+        <span class="hljs-comment">//&#x6839;&#x636E;root&#x67E5;&#x8BE2; xml&#x6587;&#x4EF6;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x662F;&#x4E0D;&#x662F;public static final String BEANS_NAMESPACE_URI = &quot;http://www.springframework.org/schema/beans&quot;;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.delegate.isDefaultNamespace(root)) {
+            <span class="hljs-comment">//&#x7701;&#x7565;.....</span>
+        }
+        <span class="hljs-comment">//&#x9ED8;&#x8BA4;&#x7A7A;&#x5B9E;&#x73B0; &#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x81EA;&#x5B9A;&#x4E49;xml&#x6587;&#x4EF6;</span>
+        preProcessXml(root);
+        parseBeanDefinitions(root, <span class="hljs-keyword">this</span>.delegate);
+        <span class="hljs-comment">//&#x9ED8;&#x8BA4;&#x7A7A;&#x5B9E;&#x73B0; &#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x81EA;&#x5B9A;&#x4E49;xml&#x6587;&#x4EF6;</span>
+        postProcessXml(root);
+
+        <span class="hljs-keyword">this</span>.delegate = parent;
+    }
+</code></pre>
+<p><code>this.delegate = createDelegate(getReaderContext(), root, parent);</code> &#x91CC;&#x9762;&#x8C03;&#x7528; <strong>BeanDefinitionParserDelegate.initDefaults</strong> &#x65B9;&#x6CD5; </p>
+<ol>
+<li>&#x521D;&#x59CB;&#x5316;&#x5C5E;&#x6027;&#x503C; <code>private final DocumentDefaultsDefinition defaults = new DocumentDefaultsDefinition();</code></li>
+<li><p>TODO&#x2026;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initDefaults</span><span class="hljs-params">(Element root, BeanDefinitionParserDelegate parent)</span> </span>{
+     <span class="hljs-comment">// this.defaults &#x662F;&#x4E00;&#x4E2A;DocumentDefaultsDefinition&#x5BF9;&#x8C61;&#xFF1B;</span>
+     populateDefaults(<span class="hljs-keyword">this</span>.defaults, (parent != <span class="hljs-keyword">null</span> ? parent.defaults : <span class="hljs-keyword">null</span>), root);
+     <span class="hljs-keyword">this</span>.readerContext.fireDefaultsRegistered(<span class="hljs-keyword">this</span>.defaults);
+ }
+</code></pre>
+<p><strong>BeanDefinitionParserDelegate.populateDefaults</strong> &#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x662F;&#x8BB2; xml &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x8F6C;&#x6362;&#x6210; <strong>DocumentDefaultsDefinition</strong> &#x5BF9;&#x8C61;&#xFF1B; 
+&#x4F8B;&#x5982;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span>
+ <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span>
+ <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd&quot;</span>
+ <span class="hljs-attr">default-autowire</span>=<span class="hljs-string">&quot;byName&quot;</span> <span class="hljs-attr">default-lazy-init</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">default-dependency-check</span>=<span class="hljs-string">&quot;all&quot;</span> &gt;</span>
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">//parentDefaults&#x662F;&#x7236;&#x7C7B;&#x7684;DocumentDefaultsDefinition&#x5BF9;&#x8C61;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">populateDefaults</span><span class="hljs-params">(DocumentDefaultsDefinition defaults, DocumentDefaultsDefinition parentDefaults, Element root)</span> </span>{
+     <span class="hljs-comment">//&#x67E5;&#x770B;xml&#x6587;&#x4EF6;&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;default-lazy-init &#x503C;&#xFF1B;(&#x5982;&#x679C;xml&#x6CA1;&#x6709;&#x663E;&#x793A;&#x914D;&#x7F6E; &#x5219;&#x5B83;&#x7684;&#x503C;&#x4E3A; default)&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</span>
+     String lazyInit = root.getAttribute(DEFAULT_LAZY_INIT_ATTRIBUTE);
+     <span class="hljs-keyword">if</span> (DEFAULT_VALUE.equals(lazyInit)) {
+         <span class="hljs-comment">//&#x5982;&#x679C;&#x6709;&#x7236;&#x7C7B;,&#x5219;&#x4EE5;&#x7236;&#x7C7B;&#x7684;&#x4E3A;&#x51C6;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x8FD4;&#x56DE;false&#x3002;</span>
+         lazyInit = (parentDefaults != <span class="hljs-keyword">null</span> ? parentDefaults.getLazyInit() : FALSE_VALUE);
+     }
+     defaults.setLazyInit(lazyInit);
+     <span class="hljs-comment">//default-autowire-candidates</span>
+     String merge = root.getAttribute(DEFAULT_MERGE_ATTRIBUTE);
+     <span class="hljs-keyword">if</span> (DEFAULT_VALUE.equals(merge)) {
+         <span class="hljs-comment">// Potentially inherited from outer &lt;beans&gt; sections, otherwise falling back to false.</span>
+         merge = (parentDefaults != <span class="hljs-keyword">null</span> ? parentDefaults.getMerge() : FALSE_VALUE);
+     }
+     defaults.setMerge(merge);
+     <span class="hljs-comment">//default-autowire</span>
+     String autowire = root.getAttribute(DEFAULT_AUTOWIRE_ATTRIBUTE);
+     <span class="hljs-keyword">if</span> (DEFAULT_VALUE.equals(autowire)) {
+         <span class="hljs-comment">// Potentially inherited from outer &lt;beans&gt; sections, otherwise falling back to &apos;no&apos;.</span>
+         autowire = (parentDefaults != <span class="hljs-keyword">null</span> ? parentDefaults.getAutowire() : AUTOWIRE_NO_VALUE);
+     }
+     defaults.setAutowire(autowire);
+
+     <span class="hljs-comment">// Don&apos;t fall back to parentDefaults for dependency-check as it&apos;s no longer supported in</span>
+     <span class="hljs-comment">// &lt;beans&gt; as of 3.0. Therefore, no nested &lt;beans&gt; would ever need to fall back to it.</span>
+     defaults.setDependencyCheck(root.getAttribute(DEFAULT_DEPENDENCY_CHECK_ATTRIBUTE));
+
+     <span class="hljs-keyword">if</span> (root.hasAttribute(DEFAULT_AUTOWIRE_CANDIDATES_ATTRIBUTE)) {
+         defaults.setAutowireCandidates(root.getAttribute(DEFAULT_AUTOWIRE_CANDIDATES_ATTRIBUTE));
+     }
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parentDefaults != <span class="hljs-keyword">null</span>) {
+         defaults.setAutowireCandidates(parentDefaults.getAutowireCandidates());
+     }
+
+     <span class="hljs-keyword">if</span> (root.hasAttribute(DEFAULT_INIT_METHOD_ATTRIBUTE)) {
+         defaults.setInitMethod(root.getAttribute(DEFAULT_INIT_METHOD_ATTRIBUTE));
+     }
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parentDefaults != <span class="hljs-keyword">null</span>) {
+         defaults.setInitMethod(parentDefaults.getInitMethod());
+     }
+
+     <span class="hljs-keyword">if</span> (root.hasAttribute(DEFAULT_DESTROY_METHOD_ATTRIBUTE)) {
+         defaults.setDestroyMethod(root.getAttribute(DEFAULT_DESTROY_METHOD_ATTRIBUTE));
+     }
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parentDefaults != <span class="hljs-keyword">null</span>) {
+         defaults.setDestroyMethod(parentDefaults.getDestroyMethod());
+     }
+     <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#xFF1F;&#xFF1F;&#xFF1F;</span>
+     defaults.setSource(<span class="hljs-keyword">this</span>.readerContext.extractSource(root));
+ }
+</code></pre>
+</li>
+</ol>
+<h2 id="documentdefaultsdefinition">DocumentDefaultsDefinition</h2>
+<blockquote>
+<p>DocumentDefaultsDefinition(&#x6587;&#x6863;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x5B9A;&#x4E49;)&#x4FDD;&#x5B58;&#x4E86; &#x6807;&#x51C6;&#x7684;Spring Xml&#x6587;&#x4EF6;&#x4E2D;&#x7684; {@code beans} &#x5C42;&#x7EA7;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x662F;&#x5F53;&#x524D;Xml&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x5168;&#x5C40;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x4F8B;&#x5982; { @code default-lazy-init },{ @code default-autowire },&#x7B49;&#x7B49;&#x3002;</p>
+</blockquote>
+<p>&#x4F8B;&#x5982;:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span>
+    <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span>
+    <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd&quot;</span>
+    <span class="hljs-attr">default-autowire</span>=<span class="hljs-string">&quot;byName&quot;</span> <span class="hljs-attr">default-lazy-init</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">default-dependency-check</span>=<span class="hljs-string">&quot;all&quot;</span> &gt;</span>
+</code></pre>
+<h2 id="defaultsdefinition">DefaultsDefinition</h2>
+<blockquote>
+<p>&#x9ED8;&#x8BA4;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x8BB0;&#x63A5;&#x53E3;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5B9A;&#x4E49; &#xFF0C;&#x53EA;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x6807;&#x8BB0;&#x4E00;&#x4E0B;&#xFF1B;&#x7EE7;&#x627F;BeanMetadataElement&#x7C7B;&#xFF1B;&#x901A;&#x5E38;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#xFF08;&#x4F8B;&#x5982;DocumentDefaultsDefinition&#xFF09;&#x662F;&#x57FA;&#x4E8E;&#x6587;&#x6863;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#x5728;&#x4E00;&#x4E2A;XML&#x6587;&#x6863;&#x6839;&#x6807;&#x8BB0;&#x7EA7;&#x522B;&#x6765;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x503C;</p>
+</blockquote>
+<h2 id="beanmetadataelement">BeanMetadataElement</h2>
+<blockquote>
+<p>&#x9700;&#x8981;&#x88AB;&#x5B9E;&#x73B0;&#x7684;&#x5143;&#x6570;&#x636E;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;Object getSource()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6E90;&#x5BF9;&#x8C61;
+```java
+public class DocumentDefaultsDefinition implements DefaultsDefinition {
+    //&#x521D;&#x59CB;&#x5316;&#x61D2;&#x52A0;&#x8F7D;
+    private String lazyInit;
+    //
+    private String merge;
+    // &#x81EA;&#x52A8;&#x88C5;&#x8F7D;&#x7684;&#x7C7B;&#x578B; 
+    private String autowire;
+    //
+    private String dependencyCheck;</p>
+</blockquote>
+<pre><code>private String autowireCandidates;
+//&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;
+private String initMethod;
+//&#x9500;&#x6BC1;&#x65B9;&#x6CD5;
+private String destroyMethod;
+//&#x8FD4;&#x56DE;&#x914D;&#x7F6E;&#x6E90;&#x5BF9;&#x8C61;
+private Object source;
+//&#x7701;&#x7565; get set ......
+</code></pre><p>}</p>
+<pre><code>default-autowire&#x548C;autowire&#x7684;&#x53EF;&#x9009;&#x503C;
+
+| &#x53EF;&#x9009;&#x503C;      | &#x529F;&#x80FD;&#x8BF4;&#x660E;                                                     |
+| ----------- | ------------------------------------------------------------ |
+| no          | &#x9ED8;&#x8BA4;&#x4E0D;&#x4F7F;&#x7528;autowiring&#x3002; &#x5FC5;&#x987B;&#x663E;&#x793A;&#x7684;&#x4F7F;&#x7528;&#x201D;&#x201C;&#x6807;&#x7B7E;&#x660E;&#x786E;&#x5730;&#x6307;&#x5B9A;bean&#x3002;  |
+| byName      | &#x6839;&#x636E;&#x5C5E;&#x6027;&#x540D;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;&#x6B64;&#x9009;&#x9879;&#x5C06;&#x68C0;&#x67E5;&#x5BB9;&#x5668;&#x5E76;&#x6839;&#x636E;&#x540D;&#x5B57;&#x67E5;&#x627E;&#x4E0E;&#x5C5E;&#x6027;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x7684;bean&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4E0E;&#x5C5E;&#x6027;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002; |
+| byType      | &#x5982;&#x679C;&#x5BB9;&#x5668;&#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x4E0E;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x7684;bean&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4E0E;&#x8BE5;&#x5C5E;&#x6027;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;&#x5982;&#x679C;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x8BE5;&#x7C7B;&#x578B;&#x7684;bean&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x6307;&#x51FA;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;byType&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;&#x82E5;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x76F8;&#x5339;&#x914D;&#x7684;bean&#xFF0C;&#x5219;&#x4EC0;&#x4E48;&#x4E8B;&#x90FD;&#x4E0D;&#x53D1;&#x751F;&#xFF0C;&#x5C5E;&#x6027;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x5E0C;&#x671B;&#x8FD9;&#x6837;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; dependency-check=&#x201D;objects&#x201D;&#x8BA9;Spring&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002; |
+| constructor | &#x4E0E;byType&#x7684;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#x5B83;&#x5E94;&#x7528;&#x4E8E;&#x6784;&#x9020;&#x5668;&#x53C2;&#x6570;&#x3002;&#x5982;&#x679C;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x4E0E;&#x6784;&#x9020;&#x5668;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E00;&#x81F4;&#x7684;bean&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002; |
+| autodetect  | &#x901A;&#x8FC7;bean&#x7C7B;&#x7684;&#x81EA;&#x7701;&#x673A;&#x5236;&#xFF08;introspection&#xFF09;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x4F7F;&#x7528;constructor&#x8FD8;&#x662F;byType&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F7F;&#x7528;byType&#x65B9;&#x5F0F;&#x3002; |
+
+&#x89E3;&#x6790;&#x5B8C;&#x4E86;&#x4E00;&#x4E9B;xml&#x4E2D;Element&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x89E3;&#x6790;Element&#x4E2D;&#x7684;&#x5B50;&#x5C5E;&#x6027;&#x4E86; 
+`DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(root, this.delegate);`
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x91CC;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x770B; `delegate.parseCustomElement(ele);`
+```java
+    public BeanDefinition parseCustomElement(Element ele, BeanDefinition containingBd) {
+        //&#x83B7;&#x53D6;&#x547D;&#x540D;&#x7A7A;&#x95F4;
+        String namespaceUri = getNamespaceURI(ele);
+        //&#x6839;&#x636E;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5F97;&#x5230;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x5904;&#x7406;&#x7C7B;handler  &#x5982;&#x679C;&#x662F;dubbo&#x7684;uri &#x5219;&#x8FD4;&#x56DE;&#x7684;&#x5C31;&#x662F;DubboNamespaceHandler
+        //&#x4ED6;&#x4EEC;&#x90FD;&#x7EE7;&#x627F;&#x81EA;NamespaceHandlerSupport implements NamespaceHandler 
+        //&#x91CC;&#x9762;&#x6709;&#x8C03;&#x7528;&#x4E86;hander&#x7684;init()...
+        NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
+        if (handler == null) {
+            error(&quot;Unable to locate Spring NamespaceHandler for XML schema namespace [&quot; + namespaceUri + &quot;]&quot;, ele);
+            return null;
+        }
+        //1.&#x6839;&#x636E;Element&#x7684;getLocalName()&#x5F97;&#x5230;Element&#x7684;name&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x8FD9;&#x4E2A;name&#x53BB;NamespaceHandlerSupport&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x4E3A;private final Map&lt;String, BeanDefinitionParser&gt; parsers ;&#x4E2D;&#x67E5;&#x627E;&#x5BF9;&#x5E94;&#x7684;&#x89E3;&#x6790;&#x5668;&#xFF1B;&#x8FD9;&#x4E2A;&#x89E3;&#x6790;&#x5668;&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x653E;&#x5230;&#x8FD9;&#x4E2A;map&#x91CC;&#x9762;&#x7684;&#x5462;&#xFF1F;TODO...
+        //2.&#x6839;&#x636E;&#x5BF9;&#x5E94;&#x7684;&#x89E3;&#x6790;&#x5668;&#x8C03;&#x7528;  .parse(element,parserContext)&#x8FDB;&#x884C;&#x89E3;&#x6790;   
+        return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
+    }
+</code></pre><p>&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x5355;&#x72EC;&#x89E3;&#x6790;&#x4E00;&#x4E0B; 
+<code>NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri)</code>
+&#x9996;&#x5148;&#x4E86;&#x89E3;&#x4E00;&#x4E0B; <code>this.readerContext&#x662F;BeanDefinitionParserDelegate</code> &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027; 
+<code>private final XmlReaderContext readerContext;</code></p>
+<h2 id="xmlreadercontext">XmlReaderContext</h2>
+<blockquote>
+<p>&#x7EE7;&#x627F;&#x4E86;ReaderContext&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x4E86; &#x5BF9;XmlBeanDefinitionReader &#x548C; NamespaceHandlerResolver&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF1B;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XmlReaderContext</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ReaderContext</span> </span>{
+    <span class="hljs-comment">//&#x53EF;&#x4EE5;&#x770B;&#x5230; &#x65B9;&#x6CD5;&#x6743;&#x9650;&#x662F;private &#x7684;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> XmlBeanDefinitionReader reader;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> NamespaceHandlerResolver namespaceHandlerResolver;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">XmlReaderContext</span><span class="hljs-params">(
+            Resource resource, ProblemReporter problemReporter,
+            ReaderEventListener eventListener, SourceExtractor sourceExtractor,
+            XmlBeanDefinitionReader reader, NamespaceHandlerResolver namespaceHandlerResolver)</span> </span>{
+
+        <span class="hljs-keyword">super</span>(resource, problemReporter, eventListener, sourceExtractor);
+        <span class="hljs-keyword">this</span>.reader = reader;
+        <span class="hljs-keyword">this</span>.namespaceHandlerResolver = namespaceHandlerResolver;
+    }
+    <span class="hljs-comment">//&#x4F46;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x8BBF;&#x95EE;&#x7684;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> XmlBeanDefinitionReader <span class="hljs-title">getReader</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> BeanDefinitionRegistry <span class="hljs-title">getRegistry</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.getRegistry();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> ResourceLoader <span class="hljs-title">getResourceLoader</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.getResourceLoader();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> ClassLoader <span class="hljs-title">getBeanClassLoader</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.getBeanClassLoader();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Environment <span class="hljs-title">getEnvironment</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.getEnvironment();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> NamespaceHandlerResolver <span class="hljs-title">getNamespaceHandlerResolver</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.namespaceHandlerResolver;
+    }
+        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">generateBeanName</span><span class="hljs-params">(BeanDefinition beanDefinition)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.getBeanNameGenerator().generateBeanName(beanDefinition, getRegistry());
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">registerWithGeneratedName</span><span class="hljs-params">(BeanDefinition beanDefinition)</span> </span>{
+        String generatedName = generateBeanName(beanDefinition);
+        getRegistry().registerBeanDefinition(generatedName, beanDefinition);
+        <span class="hljs-keyword">return</span> generatedName;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Document <span class="hljs-title">readDocumentFromString</span><span class="hljs-params">(String documentContent)</span> </span>{
+        InputSource is = <span class="hljs-keyword">new</span> InputSource(<span class="hljs-keyword">new</span> StringReader(documentContent));
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reader.doLoadDocument(is, getResource());
+        }
+        <span class="hljs-keyword">catch</span> (Exception ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(<span class="hljs-string">&quot;Failed to read XML document&quot;</span>, ex);
+        }
+    }
+</code></pre>
+<p>1.&#x90A3;XmlReaderContext&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x987A;&#x7740;XmlReaderContext&#x4E86;&#x89E3;&#x4E00;&#x4E0B; 
+&#x2460;. XmlBeanDefinitionReader.registerBeanDefinitions&#x4E2D;&#x88AB;&#x521B;&#x5EFA;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">registerBeanDefinitions</span><span class="hljs-params">(Document doc, Resource resource)</span> <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>{
+        BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
+        <span class="hljs-keyword">int</span> countBefore = getRegistry().getBeanDefinitionCount();
+        <span class="hljs-comment">//&#x521B;&#x5EFA;XmlReaderContext&#xFF0C;&#x7136;&#x540E;&#x8D4B;&#x503C;&#x7ED9;BeanDefinitionDocumentReader&#x4E2D;readerContext&#x5C5E;&#x6027;&#x4E2D;</span>
+        documentReader.registerBeanDefinitions(doc, createReaderContext(resource));
+        <span class="hljs-keyword">return</span> getRegistry().getBeanDefinitionCount() - countBefore;
+    }
+<span class="hljs-function"><span class="hljs-keyword">public</span> XmlReaderContext <span class="hljs-title">createReaderContext</span><span class="hljs-params">(Resource resource)</span> </span>{
+        <span class="hljs-comment">//this &#x6700;&#x540E;&#x5C31;&#x662F; XmlReaderContext&#x4E2D;&#x7684;XmlBeanDefinitionReader&#x5C5E;&#x6027;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> XmlReaderContext(resource, <span class="hljs-keyword">this</span>.problemReporter, <span class="hljs-keyword">this</span>.eventListener,
+                <span class="hljs-keyword">this</span>.sourceExtractor, <span class="hljs-keyword">this</span>, getNamespaceHandlerResolver());
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> NamespaceHandlerResolver <span class="hljs-title">getNamespaceHandlerResolver</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.namespaceHandlerResolver == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.namespaceHandlerResolver = createDefaultNamespaceHandlerResolver();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.namespaceHandlerResolver;
+    }
+    <span class="hljs-comment">/**
+    *&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5219;&#x521B;&#x5EFA; &#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x8FD4;&#x56DE;
+    * &#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;DefaultNamespaceHandlerResolver&#x4E2D;&#x7684;handlerMappingsLocation&#x5C5E;&#x6027;&#xFF08;Resource location to search for&#xFF09;=META-INF/spring.handlers
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> NamespaceHandlerResolver <span class="hljs-title">createDefaultNamespaceHandlerResolver</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultNamespaceHandlerResolver(getResourceLoader().getClassLoader());
+    }
+</code></pre>
+<p>&#x2461;.&#x521B;&#x5EFA;&#x540E;&#x7684;XmlReaderContext&#x88AB;&#x5F53;&#x505A; BeanDefinitionParserDelegate &#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x6765;&#x521B;&#x5EFA;BeanDefinitionParserDelegate&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doRegisterBeanDefinitions</span><span class="hljs-params">(Element root)</span> </span>{
+        BeanDefinitionParserDelegate parent = <span class="hljs-keyword">this</span>.delegate;
+        <span class="hljs-keyword">this</span>.delegate = createDelegate(getReaderContext(), root, parent); 
+        <span class="hljs-comment">//&#x7701;&#x7565;.....</span>
+
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="springSourceCode_analysis_1_78368930.html" class="navigation navigation-prev " aria-label="Previous page: (转)spring源码分析(一)IOC管理Bean">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springSourceCode_analysis_2_80169701.html" class="navigation navigation-next " aria-label="Next page: (转)Spring源码分析(二)Spring怎么扩展解析xml接口的">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的","level":"1.3.2.3","depth":3,"next":{"title":"(转)Spring源码分析(二)Spring怎么扩展解析xml接口的","level":"1.3.2.4","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.md","articles":[]},"previous":{"title":"(转)spring源码分析(一)IOC管理Bean","level":"1.3.2.2","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md","mtime":"2019-05-24T08:52:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

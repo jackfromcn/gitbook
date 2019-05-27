@@ -1,0 +1,850 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(转)Spring源码解析(十四)Spring调用初始化方法initializeBean · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springSourceCode_analysis_15_80385067.html" />
+    
+    
+    <link rel="prev" href="springSourceCode_analysis_12_80348253.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../../源码/Aop/Aop.html">
+            
+                <a href="../../源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Spel.html">
+            
+                <a href="../Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="springSourceCode_analysis_1_78368930.html">
+            
+                <a href="springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="springSourceCode_analysis_1_80138425.html">
+            
+                <a href="springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="springSourceCode_analysis_2_80169701.html">
+            
+                <a href="springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="springSourceCode_analysis_3_80223871.html">
+            
+                <a href="springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="springSourceCode_analysis_4_80226375.html">
+            
+                <a href="springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="springSourceCode_analysis_5_80238746.html">
+            
+                <a href="springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="springSourceCode_analysis_6_80287736.html">
+            
+                <a href="springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="springSourceCode_analysis_7_80289441.html">
+            
+                <a href="springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="springSourceCode_analysis_8_80291728.html">
+            
+                <a href="springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="springSourceCode_analysis_9_80299451.html">
+            
+                <a href="springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="springSourceCode_analysis_10_80301135.html">
+            
+                <a href="springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="springSourceCode_analysis_11_80321854.html">
+            
+                <a href="springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="springSourceCode_analysis_12_80348253.html">
+            
+                <a href="springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.15" data-path="springSourceCode_analysis_14_80363793.html">
+            
+                <a href="springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="springSourceCode_analysis_15_80385067.html">
+            
+                <a href="springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="springSourceCode_analysis_16_80389286.md">
+            
+                <span>
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >(转)Spring源码解析(十四)Spring调用初始化方法initializeBean</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8F6C;spring&#x6E90;&#x7801;&#x89E3;&#x6790;&#x5341;&#x56DB;spring&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;initializebean">(&#x8F6C;)Spring&#x6E90;&#x7801;&#x89E3;&#x6790;(&#x5341;&#x56DB;)Spring&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;initializeBean</h1>
+<p>&#x5728;&#x6267;&#x884C;&#x5B8C;&#x586B;&#x5145;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;populateBean(beanName, mbd, instanceWrapper)&#x4E4B;&#x540E;,&#x5C31;&#x8981;&#x6267;&#x884C;&#x521D;&#x59CB;&#x5316;initializeBean&#x65B9;&#x6CD5;&#x4E86;; 
+show the code:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">initializeBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> Object bean, RootBeanDefinition mbd)</span> </span>{
+        <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {
+            AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedAction&lt;Object&gt;() {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                    invokeAwareMethods(beanName, bean);
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                }
+            }, getAccessControlContext());
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">//&#x8C03;&#x7528;&#x6240;&#x6709;BeanNameAware&#x3001;BeanClassLoaderAware&#x3001;BeanFactoryAware&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</span>
+            invokeAwareMethods(beanName, bean);
+        }
+
+        Object wrappedBean = bean;
+        <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span> || !mbd.isSynthetic()) {
+            <span class="hljs-comment">//&#x6267;&#x884C;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x524D;&#x7684; &#x524D;&#x7F6E;&#x64CD;&#x4F5C;  https://blog.csdn.net/u010634066/article/details/80291728</span>
+            wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
+        }
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">//&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</span>
+            invokeInitMethods(beanName, wrappedBean, mbd);
+        }
+        <span class="hljs-keyword">catch</span> (Throwable ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(
+                    (mbd != <span class="hljs-keyword">null</span> ? mbd.getResourceDescription() : <span class="hljs-keyword">null</span>),
+                    beanName, <span class="hljs-string">&quot;Invocation of init method failed&quot;</span>, ex);
+        }
+
+        <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span> || !mbd.isSynthetic()) {
+        <span class="hljs-comment">//&#x6267;&#x884C;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x7684; &#x540E;&#x7F6E;&#x64CD;&#x4F5C;  https://blog.csdn.net/u010634066/article/details/80291728</span>
+            wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+        }
+        <span class="hljs-keyword">return</span> wrappedBean;
+    }
+</code></pre>
+<h2 id="aware&#x63A5;&#x53E3;">Aware&#x63A5;&#x53E3;</h2>
+<p>&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x63A5;&#x53E3;,&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF1B;&#x5B83;&#x8868;&#x793A;bean&#x5BF9;IOC&#x5BB9;&#x5668;&#x7684;&#x4E00;&#x4E2A;&#x611F;&#x77E5;&#x80FD;&#x529B;</p>
+<h2 id="beannameaware">BeanNameAware</h2>
+<h2 id="beanclassloaderaware">BeanClassLoaderAware</h2>
+<h2 id="beanfactoryaware">BeanFactoryAware</h2>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x90FD;&#x7EE7;&#x627F;Aware&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x5206;&#x522B;&#x5BF9;&#x5E94; 
+<code>void setBeanName(String name);</code>
+<code>void setBeanClassLoader(ClassLoader classLoader);</code>
+<code>void setBeanFactory(BeanFactory beanFactory) throws BeansException;</code>
+&#x90FD;&#x662F;spring&#x5C06;&#x6570;&#x636E;&#x66B4;&#x9732;&#x51FA;&#x53BB;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;;&#x6211;&#x4EEC;&#x5728;&#x81EA;&#x5DF1;&#x7684;bean&#x4E2D;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1B;&#x5C31;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5F15;&#x7528;&#x4E86;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestBeanFactoryAware</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeanFactoryAware</span> </span>{
+    <span class="hljs-keyword">private</span> BeanFactory beanFactory ;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setBeanFactory</span><span class="hljs-params">(BeanFactory beanFactory)</span> <span class="hljs-keyword">throws</span> BeansException </span>{
+        <span class="hljs-keyword">this</span>.beanFactory = beanFactory ;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> BeanFactory <span class="hljs-title">getBeanFactory</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> beanFactory;
+    }
+}
+</code></pre>
+<p>&#x4E3B;&#x8981;&#x5206;&#x6790;&#x4E00;&#x4E0B;invokeInitMethods&#x65B9;&#x6CD5;</p>
+<h2 id="initializingbean&#x63A5;&#x53E3;">InitializingBean&#x63A5;&#x53E3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5; 
+<code>void afterPropertiesSet() throws Exception;</code>
+&#x5B83;&#x7684;&#x4E3B;&#x8981;&#x8C03;&#x7528;&#x65F6;&#x673A; 
+Aware&#x611F;&#x77E5;&#x63A5;&#x53E3; - &gt; postProcessBeforeInitialization -&gt;afterPropertiesSet</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">invokeInitMethods</span><span class="hljs-params">(String beanName, <span class="hljs-keyword">final</span> Object bean, RootBeanDefinition mbd)</span>
+            <span class="hljs-keyword">throws</span> Throwable </span>{
+
+        <span class="hljs-keyword">boolean</span> isInitializingBean = (bean <span class="hljs-keyword">instanceof</span> InitializingBean);
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x5F53;&#x524D;bean&#x662F; InitializingBean&#x7C7B;&#x578B;&#x7684;&amp;&amp;afterPropertiesSet&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x6CE8;&#x518C;&#x4E3A;&#x5916;&#x90E8;&#x7BA1;&#x7406;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</span>
+            <span class="hljs-comment">//&#x5C31;&#x56DE;&#x8C03;afterPropertiesSet&#x65B9;&#x6CD5;</span>
+        <span class="hljs-keyword">if</span> (isInitializingBean &amp;&amp; (mbd == <span class="hljs-keyword">null</span> || !mbd.isExternallyManagedInitMethod(<span class="hljs-string">&quot;afterPropertiesSet&quot;</span>))) {
+            <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+                logger.debug(<span class="hljs-string">&quot;Invoking afterPropertiesSet() on bean with name &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+            <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">try</span> {
+                    AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedExceptionAction&lt;Object&gt;() {
+                        <span class="hljs-meta">@Override</span>
+                        <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+                            ((InitializingBean) bean).afterPropertiesSet();
+                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                        }
+                    }, getAccessControlContext());
+                }
+                <span class="hljs-keyword">catch</span> (PrivilegedActionException pae) {
+                    <span class="hljs-keyword">throw</span> pae.getException();
+                }
+            }
+            <span class="hljs-keyword">else</span> {
+                ((InitializingBean) bean).afterPropertiesSet();
+            }
+        }
+
+        <span class="hljs-keyword">if</span> (mbd != <span class="hljs-keyword">null</span>) {
+
+            String initMethodName = mbd.getInitMethodName();
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;initMethod&#x65B9;&#x6CD5;&#x7684;&#x8BDD;&#x4E5F;&#x4F1A;&#x6267;&#x884C;&#x7528;&#x6237;&#x914D;&#x7F6E;&#x7684;&#x521D;&#x59CB;&#x8BDD;&#x65B9;&#x6CD5;</span>
+            <span class="hljs-comment">//&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E0D;&#x662F; InitializingBean&#x7C7B;&#x578B;&#x548C;&#x4E0D;&#x662F;afterPropertiesSet&#x65B9;&#x6CD5; &#xFF1B;</span>
+            <span class="hljs-comment">//&#x624D;&#x80FD;&#x6267;&#x884C;&#x7528;&#x6237;&#x914D;&#x7F6E;&#x7684;&#x65B9;&#x6CD5;</span>
+            <span class="hljs-keyword">if</span> (initMethodName != <span class="hljs-keyword">null</span> &amp;&amp; !(isInitializingBean &amp;&amp; <span class="hljs-string">&quot;afterPropertiesSet&quot;</span>.equals(initMethodName)) &amp;&amp;
+                    !mbd.isExternallyManagedInitMethod(initMethodName)) {
+                invokeCustomInitMethod(beanName, bean, mbd);
+            }
+        }
+    }
+</code></pre>
+<p>&#x6267;&#x884C;&#x7528;&#x6237;&#x914D;&#x7F6E;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">invokeCustomInitMethod</span><span class="hljs-params">(String beanName, <span class="hljs-keyword">final</span> Object bean, RootBeanDefinition mbd)</span>
+            <span class="hljs-keyword">throws</span> Throwable </span>{
+        <span class="hljs-comment">//&#x7701;&#x7565;&#x90E8;&#x5206;&#x4EE3;&#x7801;...</span>
+        String initMethodName = mbd.getInitMethodName();
+        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x540D;&#x7684;  Method&#x5BF9;&#x8C61;&#xFF0C;&#x62FF;&#x5230;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C31;&#x53EF;&#x4EE5;invoke&#x8C03;&#x7528;&#x4E86;</span>
+        <span class="hljs-keyword">final</span> Method initMethod = (mbd.isNonPublicAccessAllowed() ?
+                BeanUtils.findMethod(bean.getClass(), initMethodName) :
+                ClassUtils.getMethodIfAvailable(bean.getClass(), initMethodName));
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">//&#x7ED9;&#x6743;&#x9650;</span>
+                ReflectionUtils.makeAccessible(initMethod);
+                <span class="hljs-comment">//&#x6267;&#x884C;</span>
+                initMethod.invoke(bean);
+            }
+            <span class="hljs-keyword">catch</span> (InvocationTargetException ex) {
+                <span class="hljs-keyword">throw</span> ex.getTargetException();
+            }
+
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x6574;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x6D41;&#x7A0B;&#x5982;&#x4E0B; </p>
+<ol>
+<li>&#x8C03;&#x7528;&#x5404;&#x7C7B;&#x611F;&#x77E5;Aware&#x63A5;&#x53E3; </li>
+<li>&#x6267;&#x884C;applyBeanPostProcessorsBeforeInitialization&#x521D;&#x59CB;&#x5316;&#x524D;&#x7684; &#x5904;&#x7F6E;&#x64CD;&#x4F5C; </li>
+<li>&#x8C03;&#x7528;InitializingBean&#x63A5;&#x53E3;&#x521D;&#x59CB;&#x5316; </li>
+<li>&#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86;method-init&#xFF0C;&#x5219;&#x8C03;&#x7528;&#x5176;&#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316; </li>
+<li>&#x8C03;&#x7528;applyBeanPostProcessorsAfterInitialization &#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x5904;&#x7F6E;&#x64CD;&#x4F5C;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="springSourceCode_analysis_12_80348253.html" class="navigation navigation-prev " aria-label="Previous page: (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springSourceCode_analysis_15_80385067.html" class="navigation navigation-next " aria-label="Next page: (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(转)Spring源码解析(十四)Spring调用初始化方法initializeBean","level":"1.3.2.15","depth":3,"next":{"title":"(转)Spring源码分析(十五)Spring中常用注解使用以及源码分析","level":"1.3.2.16","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.md","articles":[]},"previous":{"title":"(转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析","level":"1.3.2.14","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_14_80363793.md","mtime":"2019-05-27T07:26:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

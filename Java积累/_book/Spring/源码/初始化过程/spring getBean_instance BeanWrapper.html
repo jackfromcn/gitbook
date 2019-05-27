@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Spring 加载Bean的过程_getSingleton 实例化单例对象 · GitBook</title>
+        <title>Spring 加载Bean的过程_实例化 BeanWrapper · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="spring getBean_instance BeanWrapper.html" />
     
-    
-    <link rel="prev" href="Spring加载Bean的过程.html" />
+    <link rel="prev" href="Spring 加载Bean的过程_getSingleton 实例化单例对象.html" />
     
 
     </head>
@@ -253,7 +251,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.1.1.3" data-path="Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+        <li class="chapter " data-level="1.3.1.1.3" data-path="Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
             
                 <a href="Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
             
@@ -266,7 +264,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.1.4" data-path="spring getBean_instance BeanWrapper.html">
+        <li class="chapter active" data-level="1.3.1.1.4" data-path="spring getBean_instance BeanWrapper.html">
             
                 <a href="spring getBean_instance BeanWrapper.html">
             
@@ -609,7 +607,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Spring 加载Bean的过程_getSingleton 实例化单例对象</a>
+        <a href="../../.." >Spring 加载Bean的过程_实例化 BeanWrapper</a>
     </h1>
 </div>
 
@@ -624,71 +622,103 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="spring-&#x52A0;&#x8F7D;bean&#x7684;&#x8FC7;&#x7A0B;getsingleton-&#x5B9E;&#x4F8B;&#x5316;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;">Spring &#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;_getSingleton &#x5B9E;&#x4F8B;&#x5316;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;</h1>
-<h2 id="&#x5173;&#x952E;&#x5B57;&#x6BB5;">&#x5173;&#x952E;&#x5B57;&#x6BB5;</h2>
+                                <h1 id="spring-&#x52A0;&#x8F7D;bean&#x7684;&#x8FC7;&#x7A0B;&#x5B9E;&#x4F8B;&#x5316;-beanwrapper">Spring &#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;_&#x5B9E;&#x4F8B;&#x5316; BeanWrapper</h1>
+<blockquote>
+<p>&#x6D41;&#x7A0B;&#x90FD;&#x662F;&#x57FA;&#x4E8E; <strong>ObjectFactory</strong> &#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5185;&#x90E8;&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<h2 id="createbeaninstance-&#x5B9E;&#x4F8B;&#x5316;-beanwrapper"><span id="method_createBeanInstance_main_process">createBeanInstance() &#x5B9E;&#x4F8B;&#x5316; BeanWrapper</span></h2>
+<p>&#x5B9E;&#x4F8B;&#x5316; Bean &#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5176;&#x4E3B;&#x8981;&#x7684;&#x903B;&#x8F91;&#x4E3A;&#xFF1A;</p>
 <ul>
-<li><span id="factoryBeanInstanceCache_desc"><strong>factoryBeanInstanceCache</strong></span>: &#x672A;&#x5B8C;&#x6210;&#x7684;FactoryBean&#x5B9E;&#x4F8B;&#x7684;&#x7F13;&#x5B58;&#xFF0C;beanName --&gt; BeanWrapper</li>
+<li><1> &#x5904;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728; Supplier &#x56DE;&#x8C03;&#xFF0C;&#x5219;&#x8C03;&#x7528; <code>#obtainFromSupplier(Supplier&lt;?&gt; instanceSupplier, String beanName)</code> &#x65B9;&#x6CD5;&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</1></li>
+<li><2> &#x5904;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</2></li>
+<li><3> &#x5904;&#xFF0C;&#x9996;&#x5148;&#x5224;&#x65AD;&#x7F13;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x4E2D;&#x5B58;&#x5728;&#xFF0C;&#x5373;&#x5DF2;&#x7ECF;&#x89E3;&#x6790;&#x8FC7;&#x4E86;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x89E3;&#x6790;&#x4E86;&#x7684;&#x3002;&#x6839;&#x636E; constructorArgumentsResolved &#x53C2;&#x6570;&#x6765;&#x5224;&#x65AD;&#xFF1A;<ul>
+<li><3.1> &#x5904;&#xFF0C;&#x662F;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#xFF0C;&#x5373;&#x8C03;&#x7528; <code>#autowireConstructor(String beanName, RootBeanDefinition mbd, Constructor&lt;?&gt;[] ctors, Object[] explicitArgs)</code> &#x65B9;&#x6CD5;&#x3002;</3.1></li>
+<li><3.2> &#x5904;&#xFF0C;&#x8FD8;&#x662F;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x8C03;&#x7528; <code>#instantiateBean(final String beanName, final RootBeanDefinition mbd)</code> &#x65B9;&#x6CD5;&#x3002;</3.2></li>
 </ul>
-<h2 id="getsingleton-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_getSingleton_main_process">getSingleton() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h2>
-<p>&#x4E3B;&#x6D41;&#x7A0B;&#xFF1A;<br></p>
+</3></li>
+<li><4> &#x5904;&#xFF0C;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x4E2D;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5148;&#x786E;&#x5B9A;&#x5230;&#x5E95;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x5B8C;&#x6210;&#x89E3;&#x6790;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x7C7B;&#x6709;&#x591A;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6784;&#x9020;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x6839;&#x636E;&#x53C2;&#x6570;&#x6765;&#x9501;&#x5B9A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5E76;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x3002;<ul>
+<li><4.1> &#x5904;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x5E26;&#x6709;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x8C03;&#x7528; <code>#autowireConstructor(String beanName, RootBeanDefinition mbd, Constructor&lt;?&gt;[] ctors, Object[] explicitArgs)</code> &#x65B9;&#x6CD5;&#x3002;</4.1></li>
+<li><4.2> &#x5904;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x8C03;&#x7528; <code>#instantiateBean(final String beanName, final RootBeanDefinition mbd)</code> &#x65B9;&#x6CD5;&#x3002;</4.2></li>
+</ul>
+</4></li>
+</ul>
+<h2 id="&#x5173;&#x952E;&#x65B9;&#x6CD5;"><span id="key_methds">&#x5173;&#x952E;&#x65B9;&#x6CD5;</span></h2>
+<p>&#x5B9E;&#x4F8B;&#x5316;&#x597D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x5728; <strong>RootBeanDefinition</strong> &#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x5668;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
+<p><code>determineConstructorsFromBeanPostProcessors()</code></p>
+<p><a href="#method_autowireConstructor_main_process"><code>autowireConstructor()</code></a></p>
+<h3 id="determineconstructorsfrombeanpostprocessors-&#x65B9;&#x6CD5;&#x6D41;&#x7A0B;"><span id="method_determineConstructorsFromBeanPostProcessors_main_process">determineConstructorsFromBeanPostProcessors() &#x65B9;&#x6CD5;&#x6D41;&#x7A0B;</span></h3>
+<h3 id="autowireconstructor-&#x65B9;&#x6CD5;&#x6D41;&#x7A0B;"><span id="method_autowireConstructor_main_process">autowireConstructor() &#x65B9;&#x6CD5;&#x6D41;&#x7A0B;</span></h3>
+<p><code>autowireConstructor()</code> &#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF0C;&#x9996;&#x5148;&#x5C06;&#x5F53;&#x524D; <strong>ObjectFactory</strong> &#x4F5C;&#x4E3A; <strong>ConstructorResolver</strong> &#x7684;&#x6784;&#x9020;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> BeanWrapper <span class="hljs-title">autowireConstructor</span><span class="hljs-params">(
+        String beanName, RootBeanDefinition mbd, @Nullable Constructor&lt;?&gt;[] ctors, @Nullable Object[] explicitArgs)</span> </span>{
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ConstructorResolver(<span class="hljs-keyword">this</span>).autowireConstructor(beanName, mbd, ctors, explicitArgs);
+}
+</code></pre>
+<p>&#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x8FD8;&#x662F;&#x5728; <strong>ConstructorResolver</strong> &#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x8C03;&#x7528; <strong><code>ConstructorResolver#autowireConstructor()</code></strong> &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;<br></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * <span class="hljs-doctag">@param</span> mbd bean &#x5408;&#x5E76;&#x7684; beanDefinition &#x5B9A;&#x4E49;
+ * <span class="hljs-doctag">@param</span> chosenCtors &#x5F85;&#x9009;&#x62E9;&#x7684;&#x6784;&#x9020;&#x5668;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A; Class &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6240;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;
+ * <span class="hljs-doctag">@param</span> explicitArgs &#x901A;&#x8FC7;getBean&#x65B9;&#x6CD5;&#x4EE5;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x503C;
+ * <span class="hljs-doctag">@return</span> a BeanWrapper for the new instance
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> BeanWrapper <span class="hljs-title">autowireConstructor</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd,
+            @Nullable Constructor&lt;?&gt;[] chosenCtors, @Nullable Object[] explicitArgs)</span></span>{
+}
+</code></pre>
 <ul>
-<li><strong>Lock</strong>: <a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;</li>
-<li><strong>&#x53CC;&#x91CD;&#x5224;&#x65AD;</strong>&#xFF0C;&#x4ECE; <a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4E2D;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; bean&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x7EE7;&#x7EED;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</li>
-<li><strong><code>beforeSingletonCreation</code></strong>: &#x52A0;&#x8F7D;&#x524D;&#x7F6E;&#x5904;&#x7406;&#x3002;</li>
-<li><code>ObjectFactory#getObject()</code>: &#x8C03;&#x7528;&#x5176;&#x5165;&#x53C2;&#x4E2D;&#x7684; <strong>ObjectFactory</strong> &#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x3002;&#x5176; <code>getObject()</code> &#x65B9;&#x6CD5;&#x5728;&#x524D;&#x9762;&#x533F;&#x540D;&#x65B9;&#x6CD5;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x8FD8;&#x662F;&#x8C03;&#x7528; <a href="#method_createBean_main_process"><strong><code>AbstractBeanFactory#createBean()</code></strong></a> &#x65B9;&#x6CD5;&#x3002; </li>
-<li><strong><code>afterSingletonCreation</code></strong>: &#x540E;&#x7F6E;&#x5904;&#x7406;</li>
-<li><a href="#method_addSingleton_main_process"><strong><code>addSingleton()</code></strong></a>: &#x52A0;&#x5165;&#x7F13;&#x5B58;&#x4E2D;</li>
+<li><strong>RootBeanDefinition</strong>: &#x5408;&#x5E76;&#x7684; beanDefinition &#x5B9A;&#x4E49;</li>
+<li><strong><code>Constructor&lt;?&gt;[]</code></strong>: &#x5F85;&#x9009;&#x62E9;&#x7684;&#x6784;&#x9020;&#x5668;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A; Class &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6240;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+<li><em>explicitArgs</em>: &#x901A;&#x8FC7;getBean&#x65B9;&#x6CD5;&#x4EE5;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x503C;</li>
 </ul>
-<h3 id="abstractbeanfactorycreatebean-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_createBean_main_process">AbstractBeanFactory#createBean() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h3>
+<p>&#x5254;&#x9664;&#x4E00;&#x4E9B;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x7684;&#x83B7;&#x53D6;&#x7684;&#x4F18;&#x5316;&#x903B;&#x8F91;&#x3002;&#x53EA;&#x5217;&#x4E3E;&#x4E00;&#x4E9B;<strong>&#x521D;&#x59CB;&#x903B;&#x8F91;</strong>&#x7684;<strong>&#x5173;&#x952E;&#x6B65;&#x9AA4;</strong>&#x3002;</p>
+<h4 id="&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x91CD;&#x8981;&#x7684;&#x4E34;&#x65F6;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;">&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x91CD;&#x8981;&#x7684;&#x4E34;&#x65F6;&#x5C5E;&#x6027;&#x5B57;&#x6BB5;</h4>
 <ul>
-<li>&#x901A;&#x8FC7; <code>RootBeanDefinition</code> &#x5B9A;&#x4E49;&#x89E3;&#x6790;&#x51FA;&#x5B9E;&#x4F8B;&#x5316;&#x7684; <strong>Class</strong> &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x5230;&#x5B9A;&#x4E49;&#x7684; <code>RootBeanDefinition#beanClass</code> &#x4E2D;&#x3002;<ul>
-<li>&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x52A8;&#x6001;&#x89E3;&#x6790;&#x7684; class &#x65E0;&#x6CD5;&#x4FDD;&#x5B58;&#x5230;&#x5230;&#x5171;&#x4EAB;&#x7684; BeanDefinition</li>
+<li><strong>constructorToUse</strong>: &#x6784;&#x9020;&#x51FD;&#x6570;</li>
+<li><strong>argsHolderToUse</strong>: &#x6784;&#x9020;&#x53C2;&#x6570;</li>
+<li><strong>argsToUse</strong>: &#x6784;&#x9020;&#x53C2;&#x6570;</li>
 </ul>
-</li>
-<li><code>AbstractBeanDefinition#prepareMethodOverrides</code>: &#x9A8C;&#x8BC1;&#x548C;&#x51C6;&#x5907;&#x8986;&#x76D6;&#x65B9;&#x6CD5;</li>
-<li><code>resolveBeforeInstantiation</code>: &#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x524D;&#x7F6E;&#x5904;&#x7406;</li>
-<li><a href="#method_doCreateBean_main_process"><strong><code>doCreateBean</code></strong></a>: &#x6838;&#x5FC3;&#x903B;&#x8F91;&#xFF0C;AOP &#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;</li>
-</ul>
-<h4 id="docreatebean-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_doCreateBean_main_process">doCreateBean() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h4>
-<p>&#x6574;&#x4F53;&#x7684;&#x601D;&#x8DEF;&#xFF1A;</p>
+<h4 id="resolvepreparedarguments&#x89E3;&#x6790;&#x53C2;&#x6570;"><span id="method_resolvePreparedArguments_main_process">resolvePreparedArguments()&#x89E3;&#x6790;&#x53C2;&#x6570;</span></h4>
+<p>&#x8D70;&#x5230;&#x8FD9;&#x91CC;&#x80AF;&#x5B9A;&#x662F; <strong>RootBeanDefinition</strong> &#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x9700;&#x8981;&#x52A8;&#x6001;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x4E3B;&#x8981;&#x903B;&#x8F91;&#x5982;&#x4E0B;&#xFF1A;<br></p>
 <ul>
-<li><1>  &#x5982;&#x679C;&#x662F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x5219;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x3002;</1></li>
-<li><2>  &#x8C03;&#x7528; <code>#createBeanInstance(String beanName, RootBeanDefinition mbd, Object[] args)</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316; bean &#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5C06; BeanDefinition &#x8F6C;&#x6362;&#x4E3A; org.springframework.beans.BeanWrapper &#x5BF9;&#x8C61;&#x3002;</2></li>
-<li><3>  MergedBeanDefinitionPostProcessor &#x7684;&#x5E94;&#x7528;&#x3002;</3></li>
-<li><4>  &#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x5904;&#x7406;&#x3002;</4></li>
-<li><5>  &#x8C03;&#x7528; #populateBean(String beanName, RootBeanDefinition mbd, BeanWrapper bw) &#x65B9;&#x6CD5;&#xFF0C;&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x586B;&#x5145;&#x3002;&#x5C06;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x586B;&#x5145;&#x81F3; bean &#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x3002;</5></li>
-<li><6>  &#x8C03;&#x7528; #initializeBean(final String beanName, final Object bean, RootBeanDefinition mbd) &#x65B9;&#x6CD5;&#xFF0C;&#x521D;&#x59CB;&#x5316; bean &#x3002;</6></li>
-<li><7>  &#x4F9D;&#x8D56;&#x68C0;&#x67E5;&#x3002;</7></li>
-<li><8>  &#x6CE8;&#x518C; DisposableBean</8></li>
+<li><strong>if</strong>&#x3001;<strong>else</strong>&#x3001;<strong>instanceof</strong> &#x6765;&#x5224;&#x65AD;&#x8D70;&#x54EA;&#x4E2A;&#x7C7B;&#x578B;&#x89E3;&#x6790;&#x3002;</li>
+<li>&#x52A8;&#x6001;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4F7F;&#x7528; <code>BeanExpressionResolver#evaluate()</code> &#x6765;&#x89E3;&#x6790;&#xFF0C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7C7B;&#x6709; <code>StandardBeanExpressionResolver</code>&#x3002;</li>
 </ul>
+<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;</p>
+<p>&#x53C2;&#x6570;&#x4E3A; <strong>AutowiredArgumentMarker</strong> &#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4F1A;&#x8D70; <strong><em>AOP</em></strong> &#x5207;&#x9762;&#x914D;&#x7F6E;&#x7684; bean  &#x5B9E;&#x4F8B;&#x5316;&#x83B7;&#x53D6;&#x3002;&#x5E76;&#x6CE8;&#x518C; bean &#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;<code>ConstructorResolver#resolveAutowiredArgument()</code>&#x3002;</p>
+<p>&#x53C2;&#x6570;&#x4E3A; <strong>BeanMetadataElement</strong> &#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x662F; <code>BeanDefinitionValueResolver#resolveValueIfNecessary ()</code>&#x3002;</p>
+<h4 id="resolveconstructorarguments-&#x89E3;&#x6790;&#x6784;&#x9020;&#x53C2;&#x6570;"><span id="method_resolveConstructorArguments_main_process">resolveConstructorArguments() &#x89E3;&#x6790;&#x6784;&#x9020;&#x53C2;&#x6570;</span></h4>
+<p>&#x5C06;&#x8BE5; bean &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x4E3A; resolvedValues &#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x5176;&#x4ED6; bean&#x3002;</p>
+<p>&#x903B;&#x8F91;&#x540C;&#x4E0A;&#x9762; <a href="#method_resolvePreparedArguments_main_process">resolvePreparedArguments()&#x89E3;&#x6790;&#x53C2;&#x6570;</a>&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x53EA;&#x6709; <a href="#method_resolvePreparedArguments_main_process">resolvePreparedArguments()&#x89E3;&#x6790;&#x53C2;&#x6570;</a> &#x4E2D;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A; <strong>BeanMetadataElement</strong> &#x65F6;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<h4 id="createargumentarray-&#x521B;&#x5EFA;&#x53C2;&#x6570;&#x6301;&#x6709;&#x8005;-argumentsholder-&#x5BF9;&#x8C61;"><span id="method_createArgumentArray_main_process">createArgumentArray() &#x521B;&#x5EFA;&#x53C2;&#x6570;&#x6301;&#x6709;&#x8005; ArgumentsHolder &#x5BF9;&#x8C61;</span></h4>
+<p>&#x6839;&#x636E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x6784;&#x9020;&#x53C2;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x53C2;&#x6570;&#x6301;&#x6709;&#x8005; ArgumentsHolder &#x5BF9;&#x8C61;</p>
 <ul>
-<li><a href="#factoryBeanInstanceCache_desc"><strong>factoryBeanInstanceCache</strong></a> &#x4E2D; <strong>remove</strong>&#xFF0C;BeanWrapper ==&gt; &#x53D8;&#x91CF; instanceWrapper&#x3002;</li>
-<li>&#x5982;&#x679C;&#x53D8;&#x91CF; instanceWrapper &#x8FD8;&#x662F;&#x4E3A; <strong>Null</strong>&#xFF0C;&#x5219;&#x901A;&#x8FC7; <a href="spring%20getBean_instance%20BeanWrapper.html#method_createBeanInstance_main_process"><strong><code>createBeanInstance()</code></strong></a> &#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x3002;</li>
-<li><a href="#method_addSingletonFactory_main_process"><code>addSingletonFactory()</code></a>: &#x89E3;&#x51B3;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;</li>
-<li><a href=""><code>populateBean()</code></a>: &#x5BF9; bean &#x8FDB;&#x884C;&#x586B;&#x5145;&#xFF0C;&#x5C06;&#x5404;&#x4E2A;&#x5C5E;&#x6027;&#x503C;&#x6CE8;&#x5165;&#xFF0C;&#x5176;&#x4E2D;&#xFF0C;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6; bean &#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F1A;&#x9012;&#x5F52;&#x521D;&#x59CB;&#x4F9D;&#x8D56; bean</li>
-<li><a href=""><code>initializeBean()</code></a>: &#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</li>
-<li>&#x5982;&#x679C;&#x662F;&#x5355;&#x4F8B;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x95EE;&#x9898;&#x3002;</li>
-<li><code>registerDisposableBeanIfNecessary()</code> &#x6CE8;&#x518C; bean&#x3002;</li>
+<li>&#x8DDF; &#x53C2;&#x6570;&#x7D22;&#x5F15;&#x3001;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x3001;&#x53C2;&#x6570;&#x540D; &#x4ECE;&#x4E0A;&#x9762;&#x89E3;&#x6790;&#x5230;&#x7684; <strong>resolvedValues</strong> List &#x4E2D;&#x83B7;&#x53D6;&#x89E3;&#x6790;&#x597D;&#x7684; <strong>ConstructorArgumentValues.ValueHolder</strong>&#xFF0C;&#x5E76;&#x5C06;&#x89E3;&#x6790;&#x597D;&#x7684; <strong>valueHolder</strong> &#x5185;&#x5BB9;&#x8D4B;&#x503C;&#x7ED9;&#x5F53;&#x524D; <strong>ArgumentsHolder</strong>&#x3002;</li>
+<li>&#x5982;&#x679C;&#x83B7;&#x53D6;&#x4E0D;&#x5230;&#xFF0C;<code>ConstructorResolver#resolveAutowiredArgument()</code> &#x6765;&#x89E3;&#x6790;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x5C06; <strong>preparedArguments</strong> &#x5BF9;&#x5E94;&#x7D22;&#x5F15;&#x4E0A;&#x7684;&#x5BF9;&#x8C61;&#x6807;&#x8BC6;&#x4E3A; <strong>AutowiredArgumentMarker</strong>&#xFF0C;<a href="#method_resolvePreparedArguments_main_process">&#x4F9B;&#x4E0B;&#x6B21;&#x53C2;&#x6570;&#x52A8;&#x6001;&#x89E3;&#x6790;</a>&#x65F6;&#x7C7B;&#x91CD;&#x65B0;&#x5BF9;&#x5BF9;&#x8C61;&#x89E3;&#x6790;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x7684; bean&#xFF0C;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x6CE8;&#x5165;&#x3002;</li>
 </ul>
-<h5 id="addsingletonfactory-&#x903B;&#x8F91;"><span id="method_addSingletonFactory_main_process">addSingletonFactory() &#x903B;&#x8F91;</span></h5>
+<h4 id="argumentsholderstorecache-&#x5C06;&#x89E3;&#x6790;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x52A0;&#x5165;&#x7F13;&#x5B58;"><span id="method_ArgumentsHolder_storeCache_main_process">ArgumentsHolder#storeCache() &#x5C06;&#x89E3;&#x6790;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x52A0;&#x5165;&#x7F13;&#x5B58;</span></h4>
 <ul>
-<li><strong>Lock</strong>: <a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4E2D;&#x4E0D;&#x5305;&#x542B;&#x6539; beanName &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5373;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x3002;<ul>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonFactories_desc"><strong>singletonFactories</strong></a> &#x6DFB;&#x52A0;&#xFF0C; beanName &#x2014;&#x2014;&gt; ObjectFactory&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></a> remove&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#registeredSingletons_desc"><strong>registeredSingletons</strong></a> &#x6DFB;&#x52A0;&#xFF0C; beanName&#x3002;&#x6CE8;&#x518C;&#x3002;</li>
+<li><strong>Lock</strong>: <strong>RootBeanDefinition</strong> &#x7684; <strong>constructorArgumentLock</strong> &#x4F5C;&#x4E3A;&#x9501;&#x3002;&#x6784;&#x9020;&#x5668;&#x9501;&#x3002;</li>
+<li><strong>resolvedConstructorOrFactoryMethod</strong>: &#x7F13;&#x5B58;&#x89E3;&#x6790;&#x597D;&#x7684; <strong>&#x6784;&#x9020;&#x51FD;&#x6570;</strong> &#x6216; <strong>&#x5DE5;&#x5382;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</strong>&#x3002;</li>
+<li><strong>constructorArgumentsResolved</strong>: true&#xFF0C;&#x6807;&#x8BC6;&#x5DF2;&#x7ECF;&#x89E3;&#x6790;&#x8FC7;&#x3002;</li>
+<li><strong>preparedConstructorArguments</strong> &#x548C; <strong>resolvedConstructorArguments</strong>: &#x6839;&#x636E;&#x662F;&#x5426;&#x9700;&#x8981;&#x89E3;&#x6790;&#xFF0C;&#x7F13;&#x5B58;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;</li>
 </ul>
-</li>
-</ul>
-<h3 id="addsingleton-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_addSingleton_main_process">addSingleton() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h3>
-<ul>
-<li><strong>Lock</strong>: <a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x4F5C;&#x4E3A;&#x9501;&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonObjects_desc"><strong>singletonObjects</strong></a> &#x6DFB;&#x52A0; beanName &#x2014;&#x2014;&gt; instance&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#singletonFactories_desc"><strong>singletonFactories</strong></a> &#x79FB;&#x9664; beanName&#xFF1A;&#x5B9E;&#x4F8B;&#x5316;&#x5B8C;&#x6210;&#xFF0C;&#x79FB;&#x9664;&#x5176; <strong>ObjectFactory</strong>&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#earlySingletonObjects_desc"><strong>earlySingletonObjects</strong></a> &#x79FB;&#x9664; beanName: &#x5B9E;&#x4F8B;&#x5316;&#x5B8C;&#x6210;&#xFF0C;&#x79FB;&#x9664;&#x5176; bean&#x3002;</li>
-<li><a href="Spring&#x52A0;&#x8F7D;Bean&#x7684;&#x8FC7;&#x7A0B;.html#registeredSingletons_desc"><strong>registeredSingletons</strong></a> &#x6DFB;&#x52A0; beanName: &#x6CE8;&#x518C;&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316; beanName</li>
-</ul>
-<h2 id="getobjectforbeaninstance-&#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;"><span id="method_getObjectForBeanInstance_main_process">getObjectForBeanInstance() &#x65B9;&#x6CD5;&#x4E3B;&#x6D41;&#x7A0B;</span></h2>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">storeCache</span><span class="hljs-params">(RootBeanDefinition mbd, Executable constructorOrFactoryMethod)</span> </span>{
+    <span class="hljs-keyword">synchronized</span> (mbd.constructorArgumentLock) {
+        mbd.resolvedConstructorOrFactoryMethod = constructorOrFactoryMethod;
+        mbd.constructorArgumentsResolved = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.resolveNecessary) {
+            mbd.preparedConstructorArguments = <span class="hljs-keyword">this</span>.preparedArguments;
+        }
+        <span class="hljs-keyword">else</span> {
+            mbd.resolvedConstructorArguments = <span class="hljs-keyword">this</span>.arguments;
+        }
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -716,14 +746,10 @@
 
             
                 
-                <a href="Spring加载Bean的过程.html" class="navigation navigation-prev " aria-label="Previous page: Spring加载Bean的过程">
+                <a href="Spring 加载Bean的过程_getSingleton 实例化单例对象.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Spring 加载Bean的过程_getSingleton 实例化单例对象">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="spring getBean_instance BeanWrapper.html" class="navigation navigation-next " aria-label="Next page: Spring 加载Bean的过程_实例化 BeanWrapper">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -732,7 +758,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spring 加载Bean的过程_getSingleton 实例化单例对象","level":"1.3.1.1.3","depth":4,"next":{"title":"Spring 加载Bean的过程_实例化 BeanWrapper","level":"1.3.1.1.4","depth":4,"path":"Spring/源码/初始化过程/spring getBean_instance BeanWrapper.md","ref":"Spring/源码/初始化过程/spring getBean_instance BeanWrapper.md","articles":[]},"previous":{"title":"Spring加载Bean的过程","level":"1.3.1.1.2","depth":4,"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","ref":"Spring/源码/初始化过程/Spring加载Bean的过程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md","mtime":"2019-05-23T02:56:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spring 加载Bean的过程_实例化 BeanWrapper","level":"1.3.1.1.4","depth":4,"next":{"title":"Aop","level":"1.3.1.2","depth":3,"ref":"","articles":[{"title":"Aop","level":"1.3.1.2.1","depth":4,"path":"Spring/源码/Aop/Aop.md","ref":"Spring/源码/Aop/Aop.md","articles":[]}]},"previous":{"title":"Spring 加载Bean的过程_getSingleton 实例化单例对象","level":"1.3.1.1.3","depth":4,"path":"Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md","ref":"Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/源码/初始化过程/spring getBean_instance BeanWrapper.md","mtime":"2019-05-24T04:22:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

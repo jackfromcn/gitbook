@@ -1,0 +1,1139 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(转)spring源码分析(一)IOC管理Bean · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springSourceCode_analysis_1_80138425.html" />
+    
+    
+    <link rel="prev" href="../Spel.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../../源码/Aop/Aop.html">
+            
+                <a href="../../源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Spel.html">
+            
+                <a href="../Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.2" data-path="springSourceCode_analysis_1_78368930.html">
+            
+                <a href="springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="springSourceCode_analysis_1_80138425.html">
+            
+                <a href="springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="springSourceCode_analysis_2_80169701.html">
+            
+                <a href="springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="springSourceCode_analysis_3_80223871.html">
+            
+                <a href="springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="springSourceCode_analysis_4_80226375.html">
+            
+                <a href="springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="springSourceCode_analysis_5_80238746.html">
+            
+                <a href="springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="springSourceCode_analysis_6_80287736.html">
+            
+                <a href="springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="springSourceCode_analysis_7_80289441.html">
+            
+                <a href="springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="springSourceCode_analysis_8_80291728.html">
+            
+                <a href="springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="springSourceCode_analysis_9_80299451.html">
+            
+                <a href="springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="springSourceCode_analysis_10_80301135.html">
+            
+                <a href="springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="springSourceCode_analysis_11_80321854.html">
+            
+                <a href="springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="springSourceCode_analysis_12_80348253.html">
+            
+                <a href="springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="springSourceCode_analysis_14_80363793.html">
+            
+                <a href="springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="springSourceCode_analysis_15_80385067.html">
+            
+                <a href="springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="springSourceCode_analysis_16_80389286.md">
+            
+                <span>
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >(转)spring源码分析(一)IOC管理Bean</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8F6C;spring&#x6E90;&#x7801;&#x5206;&#x6790;&#x4E00;ioc&#x7BA1;&#x7406;bean">(&#x8F6C;)spring&#x6E90;&#x7801;&#x5206;&#x6790;(&#x4E00;)IOC&#x7BA1;&#x7406;Bean</h1>
+<p>&#x901A;&#x8FC7;&#x6700;&#x7B80;&#x5355;&#x7684;IOC &#x5BB9;&#x5668;&#x6765;&#x8DDF;&#x8E2A;&#x4E00;&#x4E0B; IOC&#x662F;&#x600E;&#x4E48;&#x7BA1;&#x7406;Bean&#x7684;&#xFF1B;Spring IoC&#x5BB9;&#x5668;&#x5BF9;Bean&#x5B9A;&#x4E49;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x5B9A;&#x4F4D;&#xFF0C;&#x8F7D;&#x5165;&#x3001;&#x89E3;&#x6790;&#x548C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5206;&#x6790;</p>
+<p>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x56FE;&#xFF1A;&#x4E0D;&#x77E5;&#x9053;&#x7528;&#x4EC0;&#x4E48;&#x753B;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x51D1;&#x5408;&#x770B;&#x5427; &#xFF0C;&#x957F;&#x65B9;&#x5F62;&#x662F;&#x7C7B;&#xFF0C;&#x692D;&#x5706;&#x662F;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#xFF0C;&#x7BAD;&#x5934; &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x987A;&#x5E8F;</p>
+<p><img src="../../../images/20171028172655515.png" alt="20171028172655515"></p>
+<h2 id="ioc&#x52A0;&#x8F7D;&#x3001;&#x89E3;&#x6790;&#x3001;&#x6CE8;&#x518C;">IOC&#x52A0;&#x8F7D;&#x3001;&#x89E3;&#x6790;&#x3001;&#x6CE8;&#x518C;</h2>
+<h3 id="a-&#x4F7F;&#x7528;&#x7B80;&#x5355;ioc&#x5BB9;&#x5668;">A. &#x4F7F;&#x7528;&#x7B80;&#x5355;IOC&#x5BB9;&#x5668;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;path &#x548C;classLoader,&#x6CA1;&#x6709;&#x4F20;&#x81EA;&#x5B9A;&#x4E49;&#x52A0;&#x8F7D;&#x5668;&#x5219;&#x7ED9;&#x9ED8;&#x8BA4;&#x52A0;&#x8F7D;&#x5668;       </span>
+ ClassPathResource resource = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;SpringContextConfig.xml&quot;</span>);
+        DefaultListableBeanFactory factory = <span class="hljs-keyword">new</span> DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = <span class="hljs-keyword">new</span> XmlBeanDefinitionReader(factory);
+        reader.loadBeanDefinitions(resource);
+        HelloWorld helloWorld = (HelloWorld)factory.getBean(<span class="hljs-string">&quot;helloWorldImpl1&quot;</span>);
+        helloWorld.say();
+</code></pre>
+<p>&#x7B2C;4&#x884C;&#x6784;&#x9020;&#x5668; &#x8C03;&#x7528;&#x4E86;&#x5B83;&#x7684;&#x7236;&#x7C7B;&#x62BD;&#x8C61;&#x7C7B;AbstractBeanDefinitionReader&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5316;&#x4E86;&#x7236;&#x7C7B;&#x7684;registry(&#x5C31;&#x662F;factory)&#x3001;&#x548C;Environment&#x5E76;&#x4E14;&#x6839;&#x636E;&#x7C7B;&#x578B;&#x9009;&#x62E9;ResourceLoader&#x8D44;&#x6E90;&#x52A0;&#x8F7D;&#x5668;</p>
+<h3 id="b&#x7B2C;5&#x884C;loadbeandefinitionsresource-resource">B.&#x7B2C;5&#x884C;loadBeanDefinitions(Resource resource)</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">loadBeanDefinitions</span><span class="hljs-params">(EncodedResource encodedResource)</span> <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>{
+
+        <span class="hljs-comment">//&#x53D6;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x6240;&#x6709;&#x8D44;&#x6E90;final ThreadLocal&lt;Set&lt;EncodedResource&gt;&gt; resourcesCurrentlyBeingLoaded </span>
+        Set&lt;EncodedResource&gt; currentResources = <span class="hljs-keyword">this</span>.resourcesCurrentlyBeingLoaded.get();
+        <span class="hljs-keyword">if</span> (currentResources == <span class="hljs-keyword">null</span>) {
+            currentResources = <span class="hljs-keyword">new</span> HashSet&lt;EncodedResource&gt;(<span class="hljs-number">4</span>);
+            <span class="hljs-comment">//set&#x8FDB;&#x53BB;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x52A0;&#x8F7D;</span>
+            <span class="hljs-keyword">this</span>.resourcesCurrentlyBeingLoaded.set(currentResources);
+        }
+        <span class="hljs-comment">//&#x5C06;&#x5F53;&#x524D;&#x8981;&#x88AB;&#x52A0;&#x8F7D;&#x7684; Resource &#x653E;&#x5230;&#x5F53;&#x524D;&#x7684; Resources&#x4E2D;</span>
+        <span class="hljs-keyword">if</span> (!currentResources.add(encodedResource)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(
+                    <span class="hljs-string">&quot;Detected cyclic loading of &quot;</span> + encodedResource + <span class="hljs-string">&quot; - check your import definitions!&quot;</span>);
+        }
+        <span class="hljs-keyword">try</span> {
+            InputStream inputStream = encodedResource.getResource().getInputStream();
+            <span class="hljs-keyword">try</span> {
+                InputSource inputSource = <span class="hljs-keyword">new</span> InputSource(inputStream);
+                <span class="hljs-keyword">if</span> (encodedResource.getEncoding() != <span class="hljs-keyword">null</span>) {
+                    inputSource.setEncoding(encodedResource.getEncoding());
+                }
+                <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x52A0;&#x8F7D;xml&#x6587;&#x4EF6;&#x5E76;&#x4E14;&#x89E3;&#x6790;&#x7684;&#x65B9;&#x6CD5;</span>
+                <span class="hljs-keyword">return</span> doLoadBeanDefinitions(inputSource, encodedResource.getResource());
+            }
+            <span class="hljs-keyword">finally</span> {
+                inputStream.close();
+            }
+        }
+        <span class="hljs-keyword">catch</span> (IOException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(
+                    <span class="hljs-string">&quot;IOException parsing XML document from &quot;</span> + encodedResource.getResource(), ex);
+        }
+        <span class="hljs-keyword">finally</span> {
+            <span class="hljs-comment">//load&#x5B8C;&#x6210; &#x4ECE;&#x4E2D;remove&#x4E2D;&#xFF0C;spring&#x4E2D; &#x5F88;&#x591A;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x5F62;&#x5F0F;&#x4EE3;&#x7801;</span>
+            currentResources.remove(encodedResource);
+            <span class="hljs-keyword">if</span> (currentResources.isEmpty()) {
+                <span class="hljs-keyword">this</span>.resourcesCurrentlyBeingLoaded.remove();
+            }
+        }
+    }
+</code></pre>
+<h3 id="c&#x7EE7;&#x7EED;&#x8FDB;&#x5165;doloadbeandefinitions-&#x770B;xmlbeandefinitionreaderdoloadbeandefinitionsinputsourceresource">C.&#x7EE7;&#x7EED;&#x8FDB;&#x5165;doLoadBeanDefinitions &#x770B;XmlBeanDefinitionReader.doLoadBeanDefinitions(InputSource,Resource)</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">//&#x9A8C;&#x8BC1;xml&#x6587;&#x4EF6;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;Document    </span>
+        Document doc = doLoadDocument(inputSource, resource);
+        <span class="hljs-comment">//&#x4E0B;&#x9762;  &#x6CE8;&#x518C;bean  &#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x6CE8;&#x518C;&#x6210;&#x529F;&#x7684;&#x6570;&#x91CF; &#x6765; &#x6211;&#x4EEC;&#x8FDB;&#x53BB;&#x770B;&#x4E00;&#x4E0B;</span>
+            <span class="hljs-keyword">return</span> registerBeanDefinitions(doc, resource);
+        }
+
+
+D.&#x8FDB;&#x53BB; XmlBeanDefinitionReader.registerBeanDefinitions(Document doc, Resource resource) &#xFF1A;&#x6CE8;&#x518C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x6CE8;&#x518C;&#x6210;&#x529F;&#x6570;&#x91CF;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">registerBeanDefinitions</span><span class="hljs-params">(Document doc, Resource resource)</span> <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>{
+        <span class="hljs-comment">//1.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;document&#x9605;&#x8BFB;&#x5668;,&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x5F97;&#x5230;&#x7684;&#x5B9E;&#x4F8B;</span>
+        BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
+        <span class="hljs-comment">//&#x5F97;&#x5230;register&#x503C;&#x662F;A.&#x4E2D;&#x7B2C;4&#x884C;&#x7684;new XmlBeanDefinitionReader(factory)&#x4E2D;&#x7684;factory&#xFF1B;&#x4E5F;&#x5C31;&#x662F;DefaultListableBeanFactory</span>
+        <span class="hljs-comment">//2.....</span>
+        <span class="hljs-keyword">int</span> countBefore = getRegistry().getBeanDefinitionCount();
+        <span class="hljs-comment">//3.....</span>
+        documentReader.registerBeanDefinitions(doc, createReaderContext(resource));
+        <span class="hljs-keyword">return</span> getRegistry().getBeanDefinitionCount() - countBefore;
+    }
+</code></pre>
+<h4 id="d1&#x8BF4;&#x660E;&#xFF1A;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x54EA;&#x4E2A;beandefinitiondocumentreader&#x662F;&#x6839;&#x636E;xmlbeandefinitionreader&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x4F46;&#x662F;spring&#x4E2D;&#x4E5F;&#x53EA;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x4E86;beandefinitiondocumentreader&#x63A5;&#x53E3;">D.1&#x8BF4;&#x660E;&#xFF1A;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x54EA;&#x4E2A;BeanDefinitionDocumentReader&#x662F;&#x6839;&#x636E;XmlBeanDefinitionReader&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x4F46;&#x662F;spring&#x4E2D;&#x4E5F;&#x53EA;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x4E86;BeanDefinitionDocumentReader&#x63A5;&#x53E3;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> Class&lt;?&gt; documentReaderClass = DefaultBeanDefinitionDocumentReader.class;
+</code></pre>
+<h4 id="d&#x4E2D;2-&#x89E3;&#x91CA;&#xFF1A;&#x5F97;&#x5230;register&#x503C;&#x662F;a&#x4E2D;&#x7B2C;4&#x884C;&#x7684;new-xmlbeandefinitionreaderfactory&#x4E2D;&#x7684;factory&#xFF1B;&#x4E5F;&#x5C31;&#x662F;defaultlistablebeanfactory&#xFF0C;factory&#x4E2D;&#x6709;&#x4E2A;hashmap&#x4E13;&#x95E8;&#x5B58;&#x653E;&#x6CE8;&#x518C;&#x540E;&#x7684;bean">D.&#x4E2D;2 &#x89E3;&#x91CA;&#xFF1A;&#x5F97;&#x5230;register&#x503C;&#x662F;A.&#x4E2D;&#x7B2C;4&#x884C;&#x7684;new XmlBeanDefinitionReader(factory)&#x4E2D;&#x7684;factory&#xFF1B;&#x4E5F;&#x5C31;&#x662F;DefaultListableBeanFactory&#xFF0C;factory&#x4E2D;&#x6709;&#x4E2A;hashmap&#x4E13;&#x95E8;&#x5B58;&#x653E;&#x6CE8;&#x518C;&#x540E;&#x7684;bean</h4>
+<pre><code class="lang-java"><span class="hljs-comment">/** Map of bean definition objects, keyed by bean name */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, BeanDefinition&gt; beanDefinitionMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, BeanDefinition&gt;(<span class="hljs-number">256</span>);
+</code></pre>
+<h3 id="e--d3-&#x4E2D;-&#x8C03;&#x7528;&#x7684;&#x6700;&#x7EC8;&#x662F;defaultbeandefinitiondocumentreader&#x4E2D;parsebeandefinitionselementbeandefinitionparserdelegate&#x770B;&#x770B;&#x91CC;&#x9762;&#x7684;&#x4EE3;&#x7801;">E..  D.3 &#x4E2D; &#x8C03;&#x7528;&#x7684;&#x6700;&#x7EC8;&#x662F;DefaultBeanDefinitionDocumentReader&#x4E2D;parseBeanDefinitions(Element,BeanDefinitionParserDelegate);&#x770B;&#x770B;&#x91CC;&#x9762;&#x7684;&#x4EE3;&#x7801;</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">parseBeanDefinitions</span><span class="hljs-params">(Element root, BeanDefinitionParserDelegate delegate)</span> </span>{
+        <span class="hljs-comment">// 1..&#x5224;&#x65AD;root&#x7684;NamespaceURI&#x662F;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;URI=http://www.springframework.org/schema/beans</span>
+        <span class="hljs-keyword">if</span> (delegate.isDefaultNamespace(root)) {
+            NodeList nl = root.getChildNodes();
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nl.getLength(); i++) {
+                Node node = nl.item(i);
+                <span class="hljs-keyword">if</span> (node <span class="hljs-keyword">instanceof</span> Element) {
+                    Element ele = (Element) node;
+                    <span class="hljs-keyword">if</span> (delegate.isDefaultNamespace(ele)) {
+                    <span class="hljs-comment">//2..... &#x5F53;&#x4EE5;&lt;bean id=&quot;&quot;..&gt;&#x6807;&#x7B7E;&#x4F1A;&#x6267;&#x884C;&#x8FD9;&#x4E2A;</span>
+                        parseDefaultElement(ele, delegate);
+                    }
+                    <span class="hljs-keyword">else</span> {<span class="hljs-comment">//3......&#x5176;&#x4ED6;&#x7684;&#x4F1A;&#x6267;&#x884C;&#x8FD9;&#x4E2A;  &#x8FD9;&#x4E2A;&#x53E6;&#x5916;&#x5206;&#x6790;TODO</span>
+                        delegate.parseCustomElement(ele);
+                    }
+                }
+            }
+        }
+        <span class="hljs-keyword">else</span> {
+            delegate.parseCustomElement(root);
+        }
+    }
+</code></pre>
+<h4 id="e2-&#x662F;&#x89E3;&#x6790;-bean-&#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;">E.2 &#x662F;&#x89E3;&#x6790; &lt;bean &#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;</h4>
+<h4 id="e3&#x662F;&#x9664;&#x4E86;bean-&#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;--&#xFF0C;aop&#x6807;&#x7B7E;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x9762;&#x52A0;&#x8F7D;&#x89E3;&#x6790;&#x7684;">E.3&#x662F;&#x9664;&#x4E86;&lt;bean &#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;  &#xFF0C;Aop&#x6807;&#x7B7E;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x9762;&#x52A0;&#x8F7D;&#x89E3;&#x6790;&#x7684;</h4>
+<h3 id="f-defaultbeandefinitiondocumentreaderparsedefaultelement">F. DefaultBeanDefinitionDocumentReader.parseDefaultElement</h3>
+<p>&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x8FDB;&#x5165;E.2 &#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x770B;&#x770B;DefaultBeanDefinitionDocumentReader.parseDefaultElement(Element,BeanDefinitionParserDelegate)</p>
+<p>&#x6839;&#x636E;&#x6807;&#x7B7E;&#x7684;&#x4E0D;&#x540C;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x6790;&#x6CE8;&#x518C;&#x65B9;&#x6CD5; bean&#x3001;import&#x3001;alias&#x3001;beans</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">parseDefaultElement</span><span class="hljs-params">(Element ele, BeanDefinitionParserDelegate delegate)</span> </span>{
+        <span class="hljs-keyword">if</span> (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) {
+            importBeanDefinitionResource(ele);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (delegate.nodeNameEquals(ele, ALIAS_ELEMENT)) {
+            processAliasRegistration(ele);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (delegate.nodeNameEquals(ele, BEAN_ELEMENT)) {
+            <span class="hljs-comment">//1........bean     </span>
+            processBeanDefinition(ele, delegate);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (delegate.nodeNameEquals(ele, NESTED_BEANS_ELEMENT)) {
+            <span class="hljs-comment">// recurse</span>
+            doRegisterBeanDefinitions(ele);
+        }
+    }
+</code></pre>
+<h3 id="g-&#x8FDB;&#x5165;f1-&#x770B;defaultbeandefinitiondocumentreaderprocessbeandefinitionelement-ele-beandefinitionparserdelegate-delegate">G... &#x8FDB;&#x5165;F.1 &#x770B;DefaultBeanDefinitionDocumentReader.processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate)</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processBeanDefinition</span><span class="hljs-params">(Element ele, BeanDefinitionParserDelegate delegate)</span> </span>{
+        <span class="hljs-comment">//1.....</span>
+        BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
+        <span class="hljs-keyword">if</span> (bdHolder != <span class="hljs-keyword">null</span>) {
+<span class="hljs-comment">//2........... &#x4E0B;&#x9762;&#x8FD9;&#x884C;&#x6211;&#x5728;&#x4E0B;&#x7BC7;&#x535A;&#x6587;&#x6765;&#x5355;&#x72EC;&#x8BB2; &#xFF0C;&#x6682;&#x65F6;&#x4E0D;&#x53BB;&#x770B;&#x5B83;  TODO...</span>
+            bdHolder = delegate.decorateBeanDefinitionIfRequired(ele, bdHolder);
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">//3...... Register the final decorated instance.</span>
+                BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry());
+            }
+            <span class="hljs-keyword">catch</span> (BeanDefinitionStoreException ex) {
+                getReaderContext().error(<span class="hljs-string">&quot;Failed to register bean definition with name &apos;&quot;</span> +
+                        bdHolder.getBeanName() + <span class="hljs-string">&quot;&apos;&quot;</span>, ele, ex);
+            }
+            <span class="hljs-comment">// 4....Send registration event.&#x53D1;&#x9001;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;  &#x8FD9;&#x91CC;&#x4E0D;&#x5728;&#x672C;&#x7BC7;&#x5206;&#x6790;&#x4E2D; &#xFF0C;&#x53E6;&#x5916;&#x5206;&#x6790; TODO</span>
+            getReaderContext().fireComponentRegistered(<span class="hljs-keyword">new</span> BeanComponentDefinition(bdHolder));
+        }
+    }
+</code></pre>
+<h4 id="g1-&#x8BF4;&#x660E;&#xFF1A;&#x4EE3;&#x7801;&#x6211;&#x5C31;&#x4E0D;&#x8FDB;&#x53BB;&#x770B;&#x4E86;&#xFF0C;&#x5927;&#x6982;&#x91CC;&#x9762;&#x505A;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;">G.1 &#x8BF4;&#x660E;&#xFF1A;&#x4EE3;&#x7801;&#x6211;&#x5C31;&#x4E0D;&#x8FDB;&#x53BB;&#x770B;&#x4E86;&#xFF0C;&#x5927;&#x6982;&#x91CC;&#x9762;&#x505A;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;:</h4>
+<ol>
+<li><p>&#x5F97;&#x5230;Element &#x4E2D;&#x7684; id &#x548C; name&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <bean id="" name="" ..=""></bean></p>
+</li>
+<li><p>&#x5982;&#x679C;&#x6709;name&#x5C5E;&#x6027;&#x6709;&#x503C;&#xFF0C;&#x5219;&#x5C06;&#x503C;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32; &quot; ,;&quot;&#x5206;&#x5272;&#x6210;&#x6570;&#x7EC4;&#x653E;&#x5230;aliases list&#x4E2D;  List<string> aliases = new ArrayList<string>()</string></string></p>
+</li>
+<li><p>&#x5982;&#x679C;id&#x6CA1;&#x6709;&#x503C;&amp;&amp;aliases&#x6709;&#x503C;&#xFF0C;&#x5219;&#x628A;beanName = aliases.remove(0); </p>
+</li>
+<li><p>&#x68C0;&#x67E5;id&#x503C;&#x7684;&#x552F;&#x4E00;&#x6027;</p>
+</li>
+<li><p>&#x53D6; class &#x3001;parent&#x3001;&#x53BB;AbstractBeanDefinition createBeanDefinition(
+String parentName, String className, ClassLoader classLoader) &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8BBE;&#x7F6E;&#x4E86;parentName&#x3001;be an ClassName&#x3001; beanClass&#x503C;&#x7684;AbstractBeanDefinition&#x5BF9;&#x8C61; &#x4ED6;&#x7684;&#x5B9E;&#x9645;&#x7C7B;&#x578B;&#x662F;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;GenericBeanDefinition&#xFF08;ioc&#x5BB9;&#x5668;&#x5728;&#x672A;&#x5B9E;&#x4F8B;&#x5316;&#x4E4B;&#x524D;&#x4FDD;&#x5B58;&#x7684;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#x4F20;&#x5230;parseBeanDefinitionAttributes() &#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x624D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x5C06;Element&#x5143;&#x7D20;&#x89E3;&#x6790;&#x6210;bean&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;</p>
+</li>
+</ol>
+<p>//AbstractBeanDefinition  extends BeanMetadataAttributeAccessorimplements BeanDefinition, Cloneable &#x8FD9;&#x90E8;&#x5206;&#x9700;&#x8981;&#x5355;&#x72EC;&#x6765;&#x8BB2;TODO&#xFF1B;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AbstractBeanDefinition <span class="hljs-title">createBeanDefinition</span><span class="hljs-params">(
+            String parentName, String className, ClassLoader classLoader)</span> <span class="hljs-keyword">throws</span> ClassNotFoundException </span>{
+
+        GenericBeanDefinition bd = <span class="hljs-keyword">new</span> GenericBeanDefinition();
+        bd.setParentName(parentName);
+        <span class="hljs-keyword">if</span> (className != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">if</span> (classLoader != <span class="hljs-keyword">null</span>) {
+                bd.setBeanClass(ClassUtils.forName(className, classLoader));
+            }
+            <span class="hljs-keyword">else</span> {
+                bd.setBeanClassName(className);
+            }
+        }
+        <span class="hljs-keyword">return</span> bd;
+    }
+</code></pre>
+<ol>
+<li><p>&#x7136;&#x540E;&#x518D;&#x67E5;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#xFF0C;&#x4EC0;&#x4E48;abstract&#x3001;lazy-init&#x7B49;&#x7B49;&#x6240;&#x6709;<bean ....="">&#x7684;&#x5C5E;&#x6027; &#x8BBE;&#x7F6E;&#x5230;&#x7B2C;5&#x6B65;&#x4F20;&#x8FDB;&#x6765;&#x7684;GenericBeanDefinition&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x4E2D;</bean></p>
+</li>
+<li><p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x662F;  5.6&#x6B65;&#x505A;&#x7684;&#x4E8B;&#x60C5;</p>
+<pre><code class="lang-java">AbstractBeanDefinition bd = createBeanDefinition(className, parent);
+<span class="hljs-comment">//&#x89E3;&#x6790;&lt;bean ...&gt; &#x91CC;&#x9762;&#x7684;&#x5C5E;&#x6027;</span>
+         parseBeanDefinitionAttributes(ele, beanName, containingBean, bd);
+</code></pre>
+</li>
+<li><p>&#x63A5;&#x4E0B;&#x6765;&#x89E3;&#x6790;&#x7684;&#x662F; &lt;lookup,meta,property &#x7B49;&#x7B49;  &#x8FD9;&#x91CC;&#x7701;&#x7565;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x77E5;&#x9053; &#x4ED6;&#x4EEC;&#x7684;&#x89E3;&#x6790;&#x64CD;&#x4F5C;&#x5728;BeanDefinitionParserDelegate.parseBeanDefinitionElement()&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x7B2C;5&#x6B65;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;GenericBeanDefinition&#xFF0C;&#x6240;&#x6709;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x653E;&#x5728;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;GenericBeanDefinition</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;helloWorld&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;src.HelloWorld&quot;</span>  &gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">lookup-method</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">lookup-method</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">replaced-method</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">replaced-method</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">meta</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">constructor-arg</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;shirenchuang&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+</code></pre>
+</li>
+<li>&#x5982;&#x679C;id &#x548C; name &#x90FD;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C; spring&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E00;&#x4E2A;beanname</li>
+<li>&#x6240;&#x6709;&#x7684;&#x51C6;&#x5907;&#x6570;&#x636E;&#x90FD;&#x62FF;&#x5230;&#x4E86;&#xFF0C;beanname&#x3001;aliases&#x3001;GenericBeanDefinition&#x3001;&#x628A;&#x5B83;&#x4EEC;&#x5F53;&#x6210;&#x53C2;&#x6570;&#x751F;&#x6210;&#x4E00;&#x4E2A; BeanDefinitionHolder&#xFF0C;&#x5C31;&#x662F;G.1 &#x4E2D;&#x7684;&#x90A3;&#x4E2A;holder<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BeanDefinitionHolder</span><span class="hljs-params">(BeanDefinition beanDefinition, String beanName, String[] aliases)</span> </span>{
+    Assert.notNull(beanDefinition, <span class="hljs-string">&quot;BeanDefinition must not be null&quot;</span>);
+    Assert.notNull(beanName, <span class="hljs-string">&quot;Bean name must not be null&quot;</span>);
+    <span class="hljs-keyword">this</span>.beanDefinition = beanDefinition;
+    <span class="hljs-keyword">this</span>.beanName = beanName;
+    <span class="hljs-keyword">this</span>.aliases = aliases;
+}
+</code></pre>
+</li>
+</ol>
+<p>&#x81EA;&#x6B64; &#x57FA;&#x672C;&#x7684;&#x89E3;&#x6790;&#x5DE5;&#x4F5C;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x6700;&#x597D;&#x662F;&#x600E;&#x4E48;&#x6CE8;&#x518C;&#x7684;&#xFF1B;&#x4EE3;&#x7801;&#x56DE;&#x5230;G.3  BeanDefinitionReaderUtils&#x8FD9;&#x4E2A;&#x7C7B;&#x6709;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<ol>
+<li><p>AbstractBeanDefinition createBeanDefinition(
+String parentName, String className, ClassLoader classLoader) &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5728; G.1 &#x7B2C;5&#x6B65;&#x8C03;&#x7528;&#x4E86;&#xFF0C;&#x751F;&#x6210;&#x4E86;&#x89E3;&#x6790;&#x540E;&#x7684;AbstractBeanDefinition&#x5BF9;&#x8C61;</p>
+</li>
+<li><p>public static String generateBeanName(BeanDefinition beanDefinition, BeanDefinitionRegistry registry)&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;G.1 &#x7B2C;9&#x6B65;&#x9AA4;</p>
+</li>
+<li><p>public static void registerBeanDefinition(
+BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x662F;G.3&#x4E2D;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x53C2;&#x6570;registry &#x5C31;&#x662F;&#x521A;&#x5F00;&#x59CB;&#x65F6;&#x5019;&#x7684;DefaultListableBeanFactory&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x7EE7;&#x627F;&#x4E86;BeanDefinitionRegistry&#x7684;&#xFF1B;&#x6211;&#x4EEC;&#x8FDB;&#x53BB;&#x770B;&#x770B;</p>
+</li>
+</ol>
+<h3 id="h-registerbeandefinition">H.... registerBeanDefinition(</h3>
+<p>BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerBeanDefinition</span><span class="hljs-params">(
+            BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)</span>
+            <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>{
+
+    <span class="hljs-comment">// 1.Register bean definition under primary name. &#x8FD9;&#x4E2A;name&#x4E00;&#x822C;&#x662F;id&#xFF0C;&#x6CA1;&#x6709;id&#x5C31;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x4E5F;&#x6CA1;&#x6709;&#x522B;&#x540D;&#xFF0C;&#x5C31;&#x662F;spring&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;</span>
+        String beanName = definitionHolder.getBeanName();
+<span class="hljs-comment">//2....&#x6B63;&#x5728;&#x6CE8;&#x518C;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E00;&#x4E2A;beanName&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;BeanDefinition </span>
+        registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition());
+
+        <span class="hljs-comment">// Register aliases for bean name, if any.</span>
+        String[] aliases = definitionHolder.getAliases();
+        <span class="hljs-keyword">if</span> (aliases != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">for</span> (String alias : aliases) {
+                registry.registerAlias(beanName, alias);
+            }
+        }
+    }
+</code></pre>
+<h4 id="h2-&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;defaultlistablebeanfactory&#x5B9E;&#x73B0;&#x4E86;beandefinitionregistry&#x63A5;&#x53E3;&#x4E2D;&#x7684;-registerbeandefinition&#xFF1B;&#x4E0D;&#x540C;&#x7684;register&#x6709;&#x81EA;&#x5DF1;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4E00;&#x5F00;&#x59CB;&#x7528;&#x7684;&#x5C31;&#x662F;defaultlistablebeanfactory&#x4F5C;&#x4E3A;register&#xFF1B;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x505A;&#x4E86;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1B;&#x628A;beanname&#xFF0C;&#x548C;beandefinition-&#x8FD9;&#x4E2A;&#x662F;g1-&#x7684;&#x7B2C;&#x4E94;&#x6B65;&#x7684;genericbeandefinition&#x5B58;&#x653E;&#x5230;-concurrenthashmap&#x4E2D;&#xFF1B;">H...2 &#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;DefaultListableBeanFactory&#x5B9E;&#x73B0;&#x4E86;BeanDefinitionRegistry&#x63A5;&#x53E3;&#x4E2D;&#x7684; registerBeanDefinition&#xFF1B;&#x4E0D;&#x540C;&#x7684;register&#x6709;&#x81EA;&#x5DF1;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4E00;&#x5F00;&#x59CB;&#x7528;&#x7684;&#x5C31;&#x662F;DefaultListableBeanFactory&#x4F5C;&#x4E3A;register&#xFF1B;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x505A;&#x4E86;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1B;&#x628A;beanName&#xFF0C;&#x548C;beanDefinition (&#x8FD9;&#x4E2A;&#x662F;G.1 &#x7684;&#x7B2C;&#x4E94;&#x6B65;&#x7684;GenericBeanDefinition)&#x5B58;&#x653E;&#x5230; ConcurrentHashMap&#x4E2D;&#xFF1B;</h4>
+<pre><code class="lang-java">    <span class="hljs-comment">// Still in startup registration phase</span>
+                <span class="hljs-keyword">this</span>.beanDefinitionMap.put(beanName, beanDefinition);
+                <span class="hljs-keyword">this</span>.beanDefinitionNames.add(beanName);
+                <span class="hljs-keyword">this</span>.manualSingletonNames.remove(beanName);
+
+&#x81F3;&#x6B64;&#xFF0C;&lt;bean &#x7684;&#x89E3;&#x6790;&#x548C;&#x52A0;&#x8F7D;&#x5DE5;&#x4F5C;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF08;&#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x9664;&#x975E;&#x8BBE;&#x7F6E;&#x4E86;lazy-init = <span class="hljs-keyword">true</span>&#xFF09;...  &#x90A3;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;bean&#x5462;  A. &#x4E2D; HelloWorld helloWorld = (HelloWorld)factory.getBean(<span class="hljs-string">&quot;helloWorldImpl1&quot;</span>);
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B; getBean()&#xFF1B;
+<img src="../../../images/20171028121350008.jpeg" alt="20171028121350008"></p>
+<p>&#x6211;&#x4EEC;&#x5728;factory&#x91CC;&#x9762;&#x62FF;&#x5230;&#x7684;beanDefinitionMap&#x5E76;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1B;&#x90A3;&#x6211;&#x4EEC;&#x5BF9;&#x8C61;&#x5728;&#x54EA;&#x91CC;&#x5462;&#xFF1F; &#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x8FD8;&#x6CA1;&#x6709;&#x5B9E;&#x4F8B;&#x5316;bean&#x5BF9;&#x8C61;&#xFF1B;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5728;getBean()&#x91CC;&#x9762;&#xFF0C;</p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x4E0D;&#x53BB;&#x5355;&#x72EC;&#x5206;&#x6790;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x63A8;&#x8350;&#x53BB;&#x8FD9;&#x91CC;&#x770B;&#x5B83;&#x7684;&#x5206;&#x6790;&#xFF0C;<a href="http://www.cnblogs.com/ITtangtang/p/3978349.html" target="_blank">http://www.cnblogs.com/ITtangtang/p/3978349.html</a> &#xFF0C;&#x627E;&#x5230;getBean()&#x65B9;&#x6CD5;&#x770B;</p>
+<h2 id="ioc&#x5BB9;&#x5668;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;">IOC&#x5BB9;&#x5668;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</h2>
+<h3 id="1&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x95F4;">1.&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x95F4;</h3>
+<p>(1).&#x7528;&#x6237;&#x7B2C;&#x4E00;&#x6B21;&#x901A;&#x8FC7;getBean&#x65B9;&#x6CD5;&#x5411;IoC&#x5BB9;&#x7D22;&#x8981;Bean&#x65F6;&#xFF0C;IoC&#x5BB9;&#x5668;&#x89E6;&#x53D1;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x3002;
+(2).&#x5F53;&#x7528;&#x6237;&#x5728;Bean&#x5B9A;&#x4E49;&#x8D44;&#x6E90;&#x4E2D;&#x4E3A;<bean>&#x5143;&#x7D20;&#x914D;&#x7F6E;&#x4E86;lazy-init&#x5C5E;&#x6027;&#xFF0C;&#x5373;&#x8BA9;&#x5BB9;&#x5668;&#x5728;&#x89E3;&#x6790;&#x6CE8;&#x518C;Bean&#x5B9A;&#x4E49;&#x65F6;&#x8FDB;&#x884C;&#x9884;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x89E6;&#x53D1;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x3002;</bean></p>
+<p>BeanFactory&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;Spring IoC&#x5BB9;&#x5668;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#x89C4;&#x8303;&#xFF0C;&#x5728;BeanFactory&#x4E2D;&#x6211;&#x4EEC;&#x770B;&#x5230;getBean&#xFF08;String&#x2026;&#xFF09;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728;AbstractBeanFactory&#x4E2D;</p>
+<h3 id="2abstractbeanfactory&#x901A;&#x8FC7;getbean&#x5411;ioc&#x5BB9;&#x5668;&#x83B7;&#x53D6;&#x88AB;&#x7BA1;&#x7406;&#x7684;bean&#xFF08;&#x6E90;&#x7801;&#x7565;&#xFF09;">2.AbstractBeanFactory&#x901A;&#x8FC7;getBean&#x5411;IoC&#x5BB9;&#x5668;&#x83B7;&#x53D6;&#x88AB;&#x7BA1;&#x7406;&#x7684;Bean&#xFF08;&#x6E90;&#x7801;&#x7565;&#xFF09;</h3>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x5BF9;&#x5411;IoC&#x5BB9;&#x5668;&#x83B7;&#x53D6;Bean&#x65B9;&#x6CD5;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;Spring&#x4E2D;&#xFF0C;&#x5982;&#x679C;Bean&#x5B9A;&#x4E49;&#x7684;&#x5355;&#x6001;&#x6A21;&#x5F0F;(Singleton)&#xFF0C;&#x5219;&#x5BB9;&#x5668;&#x5728;&#x521B;&#x5EFA;&#x4E4B;&#x524D;&#x5148;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x67E5;&#x627E;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x6574;&#x4E2A;&#x5BB9;&#x5668;&#x4E2D;&#x53EA;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;Bean&#x5B9A;&#x4E49;&#x7684;&#x662F;&#x539F;&#x578B;&#x6A21;&#x5F0F;(Prototype)&#xFF0C;&#x5219;&#x5BB9;&#x5668;&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;Bean&#x5B9A;&#x4E49;&#x8FD8;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x4E3A;&#x6307;&#x5B9A;&#x5176;&#x751F;&#x547D;&#x5468;&#x671F;&#x8303;&#x56F4;&#x3002;
+&#x4E0A;&#x9762;&#x7684;&#x6E90;&#x7801;&#x53EA;&#x662F;&#x5B9A;&#x4E49;&#x4E86;&#x6839;&#x636E;Bean&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x91C7;&#x53D6;&#x7684;&#x4E0D;&#x540C;&#x521B;&#x5EFA;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5177;&#x4F53;&#x7684;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x7531;&#x5B9E;&#x73B0;&#x4E86;ObejctFactory&#x63A5;&#x53E3;&#x7684;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x7684;createBean&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#xFF0C;ObejctFactory&#x4F7F;&#x7528;&#x59D4;&#x6D3E;&#x6A21;&#x5F0F;&#xFF0C;&#x5177;&#x4F53;&#x7684;Bean&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4EA4;&#x7531;&#x5176;&#x5B9E;&#x73B0;&#x7C7B;AbstractAutowireCapableBeanFactory&#x5B8C;&#x6210;&#xFF0C;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x5206;&#x6790;AbstractAutowireCapableBeanFactory&#x7684;createBean&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x7406;&#x89E3;&#x5176;&#x521B;&#x5EFA;Bean&#x5B9E;&#x4F8B;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</p>
+<h3 id="3&#x3001;abstractautowirecapablebeanfactory&#x521B;&#x5EFA;bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;&#xFF08;&#x6E90;&#x7801;&#x7565;&#xFF09;">3&#x3001;AbstractAutowireCapableBeanFactory&#x521B;&#x5EFA;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;&#xFF08;&#x6E90;&#x7801;&#x7565;&#xFF09;</h3>
+<p>AbstractAutowireCapableBeanFactory&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;ObejctFactory&#x63A5;&#x53E3;&#xFF0C;&#x521B;&#x5EFA;&#x5BB9;&#x5668;&#x6307;&#x5B9A;&#x7684;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x5BF9;&#x521B;&#x5EFA;&#x7684;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x5904;&#x7406;&#x901A;&#x8FC7;&#x5BF9;&#x65B9;&#x6CD5;&#x6E90;&#x7801;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x5177;&#x4F53;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5B9E;&#x73B0;&#x5728;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<p>(1).createBeanInstance&#xFF1A;&#x751F;&#x6210;Bean&#x6240;&#x5305;&#x542B;&#x7684;java&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>(2).populateBean &#xFF1A;&#x5BF9;Bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="4&#x3001;createbeaninstance&#x65B9;&#x6CD5;&#x521B;&#x5EFA;bean&#x7684;java&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;">4&#x3001;createBeanInstance&#x65B9;&#x6CD5;&#x521B;&#x5EFA;Bean&#x7684;java&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;</h3>
+<pre><code class="lang-java">&#x5728;createBeanInstance&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7B56;&#x7565;&#xFF0C;&#x4F7F;&#x7528;&#x9759;&#x6001;&#x5DE5;&#x5382;&#x3001;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x5BB9;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x7279;&#x6027;&#x751F;&#x6210;java&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+<span class="hljs-comment">//&#x521B;&#x5EFA;Bean&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;  </span>
+   <span class="hljs-function"><span class="hljs-keyword">protected</span> BeanWrapper <span class="hljs-title">createBeanInstance</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd, Object[] args)</span> </span>{  
+       <span class="hljs-comment">//&#x68C0;&#x67E5;&#x786E;&#x8BA4;Bean&#x662F;&#x53EF;&#x5B9E;&#x4F8B;&#x5316;&#x7684;  </span>
+       Class beanClass = resolveBeanClass(mbd, beanName);  
+       <span class="hljs-comment">//&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x5BF9;Bean&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;  </span>
+       <span class="hljs-keyword">if</span> (beanClass != <span class="hljs-keyword">null</span> &amp;&amp; !Modifier.isPublic(beanClass.getModifiers()) &amp;&amp; !mbd.isNonPublicAccessAllowed()) {  
+           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,  
+                   <span class="hljs-string">&quot;Bean class isn&apos;t public, and non-public access not allowed: &quot;</span> + beanClass.getName());  
+       }  
+       <span class="hljs-keyword">if</span> (mbd.getFactoryMethodName() != <span class="hljs-keyword">null</span>)  {  
+           <span class="hljs-comment">//&#x8C03;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;  </span>
+           <span class="hljs-keyword">return</span> instantiateUsingFactoryMethod(beanName, mbd, args);  
+       }  
+       <span class="hljs-comment">//&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;  </span>
+       <span class="hljs-keyword">boolean</span> resolved = <span class="hljs-keyword">false</span>;  
+       <span class="hljs-keyword">boolean</span> autowireNecessary = <span class="hljs-keyword">false</span>;  
+       <span class="hljs-keyword">if</span> (args == <span class="hljs-keyword">null</span>) {  
+           <span class="hljs-keyword">synchronized</span> (mbd.constructorArgumentLock) {  
+               <span class="hljs-keyword">if</span> (mbd.resolvedConstructorOrFactoryMethod != <span class="hljs-keyword">null</span>) {  
+                   resolved = <span class="hljs-keyword">true</span>;  
+                   autowireNecessary = mbd.constructorArgumentsResolved;  
+               }  
+           }  
+       }  
+       <span class="hljs-keyword">if</span> (resolved) {  
+           <span class="hljs-keyword">if</span> (autowireNecessary) {  
+               <span class="hljs-comment">//&#x914D;&#x7F6E;&#x4E86;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x5C5E;&#x6027;&#xFF0C;&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x5B9E;&#x4F8B;&#x5316;  </span>
+               <span class="hljs-comment">//&#x5BB9;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x662F;&#x6839;&#x636E;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x5339;&#x914D;Bean&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;  </span>
+               <span class="hljs-keyword">return</span> autowireConstructor(beanName, mbd, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);  
+           }  
+           <span class="hljs-keyword">else</span> {  
+               <span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;  </span>
+               <span class="hljs-keyword">return</span> instantiateBean(beanName, mbd);  
+           }  
+       }  
+       <span class="hljs-comment">//&#x4F7F;&#x7528;Bean&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;  </span>
+       Constructor[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);  
+       <span class="hljs-keyword">if</span> (ctors != <span class="hljs-keyword">null</span> ||  
+               mbd.getResolvedAutowireMode() == RootBeanDefinition.AUTOWIRE_CONSTRUCTOR ||  
+               mbd.hasConstructorArgumentValues() || !ObjectUtils.isEmpty(args))  {  
+           <span class="hljs-comment">//&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x7279;&#x6027;&#xFF0C;&#x8C03;&#x7528;&#x5339;&#x914D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;  </span>
+           <span class="hljs-keyword">return</span> autowireConstructor(beanName, mbd, ctors, args);  
+       }  
+       <span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;  </span>
+       <span class="hljs-keyword">return</span> instantiateBean(beanName, mbd);  
+   }   
+   <span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;Bean&#x5BF9;&#x8C61;  </span>
+   <span class="hljs-function"><span class="hljs-keyword">protected</span> BeanWrapper <span class="hljs-title">instantiateBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> RootBeanDefinition mbd)</span> </span>{  
+       <span class="hljs-keyword">try</span> {  
+           Object beanInstance;  
+           <span class="hljs-keyword">final</span> BeanFactory parent = <span class="hljs-keyword">this</span>;  
+           <span class="hljs-comment">//&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x7BA1;&#x7406;&#x63A5;&#x53E3;&#xFF0C;JDK&#x6807;&#x51C6;&#x7684;&#x5B89;&#x5168;&#x7BA1;&#x7406;API  </span>
+           <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {  
+               <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x5185;&#x7F6E;&#x7C7B;&#xFF0C;&#x6839;&#x636E;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;  </span>
+               beanInstance = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedAction&lt;Object&gt;() {  
+                   <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{  
+                       <span class="hljs-keyword">return</span> getInstantiationStrategy().instantiate(mbd, beanName, parent);  
+                   }  
+               }, getAccessControlContext());  
+           }  
+           <span class="hljs-keyword">else</span> {  
+               <span class="hljs-comment">//&#x5C06;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x8D77;&#x6765;  </span>
+               beanInstance = getInstantiationStrategy().instantiate(mbd, beanName, parent);  
+           }  
+           BeanWrapper bw = <span class="hljs-keyword">new</span> BeanWrapperImpl(beanInstance);  
+           initBeanWrapper(bw);  
+           <span class="hljs-keyword">return</span> bw;  
+       }  
+       <span class="hljs-keyword">catch</span> (Throwable ex) {  
+           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName, <span class="hljs-string">&quot;Instantiation of bean failed&quot;</span>, ex);  
+       }  
+   }
+</code></pre>
+<p>&#x7ECF;&#x8FC7;&#x5BF9;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5BF9;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x548C;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x7279;&#x6027;&#x7684;Bean&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x76F8;&#x5F53;&#x6BD4;&#x8F83;&#x6E05;&#x695A;&#xFF0C;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x53C2;&#x6570;&#x5339;&#x914D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x9ED8;&#x8BA4;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7B56;&#x7565;(JDK&#x7684;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x6216;&#x8005;CGLIB)&#x6765;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x4E86;&#xFF0C;&#x5728;&#x65B9;&#x6CD5;getInstantiationStrategy().instantiate&#x4E2D;&#x5C31;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7C7B;&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x7B56;&#x7565;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</p>
+<h3 id="5&#x3001;simpleinstantiationstrategy&#x7C7B;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;bean&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1A;">5&#x3001;SimpleInstantiationStrategy&#x7C7B;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;Bean&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1A;</h3>
+<p>&#x5728;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;Bean&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x65B9;&#x6CD5;getInstantiationStrategy().instantiate&#x8C03;&#x7528;&#x4E86;SimpleInstantiationStrategy&#x7C7B;&#x4E2D;&#x7684;&#x5B9E;&#x4F8B;&#x5316;Bean&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316;&#x7B56;&#x7565;&#x5B9E;&#x4F8B;&#x5316;Bean&#x5BF9;&#x8C61;  </span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition beanDefinition, String beanName, BeanFactory owner)</span> </span>{  
+       <span class="hljs-comment">//&#x5982;&#x679C;Bean&#x5B9A;&#x4E49;&#x4E2D;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#x8986;&#x76D6;&#xFF0C;&#x5219;&#x5C31;&#x4E0D;&#x9700;&#x8981;CGLIB&#x7236;&#x7C7B;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;  </span>
+       <span class="hljs-keyword">if</span> (beanDefinition.getMethodOverrides().isEmpty()) {  
+           Constructor&lt;?&gt; constructorToUse;  
+           <span class="hljs-keyword">synchronized</span> (beanDefinition.constructorArgumentLock) {  
+               <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6216;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;  </span>
+               constructorToUse = (Constructor&lt;?&gt;) beanDefinition.resolvedConstructorOrFactoryMethod;  
+               <span class="hljs-comment">//&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E14;&#x6CA1;&#x6709;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;  </span>
+               <span class="hljs-keyword">if</span> (constructorToUse == <span class="hljs-keyword">null</span>) {  
+                   <span class="hljs-comment">//&#x4F7F;&#x7528;JDK&#x7684;&#x53CD;&#x5C04;&#x673A;&#x5236;&#xFF0C;&#x5224;&#x65AD;&#x8981;&#x5B9E;&#x4F8B;&#x5316;&#x7684;Bean&#x662F;&#x5426;&#x662F;&#x63A5;&#x53E3;  </span>
+                   <span class="hljs-keyword">final</span> Class clazz = beanDefinition.getBeanClass();  
+                   <span class="hljs-keyword">if</span> (clazz.isInterface()) {  
+                       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanInstantiationException(clazz, <span class="hljs-string">&quot;Specified class is an interface&quot;</span>);  
+                   }  
+                   <span class="hljs-keyword">try</span> {  
+                       <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {  
+                       <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x5185;&#x7F6E;&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x83B7;&#x53D6;Bean&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;  </span>
+                           constructorToUse = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedExceptionAction&lt;Constructor&gt;() {  
+                               <span class="hljs-function"><span class="hljs-keyword">public</span> Constructor <span class="hljs-title">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{  
+                                   <span class="hljs-keyword">return</span> clazz.getDeclaredConstructor((Class[]) <span class="hljs-keyword">null</span>);  
+                               }  
+                           });  
+                       }  
+                       <span class="hljs-keyword">else</span> {  
+                           constructorToUse =  clazz.getDeclaredConstructor((Class[]) <span class="hljs-keyword">null</span>);  
+                       }  
+                       beanDefinition.resolvedConstructorOrFactoryMethod = constructorToUse;  
+                   }  
+                   <span class="hljs-keyword">catch</span> (Exception ex) {  
+                       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanInstantiationException(clazz, <span class="hljs-string">&quot;No default constructor found&quot;</span>, ex);  
+                   }  
+               }  
+           }  
+           <span class="hljs-comment">//&#x4F7F;&#x7528;BeanUtils&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x8C03;&#x7528;&#x201D;&#x6784;&#x9020;&#x65B9;&#x6CD5;.newInstance(arg)&#x201D;&#x6765;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;  </span>
+           <span class="hljs-keyword">return</span> BeanUtils.instantiateClass(constructorToUse);  
+       }  
+       <span class="hljs-keyword">else</span> {  
+           <span class="hljs-comment">//&#x4F7F;&#x7528;CGLIB&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;  </span>
+           <span class="hljs-keyword">return</span> instantiateWithMethodInjection(beanDefinition, beanName, owner);  
+       }  
+    }
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E86;&#x5982;&#x679C;Bean&#x6709;&#x65B9;&#x6CD5;&#x88AB;&#x8986;&#x76D6;&#x4E86;&#xFF0C;&#x5219;&#x4F7F;&#x7528;JDK&#x7684;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x4F7F;&#x7528;CGLIB&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;&#x3002;
+instantiateWithMethodInjection&#x65B9;&#x6CD5;&#x8C03;&#x7528;SimpleInstantiationStrategy&#x7684;&#x5B50;&#x7C7B;CglibSubclassingInstantiationStrategy&#x4F7F;&#x7528;CGLIB&#x6765;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5176;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x4F7F;&#x7528;CGLIB&#x8FDB;&#x884C;Bean&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;  </span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">instantiate</span><span class="hljs-params">(Constructor ctor, Object[] args)</span> </span>{  
+           <span class="hljs-comment">//CGLIB&#x4E2D;&#x7684;&#x7C7B;  </span>
+           Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();  
+           <span class="hljs-comment">//&#x5C06;Bean&#x672C;&#x8EAB;&#x4F5C;&#x4E3A;&#x5176;&#x57FA;&#x7C7B;  </span>
+           enhancer.setSuperclass(<span class="hljs-keyword">this</span>.beanDefinition.getBeanClass());  
+           enhancer.setCallbackFilter(<span class="hljs-keyword">new</span> CallbackFilterImpl());  
+           enhancer.setCallbacks(<span class="hljs-keyword">new</span> Callback[] {  
+                   NoOp.INSTANCE,  
+                   <span class="hljs-keyword">new</span> LookupOverrideMethodInterceptor(),  
+                   <span class="hljs-keyword">new</span> ReplaceOverrideMethodInterceptor()  
+           });  
+           <span class="hljs-comment">//&#x4F7F;&#x7528;CGLIB&#x7684;create&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;  </span>
+           <span class="hljs-keyword">return</span> (ctor == <span class="hljs-keyword">null</span>) ?   
+                   enhancer.create() :   
+                   enhancer.create(ctor.getParameterTypes(), args);  
+       }
+</code></pre>
+<p>CGLIB&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x5B57;&#x8282;&#x7801;&#x751F;&#x6210;&#x5668;&#x7684;&#x7C7B;&#x5E93;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7CFB;&#x5217;API&#x5B9E;&#x73B0;java&#x5B57;&#x8282;&#x7801;&#x7684;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x6362;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x5B66;&#x4E60;JDK&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x65F6;&#x90FD;&#x77E5;&#x9053;&#xFF0C;JDK&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x53EA;&#x80FD;&#x9488;&#x5BF9;&#x63A5;&#x53E3;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x4EFB;&#x4F55;&#x63A5;&#x53E3;&#xFF0C;&#x8981;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x53EA;&#x80FD;&#x4F7F;&#x7528;CGLIB&#x3002;</p>
+<h3 id="6&#x3001;populatebean&#x65B9;&#x6CD5;&#x5BF9;bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1A;">6&#x3001;populateBean&#x65B9;&#x6CD5;&#x5BF9;Bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1A;</h3>
+<p>&#x5728;&#x7B2C;3&#x6B65;&#x7684;&#x5206;&#x6790;&#x4E2D;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x4E86;&#x89E3;&#x5230;Bean&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF1A;
+(1).createBeanInstance&#xFF1A;&#x751F;&#x6210;Bean&#x6240;&#x5305;&#x542B;&#x7684;java&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;
+(2).populateBean &#xFF1A;&#x5BF9;Bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;
+&#x7B2C;4&#x3001;5&#x6B65;&#x4E2D;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5206;&#x6790;&#x4E86;&#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;&#x751F;&#x6210;Bean&#x6240;&#x5305;&#x542B;&#x7684;Java&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x5206;&#x6790;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x540E;&#xFF0C;Spring IoC&#x5BB9;&#x5668;&#x662F;&#x5982;&#x4F55;&#x5C06;Bean&#x7684;&#x5C5E;&#x6027;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x6CE8;&#x5165;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#x5E76;&#x8BBE;&#x7F6E;&#x597D;&#x7684;&#xFF0C;&#x5C5E;&#x6027;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x4EE3;&#x7801; &#xFF08;&#x7565;..&#xFF09;</p>
+<p>&#x5206;&#x6790;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5BF9;&#x5C5E;&#x6027;&#x7684;&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;&#x5206;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;
+(1).&#x5C5E;&#x6027;&#x503C;&#x7C7B;&#x578B;&#x4E0D;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x65F6;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x89E3;&#x6790;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x76F4;&#x63A5;&#x51C6;&#x5907;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x3002;
+(2).&#x5C5E;&#x6027;&#x503C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x65F6;&#xFF0C;&#x5982;&#x5BF9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x7B49;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x89E3;&#x6790;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x89E3;&#x6790;&#x540E;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x3002;</p>
+<p>&#x5BF9;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x89E3;&#x6790;&#x662F;&#x5728;BeanDefinitionValueResolver&#x7C7B;&#x4E2D;&#x7684;resolveValueIfNecessary&#x65B9;&#x6CD5;&#x4E2D;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x5BF9;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x662F;&#x901A;&#x8FC7;bw.setPropertyValues&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5728;&#x5206;&#x6790;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x5BF9;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x89E3;&#x6790;&#x8FC7;&#x7A0B;&#x3002;</p>
+<h3 id="7&#x3001;beandefinitionvalueresolver&#x89E3;&#x6790;&#x5C5E;&#x6027;&#x503C;&#xFF1A;">7&#x3001;BeanDefinitionValueResolver&#x89E3;&#x6790;&#x5C5E;&#x6027;&#x503C;&#xFF1A;</h3>
+<p>&#x5F53;&#x5BB9;&#x5668;&#x5728;&#x5BF9;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x5C5E;&#x6027;&#x503C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x5982;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x5BB9;&#x5668;&#x4E2D;&#x53E6;&#x4E00;&#x4E2A;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5219;&#x5BB9;&#x5668;&#x9996;&#x5148;&#x9700;&#x8981;&#x6839;&#x636E;&#x5C5E;&#x6027;&#x503C;&#x89E3;&#x6790;&#x51FA;&#x6240;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x5C06;&#x8BE5;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x5230;&#x76EE;&#x6807;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E0A;&#x53BB;&#xFF0C;&#x5BF9;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x7684;&#x7531;resolveValueIfNecessary&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x6E90;&#x7801;&#xFF08;&#x7565;&#xFF09;
+&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x660E;&#x767D;&#x4E86;Spring&#x662F;&#x5982;&#x4F55;&#x5C06;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x4EE5;&#x53CA;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#x7B49;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x7684;&#xFF0C;&#x5C5E;&#x6027;&#x503C;&#x89E3;&#x6790;&#x5B8C;&#x6210;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x4E86;&#xFF0C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;Bean&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8BBE;&#x7F6E;&#x5230;&#x5B83;&#x6240;&#x4F9D;&#x8D56;&#x7684;Bean&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x4E0A;&#x53BB;&#xFF0C;&#x5728;&#x7B2C;7&#x6B65;&#x4E2D;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7;&#xFF0C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x662F;&#x901A;&#x8FC7;bw.setPropertyValues&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E5F;&#x4F7F;&#x7528;&#x4E86;&#x59D4;&#x6258;&#x6A21;&#x5F0F;&#xFF0C;&#x5728;BeanWrapper&#x63A5;&#x53E3;&#x4E2D;&#x81F3;&#x5C11;&#x5B9A;&#x4E49;&#x4E86;&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#xFF0C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4EA4;&#x7531;&#x5176;&#x5B9E;&#x73B0;&#x7C7B;BeanWrapperImpl&#x6765;&#x5B8C;&#x6210;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x5206;&#x6790;&#x4F9D;BeanWrapperImpl&#x4E2D;&#x8D56;&#x6CE8;&#x5165;&#x76F8;&#x5173;&#x7684;&#x6E90;&#x7801;&#x3002;</p>
+<h3 id="8&#x3001;beanwrapperimpl&#x5BF9;bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1A;">8&#x3001;BeanWrapperImpl&#x5BF9;Bean&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1A;</h3>
+<p>BeanWrapperImpl&#x7C7B;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x5BB9;&#x5668;&#x4E2D;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x7684;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;&#x5373;&#x628A;Bean&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x5230;&#x5B83;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x53E6;&#x4E00;&#x4E2A;Bean&#x7684;&#x5C5E;&#x6027;&#x4E2D;&#x53BB;&#xFF0C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x76F8;&#x5173;&#x6E90;&#x7801;&#xFF08;&#x7565;&#xFF09;
+&#x901A;&#x8FC7;&#x5BF9;&#x4E0A;&#x9762;&#x6CE8;&#x5165;&#x4F9D;&#x8D56;&#x4EE3;&#x7801;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x660E;&#x767D;&#x4E86;Spring IoC&#x5BB9;&#x5668;&#x662F;&#x5982;&#x4F55;&#x5C06;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x6CE8;&#x5165;&#x5230;Bean&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#x53BB;&#x7684;&#xFF1A;
+(1).&#x5BF9;&#x4E8E;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5C06;&#x5176;&#x5C5E;&#x6027;&#x503C;&#x89E3;&#x6790;&#x4E3A;&#x76EE;&#x6807;&#x7C7B;&#x578B;&#x7684;&#x96C6;&#x5408;&#x540E;&#x76F4;&#x63A5;&#x8D4B;&#x503C;&#x7ED9;&#x5C5E;&#x6027;&#x3002;
+(2).&#x5BF9;&#x4E8E;&#x975E;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x4E86;JDK&#x7684;&#x53CD;&#x5C04;&#x548C;&#x5185;&#x7701;&#x673A;&#x5236;&#xFF0C;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x7684;getter&#x65B9;&#x6CD5;(reader method)&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x6CE8;&#x5165;&#x4EE5;&#x524D;&#x7684;&#x503C;&#xFF0C;&#x540C;&#x65F6;&#x8C03;&#x7528;&#x5C5E;&#x6027;&#x7684;setter&#x65B9;&#x6CD5;(writer method)&#x4E3A;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x6CE8;&#x5165;&#x540E;&#x7684;&#x503C;&#x3002;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x76F8;&#x4FE1;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x660E;&#x767D;&#x4E86;Spring&#x7684;setter&#x6CE8;&#x5165;&#x539F;&#x7406;&#x3002;
+&#x81F3;&#x6B64;Spring IoC&#x5BB9;&#x5668;&#x5BF9;Bean&#x5B9A;&#x4E49;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x5B9A;&#x4F4D;&#xFF0C;&#x8F7D;&#x5165;&#x3001;&#x89E3;&#x6790;&#x548C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5DF2;&#x7ECF;&#x5168;&#x90E8;&#x5206;&#x6790;&#x5B8C;&#x6BD5;&#xFF0C;&#x73B0;&#x5728;Spring IoC&#x5BB9;&#x5668;&#x4E2D;&#x7BA1;&#x7406;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x9760;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x8054;&#x7CFB;&#x8D77;&#x6765;&#x7684;Bean&#xFF0C;&#x7A0B;&#x5E8F;&#x4E0D;&#x9700;&#x8981;&#x5E94;&#x7528;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x6240;&#x9700;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;Spring IoC&#x5BB9;&#x5668;&#x4F1A;&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x4E3A;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x4E14;&#x4E3A;&#x6211;&#x4EEC;&#x6CE8;&#x5165;&#x597D;&#x76F8;&#x5173;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;Spring&#x6838;&#x5FC3;&#x529F;&#x80FD;&#x7684;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#x548C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x76F8;&#x5173;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x592A;&#x8981;&#x547D;&#x4E86;  &#x660E;&#x5929;&#x518D;&#x5199;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../Spel.html" class="navigation navigation-prev " aria-label="Previous page: SpEL 表达式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springSourceCode_analysis_1_80138425.html" class="navigation navigation-next " aria-label="Next page: (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(转)spring源码分析(一)IOC管理Bean","level":"1.3.2.2","depth":3,"next":{"title":"(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的","level":"1.3.2.3","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md","articles":[]},"previous":{"title":"SpEL 表达式","level":"1.3.2.1","depth":3,"path":"Spring/转载/Spel.md","ref":"Spring/转载/Spel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md","mtime":"2019-05-24T08:33:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

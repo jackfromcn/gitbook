@@ -1,0 +1,1634 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(转)Spring源码解析(五)Spring 加载bean 依赖注入 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springSourceCode_analysis_6_80287736.html" />
+    
+    
+    <link rel="prev" href="springSourceCode_analysis_4_80226375.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../../源码/Aop/Aop.html">
+            
+                <a href="../../源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Spel.html">
+            
+                <a href="../Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="springSourceCode_analysis_1_78368930.html">
+            
+                <a href="springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="springSourceCode_analysis_1_80138425.html">
+            
+                <a href="springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="springSourceCode_analysis_2_80169701.html">
+            
+                <a href="springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="springSourceCode_analysis_3_80223871.html">
+            
+                <a href="springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="springSourceCode_analysis_4_80226375.html">
+            
+                <a href="springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.7" data-path="springSourceCode_analysis_5_80238746.html">
+            
+                <a href="springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="springSourceCode_analysis_6_80287736.html">
+            
+                <a href="springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="springSourceCode_analysis_7_80289441.html">
+            
+                <a href="springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="springSourceCode_analysis_8_80291728.html">
+            
+                <a href="springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="springSourceCode_analysis_9_80299451.html">
+            
+                <a href="springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="springSourceCode_analysis_10_80301135.html">
+            
+                <a href="springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="springSourceCode_analysis_11_80321854.html">
+            
+                <a href="springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="springSourceCode_analysis_12_80348253.html">
+            
+                <a href="springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="springSourceCode_analysis_14_80363793.html">
+            
+                <a href="springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="springSourceCode_analysis_15_80385067.html">
+            
+                <a href="springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="springSourceCode_analysis_16_80389286.md">
+            
+                <span>
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >(转)Spring源码解析(五)Spring 加载bean 依赖注入</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8F6C;spring&#x6E90;&#x7801;&#x89E3;&#x6790;&#x4E94;spring-&#x52A0;&#x8F7D;bean-&#x4F9D;&#x8D56;&#x6CE8;&#x5165;">(&#x8F6C;)Spring&#x6E90;&#x7801;&#x89E3;&#x6790;(&#x4E94;)Spring &#x52A0;&#x8F7D;bean &#x4F9D;&#x8D56;&#x6CE8;&#x5165;</h1>
+<p>&#x5728;&#x5F00;&#x59CB;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x7B80;&#x5355;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x524D;&#x9762;&#x51E0;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x8FC7;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5F52;&#x7EB3;&#x4E00;&#x4E0B;Spring IOC&#x5BB9;&#x5668;&#x7684;&#x8FC7;&#x7A0B; 
+<strong>&#x4E00;&#x3001;Resource&#x5B9A;&#x4F4D;&#x8FC7;&#x7A0B;</strong>&#xFF1B;&#x8FD9;&#x4E2A;Resource&#x5B9A;&#x4F4D;&#x6307;&#x7684;&#x7684;&#x662F;BeanDefinition&#x7684;&#x8D44;&#x6E90;&#x5B9A;&#x4F4D;&#xFF0C;&#x4ED6;&#x7531;ResourceLoader&#x901A;&#x8FC7;&#x7EDF;&#x4E00;&#x7684;Resource&#x63A5;&#x53E3;&#x6765;&#x5B8C;&#x6210;&#xFF0C;&#x8FD9;&#x4E2A;Resource&#x5BF9;&#x5404;&#x79CD;&#x5F62;&#x5F0F;&#x7684;BeanDefinition&#x7684;&#x4F7F;&#x7528;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x7EDF;&#x4E00;&#x63A5;&#x53E3;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;BeanDefinition&#x7684;&#x5B58;&#x5728;&#x5F62;&#x5F0F;&#xFF0C;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x90FD;&#x4E0D;&#x4F1A;&#x611F;&#x5230;&#x964C;&#x751F;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x7C7B;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;Bean&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;FileSystemResouce&#x6765;&#x8FDB;&#x884C;&#x62BD;&#x8C61;&#xFF1B;&#x5728;&#x7C7B;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;Bean&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;ClassPathResource&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x7B49;&#x5F85;&#xFF1B;&#x8FD9;&#x4E2A;&#x5B9A;&#x4F4D;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#x4E8E;&#x5BB9;&#x5668;&#x5BFB;&#x627E;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5C31;&#x50CF;&#x7528;&#x6C34;&#x6876;&#x88C5;&#x6C34;&#x5148;&#x8981;&#x628A;&#x6C34;&#x627E;&#x5230;&#x4E00;&#x6837;&#xFF1B;</p>
+<p><strong>&#x4E8C;&#x3001;BeanDefinition&#x7684;&#x8F7D;&#x5165;</strong>&#xFF0C;&#x8FD9;&#x4E2A;&#x8F7D;&#x5165;&#x8FC7;&#x7A0B;&#x662F;&#x628A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x597D;&#x7684;Bean&#x8868;&#x793A;&#x6210;IOC&#x5BB9;&#x6613;&#x5185;&#x90E8;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5C31;&#x662F;BeanDefinition&#xFF0C;&#x8FD9;&#x4E2A;BeanDefinition&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;POJO&#x5BF9;&#x8C61;&#x5728;IOC&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;BeanDefinition&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F7F;IOC&#x5BB9;&#x5668;&#x80FD;&#x591F;&#x65B9;&#x4FBF;&#x7684;&#x5BF9;POJO&#x5BF9;&#x8C61;&#x4E5F;&#x5C31;&#x662F;bean&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;</p>
+<p><strong>&#x4E09;&#x3001;&#x5411;IOC&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x518C;&#x8FD9;&#x4E9B;BeanDefinition&#x7684;&#x8FC7;&#x7A0B;</strong>&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x901A;&#x8FC7;&#x8C03;&#x7528;BeanDefinitionRegistery&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x6765;&#x5B8C;&#x6210;&#x7684;;&#x4F8B;&#x5982;DefaultListableBeanFactory&#x5C31;&#x5B9E;&#x73B0;&#x4E86;BeanDefinitionRegistry&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E2A;&#x6CE8;&#x518C;&#x8FC7;&#x7A0B;&#x628A;&#x8F7D;&#x5165;&#x7684;BeanDefinition&#x5411;Ioc&#x5BB9;&#x5668;&#x4E2D;&#x6CE8;&#x518C;&#xFF1B;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;BeanDefinition&#x662F;&#x8F7D;&#x5165;&#x5230;&#x4E86;&#x4E00;&#x4E2A;ConcurrentHashMap&#x4E2D;&#xFF1B;</p>
+<p><strong>&#x56DB;&#x3001;IOC&#x5BB9;&#x5668;&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</strong>&#xFF1B;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E00;&#x822C;&#x53D1;&#x751F;&#x5728;&#x5E94;&#x7528;&#x7B2C;&#x4E00;&#x6B21;&#x901A;&#x8FC7;getBean&#x65B9;&#x6CD5;&#x5411;&#x5BB9;&#x5668;&#x4E2D;&#x7D22;&#x53D6;bean&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x4F8B;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5728;Ioc&#x5BB9;&#x5668;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x9884;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;lazy-init &#xFF1B;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5BF9;&#x5BB9;&#x5668;&#x7684;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x505A;&#x4E00;&#x4E2A;&#x5FAE;&#x5C0F;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x4ECE;&#x800C;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x8BBE;&#x7F6E;&#x4E86;lazy-init&#x5C5E;&#x6027;&#x7684;bean&#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;&#x3002; 
+<a href="springSourceCode_analysis_9_80299451.html">Lazy-init&#x662F;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x52A0;&#x8F7D;&#x7684;</a></p>
+<p>&#x90A3;&#x4E48;&#x4ECA;&#x5929;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;,IOC&#x5BB9;&#x5668;&#x662F;&#x5982;&#x4F55;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x5185;&#x90E8;&#x6570;&#x636E;BeanDefinition&#x52A0;&#x8F7D;&#x6210;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x9700;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#xFF1B;</p>
+<h3 id="abstractbeanfactory">AbstractBeanFactory</h3>
+<p>&#x4EE3;&#x7801;&#x5206;&#x6790;&#x5165;&#x53E3;:</p>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+        ClassPathResource resource = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;SpringContextConfig.xml&quot;</span>);
+        DefaultListableBeanFactory factory = <span class="hljs-keyword">new</span> DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = <span class="hljs-keyword">new</span> XmlBeanDefinitionReader(factory);
+        <span class="hljs-comment">//&#x89E3;&#x6790;&#x548C;&#x6CE8;&#x518C;&#x9636;&#x6BB5; </span>
+        reader.loadBeanDefinitions(resource);
+        <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x52A0;&#x8F7D;&#x9636;&#x6BB5;</span>
+        BeanA beanA = (BeanA)factory.getBean(<span class="hljs-string">&quot;beanA&quot;</span>);
+        System.out.print(<span class="hljs-string">&quot;beanA&quot;</span>);
+    }
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x7528;&#x4E86;&#x6700;&#x7B80;&#x5355;&#x7684;BeanFactory&#x6765;&#x52A0;&#x8F7D;&#x5E76;&#x4E14;&#x5206;&#x6790;&#xFF0C;&#x50CF;&#x90A3;&#x4E9B;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x4F8B;&#x5982;WebApplicationContext&#x7B49;&#x5BB9;&#x5668;&#x6211;&#x4EEC;&#x56DE;&#x5934;&#x518D;&#x6765;&#x5206;&#x6790;&#x3002;
+&#x52A0;&#x8F7D;&#x9636;&#x6BB5;&#x662F;&#x5728;&#x7528;&#x6237;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x53BB;&#x52A0;&#x8F7D;; 
+show the code:</p>
+<pre><code class="lang-java">    <span class="hljs-comment">/** &#x5B58;&#x653E;&#x6240;&#x6709;&#x81F3;&#x5C11;&#x521B;&#x5EFA;&#x8FC7;&#x4E00;&#x6B21; &#x7684;&#x6240;&#x6709;beanName */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;String&gt; alreadyCreated =
+            Collections.newSetFromMap(<span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Boolean&gt;(<span class="hljs-number">256</span>));
+    <span class="hljs-comment">/** Map from bean name to merged RootBeanDefinition */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, RootBeanDefinition&gt; mergedBeanDefinitions =
+            <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, RootBeanDefinition&gt;(<span class="hljs-number">256</span>);
+
+<span class="hljs-keyword">protected</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">doGetBean</span><span class="hljs-params">(
+            <span class="hljs-keyword">final</span> String name, <span class="hljs-keyword">final</span> Class&lt;T&gt; requiredType, <span class="hljs-keyword">final</span> Object[] args, <span class="hljs-keyword">boolean</span> typeCheckOnly)</span>
+            <span class="hljs-keyword">throws</span> BeansException </span>{
+        <span class="hljs-comment">/**
+        * 1.&#x8F6C;&#x6362;&#x4E00;&#x4E0B;beanName&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5982;&#x679C;&#x6709;  &amp; &#x5F00;&#x5934;&#x7684;&#x7ED9;&#x53BB;&#x6389;
+        * 2.&#x5982;&#x679C;name&#x662F;&#x522B;&#x540D;&#x7684;&#x8BDD;&#xFF0C;&#x5219;this.aliasMap.get(canonicalName)&#x53D6;&#x51FA;beanName
+        */</span>
+        <span class="hljs-keyword">final</span> String beanName = transformedBeanName(name);
+        Object bean;
+
+        <span class="hljs-comment">//&#x6839;&#x636E;beanName&#x5F97;&#x5230;&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x68C0;&#x67E5;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B9E;&#x4F8B;&#x5316;&#x5E76;&#x4E14;</span>
+        <span class="hljs-comment">// &#x5728;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x5141;&#x8BB8;&#x63D0;&#x524D;&#x5F15;&#x7528;&#xFF08;&#x8FD9;&#x4E2A;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF1B;&#x8FD9;&#x4E2A;&#x56DE;&#x5934;&#x5355;&#x72EC;&#x5206;&#x6790;TODO...&#xFF09;</span>
+        <span class="hljs-comment">/**
+        *&#x6839;&#x636E;beanName&#x5F97;&#x5230;&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x68C0;&#x67E5;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B9E;&#x4F8B;&#x5316;&#x5E76;&#x4E14;
+        * &#x5728;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x5141;&#x8BB8;&#x63D0;&#x524D;&#x5F15;&#x7528;
+        * spring&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x5C31;&#x662F;&#x5229;&#x7528;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x5B9E;&#x73B0;&#x7684;&#xFF1B;
+        * &#x8FD9;&#x91CC;&#x4F1A;&#x63D0;&#x524D;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#x5BF9;&#x8C61;&#x7684;
+        */</span>
+        Object sharedInstance = getSingleton(beanName);
+</code></pre>
+<p>&#x8DF3;&#x8F6C;&#x5230;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53BB;<a href="#getSingleton">Object sharedInstance = getSingleton(beanName);</a></p>
+<pre><code class="lang-java">        <span class="hljs-keyword">if</span> (sharedInstance != <span class="hljs-keyword">null</span> &amp;&amp; args == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+                <span class="hljs-keyword">if</span> (isSingletonCurrentlyInCreation(beanName)) {
+                    logger.debug(<span class="hljs-string">&quot;Returning eagerly cached instance of singleton bean &apos;&quot;</span> + beanName +
+                            <span class="hljs-string">&quot;&apos; that is not fully initialized yet - a consequence of a circular reference&quot;</span>);
+                }
+                <span class="hljs-keyword">else</span> {
+                    logger.debug(<span class="hljs-string">&quot;Returning cached instance of singleton bean &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                }
+            }
+            <span class="hljs-comment">/**
+            *&#x5904;&#x7406;FactoryBean&#x7C7B;&#x578B;&#x7684;bean;
+            *1.&#x4E0D;&#x662F;FactoryBean&#x6216;&#x8005;&#x662F;FactoryBean&#x4F46;&#x662F;name&#x6709;&#x524D;&#x7F00;&amp; &#x76F4;&#x63A5;&#x8FD4;&#x56DE;sharedInstanc&#xFF1B;
+            *2.&#x5982;&#x679C;&#x662F;FactoryBean&#x5E76;&#x4E14;name&#x6CA1;&#x6709;&#x524D;&#x7F00;&amp; &#x5219;&#x8FD4;&#x56DE;FactoryBean.getObject()&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;
+            *  2.1 &#x5982;&#x679C;&#x662F;2&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD8;&#x6709;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x6240;&#x6709;BeanPostProcessors&#x7C7B;&#x578B;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x7684;postProcessAfterInitialization()&#x65B9;&#x6CD5;;&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x6267;&#x884C;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x6267;&#x884C;postProcessBeforeInitialization&#x65B9;&#x6CD5;&#xFF1B;
+            * 3.&#x5173;&#x4E8E; BeanPostProcessor &#x8BE6;&#x89C1; &#x535A;&#x6587;https://blog.csdn.net/u010634066/article/details/80289441 
+            */</span>
+            bean = getObjectForBeanInstance(sharedInstance, name, beanName, <span class="hljs-keyword">null</span>);
+        }
+
+        <span class="hljs-keyword">else</span> {<span class="hljs-comment">//&#x5982;&#x679C;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#xFF0C;&#x6216;&#x8005;args!=null &#xFF0C;&#x6216;&#x8005;&#x4E0D;&#x662F;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;</span>
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x5F88;&#x53EF;&#x80FD;&#x5728;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x91CC;&#x9762;&#x4E86;</span>
+            <span class="hljs-comment">//TODO ....</span>
+            <span class="hljs-keyword">if</span> (isPrototypeCurrentlyInCreation(beanName)) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName);
+            }
+
+            <span class="hljs-comment">// &#x83B7;&#x53D6;&#x7236;&#x5BB9;&#x5668; TODO....&#x7236;&#x5B50;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x5355;&#x72EC;&#x5F00;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x6765;&#x8BB2;&#x89E3;&#x4E86;&#xFF1B;</span>
+            BeanFactory parentBeanFactory = getParentBeanFactory();
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x7236;&#x5BB9;&#x5668;&#x5B58;&#x5728;&#xFF0C;&#x5E76;&#x4E14;beanName&#x5728;&#x5F53;&#x524D;&#x7684;&#x5BB9;&#x5668;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x5C31;&#x53BB;&#x7236;&#x5BB9;&#x5668;&#x67E5;&#x627E;</span>
+            <span class="hljs-keyword">if</span> (parentBeanFactory != <span class="hljs-keyword">null</span> &amp;&amp; !containsBeanDefinition(beanName)) {
+                <span class="hljs-comment">// Not found -&gt; check parent.</span>
+                <span class="hljs-comment">/**
+                *1.&#x5224;&#x65AD;beanName &#x662F;&#x5426;&#x5B58;&#x5728; &amp; &#xFF1B;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#x53BB;&#x6389;
+                *2.&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x522B;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x522B;&#x540D;&#x6539;&#x6210;&#x6B63;&#x771F;&#x7684;beanName;
+                *3.&#x5224;&#x65AD;&#x5982;&#x679C;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x5E26;&#x6709;  &amp;; &#x5219;&#x7ED9;&#x5B83;&#x91CD;&#x65B0;&#x52A0;&#x4E0A;
+                */</span>
+                String nameToLookup = originalBeanName(name);
+                <span class="hljs-keyword">if</span> (args != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-comment">// &#x59D4;&#x6258;&#x7236;&#x5BB9;&#x5668;&#x8C03;&#x7528;getBean&#x64CD;&#x4F5C; &#x6709;&#x53C2;&#x6570;;</span>
+                    <span class="hljs-keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup, args);
+                }
+                <span class="hljs-keyword">else</span> {
+                    <span class="hljs-comment">// &#x53BB;&#x7236;&#x5BB9;&#x5668;&#x8C03;&#x7528;getBean&#x64CD;&#x4F5C;;&#x65E0;&#x53C2;&#x6570;</span>
+                    <span class="hljs-keyword">return</span> parentBeanFactory.getBean(nameToLookup, requiredType);
+                }
+            }
+
+            <span class="hljs-comment">//&#x8FD9;&#x4E2A;&#xFF1F;&#xFF1F;&#xFF1F;</span>
+            <span class="hljs-keyword">if</span> (!typeCheckOnly) {
+                <span class="hljs-comment">//&#x6807;&#x8BB0;&#x8FD9;&#x4E2A;bean&#x88AB;&#x521B;&#x5EFA;&#x8FC7; this.alreadyCreated.add(beanName);</span>
+                markBeanAsCreated(beanName);
+            }
+
+            <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">/*&#x7236;&#x5B50;BeanDe&#x5408;&#x5E76;&#xFF1B;&#x5F53;&#x7ED9;&#x5B9A;&#x7684;bean &#x662F;&#x4E00;&#x4E2A;childe&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x8FD8;&#x6709;parent&#x5C5E;&#x6027;&#xFF1B;&#x5219;&#x5C06;parent&#x7684;&#x5C5E;&#x6027;&#x548C;childe&#x5C5E;&#x6027;&#x5408;&#x5E76;&#x4E00;&#x4E0B;&#xFF1B;*/</span>
+                <span class="hljs-comment">//&#x770B;&#x4E0B;&#x6587;&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;</span>
+                <span class="hljs-keyword">final</span> RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
+                <span class="hljs-comment">//&#x68C0;&#x67E5;mbd&#x662F;&#x4E0D;&#x662F; &#x8BBE;&#x7F6E;&#x4E86;&#x5C5E;&#x6027; abstract=true;&#x7C7B;&#x4F3C;&#x4E8E;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x4E0D;&#x80FD;&#x53BB;&#x5B9E;&#x4F8B;&#x5316;&#xFF1B;&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+                checkMergedBeanDefinition(mbd, beanName, args);
+
+                <span class="hljs-comment">// Guarantee initialization of beans that the current bean depends on.</span>
+                <span class="hljs-comment">/**&#x662F;&#x5426;&#x6709;&#x4F9D;&#x8D56;&#x7684;bean;&#x4F8B;&#x5982;&#xFF1A;&lt;bean id = &quot;hw&quot;  class=&quot;src.HelloWorld&quot; lazy-init=&quot;true&quot;  depends-on=&quot;beanA&quot;&gt; ;&#x90A3;&#x4E48;hw&#x5FC5;&#x987B;&#x8981;&#x5728;beanA&#x4E4B;&#x540E;&#x5B9E;&#x4F8B;&#x5316;*/</span>
+                String[] dependsOn = mbd.getDependsOn();
+                <span class="hljs-comment">//&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x53EA;&#x662F;  deponse-on &#x5C5E;&#x6027;&#x7684;&#x4F9D;&#x8D56;&#xFF1B;&#x8DDF;bean&#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x53E6;&#x5916;&#x7684;bean&#x4E0D;&#x662F;&#x4E00;&#x56DE;&#x4E8B;</span>
+                <span class="hljs-keyword">if</span> (dependsOn != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">for</span> (String dep : dependsOn) {
+</code></pre>
+<p><a href="#isDependent">&#x8DF3;&#x8F6C;&#x5230;isDependent</a></p>
+<pre><code class="lang-java">                    <span class="hljs-comment">/**
+                    *1.&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#xFF1B;&#x4F8B;&#x5982;&#xFF1A;&lt;bean id = &quot;hw&quot;  class=&quot;src.HelloWorld&quot; lazy-init=&quot;true&quot;  depends-on=&quot;beanA&quot;&gt;&#x8FD9;&#x4E2A;hw&#x4F9D;&#x8D56;&#x4E86; beanA
+    &#x7136;&#x540E;beanA&#x53C8;&#x4F9D;&#x8D56;&#x4E86;hw&#xFF1B;&lt;bean id=&quot;beanA&quot; class=&quot;src.lookupmethods.BeanA&quot; depends-on=&quot;hw&quot;&gt;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;
+                    */</span>
+                        <span class="hljs-keyword">if</span> (isDependent(beanName, dep)) {
+                            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+                                    <span class="hljs-string">&quot;Circular depends-on relationship between &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos; and &apos;&quot;</span> + dep + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                        }
+                        <span class="hljs-comment">/**
+                        *&#x4F8B;&#x5B50;:&lt;bean id = &quot;hw&quot;  class=&quot;src.HelloWorld&quot; lazy-init=&quot;true&quot;  depends-on=&quot;beanA&quot;&gt;
+                        *1.&#x6807;&#x8BB0;&#x4F9D;&#x8D56;bean&#xFF1B;&#x8FD9;&#x91CC;&#x9762;&#x505A;&#x4E86;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;&#xFF1B;
+                        *2.&#x7B2C;&#x4E00;&#x4EF6;&#x662F; this.dependentBeanMap.put(canonicalName, dependentBeans);&#x8FD9;&#x4E2A;dependentBeanMap&#x8868;&#x793A;&#x7684;&#x662F; &#x67D0;&#x4E2A;bean&#x88AB;&#x54EA;&#x4E9B;bean&#x7ED9;&#x4F9D;&#x8D56;&#x4E86;;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x4E2D;&#xFF1B;dependentBeanMap&#x5B58;&#x4E86;&#x4E00;&#x4E2A; key&#x4E3A;beanA&#xFF1B;value&#x4E3A; &#xFF08;Set&lt;String&gt;&#x4E2D;&#x6709;&#x4E2A;hw&#xFF1B;&#x5B58;&#x4E86;&#x6240;&#x6709;&#x9700;&#x8981;&#x4F9D;&#x8D56;beanA&#x7684;beanName&#xFF09;
+                        *3.&#x7B2C;&#x4E8C;&#x4EF6;&#x4E8B;&#x662F;this.dependenciesForBeanMap.put(dependentBeanName, dependenciesForBean);
+                        *&#x8FD9;&#x4E2A;&#x8DDF;2.&#x60F3;&#x53CD;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B58;&#x7684;&#x662F;hw&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x7684;&#x6240;&#x6709;beanName
+                        */</span>
+                        registerDependentBean(dep, beanName);
+                        <span class="hljs-comment">//&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF01;&#xFF01;&#xFF01;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x88AB;&#x4F9D;&#x8D56;&#x7684;beanName(&#x8FD9;&#x91CC;&#x662F; &#x53BB;get beanA)</span>
+                        getBean(dep);
+                    }
+                }
+</code></pre>
+<p>&#x8DF3;&#x8F6C;&#x5230;<a href="#getSingleton2">getSingleton(beanName, new ObjectFactory)</a>&#x65B9;&#x6CD5;<br>
+&#x8DF3;&#x8F6C;&#x5230;<a href="#createBean">createBean</a>&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java">                <span class="hljs-comment">// &#x5982;&#x679C;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;.</span>
+                <span class="hljs-keyword">if</span> (mbd.isSingleton()) {
+                    sharedInstance = getSingleton(beanName, <span class="hljs-keyword">new</span> ObjectFactory&lt;Object&gt;() {
+                        <span class="hljs-meta">@Override</span>
+                        <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException </span>{
+                            <span class="hljs-keyword">try</span> {
+                                <span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+
+                            }
+                            <span class="hljs-keyword">catch</span> (BeansException ex) {
+                                <span class="hljs-comment">// Explicitly remove instance from singleton cache: It might have been put there</span>
+                                <span class="hljs-comment">// eagerly by the creation process, to allow for circular reference resolution.</span>
+                                <span class="hljs-comment">// Also remove any beans that received a temporary reference to the bean.</span>
+                                destroySingleton(beanName);
+                                <span class="hljs-keyword">throw</span> ex;
+                            }
+                        }
+                    });
+
+                    <span class="hljs-comment">/**
+            *&#x5904;&#x7406;FactoryBean&#x7C7B;&#x578B;&#x7684;bean;
+            *1.&#x4E0D;&#x662F;FactoryBean&#x6216;&#x8005;&#x662F;FactoryBean&#x4F46;&#x662F;name&#x6709;&#x524D;&#x7F00;&amp; &#x76F4;&#x63A5;&#x8FD4;&#x56DE;sharedInstanc&#xFF1B;
+            *2.&#x5982;&#x679C;&#x662F;FactoryBean&#x5E76;&#x4E14;name&#x6CA1;&#x6709;&#x524D;&#x7F00;&amp; &#x5219;&#x8FD4;&#x56DE;FactoryBean.getObject()&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;
+            *  2.1 &#x5982;&#x679C;&#x662F;2&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD8;&#x6709;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x6240;&#x6709;BeanPostProcessors&#x7C7B;&#x578B;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x7684;postProcessAfterInitialization()&#x65B9;&#x6CD5;;&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x6267;&#x884C;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x6267;&#x884C;postProcessBeforeInitialization&#x65B9;&#x6CD5;&#xFF1B;
+            * 3.&#x5173;&#x4E8E; BeanPostProcessor &#x8BE6;&#x89C1; &#x535A;&#x6587;https://blog.csdn.net/u010634066/article/details/80289441 
+            */</span>
+                    bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+                }
+
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mbd.isPrototype()) {
+                    <span class="hljs-comment">// It&apos;s a prototype -&gt; create a new instance.</span>
+                    Object prototypeInstance = <span class="hljs-keyword">null</span>;
+                    <span class="hljs-keyword">try</span> {
+                        beforePrototypeCreation(beanName);
+                        prototypeInstance = createBean(beanName, mbd, args);
+                    }
+                    <span class="hljs-keyword">finally</span> {
+                        afterPrototypeCreation(beanName);
+                    }
+                    bean = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
+                }
+
+                <span class="hljs-keyword">else</span> {
+                    String scopeName = mbd.getScope();
+                    <span class="hljs-keyword">final</span> Scope scope = <span class="hljs-keyword">this</span>.scopes.get(scopeName);
+                    <span class="hljs-keyword">if</span> (scope == <span class="hljs-keyword">null</span>) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;No Scope registered for scope name &apos;&quot;</span> + scopeName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                    }
+                    <span class="hljs-keyword">try</span> {
+                        Object scopedInstance = scope.get(beanName, <span class="hljs-keyword">new</span> ObjectFactory&lt;Object&gt;() {
+                            <span class="hljs-meta">@Override</span>
+                            <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException </span>{
+                                beforePrototypeCreation(beanName);
+                                <span class="hljs-keyword">try</span> {
+                                    <span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+                                }
+                                <span class="hljs-keyword">finally</span> {
+                                    afterPrototypeCreation(beanName);
+                                }
+                            }
+                        });
+                        bean = getObjectForBeanInstance(scopedInstance, name, beanName, mbd);
+                    }
+                    <span class="hljs-keyword">catch</span> (IllegalStateException ex) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName,
+                                <span class="hljs-string">&quot;Scope &apos;&quot;</span> + scopeName + <span class="hljs-string">&quot;&apos; is not active for the current thread; consider &quot;</span> +
+                                <span class="hljs-string">&quot;defining a scoped proxy for this bean if you intend to refer to it from a singleton&quot;</span>,
+                                ex);
+                    }
+                }
+            }
+            <span class="hljs-keyword">catch</span> (BeansException ex) {
+                cleanupAfterBeanCreationFailure(beanName);
+                <span class="hljs-keyword">throw</span> ex;
+            }
+        }
+
+        <span class="hljs-comment">// Check if required type matches the type of the actual bean instance.</span>
+        <span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span> &amp;&amp; bean != <span class="hljs-keyword">null</span> &amp;&amp; !requiredType.isAssignableFrom(bean.getClass())) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">return</span> getTypeConverter().convertIfNecessary(bean, requiredType);
+            }
+            <span class="hljs-keyword">catch</span> (TypeMismatchException ex) {
+                <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+                    logger.debug(<span class="hljs-string">&quot;Failed to convert bean &apos;&quot;</span> + name + <span class="hljs-string">&quot;&apos; to required type &apos;&quot;</span> +
+                            ClassUtils.getQualifiedName(requiredType) + <span class="hljs-string">&quot;&apos;&quot;</span>, ex);
+                }
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
+            }
+        }
+        <span class="hljs-keyword">return</span> (T) bean;
+    }
+</code></pre>
+<h3 id="getmergedbeandefinition">getMergedBeanDefinition</h3>
+<blockquote>
+<p>&#x5F53;&#x7ED9;&#x5B9A;&#x7684;bean &#x662F;&#x4E00;&#x4E2A;childe&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x8FD8;&#x6709;parent&#xFF1B;&#x5219;&#x5C06;parent&#x7684;&#x5C5E;&#x6027;&#x548C;childe&#x5C5E;&#x6027;&#x5408;&#x5E76;&#x4E00;&#x4E0B;&#xFF1B; 
+&#x4F8B;&#x5982;:&#x4E0B;&#x56FE;&#x3002;hw1&#x4F1A;&#x7EE7;&#x627F;hw&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;;</p>
+<p><img src="../../../images/20180509141030719.png" alt="20180509141030719"></p>
+</blockquote>
+<pre><code class="lang-java">    <span class="hljs-comment">/** &#x5408;&#x5E76; RootBeanDefinition &#xFF1B;xml&#x4E2D;&#xFF0C;&#x914D;&#x7F6E;&#x4E86; parent&#x5C5E;&#x6027;&#x9700;&#x8981;&#x5408;&#x5E76;&#xFF1B;&#x8BE6;&#x7EC6;parent&#x600E;&#x4E48;&#x4F7F;&#x7528;&#xFF0C;&#x770B;&#x6587;&#x672B;&#x603B;&#x7ED3;&#x90E8;&#x5206;    */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, RootBeanDefinition&gt; mergedBeanDefinitions =
+            <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, RootBeanDefinition&gt;(<span class="hljs-number">256</span>);
+    <span class="hljs-comment">/** Whether to cache bean metadata or rather reobtain it for every access */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> cacheBeanMetadata = <span class="hljs-keyword">true</span>;
+<span class="hljs-comment">/**
+     * Return a RootBeanDefinition for the given bean, by merging with the
+     * parent if the given bean&apos;s definition is a child bean definition.
+     * <span class="hljs-doctag">@param</span> beanName the name of the bean definition
+     * <span class="hljs-doctag">@param</span> bd the original bean definition (Root/ChildBeanDefinition)
+     * <span class="hljs-doctag">@param</span> containingBd the containing bean definition in case of inner bean,
+     * or {<span class="hljs-doctag">@code</span> null} in case of a top-level bean
+     * <span class="hljs-doctag">@return</span> a (potentially merged) RootBeanDefinition for the given bean
+     * <span class="hljs-doctag">@throws</span> BeanDefinitionStoreException in case of an invalid bean definition
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> RootBeanDefinition <span class="hljs-title">getMergedBeanDefinition</span><span class="hljs-params">(
+            String beanName, BeanDefinition bd, BeanDefinition containingBd)</span>
+            <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>{
+
+        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.mergedBeanDefinitions) {
+            RootBeanDefinition mbd = <span class="hljs-keyword">null</span>;
+
+            <span class="hljs-comment">// Check with full lock now in order to enforce the same merged instance.</span>
+            <span class="hljs-keyword">if</span> (containingBd == <span class="hljs-keyword">null</span>) {
+                mbd = <span class="hljs-keyword">this</span>.mergedBeanDefinitions.get(beanName);
+            }
+
+            <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x5982;&#x679C;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x5408;&#x5E76;&#x8FC7;</span>
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;parent&#x5C5E;&#x6027;</span>
+                <span class="hljs-keyword">if</span> (bd.getParentName() == <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-comment">// Use copy of given root bean definition.</span>
+                    <span class="hljs-comment">//&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;BeanDefinition&#x662F; RootBeanDefinition&#x7C7B;&#x578B;&#x7684;&#xFF1F;TODO....</span>
+                    <span class="hljs-keyword">if</span> (bd <span class="hljs-keyword">instanceof</span> RootBeanDefinition) {
+                        <span class="hljs-comment">//&#x514B;&#x9686;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;</span>
+                        mbd = ((RootBeanDefinition) bd).cloneBeanDefinition();
+                    }
+                    <span class="hljs-keyword">else</span> {
+                        mbd = <span class="hljs-keyword">new</span> RootBeanDefinition(bd);
+                    }
+                }
+                <span class="hljs-keyword">else</span> {<span class="hljs-comment">//&#x5982;&#x679C;&#x6709;&#x8BBE;&#x7F6E;parent&#x5C5E;&#x6027;&#xFF1B;&#x4F8B;&#x5982;&lt;bean id = &quot;hw1&quot; class=&quot;src.HelloWorld&quot; parent=&quot;hw&quot; &gt;</span>
+                    <span class="hljs-comment">// Child bean definition: needs to be merged with parent.</span>
+                    BeanDefinition pbd;
+                    <span class="hljs-keyword">try</span> {
+                        String parentBeanName = transformedBeanName(bd.getParentName());
+                        <span class="hljs-comment">//&#x6839;&#x636E;&#x7236;beanName&#x83B7;&#x53D6;&#x7236;&#x7C7B;&#x7684;BeanDefinition&#xFF1B;&#x5982;&#x679C;&#x7236;&#x7C7B;&#x8FD8;&#x6709;&#x7236;&#x7C7B;&#x4F1A;&#x9012;&#x5F52;&#x8C03;&#x7528;</span>
+                        <span class="hljs-keyword">if</span> (!beanName.equals(parentBeanName)) {
+                            pbd = getMergedBeanDefinition(parentBeanName);
+                        }
+                        <span class="hljs-keyword">else</span> {<span class="hljs-comment">//&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF1F;&#xFF1F;&#x7236;beanName&#x548C;&#x5F53;&#x524D;bean&#x76F8;&#x7B49;&#x7684;&#x60C5;&#x51B5;&#x5B58;&#x5728;&#x5417;&#xFF1F;</span>
+                            BeanFactory parent = getParentBeanFactory();
+                            <span class="hljs-keyword">if</span> (parent <span class="hljs-keyword">instanceof</span> ConfigurableBeanFactory) {
+                                pbd = ((ConfigurableBeanFactory) parent).getMergedBeanDefinition(parentBeanName);
+                            }
+                            <span class="hljs-keyword">else</span> {
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchBeanDefinitionException(parentBeanName,
+                                        <span class="hljs-string">&quot;Parent name &apos;&quot;</span> + parentBeanName + <span class="hljs-string">&quot;&apos; is equal to bean name &apos;&quot;</span> + beanName +
+                                        <span class="hljs-string">&quot;&apos;: cannot be resolved without an AbstractBeanFactory parent&quot;</span>);
+                            }
+                        }
+                    }
+                    <span class="hljs-keyword">catch</span> (NoSuchBeanDefinitionException ex) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(bd.getResourceDescription(), beanName,
+                                <span class="hljs-string">&quot;Could not resolve parent bean definition &apos;&quot;</span> + bd.getParentName() + <span class="hljs-string">&quot;&apos;&quot;</span>, ex);
+                    }
+                    <span class="hljs-comment">// Deep copy with overridden values.</span>
+                    <span class="hljs-comment">//&#x5148;&#x6839;&#x636E;&#x7236;BeanDefinition&#x521B;&#x5EFA;ROOBeanDefinition</span>
+                    mbd = <span class="hljs-keyword">new</span> RootBeanDefinition(pbd);
+                    <span class="hljs-comment">//&#x7136;&#x540E;&#x5C06;&#x5B50;BeanDefinition&#x6240;&#x6709;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x7684;&#x6570;&#x636E;&#x8986;&#x76D6;&#x7236;&#x7C7B;&#x7684;&#xFF1B;&#x90A3;&#x4E48;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x5408;&#x5E76;&#x7684;&#x76EE;&#x7684;</span>
+                    mbd.overrideFrom(bd);
+                }
+
+                <span class="hljs-comment">// &#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x4F5C;&#x7528;&#x57DF; &#x9ED8;&#x8BA4;Singleton</span>
+                <span class="hljs-keyword">if</span> (!StringUtils.hasLength(mbd.getScope())) {
+                    mbd.setScope(RootBeanDefinition.SCOPE_SINGLETON);
+                }
+
+                <span class="hljs-comment">// A bean contained in a non-singleton bean cannot be a singleton itself.</span>
+                <span class="hljs-comment">// Let&apos;s correct this on the fly here, since this might be the result of</span>
+                <span class="hljs-comment">// parent-child merging for the outer bean, in which case the original inner bean</span>
+                <span class="hljs-comment">// definition will not have inherited the merged outer bean&apos;s singleton status.</span>
+                <span class="hljs-comment">//&#x4E00;&#x4E2A;bean&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x975E;&#x5355;&#x4F8B;&#x7684;bean&#xFF0C;&#x5219;&#x5B83;&#x672C;&#x8EAB;&#x5C31;&#x4E0D;&#x80FD;&#x591F;&#x662F;&#x5355;&#x4F8B;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x662F;&#x77EB;&#x6B63;&#x5B83;&#x7684;&#x5DE6;&#x53F3;&#x57DF;&#xFF1B;</span>
+                <span class="hljs-keyword">if</span> (containingBd != <span class="hljs-keyword">null</span> &amp;&amp; !containingBd.isSingleton() &amp;&amp; mbd.isSingleton()) {
+                    mbd.setScope(containingBd.getScope());
+                }
+
+                <span class="hljs-comment">// Cache the merged bean definition for the time being</span>
+                <span class="hljs-comment">// (it might still get re-merged later on in order to pick up metadata changes)</span>
+                <span class="hljs-comment">//&#x7F13;&#x5B58;&#x5408;&#x5E76;&#x4E4B;&#x540E;&#x7684;BeanDefinition&#xFF1B; &#x4E3A;&#x4E86;&#x652F;&#x6301;metadata&#x7684;&#x66F4;&#x6539;&#xFF0C;&#x5B83;&#x4E4B;&#x540E;&#x53EF;&#x80FD;&#x4ECD;&#x7136;&#x4F1A;&#x91CD;&#x65B0;&#x5408;&#x5E76; </span>
+                <span class="hljs-keyword">if</span> (containingBd == <span class="hljs-keyword">null</span> &amp;&amp; isCacheBeanMetadata()) {
+                    <span class="hljs-keyword">this</span>.mergedBeanDefinitions.put(beanName, mbd);
+                }
+            }
+
+            <span class="hljs-keyword">return</span> mbd;
+        }
+    }
+</code></pre>
+<h3 id="defaultsingletonbeanregistry">DefaultSingletonBeanRegistry</h3>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<p>getSingleton</p>
+<pre><code class="lang-java"><span class="hljs-comment">/** &#x5F53;&#x524D;&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x7684;bean; */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;String&gt; singletonsCurrentlyInCreation =
+            Collections.newSetFromMap(<span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Boolean&gt;(<span class="hljs-number">16</span>));
+<span class="hljs-comment">/*************************&#x4E0B;&#x9762;&#x662F;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#xFF0C;Spring&#x4E5F;&#x662F;&#x5229;&#x7528;&#x4ED6;&#x4EEC;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;&#x7684;********************/</span>           
+<span class="hljs-comment">/** Cache of early singleton objects: bean name --&gt; bean instance */</span>
+<span class="hljs-comment">/** &#x63D0;&#x524D;&#x66B4;&#x5149;&#x7684;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;Cache  */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;(<span class="hljs-number">16</span>);
+<span class="hljs-comment">/** Cache of singleton factories: bean name --&gt; ObjectFactory */</span>
+<span class="hljs-comment">/** &#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x5DE5;&#x5382;&#x7684;cache */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = <span class="hljs-keyword">new</span> HashMap&lt;String, ObjectFactory&lt;?&gt;&gt;(<span class="hljs-number">16</span>);
+<span class="hljs-comment">/** &#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;cache */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Object&gt;(<span class="hljs-number">256</span>);
+
+<span class="hljs-comment">/** Flag that indicates whether we&apos;re currently within destroySingletons */</span>
+<span class="hljs-comment">//&#x662F;&#x5426;&#x6B63;&#x5728;&#x9500;&#x6BC1;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x6807;&#x5FD7;&#xFF1B;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> singletonsCurrentlyInDestruction = <span class="hljs-keyword">false</span>;
+
+<span class="hljs-comment">/** Names of beans that are currently in creation */</span>
+<span class="hljs-comment">//&#x6240;&#x6709;&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x7684;&#x5355;&#x4F8B;beanName&#x96C6;&#x5408;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;String&gt; singletonsCurrentlyInCreation =
+            Collections.newSetFromMap(<span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Boolean&gt;(<span class="hljs-number">16</span>));
+<span class="hljs-comment">/** Names of beans currently excluded from in creation checks */</span>
+<span class="hljs-comment">//&#x4E0D;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x7684;&#x96C6;&#x5408;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;String&gt; inCreationCheckExclusions =
+            Collections.newSetFromMap(<span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Boolean&gt;(<span class="hljs-number">16</span>));
+</code></pre>
+<p><span id="getSingleton">&#x8DF3;&#x8F6C;&#x5230;&#x8FD9;&#x91CC;&#xFF1A; getSingleton(String beanName, boolean allowEarlyReference)</span></p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x6839;&#x636E;beanName&#x5F97;&#x5230;&#x5355;&#x4F8B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x68C0;&#x67E5;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B9E;&#x4F8B;&#x5316;&#x5E76;&#x4E14;</span>
+<span class="hljs-comment">// &#x5728;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x5141;&#x8BB8;&#x63D0;&#x524D;&#x5F15;&#x7528;&#xFF08;&#x8FD9;&#x4E2A;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF1B;&#xFF09;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getSingleton</span><span class="hljs-params">(String beanName, <span class="hljs-keyword">boolean</span> allowEarlyReference)</span> </span>{
+        Object singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x8FD8;&#x6CA1;&#x6709;&#x521B;&#x5EFA; &#x5E76;&#x4E14; &#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x4E2D;&#xFF1B;&#x4E00;&#x7EA7;&#x7F13;&#x5B58;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x518D;&#x67E5;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;</span>
+        <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) {
+            <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.singletonObjects) {
+
+                <span class="hljs-comment">//&#x67E5;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E0B;&#x9762;&#xFF1B;&#x5982;&#x679C;&#x5B58;&#x5728;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x5141;&#x8BB8;&#x63D0;&#x524D;&#x5F15;&#x7528;&#xFF1B;&#x518D;&#x53BB;&#x67E5;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#xFF1B;</span>
+                singletonObject = <span class="hljs-keyword">this</span>.earlySingletonObjects.get(beanName);
+                <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; allowEarlyReference) {
+                    ObjectFactory&lt;?&gt; singletonFactory = <span class="hljs-keyword">this</span>.singletonFactories.get(beanName);
+                    <span class="hljs-comment">//&#x5982;&#x679C;&#x6709;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;</span>
+                    <span class="hljs-keyword">if</span> (singletonFactory != <span class="hljs-keyword">null</span>) {
+</code></pre>
+<p>&#x5BFC;&#x822A;&#x5230;<a href="#getEarlyBeanReference">getEarlyBeanReference</a></p>
+<pre><code class="lang-java">                        <span class="hljs-comment">//&#x8C03;&#x7528;getEarlyBeanReference(beanName, mbd, bean);</span>
+                        singletonObject = singletonFactory.getObject();
+                        <span class="hljs-comment">//&#x5C06;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x5F97;&#x5230;&#x7684;&#x5B9E;&#x4F8B;&#x5B58;&#x653E;&#x5230;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#xFF1B;&#x5E76;&#x4E14;&#x5220;&#x9664;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#xFF1B;</span>
+                        <span class="hljs-comment">//&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x7684;&#x5730;&#x65B9;&#x5728; addSingletonFactory&#xFF1B;</span>
+                        <span class="hljs-keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);
+                        <span class="hljs-keyword">this</span>.singletonFactories.remove(beanName);
+                    }
+                }
+            }
+        }
+        <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x521B;&#x5EFA;&#x7684;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x8FD8;&#x6CA1;&#x6709;&#x5F00;&#x59CB;&#x521B;&#x5EFA;&#x5219;&#x8FD4;&#x56DE;NULL</span>
+        <span class="hljs-keyword">return</span> (singletonObject != NULL_OBJECT ? singletonObject : <span class="hljs-keyword">null</span>);
+    }
+</code></pre>
+<p><span id="getSingleton2"></span></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+*1.&#x8FD4;&#x56DE;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;
+*2.
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getSingleton</span><span class="hljs-params">(String beanName, ObjectFactory&lt;?&gt; singletonFactory)</span> </span>{
+        Assert.notNull(beanName, <span class="hljs-string">&quot;&apos;beanName&apos; must not be null&quot;</span>);
+        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.singletonObjects) {
+            Object singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);
+            <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x6B63;&#x5728;&#x9500;&#x6BC1;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1B;&#x4E0D;&#x80FD;&#x7EE7;&#x7EED;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;</span>
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.singletonsCurrentlyInDestruction) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationNotAllowedException(beanName,
+                            <span class="hljs-string">&quot;Singleton bean creation not allowed while singletons of this factory are in destruction &quot;</span> +
+                            <span class="hljs-string">&quot;(Do not request a bean from a BeanFactory in a destroy method implementation!)&quot;</span>);
+                }
+                <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+                    logger.debug(<span class="hljs-string">&quot;Creating shared instance of singleton bean &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                }
+                <span class="hljs-comment">/**&#x521B;&#x5EFA;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#xFF1B;
+                *1.&#x5C06;beanName&#x653E;&#x5230;singletonsCurrentlyInCreation&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x8868;&#x9762;&#x8FD9;&#x4E2A;bean&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x4E2D;&#xFF1B;
+                *2.&#x5982;&#x679C;&#x653E;&#x8FDB;&#x53BB;&#x5931;&#x8D25;&#xFF0C;&#x56E0;&#x4E3A;singletonsCurrentlyInCreation&#x662F;&#x4E2A;set&#xFF1B;&#x5982;&#x679C;bean&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;&#xFF0C;&#x90A3;add&#x64CD;&#x4F5C;&#x4F1A;&#x8FD4;&#x56DE;false&#xFF1B;&#x5982;&#x679C;&#x653E;&#x5165;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;inCreationCheckExclusions&#x91CC;&#x9762;&#x4E0D;&#x5305;&#x542B;&#x8FD9;&#x4E2A;bean(&#x8BF4;&#x660E;&#x9700;&#x8981;&#x68C0;&#x67E5;)&#xFF1B;&#x5219;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF1B;
+                */</span>
+                beforeSingletonCreation(beanName);
+                <span class="hljs-keyword">boolean</span> newSingleton = <span class="hljs-keyword">false</span>;
+                <span class="hljs-keyword">boolean</span> recordSuppressedExceptions = (<span class="hljs-keyword">this</span>.suppressedExceptions == <span class="hljs-keyword">null</span>);
+                <span class="hljs-keyword">if</span> (recordSuppressedExceptions) {
+                    <span class="hljs-keyword">this</span>.suppressedExceptions = <span class="hljs-keyword">new</span> LinkedHashSet&lt;Exception&gt;();
+                }
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-comment">/**
+                    *&#x8C03;&#x7528;getObject()&#x65B9;&#x6CD5;&#xFF1B;
+                    *singletonFactory&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x8981;&#x770B;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x5B9E;&#x4F8B;&#x662F;&#x54EA;&#x4E2A;&#x4E86;&#xFF1B;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x7684;&#x60C5;&#x51B5;&#x6700;&#x7EC8;&#x662F;&#x8C03;&#x7528;&#x4E86;
+                    *AbstractAutowireCapableBeanFactory&#x7684;createBean&#x65B9;&#x6CD5;
+                    *&#x8FD9;&#x4E2A;createBean&#x65B9;&#x6CD5;&#x7B80;&#x8981;&#xFF1A;
+                    *1.RootBeanDefinition mbdToUse = mbd&#xFF1B; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;mbdTOUse&#x6307;&#x5411;mbd
+                    *2.&#x5982;&#x679C;mbd&#x7684;BeanClass&#x6CA1;&#x6709;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x53BB;&#x83B7;&#x53D6;bean&#x5BF9;&#x8C61;&#x7684;Class &#x7C7B;&#x578B;resolvedClass;&#x7136;&#x540E;mbdToUse = new RootBeanDefinition(mbd)&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x6DF1;&#x5EA6;&#x62F7;&#x8D1D;&#xFF1B;&#x7136;&#x540E;&#x65B0;&#x7684;&#x5BF9;&#x8C61;setBeanClass(resolvedClass);
+                    *3.&#x51C6;&#x5907;overides&#x6570;&#x636E;&#xFF1B;&#x5728;&#x4E4B;&#x524D;&#x7B2C;&#x56DB;&#x7BC7;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x8C03;&#x7528;&#x8FC7;&#x5F97;&#x65B9;&#x6CD5;prepareMethodOverrides()&#xFF08;https://blog.csdn.net/u010634066/article/details/80226375&#xFF09;
+                    &#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E2D;&#x6709;look-up &#x6216;&#x8005; replaced-method&#x5C5E;&#x6027;&#xFF0C;&#x5219;bd&#x4E2D;&#x5C31;&#x4F1A;&#x6709;LookupOverride&#x3001;ReplaceOverride&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x5BF9;&#x8FD9;&#x4E9B;Overrid&#x505A;&#x4E00;&#x4E9B;&#x9A8C;&#x8BC1;&#x4E2A;&#x5904;&#x7406;&#x7684;;
+                    &#x5982;&#x679C;&#x8FD9;&#x4E2A;Class&#x4E2D;&#xFF1B;&#x5B58;&#x5728;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x6570;&#x91CF;&#x662F;0&#x4E2A;&#xFF1B;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1B;&#x5982;&#x679C;&#x662F;1&#x4E2A;&#xFF1B;&#x5219;
+                    // Mark override as not overloaded, to avoid the overhead of arg type checking.
+                    //&#x6807;&#x8BB0;&#x8FD9;&#x4E2A;mo&#x4E0D;&#x662F; &#x91CD;&#x8F7D;&#xFF0C;&#x800C;&#x662F;&#x8986;&#x76D6;&#xFF1B;&#x907F;&#x514D;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x7684;&#x5F00;&#x9500;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x662F;true
+                    mo.setOverloaded(false);
+                    */</span>
+
+                    singletonObject = singletonFactory.getObject();
+                    newSingleton = <span class="hljs-keyword">true</span>;
+                }
+                <span class="hljs-keyword">catch</span> (IllegalStateException ex) {
+                    <span class="hljs-comment">// Has the singleton object implicitly appeared in the meantime -&gt;</span>
+                    <span class="hljs-comment">// if yes, proceed with it since the exception indicates that state.</span>
+                    singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);
+                    <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span>) {
+                        <span class="hljs-keyword">throw</span> ex;
+                    }
+                }
+                <span class="hljs-keyword">catch</span> (BeanCreationException ex) {
+                    <span class="hljs-keyword">if</span> (recordSuppressedExceptions) {
+                        <span class="hljs-keyword">for</span> (Exception suppressedException : <span class="hljs-keyword">this</span>.suppressedExceptions) {
+                            ex.addRelatedCause(suppressedException);
+                        }
+                    }
+                    <span class="hljs-keyword">throw</span> ex;
+                }
+                <span class="hljs-keyword">finally</span> {
+                    <span class="hljs-keyword">if</span> (recordSuppressedExceptions) {
+                        <span class="hljs-keyword">this</span>.suppressedExceptions = <span class="hljs-keyword">null</span>;
+                    }
+                    <span class="hljs-comment">//&#x7ED3;&#x675F;&#x521B;&#x5EFA;bean;this.singletonsCurrentlyInCreation.remove(beanName)</span>
+                    afterSingletonCreation(beanName);
+                }
+                <span class="hljs-keyword">if</span> (newSingleton) {
+                    <span class="hljs-comment">//&#x5982;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF1B;&#x5219;&#x628A;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x653E;&#x5165;&#x5230;&#x4E00;&#x7EA7;&#x7F13;&#x5B58;singletonObjects&#x4E2D;</span>
+                    <span class="hljs-comment">//&#x7136;&#x540E;&#x628A;&#x4E8C;&#x7EA7;&#xFF0C;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x90FD;&#x5220;&#x9664;&#x6389;</span>
+                    <span class="hljs-comment">//this.singletonObjects.put(beanName, (singletonObject != null ? singletonObject : NULL_OBJECT));</span>
+                   <span class="hljs-comment">//this.singletonFactories.remove(beanName);</span>
+                   <span class="hljs-comment">//this.earlySingletonObjects.remove(beanName);</span>
+                   <span class="hljs-comment">//this.registeredSingletons.add(beanName);</span>
+                    addSingleton(beanName, singletonObject);
+                }
+            }
+            <span class="hljs-keyword">return</span> (singletonObject != NULL_OBJECT ? singletonObject : <span class="hljs-keyword">null</span>);
+        }
+    }
+</code></pre>
+<p><span id="isDependent"></span></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+*1.&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#xFF1B;&#x4F8B;&#x5982;&#xFF1A;&lt;bean id = &quot;hw&quot;  class=&quot;src.HelloWorld&quot; lazy-init=&quot;true&quot;  depends-on=&quot;beanA&quot;&gt;&#x8FD9;&#x4E2A;hw&#x4F9D;&#x8D56;&#x4E86; beanA
+    &#x7136;&#x540E;beanA&#x53C8;&#x4F9D;&#x8D56;&#x4E86;hw&#xFF1B;&lt;bean id=&quot;beanA&quot; class=&quot;src.lookupmethods.BeanA&quot; depends-on=&quot;hw&quot;&gt;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;
+*2.
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isDependent</span><span class="hljs-params">(String beanName, String dependentBeanName, Set&lt;String&gt; alreadySeen)</span> </span>{
+        <span class="hljs-comment">//&#x5982;&#x679C;beanName&#x5DF2;&#x7ECF;&#x68C0;&#x67E5;&#x8FC7;&#x4E86;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF1B;</span>
+        <span class="hljs-keyword">if</span> (alreadySeen != <span class="hljs-keyword">null</span> &amp;&amp; alreadySeen.contains(beanName)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        String canonicalName = canonicalName(beanName);
+        <span class="hljs-comment">//dependentBeanMap &#x4FDD;&#x5B58;&#x7684;&#x662F; beanName &#x7684;&#x6240;&#x6709;&#x4F9D;&#x8D56; &#x7684;beanName&#xFF1B;&#x5B83;&#x662F;&#x4E00;&#x4E2A;Map&lt;String, Set&lt;String&gt;&gt;</span>
+        Set&lt;String&gt; dependentBeans = <span class="hljs-keyword">this</span>.dependentBeanMap.get(canonicalName);
+        <span class="hljs-keyword">if</span> (dependentBeans == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">if</span> (dependentBeans.contains(dependentBeanName)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">for</span> (String transitiveDependency : dependentBeans) {
+            <span class="hljs-keyword">if</span> (alreadySeen == <span class="hljs-keyword">null</span>) {
+                alreadySeen = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;();
+            }
+            alreadySeen.add(beanName);
+            <span class="hljs-keyword">if</span> (isDependent(transitiveDependency, dependentBeanName, alreadySeen)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#xFF0C;&#x5220;&#x9664;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addSingletonFactory</span><span class="hljs-params">(String beanName, ObjectFactory&lt;?&gt; singletonFactory)</span> </span>{
+        Assert.notNull(singletonFactory, <span class="hljs-string">&quot;Singleton factory must not be null&quot;</span>);
+        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.singletonObjects) {
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.singletonObjects.containsKey(beanName)) {
+                <span class="hljs-keyword">this</span>.singletonFactories.put(beanName, singletonFactory);
+                <span class="hljs-keyword">this</span>.earlySingletonObjects.remove(beanName);
+                <span class="hljs-keyword">this</span>.registeredSingletons.add(beanName);
+            }
+        }
+    }
+</code></pre>
+<h3 id="abstractautowirecapablebeanfactory">AbstractAutowireCapableBeanFactory</h3>
+<blockquote>
+<p>&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;&#x4E86;AbstractBeanFactory;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x91CC;&#x9762;;</p>
+</blockquote>
+<p><span id="createBean"></span></p>
+<pre><code class="lang-java"><span class="hljs-comment">/** Cache of unfinished FactoryBean instances: FactoryBean name --&gt; BeanWrapper */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, BeanWrapper&gt; factoryBeanInstanceCache =
+            <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, BeanWrapper&gt;(<span class="hljs-number">16</span>);
+    <span class="hljs-comment">/**
+     * &#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;&#xFF1A;&#x521B;&#x5EFA;bean&#x7684;&#x5B9E;&#x4F8B;&#xFF1B;
+     * &#x586B;&#x5145;bean&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4EE5;&#x53CA;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x7B49;&#x5F85;&#xFF1B;
+     * populates the bean instance, applies post-processors, etc.
+     * <span class="hljs-doctag">@see</span> #doCreateBean
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">createBean</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd, Object[] args)</span> <span class="hljs-keyword">throws</span> BeanCreationException </span>{
+        <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+            logger.debug(<span class="hljs-string">&quot;Creating instance of bean &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+        }
+        RootBeanDefinition mbdToUse = mbd;
+        Class&lt;?&gt; resolvedClass = resolveBeanClass(mbd, beanName);
+        <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x586B;&#x5145;&#x4E00;&#x4E0B;BeanClass&#x5C5E;&#x6027;</span>
+        <span class="hljs-keyword">if</span> (resolvedClass != <span class="hljs-keyword">null</span> &amp;&amp; !mbd.hasBeanClass() &amp;&amp; mbd.getBeanClassName() != <span class="hljs-keyword">null</span>) {
+            mbdToUse = <span class="hljs-keyword">new</span> RootBeanDefinition(mbd);
+            mbdToUse.setBeanClass(resolvedClass);
+        }
+
+<span class="hljs-comment">/**
+*&#x51C6;&#x5907;overides&#x6570;&#x636E;&#xFF1B;
+*&#x5728;&#x4E4B;&#x524D;&#x7B2C;&#x56DB;&#x7BC7;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x8C03;&#x7528;&#x8FC7;&#x5F97;&#x65B9;&#x6CD5;prepareMethodOverrides(&#xFF08;https://blog.csdn.net/u010634066/article/details/80226375&#xFF09;
+*&#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E2D;&#x6709;look-up &#x6216;&#x8005; replaced-method&#x5C5E;&#x6027;&#xFF0C;&#x5219;bd&#x4E2D;&#x5C31;&#x4F1A;&#x6709;LookupOverride&#x3001;ReplaceOverride&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x5BF9;&#x8FD9;&#x4E9B;Overrid&#x505A;&#x4E00;&#x4E9B;&#x9A8C;&#x8BC1;&#x4E2A;&#x5904;&#x7406;&#x7684;;
+*&#x5982;&#x679C;&#x8FD9;&#x4E2A;Class&#x4E2D;&#xFF1B;&#x5B58;&#x5728;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x6570;&#x91CF;&#x662F;0&#x4E2A;&#xFF1B;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1B;&#x5982;&#x679C;&#x662F;1&#x4E2A;&#xFF1B;&#x5219;
+* Mark override as not overloaded, to avoid the overhead of arg type checking.
+*&#x6807;&#x8BB0;&#x8FD9;&#x4E2A;mo&#x4E0D;&#x662F; &#x91CD;&#x8F7D;&#xFF0C;&#x800C;&#x662F;&#x8986;&#x76D6;&#xFF1B;&#x907F;&#x514D;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x7684;&#x5F00;&#x9500;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x662F;true
+            mo.setOverloaded(false);
+*&#x4E4B;&#x6240;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF1B;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8981;&#x88AB;Spring&#x91CD;&#x5199;&#x7684;&#xFF1B;
+*&#x4F8B;&#x5B50;&#xFF1A;&#x62BD;&#x8C61;&#x7C7B;BeanA&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5; public abstract BeanB getBeanB() ;
+*&#x7136;&#x540E;Spring&#x4E2D;&#x914D;&#x7F6E; 
+* &lt;bean id=&quot;beanA&quot; class=&quot;src.lookupmethods.BeanA&quot; &gt;
+    &lt;!-- &#x8868;&#x793A;&#x5C06;&#x7531;Spring&#x91CD;&#x5199;getBeanB()&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x540D;&#x4E3A;beanB&#x7684;bean --&gt;
+    &lt;lookup-method name=&quot;getBeanB&quot; bean=&quot;beanB&quot;/&gt;
+  &lt;/bean&gt;
+  &#x770B;&#x5230;&#x4E86;&#x5427;;&#x6700;&#x7EC8;&#x662F;&#x8981;&#x88AB;Spring&#x91CD;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8981;&#x6807;&#x8BB0;&#x4E00;&#x4E0B;&#xFF1B;&#x7B49;&#x4E4B;&#x540E;&#x518D;&#x6765;&#x91CD;&#x5199;&#xFF1B;&#x90A3;&#x662F;&#x600E;&#x4E48;&#x91CD;&#x5199;&#x7684;&#x5462;&#xFF1F;
+* &#x6211;&#x4EEC;&#x6253;&#x4E2A;TODO.... &#x7B49;&#x4EE5;&#x540E;&#x5206;&#x6790;  
+*/</span>
+        <span class="hljs-keyword">try</span> {
+            mbdToUse.prepareMethodOverrides();
+        }
+        <span class="hljs-keyword">catch</span> (BeanDefinitionValidationException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(mbdToUse.getResourceDescription(),
+                    beanName, <span class="hljs-string">&quot;Validation of method overrides failed&quot;</span>, ex);
+        }
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// &#x7ED9; BeanPostProcessors &#x4E00;&#x4E2A;&#x673A;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;;&#x4E3B;&#x8981;&#x8C03;&#x7528;&#x7684;&#x662F;&#x63A5;&#x53E3;InstantiationAwareBeanPostProcessor&#x91CC;&#x9762;&#x7684;&#x65B9;&#x6CD5;;</span>
+            <span class="hljs-comment">//&#x8BE6;&#x89E3;&#x8BF7;&#x770B;&#x535A;&#x6587;&#xFF1A;https://blog.csdn.net/u010634066/article/details/80321854#resolveBeforeInstantiation</span>
+            Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x8FD9;&#x91CC;&#x4E0D;&#x4E3A;null&#xFF1B;&#x8BF4;&#x660E;&#x4E0A;&#x9762;&#x7684;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x5C31;&#x4E0D;&#x7528;&#x5728;&#x8D70;&#x540E;&#x9762;&#x7684;&#x6D41;&#x7A0B;&#x4E86;&#xFF0C;&#x4E0D;&#x7528;doCreateBean&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
+            <span class="hljs-keyword">if</span> (bean != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">return</span> bean;
+            }
+        }
+        <span class="hljs-keyword">catch</span> (Throwable ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbdToUse.getResourceDescription(), beanName,
+                    <span class="hljs-string">&quot;BeanPostProcessor before instantiation of bean failed&quot;</span>, ex);
+        }
+        <span class="hljs-comment">//</span>
+        Object beanInstance = doCreateBean(beanName, mbdToUse, args);
+        <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+            logger.debug(<span class="hljs-string">&quot;Finished creating instance of bean &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+        }
+        <span class="hljs-keyword">return</span> beanInstance;
+    }
+
+<span class="hljs-comment">/**
+     * &#x8FD9;&#x91CC;&#x662F;&#x771F;&#x6B63;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;bean. &#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x8FC7;&#x4E86;&#xFF0C;&#x4F8B;&#x5982;&#x4E0A;&#x9762;resolveBeforeInstantiation&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x6267;&#x884C;&#x5B9E;&#x4F8B;&#x5316;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#xFF1B;&#xFF08;&#x5C31;&#x662F;postProcessBeforeInstantiation&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7684;&#xFF09; 
+     * &lt;p&gt;Differentiates between default bean instantiation, use of a
+     * factory method, and autowiring a constructor.
+     * <span class="hljs-doctag">@param</span> beanName the name of the bean
+     * <span class="hljs-doctag">@param</span> mbd the merged bean definition for the bean
+     * <span class="hljs-doctag">@param</span> args explicit arguments to use for constructor or factory method invocation
+     * <span class="hljs-doctag">@return</span> a new instance of the bean
+     * <span class="hljs-doctag">@throws</span> BeanCreationException if the bean could not be created
+     * <span class="hljs-doctag">@see</span> #instantiateBean
+     * <span class="hljs-doctag">@see</span> #instantiateUsingFactoryMethod
+     * <span class="hljs-doctag">@see</span> #autowireConstructor
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">doCreateBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> RootBeanDefinition mbd, <span class="hljs-keyword">final</span> Object[] args)</span>
+            <span class="hljs-keyword">throws</span> BeanCreationException </span>{
+
+        <span class="hljs-comment">// Instantiate the bean.</span>
+        BeanWrapper instanceWrapper = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">if</span> (mbd.isSingleton()) {
+            <span class="hljs-comment">//factoryBeanInstanceCache&#x662F;&#x7F13;&#x5B58;&#x672A;&#x5B8C;&#x6210;&#x7684;FactoryBean&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;;</span>
+            instanceWrapper = <span class="hljs-keyword">this</span>.factoryBeanInstanceCache.remove(beanName);
+        }
+        <span class="hljs-keyword">if</span> (instanceWrapper == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">/**
+            *&#x4E3A;&#x6307;&#x5B9A;&#x7684;bean&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;,&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;:&#x5DE5;&#x5382;&#x65B9;&#x6CD5;,&#x6784;&#x9020;&#x51FD;&#x6570;&#x81EA;&#x52A8;&#x88C5;&#x914D;,&#x6216;&#x8005;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x4F8B;&#x5316;
+            *&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;BeanWrapper&#x5305;&#x88C5;&#x7C7B;;
+            *TODO....&#x9010;&#x4E2A;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;
+            */</span>
+            instanceWrapper = createBeanInstance(beanName, mbd, args);
+        }
+        <span class="hljs-comment">//&#x5F97;&#x5230;&#x751F;&#x6210;&#x7684;&#x5B9E;&#x4F8B;&#xFF1B;&#x5982;&#x679C;&#x662F;cglib&#x751F;&#x6210;&#x7684;&#xFF0C;&#x5219;&#x662F;&#x4EE3;&#x7406;&#x7C7B;&#xFF1B;</span>
+        <span class="hljs-comment">//&#x4F8B;&#x5982;&#x6211;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x751F;&#x6210;&#x7684;&#x5C31;&#x662F;src.lookupmethods.BeanA$$EnhancerBySpringCGLIB$$446a9fa@50eac852</span>
+        <span class="hljs-comment">//&#x8FD9;&#x662F;&#x4E00;&#x4E2A;BeanA&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;,&#x5B83;&#x4E3B;&#x8981;&#x662F;&#x8986;&#x76D6;&#x4E86;BeanA&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;&#xFF1B;&#x4F8B;&#x5982;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;BeanA&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;getBeanB();</span>
+        <span class="hljs-comment">//&#x65E2;&#x7136;&#x662F;cglib&#x751F;&#x6210;&#x7684;,&#x6240;&#x4EE5;&#x6CE8;&#x610F;getBeanB&#x4E0D;&#x80FD;&#x662F;final&#x7684;&#xFF1B;</span>
+        <span class="hljs-keyword">final</span> Object bean = (instanceWrapper != <span class="hljs-keyword">null</span> ? instanceWrapper.getWrappedInstance() : <span class="hljs-keyword">null</span>);
+        <span class="hljs-comment">//src.lookupmethods.BeanA$$EnhancerBySpringCGLIB$$446a9fa@50eac852</span>
+        Class&lt;?&gt; beanType = (instanceWrapper != <span class="hljs-keyword">null</span> ? instanceWrapper.getWrappedClass() : <span class="hljs-keyword">null</span>);
+        mbd.resolvedTargetType = beanType;
+
+        <span class="hljs-comment">// &#x5141;&#x8BB8; post-processors &#x4FEE;&#x6539; merged bean definition.</span>
+        <span class="hljs-keyword">synchronized</span> (mbd.postProcessingLock) {
+            <span class="hljs-comment">//&#x5224;&#x65AD; PostProcessor&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668; &#x662F;&#x5426;&#x88AB;&#x6267;&#x884C;&#x8FC7;</span>
+            <span class="hljs-keyword">if</span> (!mbd.postProcessed) {
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-comment">//&#x4FEE;&#x6539;&#x4E00;&#x4E0B; &#x5408;&#x5E76;&#x7684;BeanDefinition&#xFF1B;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x4E4B;&#x7C7B;&#x7684;&#x5DF2;&#x7ECF;&#x5206;&#x6790;&#x8FC7;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x4E0D;&#x5206;&#x6790;&#x4E86;</span>
+                    applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);
+                }
+                <span class="hljs-keyword">catch</span> (Throwable ex) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+                            <span class="hljs-string">&quot;Post-processing of merged bean definition failed&quot;</span>, ex);
+                }
+                mbd.postProcessed = <span class="hljs-keyword">true</span>;
+            }
+        }
+
+        <span class="hljs-comment">// Eagerly cache singletons to be able to resolve circular references</span>
+        <span class="hljs-comment">// even when triggered by lifecycle interfaces like BeanFactoryAware.</span>
+        <span class="hljs-comment">/**
+        *1.&#x63D0;&#x524D;&#x66B4;&#x9732;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5F15;&#x7528;&#xFF1B;&#x4E3B;&#x8981;&#x662F;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;
+        *2.&#x5224;&#x65AD;&#x662F;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&amp;&amp;&#x5141;&#x8BB8;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&amp;&amp;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x4E86;
+        *  2.1 allowCircularReferences&#x662F;&#x9ED8;&#x8BA4;&#x4E3A;true&#x7684;;ApplicationContext&#x6709;&#x4E2A;customizeBeanFactory(beanFactory);&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#xFF1B;
+        *3.&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5F00;&#x59CB;&#x6807;&#x5FD7;&#x521B;&#x5EFA;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#xFF1F;
+        *&#x5728;&#x8C03;&#x7528;getSingleton&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;beforeSingletonCreation(beanName);&#x6807;&#x8BC6;&#x4E86;&#x521B;&#x5EFA;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;
+        */</span>
+        <span class="hljs-keyword">boolean</span> earlySingletonExposure = (mbd.isSingleton() &amp;&amp; <span class="hljs-keyword">this</span>.allowCircularReferences &amp;&amp;
+                isSingletonCurrentlyInCreation(beanName));
+        <span class="hljs-keyword">if</span> (earlySingletonExposure) {
+            <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) {
+                logger.debug(<span class="hljs-string">&quot;Eagerly caching bean &apos;&quot;</span> + beanName +
+                        <span class="hljs-string">&quot;&apos; to allow for resolving potential circular references&quot;</span>);
+            }
+            <span class="hljs-comment">/**
+            *&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x505A;&#x4E86;&#x4E09;&#x4EF6;&#x4E8B;&#x60C5;
+            *1.this.singletonFactories.put(beanName, singletonFactory);
+            *singletonFactories&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;()&#xFF1B;&#x8FD9;&#x4E2A;&#x4FDD;&#x5B58;&#x8FDB;&#x6765;&#x7684;singletonFactory&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF1B;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;getEarlyBeanReference(beanName, mbd, bean);
+            *&#x7B49;&#x4EE5;&#x540E;&#x4ECE;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#x7684;&#x65F6;&#x5019;&#x662F;&#x8C03;&#x7528;&#x4E86;getEarlyBeanReference(beanName, mbd, bean);
+            *3.this.registeredSingletons.add(beanName);&#x5C06;&#x8FD9;&#x4E2A;bean&#x52A0;&#x5165;&#x5230;&#x5DF2;&#x6CE8;&#x518C;&#x96C6;&#x5408;
+            */</span>
+</code></pre>
+<p><span id="getEarlyBeanReference">&#x951A;&#x70B9;&#xFF1A;</span></p>
+<pre><code class="lang-java">            addSingletonFactory(beanName, <span class="hljs-keyword">new</span> ObjectFactory&lt;Object&gt;() {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException </span>{
+
+                    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x63D0;&#x524D;&#x66B4;&#x9732;&#x5F15;&#x7528; https://blog.csdn.net/u010634066/article/details/80348253</span>
+                    <span class="hljs-keyword">return</span> getEarlyBeanReference(beanName, mbd, bean);
+                }
+            });
+        }
+
+        <span class="hljs-comment">// Initialize the bean instance.</span>
+        Object exposedObject = bean;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">//&#x586B;&#x5145;BeanTODO.....&#x5355;&#x72EC;&#x5206;&#x6790;</span>
+            populateBean(beanName, mbd, instanceWrapper);
+            <span class="hljs-keyword">if</span> (exposedObject != <span class="hljs-keyword">null</span>) {
+                exposedObject = initializeBean(beanName, exposedObject, mbd);
+            }
+        }
+        <span class="hljs-keyword">catch</span> (Throwable ex) {
+            <span class="hljs-keyword">if</span> (ex <span class="hljs-keyword">instanceof</span> BeanCreationException &amp;&amp; beanName.equals(((BeanCreationException) ex).getBeanName())) {
+                <span class="hljs-keyword">throw</span> (BeanCreationException) ex;
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(
+                        mbd.getResourceDescription(), beanName, <span class="hljs-string">&quot;Initialization of bean failed&quot;</span>, ex);
+            }
+        }
+
+        <span class="hljs-keyword">if</span> (earlySingletonExposure) {
+            Object earlySingletonReference = getSingleton(beanName, <span class="hljs-keyword">false</span>);
+            <span class="hljs-keyword">if</span> (earlySingletonReference != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">if</span> (exposedObject == bean) {
+                    exposedObject = earlySingletonReference;
+                }
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.allowRawInjectionDespiteWrapping &amp;&amp; hasDependentBean(beanName)) {
+                    String[] dependentBeans = getDependentBeans(beanName);
+                    Set&lt;String&gt; actualDependentBeans = <span class="hljs-keyword">new</span> LinkedHashSet&lt;String&gt;(dependentBeans.length);
+                    <span class="hljs-keyword">for</span> (String dependentBean : dependentBeans) {
+                        <span class="hljs-keyword">if</span> (!removeSingletonIfCreatedForTypeCheckOnly(dependentBean)) {
+                            actualDependentBeans.add(dependentBean);
+                        }
+                    }
+                    <span class="hljs-keyword">if</span> (!actualDependentBeans.isEmpty()) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName,
+                                <span class="hljs-string">&quot;Bean with name &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos; has been injected into other beans [&quot;</span> +
+                                StringUtils.collectionToCommaDelimitedString(actualDependentBeans) +
+                                <span class="hljs-string">&quot;] in its raw version as part of a circular reference, but has eventually been &quot;</span> +
+                                <span class="hljs-string">&quot;wrapped. This means that said other beans do not use the final version of the &quot;</span> +
+                                <span class="hljs-string">&quot;bean. This is often the result of over-eager type matching - consider using &quot;</span> +
+                                <span class="hljs-string">&quot;&apos;getBeanNamesOfType&apos; with the &apos;allowEagerInit&apos; flag turned off, for example.&quot;</span>);
+                    }
+                }
+            }
+        }
+
+        <span class="hljs-comment">// Register bean as disposable.</span>
+        <span class="hljs-keyword">try</span> {
+            registerDisposableBeanIfNecessary(beanName, bean, mbd);
+        }
+        <span class="hljs-keyword">catch</span> (BeanDefinitionValidationException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(
+                    mbd.getResourceDescription(), beanName, <span class="hljs-string">&quot;Invalid destruction signature&quot;</span>, ex);
+        }
+
+        <span class="hljs-keyword">return</span> exposedObject;
+    }
+
+
+    <span class="hljs-comment">/**
+     * &#x4E3A;&#x6307;&#x5B9A;&#x7684;bean&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;,&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;:&#x5DE5;&#x5382;&#x65B9;&#x6CD5;,&#x6784;&#x9020;&#x51FD;&#x6570;&#x81EA;&#x52A8;&#x88C5;&#x914D;,&#x6216;&#x8005;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x4F8B;&#x5316;
+     * <span class="hljs-doctag">@param</span> args &#x663E;&#x793A;&#x7684;&#x53C2;&#x6570;&#x4F9B;&#x7ED9; &#x6784;&#x9020;&#x51FD;&#x6570; &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8C03;&#x7528;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> BeanWrapper <span class="hljs-title">createBeanInstance</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd, Object[] args)</span> </span>{
+        <span class="hljs-comment">// Make sure bean class is actually resolved at this point.</span>
+        Class&lt;?&gt; beanClass = resolveBeanClass(mbd, beanName);
+
+        <span class="hljs-keyword">if</span> (beanClass != <span class="hljs-keyword">null</span> &amp;&amp; !Modifier.isPublic(beanClass.getModifiers()) &amp;&amp; !mbd.isNonPublicAccessAllowed()) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+                    <span class="hljs-string">&quot;Bean class isn&apos;t public, and non-public access not allowed: &quot;</span> + beanClass.getName());
+        }
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86; factory-method &#x5219;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x53BB;&#x751F;&#x6210;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">if</span> (mbd.getFactoryMethodName() != <span class="hljs-keyword">null</span>)  {
+            <span class="hljs-keyword">return</span> instantiateUsingFactoryMethod(beanName, mbd, args);
+        }
+
+        <span class="hljs-comment">// Shortcut when re-creating the same bean...</span>
+        <span class="hljs-keyword">boolean</span> resolved = <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">boolean</span> autowireNecessary = <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">if</span> (args == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">synchronized</span> (mbd.constructorArgumentLock) {
+                <span class="hljs-keyword">if</span> (mbd.resolvedConstructorOrFactoryMethod != <span class="hljs-keyword">null</span>) {
+                    resolved = <span class="hljs-keyword">true</span>;
+                    autowireNecessary = mbd.constructorArgumentsResolved;
+                }
+            }
+        }
+        <span class="hljs-keyword">if</span> (resolved) {
+            <span class="hljs-keyword">if</span> (autowireNecessary) {
+                <span class="hljs-comment">//TODO ...&#x5355;&#x72EC;&#x5206;&#x6790;</span>
+                <span class="hljs-keyword">return</span> autowireConstructor(beanName, mbd, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> instantiateBean(beanName, mbd);
+            }
+        }
+
+        <span class="hljs-comment">// Need to determine the constructor...</span>
+        <span class="hljs-comment">//TODO... BeanPostProcessor&#x63A5;&#x53E3;&#x5355;&#x72EC;&#x5206;&#x6790;</span>
+        Constructor&lt;?&gt;[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);
+        <span class="hljs-keyword">if</span> (ctors != <span class="hljs-keyword">null</span> ||
+                mbd.getResolvedAutowireMode() == RootBeanDefinition.AUTOWIRE_CONSTRUCTOR ||
+                mbd.hasConstructorArgumentValues() || !ObjectUtils.isEmpty(args))  {
+            <span class="hljs-keyword">return</span> autowireConstructor(beanName, mbd, ctors, args);
+        }
+
+        <span class="hljs-comment">// No special handling: simply use no-arg constructor.</span>
+        <span class="hljs-comment">/**
+        *&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;
+        *TODO..&#x603B;&#x7ED3;
+        */</span>
+        <span class="hljs-keyword">return</span> instantiateBean(beanName, mbd);
+    }
+    <span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B9E;&#x4F8B;&#x5316;bean&#xFF1B;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;bean&#x7684;&#x5305;&#x88C5;&#x7C7B;</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> BeanWrapper <span class="hljs-title">instantiateBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> RootBeanDefinition mbd)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            Object beanInstance;
+            <span class="hljs-keyword">final</span> BeanFactory parent = <span class="hljs-keyword">this</span>;
+            <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {
+                beanInstance = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedAction&lt;Object&gt;() {
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">return</span> getInstantiationStrategy().instantiate(mbd, beanName, parent);
+                    }
+                }, getAccessControlContext());
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">/**
+                * &#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x7B56;&#x7565;&#x662F;Cglib&#xFF1B;CglibSubclassingInstantiationStrategy();
+                * 1. &#x5224;&#x65AD;&#x662F;&#x5426;&#x8BBE;&#x7F6E;lookup-method &#x6216;&#x8005;replace-method&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x5219;&#x7528;Cglib&#x7B56;&#x7565;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1B;
+                *2. &#x5982;&#x679C;&#x90FD;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x5229;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570; &#x53CD;&#x5C04;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1B; &#x91CC;&#x9762;&#x8C03;&#x7528;&#x4E86; ctor.newInstance(args);
+                */</span>
+                beanInstance = getInstantiationStrategy().instantiate(mbd, beanName, parent);
+            }
+            <span class="hljs-comment">//&#x4E0D;&#x5206;&#x6790;</span>
+            BeanWrapper bw = <span class="hljs-keyword">new</span> BeanWrapperImpl(beanInstance);
+            initBeanWrapper(bw);
+            <span class="hljs-keyword">return</span> bw;
+        }
+        <span class="hljs-keyword">catch</span> (Throwable ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(
+                    mbd.getResourceDescription(), beanName, <span class="hljs-string">&quot;Instantiation of bean failed&quot;</span>, ex);
+        }
+    }
+</code></pre>
+<h3 id="simpleinstantiationstrategy">SimpleInstantiationStrategy</h3>
+<blockquote>
+<p>&#x7B80;&#x5355; &#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;&#x7C7B;&#xFF1B;</p>
+</blockquote>
+<p>&#x9ED8;&#x8BA4;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;: </p>
+<ol>
+<li>&#x5224;&#x65AD;&#x662F;&#x5426;&#x8BBE;&#x7F6E;lookup-method &#x6216;&#x8005;replace-method&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x5219;&#x7528;Cglib&#x7B56;&#x7565;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1B; </li>
+<li>&#x5982;&#x679C;&#x90FD;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x5229;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570; &#x53CD;&#x5C04;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF1B; &#x91CC;&#x9762;&#x8C03;&#x7528;&#x4E86; ctor.newInstance(args);</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition bd, String beanName, BeanFactory owner)</span> </span>{
+        <span class="hljs-comment">// bd&#x7684;MethodOverrides&#x5C5E;&#x6027;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x8BBE;&#x7F6E;&#x4E86; lookup-method replace-method&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x6709;&#xFF1B;</span>
+        <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;&#x5728;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x60C5;&#x51B5;&#x4E0B; &#x5C31;&#x7528;&#x53CD;&#x5C04;&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">if</span> (bd.getMethodOverrides().isEmpty()) {
+            Constructor&lt;?&gt; constructorToUse;
+            <span class="hljs-keyword">synchronized</span> (bd.constructorArgumentLock) {
+                constructorToUse = (Constructor&lt;?&gt;) bd.resolvedConstructorOrFactoryMethod;
+                <span class="hljs-keyword">if</span> (constructorToUse == <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">final</span> Class&lt;?&gt; clazz = bd.getBeanClass();
+                    <span class="hljs-keyword">if</span> (clazz.isInterface()) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanInstantiationException(clazz, <span class="hljs-string">&quot;Specified class is an interface&quot;</span>);
+                    }
+                    <span class="hljs-keyword">try</span> {
+                        <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {
+                            constructorToUse = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedExceptionAction&lt;Constructor&lt;?&gt;&gt;() {
+                                <span class="hljs-meta">@Override</span>
+                                <span class="hljs-keyword">public</span> Constructor&lt;?&gt; run() <span class="hljs-keyword">throws</span> Exception {
+                                    <span class="hljs-keyword">return</span> clazz.getDeclaredConstructor((Class[]) <span class="hljs-keyword">null</span>);
+                                }
+                            });
+                        }
+                        <span class="hljs-keyword">else</span> {
+                            <span class="hljs-comment">//&#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+                            constructorToUse =  clazz.getDeclaredConstructor((Class[]) <span class="hljs-keyword">null</span>);
+                        }
+                        <span class="hljs-comment">//resolvedConstructorOrFactoryMethod&#x5B57;&#x6BB5;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6784;&#x9020;&#x5668;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x6216;&#x8005;&#x662F;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#xFF1B;</span>
+                        bd.resolvedConstructorOrFactoryMethod = constructorToUse;
+                    }
+                    <span class="hljs-keyword">catch</span> (Throwable ex) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanInstantiationException(clazz, <span class="hljs-string">&quot;No default constructor found&quot;</span>, ex);
+                    }
+                }
+            }
+            <span class="hljs-comment">//&#x5229;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570; &#x53CD;&#x5C04;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61; &#x91CC;&#x9762;&#x8C03;&#x7528;&#x4E86; ctor.newInstance(args);</span>
+            <span class="hljs-keyword">return</span> BeanUtils.instantiateClass(constructorToUse);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86;lookup-method or replace-method &#xFF1B;</span>
+            <span class="hljs-comment">//1.&#x5229;&#x7528;CGlib&#x8C03;&#x7528;enhancer.createClass()&#x751F;&#x6210;&#x4E86;&#x5B50;&#x7C7B;Class&#x7C7B;&#x578B;</span>
+            <span class="hljs-comment">//2.&#x901A;&#x8FC7;&#x751F;&#x6210;&#x7684;Class&#x7C7B;&#x578B;&#xFF1B;&#x8C03;&#x7528;BeanUtils.instantiateClass(subclass)&#x53CD;&#x5C04;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;instance</span>
+            <span class="hljs-comment">//(Factory) instance.setCallbacks(new Callback[] {NoOp.INSTANCE,</span>
+            <span class="hljs-comment">//      new LookupOverrideMethodInterceptor(this.beanDefinition, this.owner),</span>
+            <span class="hljs-comment">//      new ReplaceOverrideMethodInterceptor(this.beanDefinition, this.owner)});</span>
+            <span class="hljs-keyword">return</span> instantiateWithMethodInjection(bd, beanName, owner);
+        }
+    }
+</code></pre>
+<h2 id="&#x5206;&#x6790;&#x6587;&#x7AE0;&#x5F15;&#x51FA;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;">&#x5206;&#x6790;&#x6587;&#x7AE0;&#x5F15;&#x51FA;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;</h2>
+<h3 id="spring&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;&#xFF1F;">Spring&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;&#xFF1F;</h3>
+<p>&#x8FD9;&#x7BC7;&#x535A;&#x6587;&#x8BB2;&#x7684;&#x5F88;&#x6E05;&#x695A;&#x4E86;&#xFF0C;&#x6211;&#x5C31;&#x4E0D;&#x5355;&#x72EC;&#x5206;&#x6790;&#x4E86; 
+<a href="https://blog.csdn.net/u010853261/article/details/77940767" target="_blank">Spring &#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</a></p>
+<h3 id="spring-&#x914D;&#x7F6E;&#x4E2D;&#x7684;parent&#x3001;abstract&#x4F5C;&#x7528;&#xFF1F;">Spring &#x914D;&#x7F6E;&#x4E2D;&#x7684;parent&#x3001;abstract&#x4F5C;&#x7528;&#xFF1F;</h3>
+<p><a href="https://blog.csdn.net/changqing5818/article/details/58643191" target="_blank">Spring &#x914D;&#x7F6E;&#x4E2D;&#x7684;parent&#x3001;abstract&#x4F5C;&#x7528;</a></p>
+<h3 id="dependson&#x7684;&#x7528;&#x6CD5;&#xFF1F;">dependsOn&#x7684;&#x7528;&#x6CD5;&#xFF1F;</h3>
+<p>&#x9996;&#x5148;&#x8981;&#x4E86;&#x89E3;depends-on&#x7528;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;bean A&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4F9D;&#x9760;&#x53E6;&#x4E00;&#x4E2A;bean B&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C; &#x4F46;&#x662F;A&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x6301;&#x6709;&#x4E00;&#x4E2A;B&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x8BDD;&#x5C31;&#x4E0D;&#x7528;depends-on&#xFF0C;&#x76F4;&#x63A5;&#x7528;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002; 
+<a href="https://blog.csdn.net/Jintao_Ma/article/details/51088867" target="_blank">dependsOn&#x7528;&#x6CD5;</a></p>
+<h3 id="factory-method&#x7528;&#x6CD5;">factory-method&#x7528;&#x6CD5;</h3>
+<p><a href="https://blog.csdn.net/nvd11/article/details/51542360" target="_blank">Spring &#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;(Factory Method)&#x6765;&#x914D;&#x7F6E;bean</a></p>
+<h3 id="autowireconstructor">autowireConstructor</h3>
+<pre><code class="lang-java"><span class="hljs-comment">//TODO ...&#x5355;&#x72EC;&#x5206;&#x6790;</span>
+<span class="hljs-keyword">return</span> autowireConstructor(beanName, mbd, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+</code></pre>
+<h3 id="beanpostprocessor&#x63A5;&#x53E3;">BeanPostProcessor&#x63A5;&#x53E3;</h3>
+<p><a href="springSourceCode_analysis_7_80289441.html">Spring&#x6E90;&#x7801;&#x5206;&#x6790; &#x6269;&#x5C55;&#x63A5;&#x53E3;BeanPostProcessors</a></p>
+<h3 id="determineconstructorsfrombeanpostprocessors">determineConstructorsFromBeanPostProcessors</h3>
+<pre><code class="lang-java">Constructor&lt;?&gt;[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);
+</code></pre>
+<h3 id="&#x5355;&#x72EC;&#x5206;&#x6790;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;">&#x5355;&#x72EC;&#x5206;&#x6790;&#x5B9E;&#x4F8B;&#x5316;&#x7B56;&#x7565;</h3>
+<h3 id="populatebean&#x5206;&#x6790;">populateBean&#x5206;&#x6790;</h3>
+<pre><code class="lang-java">populateBean(beanName, mbd, instanceWrapper)
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="springSourceCode_analysis_4_80226375.html" class="navigation navigation-prev " aria-label="Previous page: (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springSourceCode_analysis_6_80287736.html" class="navigation navigation-next " aria-label="Next page: (转)Spring源码分析(六)FactoryBean 接口解析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(转)Spring源码解析(五)Spring 加载bean 依赖注入","level":"1.3.2.7","depth":3,"next":{"title":"(转)Spring源码分析(六)FactoryBean 接口解析","level":"1.3.2.8","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.md","articles":[]},"previous":{"title":"(转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？","level":"1.3.2.6","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.md","mtime":"2019-05-27T07:44:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

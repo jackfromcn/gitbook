@@ -1,0 +1,913 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(转)Spring源码分析(六)FactoryBean 接口解析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="springSourceCode_analysis_7_80289441.html" />
+    
+    
+    <link rel="prev" href="springSourceCode_analysis_5_80238746.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.3" data-path="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.4" data-path="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.2.1" data-path="../../源码/Aop/Aop.html">
+            
+                <a href="../../源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Spel.html">
+            
+                <a href="../Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="springSourceCode_analysis_1_78368930.html">
+            
+                <a href="springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="springSourceCode_analysis_1_80138425.html">
+            
+                <a href="springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="springSourceCode_analysis_2_80169701.html">
+            
+                <a href="springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="springSourceCode_analysis_3_80223871.html">
+            
+                <a href="springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="springSourceCode_analysis_4_80226375.html">
+            
+                <a href="springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="springSourceCode_analysis_5_80238746.html">
+            
+                <a href="springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.8" data-path="springSourceCode_analysis_6_80287736.html">
+            
+                <a href="springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="springSourceCode_analysis_7_80289441.html">
+            
+                <a href="springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="springSourceCode_analysis_8_80291728.html">
+            
+                <a href="springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="springSourceCode_analysis_9_80299451.html">
+            
+                <a href="springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="springSourceCode_analysis_10_80301135.html">
+            
+                <a href="springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="springSourceCode_analysis_11_80321854.html">
+            
+                <a href="springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="springSourceCode_analysis_12_80348253.html">
+            
+                <a href="springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="springSourceCode_analysis_14_80363793.html">
+            
+                <a href="springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="springSourceCode_analysis_15_80385067.html">
+            
+                <a href="springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="springSourceCode_analysis_16_80389286.md">
+            
+                <span>
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >(转)Spring源码分析(六)FactoryBean 接口解析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8F6C;spring&#x6E90;&#x7801;&#x5206;&#x6790;&#x516D;factorybean-&#x63A5;&#x53E3;&#x89E3;&#x6790;">(&#x8F6C;)Spring&#x6E90;&#x7801;&#x5206;&#x6790;(&#x516D;)FactoryBean &#x63A5;&#x53E3;&#x89E3;&#x6790;</h1>
+<p>&#x8BF4;&#x9053;FactoryBean&#xFF0C;&#x4E0D;&#x5C11;&#x4EBA;&#x4F1A;&#x62FF;&#x5B83;&#x8DDF;BeanFactory&#x4F5C;&#x6BD4;&#x8F83;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x4ED6;&#x4EEC;&#x6CA1;&#x6709;&#x591A;&#x5927;&#x5173;&#x7CFB;&#xFF1B;&#x6211;&#x4EEC;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x4E24;&#x8005;</p>
+<h2 id="&#x4E00;&#x3001;beanfactory&#x548C;factorybean&#x533A;&#x522B;">&#x4E00;&#x3001;BeanFactory&#x548C;FactoryBean&#x533A;&#x522B;</h2>
+<h2 id="beanfactory">BeanFactory</h2>
+<blockquote>
+<p>BeanFactory&#xFF1A;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;Factory&#xFF0C;&#x662F;&#x4E00;&#x4E2A;IOC&#x5BB9;&#x5668;&#x6216;&#x8005;&#x53EB;&#x5BF9;&#x8C61;&#x5DE5;&#x5382;&#xFF0C;&#x5B83;&#x91CC;&#x9762;&#x5B58;&#x7740;&#x5F88;&#x591A;&#x7684;bean&#x3002;&#x4F8B;&#x5982;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;DefaultListableBeanFactory&#xFF1B;&#x6211;&#x4EEC;&#x628A;IOC&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x6BD4;&#x4F5C;&#x4E00;&#x4E2A;&#x6C34;&#x6876;&#xFF0C;IOC&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;bean&#x5C31;&#x662F;&#x88C5;&#x7684;&#x6C34;&#xFF1B;</p>
+</blockquote>
+<h2 id="factorybean">FactoryBean</h2>
+<blockquote>
+<p>FactoryBean&#xFF1A;&#x662F;&#x4E00;&#x4E2A;Java Bean&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x80FD;&#x751F;&#x4EA7;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x5382;Bean&#xFF0C;&#x628A;IOC&#x5BB9;&#x5668;&#x6BD4;&#x4F5C;&#x6C34;&#x6876;&#xFF0C;&#x90A3;&#x4E48;Java Bean&#x5C31;&#x662F;&#x6C34;&#x6876;&#x91CC;&#x9762;&#x7684;&#x6C34;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;FactoryBean&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#x7684;&#x6C34;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x770B;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x6C34;&#x7403;&#xFF0C;&#x8FD9;&#x4E2A;&#x6C34;&#x7403;&#x91CC;&#x9762;&#x4E5F;&#x5305;&#x542B;&#x4E86;&#x6C34;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;IOC&#x53D6;&#x8FD9;&#x4E2A;&#x6C34;&#x7403;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53D6;&#x6C34;&#x7403;&#x91CC;&#x9762;&#x7684;&#x6C34;;(&#x7528;&#x6CD5;&#x5C31;&#x662F; &#x7528;&amp;&#x8868;&#x793A;&#x53D6;&#x6C34;&#x7403;&#xFF0C;&#x53D6;&#x6C34;&#x7403;&#x91CC;&#x7684;&#x6C34;&#x7528;&#x6B63;&#x5E38;&#x7684;&#x83B7;&#x53D6;&#x65B9;&#x5F0F;&#x5C31;&#x884C;&#x4E86;&#xFF1B;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7528;&amp;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x6C34;&#x7403;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x6C34;&#x7403;&#x7684; getObject&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x6C34;&#x7403;&#x91CC;&#x9762;&#x7684;&#x6C34;;)</p>
+</blockquote>
+<p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x6587;&#x7AE0;&#x4E2D;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5206;&#x6790;&#x8FC7;BeanFactory&#x7684;&#x6E90;&#x7801;&#x4E86;&#xFF0C;&#x4ECA;&#x5929;&#x6211;&#x4EEC;&#x5355;&#x72EC;&#x5206;&#x6790;FactoryBean</p>
+<h2 id="&#x4EE3;&#x7801;&#x5165;&#x53E3;">&#x4EE3;&#x7801;&#x5165;&#x53E3;</h2>
+<pre><code class="lang-java">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+         ClassPathResource resource = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;SpringContextConfig.xml&quot;</span>);
+        DefaultListableBeanFactory factory = <span class="hljs-keyword">new</span> DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = <span class="hljs-keyword">new</span> XmlBeanDefinitionReader(factory);
+        reader.loadBeanDefinitions(resource);
+        MyFactoryBean beanA = (MyFactoryBean)factory.getBean(<span class="hljs-string">&quot;&amp;fb&quot;</span>);
+        TestFb beanB = (TestFb)factory.getBean(<span class="hljs-string">&quot;fb&quot;</span>);
+        TestFb beanC =beanA.getObject();
+        System.out.print(beanB==beanC);
+        System.out.print(beanA);
+    }
+</code></pre>
+<h3 id="abstractbeanfactory">AbstractBeanFactory</h3>
+<blockquote>
+<p>AbstractBeanFactory extends FactoryBeanRegistrySupport</p>
+</blockquote>
+<p>&#x65AD;&#x70B9;&#x8FDB;&#x53BB;&#x6700;&#x540E;&#x8BBF;&#x95EE;&#x5230;AbstractBeanFactory&#x7684;getObjectForBeanInstance&#x65B9;&#x6CD5;&#xFF1B;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x8868;&#x793A; 
+beanInstance: 
+&#x901A;&#x8FC7;Object sharedInstance = getSingleton(beanName);&#x83B7;&#x53D6;&#x5230;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x7B97;&#x7528;&#x6211;&#x4EEC;getBean&#x7684;&#x65F6;&#x5019;beanName&#x4F20;&#x7684;&#x662F;fb&#xFF0C;&#x4E0D;&#x662F;&amp;fb&#xFF0C;&#x8FD9;&#x91CC;&#x8FD4;&#x56DE;&#x7684;&#x5C31;&#x662F;FactoryBean&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x6BD4;&#x55BB;&#x7684;&#x6C34;&#x7403;; 
+name:&#x5C31;&#x662F;&#x4F20;&#x8FDB;&#x6765;&#x7684;name &#xFF1B;&#x6CA1;&#x6709;&#x8FC7;&#x6EE4;&amp;&#x5B57;&#x7B26;&#x7684;&#xFF1B; 
+beanName:&#x8FC7;&#x6EE4;&#x4E86;&amp;&#x5B57;&#x7B26;&#x7684;
+<span id="getObjectForBeanInstance"></span></p>
+<pre><code class="lang-java">    <span class="hljs-comment">/**&#x4E13;&#x95E8;&#x7F13;&#x5B58;&#x4ECE;FactoryBeans&#x4E2D;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#xFF1B;&#x9664;&#x4E86;&#x7B2C;&#x4E00;&#x6B21;&#x8981;getObject()&#xFF0C;&#x540E;&#x9762;&#x76F4;&#x63A5;&#x4ECE;&#x8FD9;&#x4E2A;mao&#x4E2D;&#x53D6;&#x5C31;&#x884C;&#x4E86; 
+    Cache of singleton objects created by FactoryBeans: FactoryBean name --&gt; object */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; factoryBeanObjectCache = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;String, Object&gt;(<span class="hljs-number">16</span>);
+
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getObjectForBeanInstance</span><span class="hljs-params">(
+            Object beanInstance, String name, String beanName, RootBeanDefinition mbd)</span> </span>{
+
+        <span class="hljs-comment">// &#x5982;&#x679C;name &#x662F;&amp;&#x5F00;&#x5934;&#x7684;&#xFF0C;&#x4F46;&#x662F;beanInstance&#x53C8;&#x4E0D;&#x662F;FactoryBean&#x7C7B;&#x578B;&#x7684;&#x5C31;&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+        <span class="hljs-keyword">if</span> (BeanFactoryUtils.isFactoryDereference(name) &amp;&amp; !(beanInstance <span class="hljs-keyword">instanceof</span> FactoryBean)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanIsNotAFactoryException(transformedBeanName(name), beanInstance.getClass());
+        }
+
+
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x4E0D;&#x662F;FactoryBean &#x4F8B;&#x5982;name=fb&#xFF1B;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+        <span class="hljs-comment">//&#x5982;&#x679C;name&#x662F;&amp;&#x5F00;&#x5934;&#x5E76;&#x4E14;FactoryBean&#x7C7B;&#x578B;&#x7684;&#x4F8B;&#x5982;name=&amp;fb,fb&#x4E5F;&#x662F;FactoryBean&#x7C7B;&#x578B;&#xFF1B; &#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+        <span class="hljs-keyword">if</span> (!(beanInstance <span class="hljs-keyword">instanceof</span> FactoryBean) || BeanFactoryUtils.isFactoryDereference(name)) {
+            <span class="hljs-keyword">return</span> beanInstance;
+        }
+    <span class="hljs-comment">// beanInstance&#x662F;FactoryBean&#x7C7B;&#x578B;&#x7684;&#x5E76;&#x4E14;name&#x4E0D;&#x662F;&#x662F;&#x4EE5;&amp;&#x5F00;&#x5934;&#x7684;;&#x4F8B;&#x5982;name=fb &#x5C31;&#x8981;&#x8D70;&#x4E0B;&#x9762;&#x7684;&#x6D41;&#x7A0B;</span>
+    <span class="hljs-comment">//beanInstance&#x4E0D;&#x662F;FactoryBean&#x7C7B;&#x578B;&#x5E76;&#x4E14;name</span>
+        Object object = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">//&#x68C0;&#x67E5;&#x4E4B;&#x524D;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x751F;&#x6210;&#x653E;&#x5165;&#x7F13;&#x5B58;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6709; &#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+            object = getCachedObjectForFactoryBean(beanName);
+        }
+        <span class="hljs-keyword">if</span> (object == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// Return bean instance from factory.</span>
+            FactoryBean&lt;?&gt; factory = (FactoryBean&lt;?&gt;) beanInstance;
+            <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5408;&#x5E76;&#x4E4B;&#x540E;&#x7684;BeanDefinition</span>
+            <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span> &amp;&amp; containsBeanDefinition(beanName)) {
+                mbd = getMergedLocalBeanDefinition(beanName);
+            }
+            <span class="hljs-comment">//TODO....&#x6682;&#x65F6;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x91CC;&#x662F;&#x600E;&#x4E48;&#x8BBE;&#x7F6E;&#x7684;&#xFF0C;&#x56DE;&#x5934;&#x5206;&#x6790;</span>
+            <span class="hljs-keyword">boolean</span> synthetic = (mbd != <span class="hljs-keyword">null</span> &amp;&amp; mbd.isSynthetic());
+            <span class="hljs-comment">/**
+            *1.&#x8FD4;&#x56DE;FactoryBean.getObject()&#x5BF9;&#x8C61;
+            *2.&#x6267;&#x884C;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;BeanPostProcessor&#x4E2D;&#x7684;
+            *postProcessAfterInitialization(result, beanName);&#x65B9;&#x6CD5;&#xFF1B;
+            */</span>
+            object = getObjectFromFactoryBean(factory, beanName, !synthetic);
+        }
+        <span class="hljs-keyword">return</span> object;
+    }
+</code></pre>
+<h3 id="factorybeanregistrysupport">FactoryBeanRegistrySupport</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FactoryBeanRegistrySupport</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DefaultSingletonBeanRegistry</span></span>{
+
+    <span class="hljs-comment">/**
+     * &#x4ECE;FactoryBean&#x4E2D;&#x83B7;&#x53D6;Bean
+     * <span class="hljs-doctag">@param</span> factory the FactoryBean instance
+     * <span class="hljs-doctag">@param</span> beanName the name of the bean
+     * <span class="hljs-doctag">@param</span> shouldPostProcess whether the bean is subject to post-processing
+     * <span class="hljs-doctag">@return</span> the object obtained from the FactoryBean
+     * <span class="hljs-doctag">@throws</span> BeanCreationException if FactoryBean object creation failed
+     * <span class="hljs-doctag">@see</span> org.springframework.beans.factory.FactoryBean#getObject()
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getObjectFromFactoryBean</span><span class="hljs-params">(FactoryBean&lt;?&gt; factory, String beanName, <span class="hljs-keyword">boolean</span> shouldPostProcess)</span> </span>{
+    <span class="hljs-comment">//&#x5224;&#x65AD;factory&#x662F;&#x5355;&#x4F8B;&#x7684;&#x5E76;&#x4E14;beanName&#x5DF2;&#x7ECF;&#x88AB;&#x521B;&#x5EFA;</span>
+        <span class="hljs-keyword">if</span> (factory.isSingleton() &amp;&amp; containsSingleton(beanName)) {
+            <span class="hljs-keyword">synchronized</span> (getSingletonMutex()) {
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x8FC7;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+                Object object = <span class="hljs-keyword">this</span>.factoryBeanObjectCache.get(beanName);
+                <span class="hljs-keyword">if</span> (object == <span class="hljs-keyword">null</span>) {
+                    object = doGetObjectFromFactoryBean(factory, beanName);
+                    <span class="hljs-comment">// Only post-process and store if not put there already during getObject() call above</span>
+                    <span class="hljs-comment">// (e.g. because of circular reference processing triggered by custom getBean calls)</span>
+                    <span class="hljs-comment">//TODO....&#x8FD9;&#x91CC;&#x56DE;&#x5934;&#x5206;&#x6790;...</span>
+                    Object alreadyThere = <span class="hljs-keyword">this</span>.factoryBeanObjectCache.get(beanName);
+                    <span class="hljs-keyword">if</span> (alreadyThere != <span class="hljs-keyword">null</span>) {
+                        object = alreadyThere;
+                    }
+                    <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">if</span> (object != <span class="hljs-keyword">null</span> &amp;&amp; shouldPostProcess) {
+                            <span class="hljs-keyword">try</span> {
+                            <span class="hljs-comment">//&#x6267;&#x884C;&#x6240;&#x6709;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;BeanPostProcessor&#x4E2D;&#x7684;postProcessAfterInitialization(result, beanName);&#x65B9;&#x6CD5;&#xFF1B;</span>
+                            <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x5355;&#x72EC;&#x5199;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;BeanPostProcessor</span>
+                                object = postProcessObjectFromFactoryBean(object, beanName);
+                            }
+                            <span class="hljs-keyword">catch</span> (Throwable ex) {
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName,
+                                        <span class="hljs-string">&quot;Post-processing of FactoryBean&apos;s singleton object failed&quot;</span>, ex);
+                            }
+                        }
+    <span class="hljs-comment">//&#x5C06;&#x901A;&#x8FC7;factoryBean.getObject&#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x7684;&#x5BF9;&#x8C61;&#x5B58;&#x5230; factoryBeanObjectCache&#x4E2D;         this.factoryBeanObjectCache.put(beanName, (object != null ? object : NULL_OBJECT));</span>
+                    }
+                }
+                <span class="hljs-keyword">return</span> (object != NULL_OBJECT ? object : <span class="hljs-keyword">null</span>);
+            }
+        }
+        <span class="hljs-keyword">else</span> {<span class="hljs-comment">//&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-comment">//&#x8C03;&#x7528;FactoryBean&#x7684;getObject&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;&#x6C34;&#x7403;&#x91CC;&#x9762;&#x53D6;&#x51FA;&#x6C34;&#xFF1B;</span>
+            Object object = doGetObjectFromFactoryBean(factory, beanName);
+            <span class="hljs-keyword">if</span> (object != <span class="hljs-keyword">null</span> &amp;&amp; shouldPostProcess) {
+                <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">//&#x6267;&#x884C;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;</span>
+                    object = postProcessObjectFromFactoryBean(object, beanName);
+                }
+                <span class="hljs-keyword">catch</span> (Throwable ex) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName, <span class="hljs-string">&quot;Post-processing of FactoryBean&apos;s object failed&quot;</span>, ex);
+                }
+            }
+            <span class="hljs-keyword">return</span> object;
+        }
+    }
+
+    <span class="hljs-comment">//&#x8C03;&#x7528;FactoryBean&#x7684;getObject&#x653E;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> Object <span class="hljs-title">doGetObjectFromFactoryBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> FactoryBean&lt;?&gt; factory, <span class="hljs-keyword">final</span> String beanName)</span>
+            <span class="hljs-keyword">throws</span> BeanCreationException </span>{
+
+        Object object;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) {
+                AccessControlContext acc = getAccessControlContext();
+                <span class="hljs-keyword">try</span> {
+                    object = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedExceptionAction&lt;Object&gt;() {
+                        <span class="hljs-meta">@Override</span>
+                        <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+                                <span class="hljs-keyword">return</span> factory.getObject();
+                            }
+                        }, acc);
+                }
+                <span class="hljs-keyword">catch</span> (PrivilegedActionException pae) {
+                    <span class="hljs-keyword">throw</span> pae.getException();
+                }
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">//&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x4E86;getObject&#x65B9;&#x6CD5;&#xFF1B;&#x8FD9;&#x662F;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7C7B;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;</span>
+                object = factory.getObject();
+            }
+        }
+        <span class="hljs-keyword">catch</span> (FactoryBeanNotInitializedException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName, ex.toString());
+        }
+        <span class="hljs-keyword">catch</span> (Throwable ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName, <span class="hljs-string">&quot;FactoryBean threw exception on object creation&quot;</span>, ex);
+        }
+
+        <span class="hljs-comment">// Do not accept a null value for a FactoryBean that&apos;s not fully</span>
+        <span class="hljs-comment">// initialized yet: Many FactoryBeans just return null then.</span>
+        <span class="hljs-keyword">if</span> (object == <span class="hljs-keyword">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(
+                    beanName, <span class="hljs-string">&quot;FactoryBean which is currently in creation returned null from getObject&quot;</span>);
+        }
+        <span class="hljs-keyword">return</span> object;
+    }
+</code></pre>
+<p>&#x4E8C;&#x3001;&#x603B;&#x7ED3;
+&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x6574;&#x4E2A;FactoryBean&#x6E90;&#x7801;&#x7684;&#x6D41;&#x7A0B; 
+1.&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x8C03;&#x7528;FactoryBean&#x7684;getObject&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; 
+&#x5224;&#x65AD;&#x4F9D;&#x636E;&#x662F;:&#x2460;.&#x5982;&#x679C;name&#x6709;&#x524D;&#x7F00;&amp;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE; 
+&#x2461;.&#x5982;&#x679C;&#x6CA1;&#x6709;&#x524D;&#x7F00;&amp;&#xFF0C;&#x8C03;&#x7528;getObject&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B; 
+2.&#x5982;&#x679C;&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x7528;GetObject&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x8FD8;&#x8981;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668; 
+&#x6267;&#x884C;&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;BeanPostProcessor&#x4E2D;&#x7684; 
+postProcessAfterInitialization(result, beanName);&#x65B9;&#x6CD5;&#xFF1B;</p>
+<h2 id="&#x4E09;&#x3001;&#x5206;&#x6790;&#x8FC7;&#x7A0B;&#x6709;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5206;&#x6790;&#xFF0C;&#x5360;&#x4E2A;&#x5751;">&#x4E09;&#x3001;&#x5206;&#x6790;&#x8FC7;&#x7A0B;&#x6709;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5206;&#x6790;&#xFF0C;&#x5360;&#x4E2A;&#x5751;</h2>
+<ol>
+<li><p>mbd.isSynthetic()&#x4E2D;&#x7684;&#x503C;&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BBE;&#x7F6E;&#x7684;&#xFF1F;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;
+TODO&#x2026;</p>
+</li>
+<li><p>BeanPostProcessor&#x540E;&#x7F6E;&#x5904;&#x7406;&#x5668;&#x8BB2;&#x89E3;
+<a href="springSourceCode_analysis_7_80289441.html">BeanPostProcessor&#x89E3;&#x6790;</a></p>
+</li>
+<li><p>&#x4E0A;&#x9762;Object alreadyThere = this.factoryBeanObjectCache.get(beanName);&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x610F;&#x601D;&#xFF1F;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x8981;&#x5148;&#x67E5;&#x8FD9;&#x4E2A;&#xFF1F;
+TODO&#x2026;..</p>
+</li>
+</ol>
+<p><a href="#getObjectForBeanInstance">&#x8BF4;&#x660E;&#x6587;&#x5B57;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="springSourceCode_analysis_5_80238746.html" class="navigation navigation-prev " aria-label="Previous page: (转)Spring源码解析(五)Spring 加载bean 依赖注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="springSourceCode_analysis_7_80289441.html" class="navigation navigation-next " aria-label="Next page: (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(转)Spring源码分析(六)FactoryBean 接口解析","level":"1.3.2.8","depth":3,"next":{"title":"(转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析","level":"1.3.2.9","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.md","articles":[]},"previous":{"title":"(转)Spring源码解析(五)Spring 加载bean 依赖注入","level":"1.3.2.7","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.md","mtime":"2019-05-24T10:43:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T07:42:24.175Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

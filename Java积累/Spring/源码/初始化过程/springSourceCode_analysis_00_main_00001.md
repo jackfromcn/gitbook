@@ -406,7 +406,9 @@
             * 方法：`minNrOfArgs = resolveConstructorArguments(beanName, mbd, bw, cargs, resolvedValues);`
         * 遍历 candidates 数组，选择一个最优的工厂方法
             * 构建 **ArgumentsHolder** 对象 **argsHolder**
-                * `explicitArgs != null`: `#getBean(...)` 传递了参数，则使用参数列表与需要的一致的
+                * `explicitArgs != null`: `#getBean(...)` 传递了参数，则使用参数列表与需要的一致的，构建 **argsHolder**
+                * `explicitArgs == null`: `#getBean(...)` 没有传递参数，创建 **argsHolder**
+                    * [`argsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames, candidate, autowiring, candidates.length == 1);`](#ConstructorResolver_createArgumentArray)
             * 再根据 **argsHolder** 计算 **typeDiffWeight**: 类型差异权重
             * 根据 **typeDiffWeight** 选择最优的工厂方法，**typeDiffWeight** 越小，越优
             * 如果 **typeDiffWeight** 大小一致，判断是否需要添加到 **ambiguousFactoryMethods** 集合中
@@ -414,6 +416,7 @@
 * 创建 Bean 对象，并设置到 bw 中
     * 方法：`bw.setBeanInstance(instantiate(beanName, mbd, factoryBean, factoryMethodToUse, argsToUse));`
     * 因为上面如果 **factoryBeanName** 为 Null 时，会出现 **factoryBean** 为 Null 的情况，所以调用 **instantiate()** 方法时，**factoryBean** 可能是 Null，但是后面 `java.lang.reflect.Method#invoke(java.lang.Object, java.lang.Object...)` 反射方法中，目标类为 Null 时，会抛出 `java.lang.NullPointerException` 空指针异常。疑问？？？ TODO
+        * 疑问解答: `java.lang.reflect.Method#invoke(java.lang.Object, java.lang.Object...)` 方法，反射执行静态方法时，**targetObject** 是可以为 Null 的。
 
 
 
@@ -472,7 +475,7 @@
                     * 跳过可以理解，当前构造器参数比最少需要的构造参数列表还少，肯定需要跳过
                     * 但是和上面的 **break** 终止循环的差异在哪呢？？？
                         * 猜想1: 上面 **break** 逻辑中，**argsToUse** 已经判断出了不为 Null，**argsToUse** 已经确定了，只要再确定出 **constructorToUse** 即可，但是这里循环判断中 **argsToUse** 可能还是 Null，还需要从多个构造参数列表中选择一个更优的构造函数，所以还需要进行下去
-                * `argsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames,getUserDeclaredConstructor(candidate), autowiring, candidates.length == 1);`: 构造出 **argsHolder**，这里单独在看，TODO
+                * [`argsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames,getUserDeclaredConstructor(candidate), autowiring, candidates.length == 1);`](#ConstructorResolver_createArgumentArray): 构造出 **argsHolder**，这里单独在看，TODO
                 * 参数列表一致，参数列表 **explicitArgs** 构造成 **ArgumentsHolder** 对象 **argsHolder**
                 * 再根据 **argsHolder** 计算 **typeDiffWeight**: 类型差异权重
                 * 根据 **typeDiffWeight** 选择最优的构造方法，**typeDiffWeight** 越小，越优

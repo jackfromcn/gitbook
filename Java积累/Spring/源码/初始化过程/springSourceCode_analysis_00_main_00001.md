@@ -159,7 +159,7 @@
         * **applyBeanPostProcessorsAfterInitialization()** 方法：`BeanPostProcessor#postProcessAfterInitialization()`
     * 如果**实例化前的前置处理**返回的 bean 不为 Null，则执行**实例化后的后置处理**
 * 如果**resolveBeforeInstantiation()**方法中**实例化前的前置处理**和**实例化后的后置处理**返回的 bean 都不为 Null；即，**resolveBeforeInstantiation()**方法返回的 bean 不为 Null，则直接返回，不执行下面的 bean 实例化方法
-* `Object beanInstance = doCreateBean(beanName, mbdToUse, args)`： 实例化 Bean
+* [`Object beanInstance = doCreateBean(beanName, mbdToUse, args)`](#doCreateBean)： 实例化 Bean
 
 ## <span id="doCreateBean">doCreateBean(): 实例化 bean</span>
 * 单例模式下：`instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);`

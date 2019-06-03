@@ -48,7 +48,7 @@
 * beforeSingletonCreation(), 加载前置处理;
     * **singletonsCurrentlyInCreation** 添加 beanName 正在实例化标识
 * `singletonFactory.getObject();`, 实例化 bean，ObjectFactory 是 [**doGetBean()** 方法中创建的匿名内部类](#doGetBean_getSingleton2_ObjectFactory)
-    * 真正调用的还是 `org.springframework.beans.factory.support.AbstractBeanFactory#createBean()`
+    * 真正调用的还是 [`org.springframework.beans.factory.support.AbstractBeanFactory#createBean()`](#createBean)
 * afterSingletonCreation(), 加载后置处理;
     * **singletonsCurrentlyInCreation** 移除 beanName 正在实例化标识
 * addSingleton(), 加入缓存中

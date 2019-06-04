@@ -26,7 +26,7 @@
         }
     });
     ```
-* getObjectForBeanInstance() 实例化 bean，factoryBean 实例化出来的 bean，需要在这里实例化。
+* [`getObjectForBeanInstance(...)`](#getObjectForBeanInstance) 实例化 bean，factoryBean 实例化出来的 bean，需要在这里实例化。
 
 
  ## <span id="getSingleton1">getSingleton() 从缓存中获取 Bean 实例</span>
@@ -444,7 +444,7 @@
             * `constructorToUse != null && argsToUse != null && argsToUse.length > paramTypes.length`: **true**。终止整个循环，不在继续选择构造函数了
                 * 从上面 `AutowireUtils.sortConstructors(candidates);` 可以知道，public 构造函数优先参数数量降序，非public 构造函数参数数量降序
                 * `argsToUse != null`: 这里是 `getBean(...)` 传递构造参数列表，已经明确了，肯定是 **true**
-                * `argsToUse.length > paramTypes.length`: 在构造函数的排序规则中，后面的构造器要么一定比需要的参数离别长度小，要么就是在 非 public 中还存在参数列表一直的构造函数
+                * `argsToUse.length > paramTypes.length`: 在构造函数的排序规则中，后面的构造器要么一定比需要的参数离别长度小，要么就是在 非 public 中还存在参数列表值的构造函数
                 * `constructorToUse != null`: 说明已经经过了下面的解析逻辑，已经优先匹配到了构造函数，后面的 **argsHolder** 计算出来的匹配度，可能还不如当前值
             * `paramTypes.length != explicitArgs.length`: 参数列表长度与需要的参数列表长度不一致，则直接跳过
             * 参数列表一致，参数列表 **explicitArgs** 构造成 **ArgumentsHolder** 对象 **argsHolder**
@@ -566,7 +566,7 @@ TODO...
 
 
 ## <span id="applyPropertyValues">applyPropertyValues(...): 将属性应用到 bean 中</span>
-* `pvs instanceof MutablePropertyValues` && `mpvs.isConverted()`: 已经解析了，并且缓存了，则直接调用 [`bw.setPropertyValues(mpvs);`] set 值
+* `pvs instanceof MutablePropertyValues` && `mpvs.isConverted()`: 已经解析了，并且缓存了，则直接调用 [`bw.setPropertyValues(mpvs);`](#setPropertyValues) set 值
 * 获取 **converter**
 * 遍历 **PropertyValue**，将转换的值添加到 **deepCopy** 中
     * 如果 **pv** 已经转换，则直接添加到 **deepCopy** 中
@@ -576,7 +576,7 @@ TODO...
         * `convertedValue = convertForProperty(resolvedValue, propertyName, bw, converter);`
         * 添加到 **deepCopy**  中
 * 标识 **pvs** 已经转换完成: 疑问？？？这里设置是有条件的，但是没看懂，会面再看看。TODO
-* 进行属性依赖注入，依赖注入的真真正正实现依赖的注入方法在此！！！: `bw.setPropertyValues(new MutablePropertyValues(deepCopy));`
+* 进行属性依赖注入，依赖注入的真真正正实现依赖的注入方法在此！！！: [`bw.setPropertyValues(new MutablePropertyValues(deepCopy));`](#setPropertyValues)
 
 
 

@@ -10,6 +10,7 @@
     * 源码
         * 初始化过程
             * [Spring  IOC 容器初始化过程_主要加载步骤](Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md)
+            * [Spring#loadBeanDefinitions(...) 加载 配置文件 主要流程](Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md)
             * [Spring#getBean() 加载 BeanInstance 主要流程](Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md)
             * [Spring加载Bean的过程](Spring/源码/初始化过程/Spring加载Bean的过程.md)
             * [Spring 加载Bean的过程_getSingleton 实例化单例对象](Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md)
@@ -17,6 +18,8 @@
         * Aop
             * [Aop](Spring/源码/Aop/Aop.md)
         * Transaction
+    * [解析类型工具——ResolvableType](Spring/工具方法/spring_core_ResolvableType_2019-06-26.md)
+    * [泛型类型解析工具——GenericTypeResolver](Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.md)
     * 应用
         * [SpEL 表达式](Spring/转载/Spel.md)
         * [(转)spring源码分析(一)IOC管理Bean](Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md)

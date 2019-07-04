@@ -89,6 +89,14 @@
 [`resolve(Object.class);`](#resolve)，获取解析后的 **Class**，获取不到时，以 **Object.class** 返回。
 
 
+### <span id="getComponentType">org.springframework.core.ResolvableType#getComponentType()</span>
+返回表示数组或组件类型的 `ResolvableType`,如果类型不是数组，则返回 `org.springframework.core.ResolvableType#NONE`
+
+
+### <span id="forType">org.springframework.core.ResolvableType#forType(...)</span>
+将 **owner** `ResolvableType` 以指定支持的 `Type` 类型返回。
+如：**owner** 是 `List<String>` 解析的 `ResolvableType`，以 `Type` 为 `ArrayList.class` 类型解析返回。
+
 
 ### class1.isAssignableFrom(class2)
 **class2** 是不是 **class1** 的子类或子接口。

@@ -6,6 +6,10 @@
         * Redis分布式锁
             * [Redis分布式锁实现方式1](锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.md)
             * [Redis分布式锁实现方式2](锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.md)
+* 数据库
+    * MySql
+        * [mysql/mariadb知识点总结：事务隔离级别](数据库/MySql/转载/mysql_isolation_2019-07-12.md)
+        * [mysql的undo log和redo log](数据库/MySql/转载/mysql_undo_redo_log_2019-07-15.md)
 * Spring
     * 源码
         * 初始化过程
@@ -20,8 +24,11 @@
         * Transaction
     * [解析类型工具——ResolvableType](Spring/工具方法/spring_core_ResolvableType_2019-06-26.md)
     * [泛型类型解析工具——GenericTypeResolver](Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.md)
+    * [类型描述工具——TypeDescriptor](Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.md)
+    * [Bridge方法解析工具——BridgeMethodResolver](Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.md)
     * 应用
         * [SpEL 表达式](Spring/转载/Spel.md)
+        * [Spring事务的传播](Spring/转载/Spring_transactional_propagation.md)
         * [(转)spring源码分析(一)IOC管理Bean](Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md)
         * [(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的](Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md)
         * [(转)Spring源码分析(二)Spring怎么扩展解析xml接口的](Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.md)

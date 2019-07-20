@@ -22,7 +22,7 @@
     * 2: 第一个泛型
     * 3: 第二个泛型
     * ...
-* typeIndexesPerLevel: Map<Integer, Integer>，解析是有顺序的，根据
+* <span id="typeIndexesPerLevel">typeIndexesPerLevel</span>: Map<Integer, Integer>，解析是有顺序的，根据
     * key: [nestingLevel](#nestingLevel)，指定第几个泛型
     * value: [parameterIndex](#parameterIndex)，对应泛型
     * 示例：
@@ -97,6 +97,13 @@
 将 **owner** `ResolvableType` 以指定支持的 `Type` 类型返回。
 如：**owner** 是 `List<String>` 解析的 `ResolvableType`，以 `Type` 为 `ArrayList.class` 类型解析返回。
 
+
+### <span id="getNested">org.springframework.core.ResolvableType#getNested(..)</span>
+获取指定[**嵌套级别**](#nestingLevel)的**嵌套类型**
+由 [**nestingLevel**](#nestingLevel) 的含义可以知道，指定的 [**嵌套级别**](#nestingLevel) < 2 时，则表示当前类型，直接返回。
+当 [**nestingLevel**](#nestingLevel) >= 2 时，才会取解析泛型。解析规则与 [**typeIndexesPerLevel**](#typeIndexesPerLevel) 有关。
+* 如果入参中指定了当前的 [**typeIndexesPerLevel**](#typeIndexesPerLevel)，则结合 [**typeIndexesPerLevel**](#typeIndexesPerLevel) 来进行解析。
+* 如果不指定 [**typeIndexesPerLevel**](#typeIndexesPerLevel)，即指定为 **Null**。则一直解析下一个**泛型类型**，如果某个**泛型类型**中有多个，则返回最后一个。
 
 ### class1.isAssignableFrom(class2)
 **class2** 是不是 **class1** 的子类或子接口。

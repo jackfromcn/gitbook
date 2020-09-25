@@ -1,0 +1,1163 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>mysql的undo log和redo log · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="mysql_isolation_2019-07-12.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Java基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    转载
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../../Java基础/线程池/转载/threadprool_work_code_analysis_2019-07-26.html">
+            
+                <a href="../../../Java基础/线程池/转载/threadprool_work_code_analysis_2019-07-26.html">
+            
+                    
+                    线程池的工作原理与源码解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    Redis分布式锁
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式1.html">
+            
+                    
+                    Redis分布式锁实现方式1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                <a href="../../../锁/分布式锁/Redis分布式锁/Redis分布式锁实现方式2.html">
+            
+                    
+                    Redis分布式锁实现方式2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    MySql
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="mysql_isolation_2019-07-12.html">
+            
+                <a href="mysql_isolation_2019-07-12.html">
+            
+                    
+                    mysql/mariadb知识点总结：事务隔离级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.2" data-path="mysql_undo_redo_log_2019-07-15.html">
+            
+                <a href="mysql_undo_redo_log_2019-07-15.html">
+            
+                    
+                    mysql的undo log和redo log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" >
+            
+                <span>
+            
+                    
+                    初始化过程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1.1" data-path="../../../Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                <a href="../../../Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.html">
+            
+                    
+                    Spring  IOC 容器初始化过程_主要加载步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.1.2" data-path="../../../Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.html">
+            
+                <a href="../../../Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.html">
+            
+                    
+                    Spring#loadBeanDefinitions(...) 加载 配置文件 主要流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.1.3" data-path="../../../Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.html">
+            
+                <a href="../../../Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.html">
+            
+                    
+                    Spring#getBean() 加载 BeanInstance 主要流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.1.4" data-path="../../../Spring/源码/初始化过程/Spring加载Bean的过程.html">
+            
+                <a href="../../../Spring/源码/初始化过程/Spring加载Bean的过程.html">
+            
+                    
+                    Spring加载Bean的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.1.5" data-path="../../../Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                <a href="../../../Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.html">
+            
+                    
+                    Spring 加载Bean的过程_getSingleton 实例化单例对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.1.6" data-path="../../../Spring/源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                <a href="../../../Spring/源码/初始化过程/spring getBean_instance BeanWrapper.html">
+            
+                    
+                    Spring 加载Bean的过程_实例化 BeanWrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" >
+            
+                <span>
+            
+                    
+                    Aop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.2.1" data-path="../../../Spring/源码/Aop/Aop.html">
+            
+                <a href="../../../Spring/源码/Aop/Aop.html">
+            
+                    
+                    Aop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" >
+            
+                <span>
+            
+                    
+                    Transaction
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../Spring/工具方法/spring_core_ResolvableType_2019-06-26.html">
+            
+                <a href="../../../Spring/工具方法/spring_core_ResolvableType_2019-06-26.html">
+            
+                    
+                    解析类型工具——ResolvableType
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../../Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.html">
+            
+                <a href="../../../Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.html">
+            
+                    
+                    泛型类型解析工具——GenericTypeResolver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../../Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.html">
+            
+                <a href="../../../Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.html">
+            
+                    
+                    类型描述工具——TypeDescriptor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../../Spring/工具方法/spring_core_TypeDescriptor_2020-09-25.html">
+            
+                <a href="../../../Spring/工具方法/spring_core_TypeDescriptor_2020-09-25.html">
+            
+                    
+                    类型描述工具——TypeDescriptor2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../../Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.html">
+            
+                <a href="../../../Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.html">
+            
+                    
+                    Bridge方法解析工具——BridgeMethodResolver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" >
+            
+                <span>
+            
+                    
+                    应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.1" data-path="../../../Spring/转载/Spel.html">
+            
+                <a href="../../../Spring/转载/Spel.html">
+            
+                    
+                    SpEL 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../../../Spring/转载/Spring_transactional_propagation.html">
+            
+                <a href="../../../Spring/转载/Spring_transactional_propagation.html">
+            
+                    
+                    Spring事务的传播
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.html">
+            
+                    
+                    (转)spring源码分析(一)IOC管理Bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.4" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.html">
+            
+                    
+                    (转)Sring源码解析(一)Spring是怎么读取配置Xml文件的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.5" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.html">
+            
+                    
+                    (转)Spring源码分析(二)Spring怎么扩展解析xml接口的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.6" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_3_80223871.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_3_80223871.html">
+            
+                    
+                    (转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.7" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.html">
+            
+                    
+                    (转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.8" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.html">
+            
+                    
+                    (转)Spring源码解析(五)Spring 加载bean 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.html">
+            
+                    
+                    (转)Spring源码分析(六)FactoryBean 接口解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.10" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.html">
+            
+                    
+                    (转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.11" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_8_80291728.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_8_80291728.html">
+            
+                    
+                    (转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.12" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_9_80299451.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_9_80299451.html">
+            
+                    
+                    (转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.13" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_10_80301135.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_10_80301135.html">
+            
+                    
+                    (转)Spring源码解析(十)分析一个Spring循环引用失败的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.14" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_11_80321854.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_11_80321854.html">
+            
+                    
+                    (转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.15" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.html">
+            
+                    
+                    (转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.16" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_14_80363793.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_14_80363793.html">
+            
+                    
+                    (转)Spring源码解析(十四)Spring调用初始化方法initializeBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.17" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.html">
+            
+                    
+                    (转)Spring源码分析(十五)Spring中常用注解使用以及源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.18" data-path="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_16_80389286.html">
+            
+                <a href="../../../Spring/转载/Spring源代码分析/springSourceCode_analysis_16_80389286.html">
+            
+                    
+                    (转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >mysql的undo log和redo log</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mysql&#x7684;undo-log&#x548C;redo-log">mysql&#x7684;undo log&#x548C;redo log</h1>
+<blockquote>
+<p>&#x8F6C;&#x8F7D;&#xFF1A;<a href="https://www.cnblogs.com/wyy123/p/7880077.html" target="_blank">https://www.cnblogs.com/wyy123/p/7880077.html</a></p>
+</blockquote>
+<p>&#x5728;&#x6570;&#x636E;&#x5E93;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x65E2;&#x6709;&#x5B58;&#x653E;&#x6570;&#x636E;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x6709;&#x5B58;&#x653E;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x65E5;&#x5FD7;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x4E5F;&#x662F;&#x6709;&#x7F13;&#x5B58;Log buffer&#xFF0C;&#x4E5F;&#x6709;&#x78C1;&#x76D8;&#x6587;&#x4EF6;log file&#xFF0C;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x63CF;&#x8FF0;&#x5B58;&#x653E;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x200B;    MySQL&#x4E2D;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x6709;&#x8FD9;&#x4E48;&#x4E24;&#x7C7B;&#x5E38;&#x5E38;&#x8BA8;&#x8BBA;&#x5230;&#xFF1A;undo&#x65E5;&#x5FD7;&#x4E0E;redo&#x65E5;&#x5FD7;&#x3002;</p>
+<h1 id="1-undo"><strong>1 undo</strong></h1>
+<h2 id="11-undo&#x662F;&#x4EC0;&#x4E48;"><strong>1.1 undo&#x662F;&#x4EC0;&#x4E48;</strong></h2>
+<p>undo&#x65E5;&#x5FD7;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x88AB;&#x4FEE;&#x6539;&#x524D;&#x7684;&#x503C;&#xFF0C;&#x5047;&#x8BBE;&#x4FEE;&#x6539; tba &#x8868;&#x4E2D; id=2&#x7684;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x628A;Name=&apos;B&apos; &#x4FEE;&#x6539;&#x4E3A;Name = &apos;B2&apos; &#xFF0C;&#x90A3;&#x4E48;undo&#x65E5;&#x5FD7;&#x5C31;&#x4F1A;&#x7528;&#x6765;&#x5B58;&#x653E;Name=&apos;B&apos;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x4FEE;&#x6539;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;undo&#x65E5;&#x5FD7;&#x6765;&#x5B9E;&#x73B0;&#x56DE;&#x6EDA;&#x64CD;&#x4F5C;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E8B;&#x52A1;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+<p>&#x5BF9;&#x6570;&#x636E;&#x7684;&#x53D8;&#x66F4;&#x64CD;&#x4F5C;&#xFF0C;&#x4E3B;&#x8981;&#x6765;&#x81EA; INSERT UPDATE DELETE&#xFF0C;&#x800C;UNDO LOG&#x4E2D;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x4E00;&#x79CD;&#x662F; INSERT_UNDO&#xFF08;INSERT&#x64CD;&#x4F5C;&#xFF09;&#xFF0C;&#x8BB0;&#x5F55;&#x63D2;&#x5165;&#x7684;&#x552F;&#x4E00;&#x952E;&#x503C;&#xFF1B;&#x4E00;&#x79CD;&#x662F; UPDATE_UNDO&#xFF08;&#x5305;&#x542B;UPDATE&#x53CA;DELETE&#x64CD;&#x4F5C;&#xFF09;&#xFF0C;&#x8BB0;&#x5F55;&#x4FEE;&#x6539;&#x7684;&#x552F;&#x4E00;&#x952E;&#x503C;&#x4EE5;&#x53CA;old column&#x8BB0;&#x5F55;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-undo&#x53C2;&#x6570;"><strong>1.2 undo&#x53C2;&#x6570;</strong></h2>
+<p>MySQL&#x8DDF;undo&#x6709;&#x5173;&#x7684;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x6709;&#x8FD9;&#x4E9B;&#xFF1A;</p>
+<pre><code class="lang-mysql"> 1 mysql&gt; show global variables like &apos;%undo%&apos;;
+ 2 +--------------------------+------------+
+ 3 | Variable_name            | Value      |
+ 4 +--------------------------+------------+
+ 5 | innodb_max_undo_log_size | 1073741824 |
+ 6 | innodb_undo_directory    | ./         |
+ 7 | innodb_undo_log_truncate | OFF        |
+ 8 | innodb_undo_logs         | 128        |
+ 9 | innodb_undo_tablespaces  | 3          |
+10 +--------------------------+------------+
+11  
+12 mysql&gt; show global variables like &apos;%truncate%&apos;;
+13 +--------------------------------------+-------+
+14 | Variable_name                        | Value |
+15 +--------------------------------------+-------+
+16 | innodb_purge_rseg_truncate_frequency | 128   |
+17 | innodb_undo_log_truncate             | OFF   |
+18 +--------------------------------------+-------+
+</code></pre>
+<ul>
+<li><strong>innodb_max_undo_log_size</strong></li>
+</ul>
+<p>&#x200B;    &#x63A7;&#x5236;&#x6700;&#x5927;undo tablespace&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5F53;&#x542F;&#x52A8;&#x4E86;innodb_undo_log_truncate &#x65F6;&#xFF0C;undo tablespace &#x8D85;&#x8FC7;innodb_max_undo_log_size &#x9600;&#x503C;&#x65F6;&#x624D;&#x4F1A;&#x53BB;&#x5C1D;&#x8BD5;truncate&#x3002;&#x8BE5;&#x503C;&#x9ED8;&#x8BA4;&#x5927;&#x5C0F;&#x4E3A;1G&#xFF0C;truncate&#x540E;&#x7684;&#x5927;&#x5C0F;&#x9ED8;&#x8BA4;&#x4E3A;10M&#x3002;</p>
+<ul>
+<li><strong>innodb_undo_tablespaces</strong> </li>
+</ul>
+<p>&#x200B;    &#x8BBE;&#x7F6E;undo&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x4E2A;&#x6570;&#xFF0C;&#x8303;&#x56F4;&#x4E3A;0-128&#xFF0C; &#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;0&#x8868;&#x793A;&#x8868;&#x793A;&#x4E0D;&#x5F00;&#x542F;&#x72EC;&#x7ACB;undo&#x8868;&#x7A7A;&#x95F4; &#x4E14; undo&#x65E5;&#x5FD7;&#x5B58;&#x50A8;&#x5728;ibdata&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x53EA;&#x80FD;&#x5728;&#x6700;&#x5F00;&#x59CB;&#x521D;&#x59CB;&#x5316;MySQL&#x5B9E;&#x4F8B;&#x7684;&#x65F6;&#x5019;&#x6307;&#x5B9A;&#xFF0C;&#x5982;&#x679C;&#x5B9E;&#x4F8B;&#x5DF2;&#x521B;&#x5EFA;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E0D;&#x80FD;&#x53D8;&#x52A8;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;&#x6587; &#x4EF6; .cnf &#x4E2D;&#x6307;&#x5B9A;innodb_undo_tablespaces &#x7684;&#x4E2A;&#x6570;&#x5927;&#x4E8E;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x65F6;&#x7684;&#x6307;&#x5B9A;&#x4E2A;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x542F;&#x52A8;&#x5931;&#x8D25;&#xFF0C;&#x63D0;&#x793A;&#x8BE5;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x6709;&#x8BEF;&#x3002;</p>
+<p><img src="../../../images/0715_1526_1.png" alt="img"></p>
+<p>&#x200B;    &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x8BE5;&#x53C2;&#x6570;&#x4E3A;n&#xFF08;n&gt;0&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5728;undo&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;n&#x4E2A;undo&#x6587;&#x4EF6;&#xFF08;undo001&#xFF0C;undo002 ...... undo n&#xFF09;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x5927;&#x5C0F;&#x4E3A;10M.</p>
+<p><img src="../../../images/0715_1526_2.png" alt="img"></p>
+<p><strong>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x9700;&#x8981;&#x6765;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5462;&#xFF1F;</strong></p>
+<p>&#x200B;    &#x5F53;DB&#x5199;&#x538B;&#x529B;&#x8F83;&#x5927;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x72EC;&#x7ACB;UNDO&#x8868;&#x7A7A;&#x95F4;&#xFF0C;&#x628A;UNDO LOG&#x4ECE;ibdata&#x6587;&#x4EF6;&#x4E2D;&#x5206;&#x79BB;&#x5F00;&#x6765;&#xFF0C;&#x6307;&#x5B9A; innodb_undo_directory&#x76EE;&#x5F55;&#x5B58;&#x653E;&#xFF0C;&#x53EF;&#x4EE5;&#x5236;&#x5B9A;&#x5230;&#x9AD8;&#x901F;&#x78C1;&#x76D8;&#x4E0A;&#xFF0C;&#x52A0;&#x5FEB;UNDO LOG &#x7684;&#x8BFB;&#x5199;&#x6027;&#x80FD;&#x3002;</p>
+<ul>
+<li><p><strong>innodb_undo_log_truncate</strong></p>
+<p> InnoDB&#x7684;purge&#x7EBF;&#x7A0B;&#xFF0C;&#x6839;&#x636E;innodb_undo_log_truncate&#x8BBE;&#x7F6E;&#x5F00;&#x542F;&#x6216;&#x5173;&#x95ED;&#x3001;innodb_max_undo_log_size&#x7684;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x4EE5;&#x53CA;truncate&#x7684;&#x9891;&#x7387;&#x6765;&#x8FDB;&#x884C;&#x7A7A;&#x95F4;&#x56DE;&#x6536;&#x548C; undo file &#x7684;&#x91CD;&#x65B0;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p> <strong>&#x8BE5;&#x53C2;&#x6570;&#x751F;&#x6548;&#x7684;&#x524D;&#x63D0;&#x662F;&#xFF0C;&#x5DF2;&#x8BBE;&#x7F6E;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x4E14;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x4E2A;&#x6570;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;2&#x4E2A;&#x3002;</strong></p>
+<p> purge&#x7EBF;&#x7A0B;&#x5728;truncate undo log file&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x8BE5;&#x6587;&#x4EF6;&#x4E0A;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x6D3B;&#x52A8;&#x4E8B;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x8BE5;undo log file&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x5206;&#x914D;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;undo log &#x90FD;&#x4F1A;&#x8BB0;&#x5F55;&#x5230;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x81F3;&#x5C11;&#x9700;&#x8981;2&#x4E2A;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x6587;&#x4EF6;&#xFF0C;&#x624D;&#x80FD;&#x8FDB;&#x884C;truncate &#x64CD;&#x4F5C;&#xFF0C;&#x6807;&#x6CE8;&#x4E0D;&#x53EF;&#x5206;&#x914D;&#x540E;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6587;&#x4EF6;undo_<space_id>_trunc.log&#xFF0C;&#x8BB0;&#x5F55;&#x73B0;&#x5728;&#x6B63;&#x5728;truncate &#x67D0;&#x4E2A;undo log&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x521D;&#x59CB;&#x5316;undo log file&#x5230;10M&#xFF0C;&#x64CD;&#x4F5C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5220;&#x9664;&#x8868;&#x793A;truncate&#x52A8;&#x4F5C;&#x7684; undo_<space_id>_trunc.log &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4FDD;&#x8BC1;&#x4E86;&#x5373;&#x4F7F;&#x5728;truncate&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x6545;&#x969C;&#x91CD;&#x542F;&#x6570;&#x636E;&#x5E93;&#x670D;&#x52A1;&#xFF0C;&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x4F1A;&#x7EE7;&#x7EED;&#x5B8C;&#x6210;truncate&#x64CD;&#x4F5C;&#xFF0C;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x6807;&#x8BC6;&#x8BE5;undo log file&#x53EF;&#x5206;&#x914D;&#x3002;</space_id></space_id></p>
+</li>
+<li><p><strong>innodb_purge_rseg_truncate_frequency</strong></p>
+<p>&#x7528;&#x4E8E;&#x63A7;&#x5236;purge&#x56DE;&#x6EDA;&#x6BB5;&#x7684;&#x9891;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;128&#x3002;&#x5047;&#x8BBE;&#x8BBE;&#x7F6E;&#x4E3A;n&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#xFF0C;&#x5F53;Innodb Purge&#x64CD;&#x4F5C;&#x7684;&#x534F;&#x8C03;&#x7EBF;&#x7A0B; purge&#x4E8B;&#x52A1;128&#x6B21;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x6B21;History purge&#xFF0C;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7684;undo log &#x8868;&#x7A7A;&#x95F4;&#x72B6;&#x6001;&#x662F;&#x5426;&#x4F1A;&#x89E6;&#x53D1;truncate&#x3002;</p>
+</li>
+</ul>
+<h2 id="13-undo&#x7A7A;&#x95F4;&#x7BA1;&#x7406;"><strong>1.3 undo&#x7A7A;&#x95F4;&#x7BA1;&#x7406;</strong></h2>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x5E93;&#x5B9E;&#x4F8B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6307;&#x5B9A;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+<p>UNDO&#x5185;&#x90E8;&#x7531;&#x591A;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x7EC4;&#x6210;&#xFF0C;&#x5373; Rollback segment&#xFF0C;&#x4E00;&#x5171;&#x6709;128&#x4E2A;&#xFF0C;&#x4FDD;&#x5B58;&#x5728;ibdata&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x5206;&#x522B;&#x4ECE;resg slot0 - resg slot127&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;resg slot&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#xFF0C;&#x5185;&#x90E8;&#x7531;1024&#x4E2A;undo segment &#x7EC4;&#x6210;&#x3002;</p>
+<p>&#x56DE;&#x6EDA;&#x6BB5;&#xFF08;rollback segment&#xFF09;&#x5206;&#x914D;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>slot 0 &#xFF0C;&#x9884;&#x7559;&#x7ED9;&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#xFF1B;</li>
+<li>slot 1- 32&#xFF0C;&#x9884;&#x7559;&#x7ED9;&#x4E34;&#x65F6;&#x8868;&#x7A7A;&#x95F4;&#xFF0C;&#x6BCF;&#x6B21;&#x6570;&#x636E;&#x5E93;&#x91CD;&#x542F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x91CD;&#x5EFA;&#x4E34;&#x65F6;&#x8868;&#x7A7A;&#x95F4;&#xFF1B;</li>
+<li>slot33-127&#xFF0C;&#x5982;&#x679C;&#x6709;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#xFF0C;&#x5219;&#x9884;&#x7559;&#x7ED9;UNDO&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x9884;&#x7559;&#x7ED9;&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#xFF1B;</li>
+</ul>
+<p>&#x56DE;&#x6EDA;&#x6BB5;&#x4E2D;&#x9664;&#x53BB;32&#x4E2A;&#x63D0;&#x4F9B;&#x7ED9;&#x4E34;&#x65F6;&#x8868;&#x4E8B;&#x52A1;&#x4F7F;&#x7528;&#xFF0C;&#x5269;&#x4E0B;&#x7684; 128-32=96&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#xFF0C;&#x53EF;&#x6267;&#x884C; 96*1024 &#x4E2A;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x5360;&#x7528;&#x4E00;&#x4E2A; undo segment slot&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x4E8B;&#x52A1;&#x4E2D;&#x6709;&#x4E34;&#x65F6;&#x8868;&#x4E8B;&#x52A1;&#xFF0C;&#x8FD8;&#x4F1A;&#x5728;&#x4E34;&#x65F6;&#x8868;&#x7A7A;&#x95F4;&#x4E2D;&#x7684; undo segment slot &#x518D;&#x5360;&#x7528;&#x4E00;&#x4E2A; undo segment slot&#xFF0C;&#x5373;&#x5360;&#x7528;2&#x4E2A;undo segment slot&#x3002;&#x5982;&#x679C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x4E2D;&#x6709;&#xFF1A;<code>Cannot find a free slot for an undo log&#x3002;</code>&#x5219;&#x8BF4;&#x660E;&#x5E76;&#x53D1;&#x7684;&#x4E8B;&#x52A1;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x8003;&#x8651;&#x4E0B;&#x662F;&#x5426;&#x8981;&#x5206;&#x6D41;&#x4E1A;&#x52A1;&#x3002;</p>
+<p>&#x56DE;&#x6EDA;&#x6BB5;&#xFF08;rollback segment &#xFF09;&#x91C7;&#x7528; &#x8F6E;&#x8BE2;&#x8C03;&#x5EA6;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5206;&#x914D;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#x56DE;&#x6EDA;&#x6BB5;&#x4E2D;undo segment&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x56DE;&#x987E;&#x6BB5;&#x6B63;&#x5728; Truncate&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x4E0D;&#x5206;&#x914D;&#x3002;</p>
+<p><img src="../../../images/0715_1526_3.png" alt="img"></p>
+<h1 id="2-redo"><strong>2 redo</strong></h1>
+<h2 id="21-redo&#x662F;&#x4EC0;&#x4E48;"><strong>2.1 redo&#x662F;&#x4EC0;&#x4E48;</strong></h2>
+<p>&#x200B;    &#x5F53;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x6570;&#x636E;&#x505A;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x6570;&#x636E;&#x9875;&#x4ECE;&#x78C1;&#x76D8;&#x8BFB;&#x5230;buffer pool&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5728;buffer pool&#x4E2D;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;buffer pool&#x4E2D;&#x7684;&#x6570;&#x636E;&#x9875;&#x5C31;&#x4E0E;&#x78C1;&#x76D8;&#x4E0A;&#x7684;&#x6570;&#x636E;&#x9875;&#x5185;&#x5BB9;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x79F0;buffer pool&#x7684;&#x6570;&#x636E;&#x9875;&#x4E3A;dirty page &#x810F;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x975E;&#x6B63;&#x5E38;&#x7684;DB&#x670D;&#x52A1;&#x91CD;&#x542F;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x8FD8;&#x6CA1;&#x5728;&#x5185;&#x5B58;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;&#x6CE8;&#x610F;&#xFF0C;&#x540C;&#x6B65;&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x662F;&#x4E2A;&#x968F;&#x673A;IO&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F1A;&#x53D1;&#x751F;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x80FD;&#x591F;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5F53;buffer pool &#x4E2D;&#x7684;data page&#x53D8;&#x66F4;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x628A;&#x76F8;&#x5E94;&#x4FEE;&#x6539;&#x8BB0;&#x5F55;&#x8BB0;&#x5F55;&#x5230;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF08;&#x6CE8;&#x610F;&#xFF0C;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x662F;&#x987A;&#x5E8F;IO&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;DB&#x670D;&#x52A1;&#x53D1;&#x751F;crash&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6062;&#x590D;DB&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x5185;&#x5BB9;&#xFF0C;&#x91CD;&#x65B0;&#x5E94;&#x7528;&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#xFF0C;&#x6570;&#x636E;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</p>
+<p>&#x200B;    &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x662F;redo log &#xFF0C;&#x7528;&#x4E8E;&#x8BB0;&#x5F55; &#x6570;&#x636E;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x987A;&#x5E8F;&#x8BB0;&#x5F55;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x5E26;&#x6765;&#x8FD9;&#x4E9B;&#x597D;&#x5904;&#xFF1A;</p>
+<ul>
+<li>&#x5F53;buffer pool&#x4E2D;&#x7684;dirty page &#x8FD8;&#x6CA1;&#x6709;&#x5237;&#x65B0;&#x5230;&#x78C1;&#x76D8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x751F;crash&#xFF0C;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x540E;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;redo log &#x627E;&#x5230;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5237;&#x65B0;&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#xFF1B;</li>
+<li>buffer pool&#x4E2D;&#x7684;&#x6570;&#x636E;&#x76F4;&#x63A5;flush&#x5230;disk file&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x968F;&#x673A;IO&#xFF0C;&#x6548;&#x7387;&#x8F83;&#x5DEE;&#xFF0C;&#x800C;&#x628A;buffer pool&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x5230;redo log&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x987A;&#x5E8F;IO&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x7684;&#x901F;&#x5EA6;&#xFF1B;</li>
+</ul>
+<p>&#x200B;    &#x5047;&#x8BBE;&#x4FEE;&#x6539; tba &#x8868;&#x4E2D; id=2&#x7684;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x628A;Name=&apos;B&apos; &#x4FEE;&#x6539;&#x4E3A;Name = &apos;B2&apos; &#xFF0C;&#x90A3;&#x4E48;redo&#x65E5;&#x5FD7;&#x5C31;&#x4F1A;&#x7528;&#x6765;&#x5B58;&#x653E;Name=&apos;B2&apos;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x4FEE;&#x6539;&#x5728;flush &#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x65F6;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;redo log&#x5B9E;&#x73B0;&#x91CD;&#x505A;&#x64CD;&#x4F5C;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E8B;&#x52A1;&#x7684;&#x6301;&#x4E45;&#x6027;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>&#x200B;    &#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x4E0B;redo log &#x8DDF;binary log &#x7684;&#x533A;&#x522B;&#xFF0C;redo log &#x662F;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x5C42;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x800C;binary log&#x662F;&#x6570;&#x636E;&#x5E93;&#x5C42;&#x4EA7;&#x751F;&#x7684;&#x3002;&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x5927;&#x4E8B;&#x52A1;&#xFF0C;&#x5BF9;tba&#x505A;10&#x4E07;&#x884C;&#x7684;&#x8BB0;&#x5F55;&#x63D2;&#x5165;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E00;&#x76F4;&#x4E0D;&#x65AD;&#x7684;&#x5F80;redo log&#x987A;&#x5E8F;&#x8BB0;&#x5F55;&#xFF0C;&#x800C;binary log&#x4E0D;&#x4F1A;&#x8BB0;&#x5F55;&#xFF0C;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#xFF0C;&#x624D;&#x4F1A;&#x4E00;&#x6B21;&#x5199;&#x5165;&#x5230;binary log&#x6587;&#x4EF6;&#x4E2D;&#x3002;binary log&#x7684;&#x8BB0;&#x5F55;&#x683C;&#x5F0F;&#x6709;3&#x79CD;&#xFF1A;row&#xFF0C;statement&#x8DDF;mixed&#xFF0C;&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x8BB0;&#x5F55;&#x5F62;&#x5F0F;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<h2 id="22-redo-&#x53C2;&#x6570;"><strong>2.2</strong> <strong>redo</strong> <strong>&#x53C2;&#x6570;</strong></h2>
+<ul>
+<li><strong>innodb_log_files_in_group</strong></li>
+</ul>
+<p>redo log &#x6587;&#x4EF6;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x547D;&#x540D;&#x65B9;&#x5F0F;&#x5982;&#xFF1A;ib_logfile0&#xFF0C;iblogfile1... iblogfilen&#x3002;&#x9ED8;&#x8BA4;2&#x4E2A;&#xFF0C;&#x6700;&#x5927;100&#x4E2A;&#x3002;</p>
+<ul>
+<li><strong>innodb_log_file_size</strong></li>
+</ul>
+<p>&#x6587;&#x4EF6;&#x8BBE;&#x7F6E;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 48M&#xFF0C;&#x6700;&#x5927;&#x503C;&#x4E3A;512G&#xFF0C;&#x6CE8;&#x610F;&#x6700;&#x5927;&#x503C;&#x6307;&#x7684;&#x662F;&#x6574;&#x4E2A; redo log&#x7CFB;&#x5217;&#x6587;&#x4EF6;&#x4E4B;&#x548C;&#xFF0C;&#x5373;&#xFF08;innodb_log_files_in_group * innodb_log_file_size &#xFF09;&#x4E0D;&#x80FD;&#x5927;&#x4E8E;&#x6700;&#x5927;&#x503C;512G&#x3002;</p>
+<ul>
+<li><strong>innodb_log_group_home_dir</strong></li>
+</ul>
+<p>&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x8DEF;&#x5F84;</p>
+<ul>
+<li><strong>innodb_log_buffer_size</strong></li>
+</ul>
+<p>Redo Log &#x7F13;&#x5B58;&#x533A;&#xFF0C;&#x9ED8;&#x8BA4;8M&#xFF0C;&#x53EF;&#x8BBE;&#x7F6E;1-8M&#x3002;&#x5EF6;&#x8FDF;&#x4E8B;&#x52A1;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x628A;redo log &#x653E;&#x5230;&#x8BE5;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E; innodb_flush_log_at_trx_commit&#x53C2;&#x6570;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x518D;&#x628A;&#x65E5;&#x5FD7;&#x4ECE;buffer &#x4E2D;flush &#x5230;&#x78C1;&#x76D8;&#x4E2D;&#x3002;</p>
+<ul>
+<li><p><strong>innodb_flush_log_at_trx_commit</strong></p>
+</li>
+<li><p>innodb_flush_log_at_trx_commit=1&#xFF0C;&#x6BCF;&#x6B21;commit&#x90FD;&#x4F1A;&#x628A;redo log&#x4ECE;redo log buffer&#x5199;&#x5165;&#x5230;system&#xFF0C;&#x5E76;fsync&#x5237;&#x65B0;&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+</li>
+<li>innodb_flush_log_at_trx_commit=2&#xFF0C;&#x6BCF;&#x6B21;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x65F6;MySQL&#x4F1A;&#x628A;&#x65E5;&#x5FD7;&#x4ECE;redo log buffer&#x5199;&#x5165;&#x5230;system&#xFF0C;&#x4F46;&#x53EA;&#x5199;&#x5165;&#x5230;file system buffer&#xFF0C;&#x7531;&#x7CFB;&#x7EDF;&#x5185;&#x90E8;&#x6765;fsync&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x5B9E;&#x4F8B;crash&#xFF0C;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;redo log&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;crash&#xFF0C;&#x7531;&#x4E8E;file system buffer&#x8FD8;&#x6765;&#x4E0D;&#x53CA;fsync&#x5230;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x4E22;&#x5931;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x6570;&#x636E;&#x3002;</li>
+<li><p>innodb_flush_log_at_trx_commit=0&#xFF0C;&#x4E8B;&#x52A1;&#x53D1;&#x751F;&#x8FC7;&#x7A0B;&#xFF0C;&#x65E5;&#x5FD7;&#x4E00;&#x76F4;&#x6FC0;&#x52B1;&#x5728;redo log buffer&#x4E2D;&#xFF0C;&#x8DDF;&#x5176;&#x4ED6;&#x8BBE;&#x7F6E;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x65F6;&#xFF0C;&#x4E0D;&#x4EA7;&#x751F;redo &#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x662F;MySQL&#x5185;&#x90E8;&#x6BCF;&#x79D2;&#x64CD;&#x4F5C;&#x4E00;&#x6B21;&#xFF0C;&#x4ECE;redo log buffer&#xFF0C;&#x628A;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#x53BB;&#x3002;&#x5982;&#x679C;&#x53D1;&#x751F;crash&#xFF0C;&#x5373;&#x4E22;&#x5931;1s&#x5185;&#x7684;&#x4E8B;&#x52A1;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x3002;</p>
+</li>
+<li><p>&#x6CE8;&#x610F;&#xFF1A;&#x7531;&#x4E8E;&#x8FDB;&#x7A0B;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x95EE;&#x9898;,&#x8FD9;&#x4E2A;&#x201C;&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x4E00;&#x6B21; flush(&#x5237;&#x5230;&#x78C1;&#x76D8;)&#x64CD;&#x4F5C;&#x201D;&#x5E76;&#x4E0D;&#x662F;&#x4FDD;&#x8BC1;100%&#x7684;&#x201C;&#x6BCF;&#x79D2;&#x201D;&#x3002;</p>
+<p><img src="../../../images/0715_1526_4.png" alt="img"></p>
+</li>
+</ul>
+<h2 id="23-redo-&#x7A7A;&#x95F4;&#x7BA1;&#x7406;"><strong>2.3</strong> <strong>redo</strong> <strong>&#x7A7A;&#x95F4;&#x7BA1;&#x7406;</strong></h2>
+<p>&#x200B;    Redo log&#x6587;&#x4EF6;&#x4EE5;<code>ib_logfile[number]</code>&#x547D;&#x540D;&#xFF0C;Redo log &#x4EE5;&#x987A;&#x5E8F;&#x7684;&#x65B9;&#x5F0F;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x6587;&#x4EF6;&#xFF0C;&#x5199;&#x6EE1;&#x65F6;&#x5219;&#x56DE;&#x6EAF;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8FDB;&#x884C;&#x8986;&#x76D6;&#x5199;&#x3002;&#xFF08;&#x4F46;&#x5728;&#x505A;redo checkpoint&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x66F4;&#x65B0;&#x7B2C;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5934;&#x90E8;checkpoint&#x6807;&#x8BB0;&#xFF0C;&#x6240;&#x4EE5;&#x4E25;&#x683C;&#x6765;&#x8BB2;&#x4E5F;&#x4E0D;&#x7B97;&#x987A;&#x5E8F;&#x5199;&#xFF09;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;redo log&#x6709;&#x4E24;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;redo log buffer &#x8DDF;redo log file&#x3002;buffer pool&#x4E2D;&#x628A;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x60C5;&#x51B5;&#x8BB0;&#x5F55;&#x5230;redo log buffer&#xFF0C;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#xFF0C;&#x518D;&#x628A;redo log&#x5237;&#x4E0B;&#x5230;redo log file&#xFF1A;</p>
+<ul>
+<li>Redo log buffer&#x7A7A;&#x95F4;&#x4E0D;&#x8DB3;</li>
+<li>&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#xFF08;&#x4F9D;&#x8D56;innodb_flush_log_at_trx_commit&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF09;</li>
+<li>&#x540E;&#x53F0;&#x7EBF;&#x7A0B;</li>
+<li>&#x505A;checkpoint</li>
+<li>&#x5B9E;&#x4F8B;shutdown</li>
+<li>binlog&#x5207;&#x6362;</li>
+</ul>
+<h1 id="3-undo&#x53CA;redo&#x5982;&#x4F55;&#x8BB0;&#x5F55;&#x4E8B;&#x52A1;"><strong>3 undo&#x53CA;redo&#x5982;&#x4F55;&#x8BB0;&#x5F55;&#x4E8B;&#x52A1;</strong></h1>
+<h2 id="31-undo--redo&#x4E8B;&#x52A1;&#x7684;&#x7B80;&#x5316;&#x8FC7;&#x7A0B;"><strong>3.1 Undo + Redo&#x4E8B;&#x52A1;&#x7684;&#x7B80;&#x5316;&#x8FC7;&#x7A0B;</strong></h2>
+<p>  &#x5047;&#x8BBE;&#x6709;A&#x3001;B&#x4E24;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x503C;&#x5206;&#x522B;&#x4E3A;1,2&#xFF0C;&#x5F00;&#x59CB;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;&#x4E8B;&#x52A1;&#x7684;&#x64CD;&#x4F5C;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;&#x628A;1&#x4FEE;&#x6539;&#x4E3A;3&#xFF0C;2&#x4FEE;&#x6539;&#x4E3A;4&#xFF0C;&#x90A3;&#x4E48;&#x5B9E;&#x9645;&#x7684;&#x8BB0;&#x5F55;&#x5982;&#x4E0B;&#xFF08;&#x7B80;&#x5316;&#xFF09;&#xFF1A;</p>
+<p>  A.&#x4E8B;&#x52A1;&#x5F00;&#x59CB;.
+  B.&#x8BB0;&#x5F55;A=1&#x5230;undo log.
+  C.&#x4FEE;&#x6539;A=3.
+  D.&#x8BB0;&#x5F55;A=3&#x5230;redo log.
+  E.&#x8BB0;&#x5F55;B=2&#x5230;undo log.
+  F.&#x4FEE;&#x6539;B=4.
+  G.&#x8BB0;&#x5F55;B=4&#x5230;redo log.
+  H.&#x5C06;redo log&#x5199;&#x5165;&#x78C1;&#x76D8;&#x3002;</p>
+<p>  I.&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;</p>
+<h2 id="32--io&#x5F71;&#x54CD;"><strong>3.2  IO&#x5F71;&#x54CD;</strong></h2>
+<p>  Undo + Redo&#x7684;&#x8BBE;&#x8BA1;&#x4E3B;&#x8981;&#x8003;&#x8651;&#x7684;&#x662F;&#x63D0;&#x5347;IO&#x6027;&#x80FD;&#xFF0C;&#x589E;&#x5927;&#x6570;&#x636E;&#x5E93;&#x541E;&#x5410;&#x91CF;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;B D E G H&#xFF0C;&#x5747;&#x662F;&#x65B0;&#x589E;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;B D E G &#x662F;&#x7F13;&#x51B2;&#x5230;buffer&#x533A;&#xFF0C;&#x53EA;&#x6709;G&#x662F;&#x589E;&#x52A0;&#x4E86;IO&#x64CD;&#x4F5C;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;Redo Log&#x80FD;&#x591F;&#x6709;&#x6BD4;&#x8F83;&#x597D;&#x7684;IO&#x6027;&#x80FD;&#xFF0C;InnoDB &#x7684; Redo Log&#x7684;&#x8BBE;&#x8BA1;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7279;&#x70B9;&#xFF1A;</p>
+<p>  A. &#x5C3D;&#x91CF;&#x4FDD;&#x6301;Redo Log&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x6BB5;&#x8FDE;&#x7EED;&#x7684;&#x7A7A;&#x95F4;&#x4E0A;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x7CFB;&#x7EDF;&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x65F6;&#x5C31;&#x4F1A;&#x5C06;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x7A7A;&#x95F4;&#x5B8C;&#x5168;&#x5206;&#x914D;&#x3002; &#x4EE5;&#x987A;&#x5E8F;&#x8FFD;&#x52A0;&#x7684;&#x65B9;&#x5F0F;&#x8BB0;&#x5F55;Redo Log,&#x901A;&#x8FC7;&#x987A;&#x5E8F;IO&#x6765;&#x6539;&#x5584;&#x6027;&#x80FD;&#x3002;</p>
+<p>  B. &#x6279;&#x91CF;&#x5199;&#x5165;&#x65E5;&#x5FD7;&#x3002;&#x65E5;&#x5FD7;&#x5E76;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x662F;&#x5148;&#x5199;&#x5165;redo log buffer.&#x5F53;&#x9700;&#x8981;&#x5C06;&#x65E5;&#x5FD7;&#x5237;&#x65B0;&#x5230;&#x78C1;&#x76D8;&#x65F6; (&#x5982;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;),&#x5C06;&#x8BB8;&#x591A;&#x65E5;&#x5FD7;&#x4E00;&#x8D77;&#x5199;&#x5165;&#x78C1;&#x76D8;.</p>
+<p>  C. &#x5E76;&#x53D1;&#x7684;&#x4E8B;&#x52A1;&#x5171;&#x4EAB;Redo Log&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;Redo Log&#x6309;&#x8BED;&#x53E5;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF0C;&#x4F9D;&#x6B21;&#x4EA4;&#x66FF;&#x7684;&#x8BB0;&#x5F55;&#x5728;&#x4E00;&#x8D77;&#xFF0C;
+     &#x4EE5;&#x51CF;&#x5C11;&#x65E5;&#x5FD7;&#x5360;&#x7528;&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x4F8B;&#x5982;,Redo Log&#x4E2D;&#x7684;&#x8BB0;&#x5F55;&#x5185;&#x5BB9;&#x53EF;&#x80FD;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;
+     &#x8BB0;&#x5F55;1: <trx1, insert="" …="">
+     &#x8BB0;&#x5F55;2: <trx2, update="" …="">
+     &#x8BB0;&#x5F55;3: <trx1, delete="" …="">
+     &#x8BB0;&#x5F55;4: <trx3, update="" …="">
+     &#x8BB0;&#x5F55;5: <trx2, insert="" …="">
+  D. &#x56E0;&#x4E3A;C&#x7684;&#x539F;&#x56E0;,&#x5F53;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x5C06;Redo Log&#x5199;&#x5165;&#x78C1;&#x76D8;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x5C06;&#x5176;&#x4ED6;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x4E8B;&#x52A1;&#x7684;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x3002;</trx2,></trx3,></trx1,></trx2,></trx1,></p>
+<p>  E. Redo Log&#x4E0A;&#x53EA;&#x8FDB;&#x884C;&#x987A;&#x5E8F;&#x8FFD;&#x52A0;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x9700;&#x8981;&#x56DE;&#x6EDA;&#x65F6;&#xFF0C;&#x5B83;&#x7684;Redo Log&#x8BB0;&#x5F55;&#x4E5F;&#x4E0D;&#x4F1A;&#x4ECE;Redo Log&#x4E2D;&#x5220;&#x9664;&#x6389;&#x3002;</p>
+<h2 id="33-&#x6062;&#x590D;"><strong>3.3 &#x6062;&#x590D;</strong></h2>
+<p>&#x524D;&#x9762;&#x8BF4;&#x5230;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x4E8B;&#x52A1;&#x548C;&#x56DE;&#x6EDA;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#x4E5F;&#x4F1A;&#x8BB0;&#x5F55;Redo Log&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x8FDB;&#x884C;&#x6062;&#x590D;&#x65F6;,&#x8FD9;&#x4E9B;&#x4E8B;&#x52A1;&#x8981;&#x8FDB;&#x884C;&#x7279;&#x6B8A;&#x7684;&#x7684;&#x5904;&#x7406;&#x3002;&#x6709;2&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6062;&#x590D;&#x7B56;&#x7565;&#xFF1A;</p>
+<p>  A. &#x8FDB;&#x884C;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x53EA;&#x91CD;&#x505A;&#x5DF2;&#x7ECF;&#x63D0;&#x4EA4;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#x3002;
+  B. &#x8FDB;&#x884C;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x91CD;&#x505A;&#x6240;&#x6709;&#x4E8B;&#x52A1;&#x5305;&#x62EC;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x4E8B;&#x52A1;&#x548C;&#x56DE;&#x6EDA;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;Undo Log&#x56DE;&#x6EDA;&#x90A3;&#x4E9B;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x4E8B;&#x52A1;&#x3002; </p>
+<p>  <strong>MySQL&#x6570;&#x636E;&#x5E93;InnoDB&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x4F7F;&#x7528;&#x4E86;B&#x7B56;&#x7565;,</strong> InnoDB&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x4E2D;&#x7684;&#x6062;&#x590D;&#x673A;&#x5236;&#x6709;&#x51E0;&#x4E2A;&#x7279;&#x70B9;&#xFF1A; </p>
+<p>  A. &#x5728;&#x91CD;&#x505A;Redo Log&#x65F6;&#xFF0C;&#x5E76;<strong>&#x4E0D;&#x5173;&#x5FC3;&#x4E8B;&#x52A1;&#x6027;</strong>&#x3002; &#x6062;&#x590D;&#x65F6;&#xFF0C;&#x6CA1;&#x6709;BEGIN&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;COMMIT,ROLLBACK&#x7684;&#x884C;&#x4E3A;&#x3002;&#x4E5F;&#x4E0D;&#x5173;&#x5FC3;&#x6BCF;&#x4E2A;&#x65E5;&#x5FD7;&#x662F;&#x54EA;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x3002;&#x5C3D;&#x7BA1;&#x4E8B;&#x52A1;ID&#x7B49;&#x4E8B;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x8BB0;&#x5165;Redo Log&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x53EA;&#x662F;&#x88AB;&#x5F53;&#x4F5C;&#x8981;&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<p>  B. &#x4F7F;&#x7528;B&#x7B56;&#x7565;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x5C06;Undo Log&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x800C;&#x4E14;&#x5FC5;&#x987B;&#x8981;&#x5728;&#x5199;Redo Log&#x4E4B;&#x524D;&#x5C06;&#x5BF9;&#x5E94;&#x7684;Undo Log&#x5199;&#x5165;&#x78C1;&#x76D8;&#x3002;Undo&#x548C;Redo Log&#x7684;&#x8FD9;&#x79CD;&#x5173;&#x8054;&#xFF0C;&#x4F7F;&#x5F97;&#x6301;&#x4E45;&#x5316;&#x53D8;&#x5F97;&#x590D;&#x6742;&#x8D77;&#x6765;&#x3002;&#x4E3A;&#x4E86;&#x964D;&#x4F4E;&#x590D;&#x6742;&#x5EA6;&#xFF0C;InnoDB&#x5C06;Undo Log&#x770B;&#x4F5C;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x8BB0;&#x5F55;Undo Log&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x4F1A;&#x8BB0;&#x5F55;&#x5230;redo log&#x4E2D;&#x3002;&#x8FD9;&#x6837;undo log&#x5C31;&#x53EF;&#x4EE5;&#x8C61;&#x6570;&#x636E;&#x4E00;&#x6837;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x5728;redo log&#x4E4B;&#x524D;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x4E86;&#x3002;</p>
+<p>&#x200B;     &#x5305;&#x542B;Undo Log&#x64CD;&#x4F5C;&#x7684;Redo Log&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;
+&#x200B;     &#x8BB0;&#x5F55;1: <trx1, **undo="" log="" insert**="" <undo_insert="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;2: <trx1, insert="" …="">
+&#x200B;     &#x8BB0;&#x5F55;3: <trx2, **undo="" log="" insert**="" <undo_update="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;4: <trx2, update="" …="">
+&#x200B;     &#x8BB0;&#x5F55;5: <trx3, **undo="" log="" insert**="" <undo_delete="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;6: <trx3, delete="" …="">
+  C. &#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x6CA1;&#x6709;&#x5F04;&#x6E05;&#x695A;&#x3002;&#x65E2;&#x7136;Redo&#x6CA1;&#x6709;&#x4E8B;&#x52A1;&#x6027;&#xFF0C;&#x90A3;&#x5C82;&#x4E0D;&#x662F;&#x4F1A;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x88AB;&#x56DE;&#x6EDA;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#xFF1F;
+&#x200B;     &#x786E;&#x5B9E;&#x662F;&#x8FD9;&#x6837;&#x3002;&#x540C;&#x65F6;Innodb&#x4E5F;&#x4F1A;&#x5C06;&#x4E8B;&#x52A1;&#x56DE;&#x6EDA;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x8BB0;&#x5F55;&#x5230;redo log&#x4E2D;&#x3002;&#x56DE;&#x6EDA;&#x64CD;&#x4F5C;&#x672C;&#x8D28;&#x4E0A;&#x4E5F;&#x662F;
+&#x200B;     &#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x56DE;&#x6EDA;&#x65F6;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x4F1A;&#x8BB0;&#x5F55;&#x5230;Redo Log&#x4E2D;&#x3002;
+&#x200B;     &#x4E00;&#x4E2A;&#x56DE;&#x6EDA;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#x7684;Redo Log&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;
+&#x200B;     &#x8BB0;&#x5F55;1: <trx1, undo="" log="" insert="" <undo_insert="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;2: <trx1, **insert="" a**…="">
+&#x200B;     &#x8BB0;&#x5F55;3: <trx1, undo="" log="" insert="" <undo_update="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;4: <trx1, **update="" b**…="">
+&#x200B;     &#x8BB0;&#x5F55;5: <trx1, undo="" log="" insert="" <undo_delete="" …="">&gt;
+&#x200B;     &#x8BB0;&#x5F55;6: <trx1, **delete="" c**…="">
+&#x200B;     &#x8BB0;&#x5F55;7: <trx1, **insert="" c**="">
+&#x200B;     &#x8BB0;&#x5F55;8: <trx1, **update="" b**="" to="" old="" value=""></trx1,></trx1,></trx1,></trx1,></trx1,></trx1,></trx1,></trx1,></trx3,></trx3,></trx2,></trx2,></trx1,></trx1,></p>
+<p>&#x200B;     &#x8BB0;&#x5F55;9: <trx1, **delete="" a="">**</trx1,></p>
+<p>&#x200B;     &#x4E00;&#x4E2A;&#x88AB;&#x56DE;&#x6EDA;&#x4E86;&#x7684;&#x4E8B;&#x52A1;&#x5728;&#x6062;&#x590D;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x662F;&#x5148;redo&#x518D;undo&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x7834;&#x574F;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mysql_isolation_2019-07-12.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: mysql/mariadb知识点总结：事务隔离级别">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"mysql的undo log和redo log","level":"1.4.1.2","depth":3,"next":{"title":"Spring","level":"1.5","depth":1,"ref":"","articles":[{"title":"源码","level":"1.5.1","depth":2,"ref":"","articles":[{"title":"初始化过程","level":"1.5.1.1","depth":3,"ref":"","articles":[{"title":"Spring  IOC 容器初始化过程_主要加载步骤","level":"1.5.1.1.1","depth":4,"path":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","ref":"Spring/源码/初始化过程/Spring  IOC 容器初始化过程_主要加载步骤.md","articles":[]},{"title":"Spring#loadBeanDefinitions(...) 加载 配置文件 主要流程","level":"1.5.1.1.2","depth":4,"path":"Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md","ref":"Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md","articles":[]},{"title":"Spring#getBean() 加载 BeanInstance 主要流程","level":"1.5.1.1.3","depth":4,"path":"Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md","ref":"Spring/源码/初始化过程/springSourceCode_analysis_00_main_00001.md","articles":[]},{"title":"Spring加载Bean的过程","level":"1.5.1.1.4","depth":4,"path":"Spring/源码/初始化过程/Spring加载Bean的过程.md","ref":"Spring/源码/初始化过程/Spring加载Bean的过程.md","articles":[]},{"title":"Spring 加载Bean的过程_getSingleton 实例化单例对象","level":"1.5.1.1.5","depth":4,"path":"Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md","ref":"Spring/源码/初始化过程/Spring 加载Bean的过程_getSingleton 实例化单例对象.md","articles":[]},{"title":"Spring 加载Bean的过程_实例化 BeanWrapper","level":"1.5.1.1.6","depth":4,"path":"Spring/源码/初始化过程/spring getBean_instance BeanWrapper.md","ref":"Spring/源码/初始化过程/spring getBean_instance BeanWrapper.md","articles":[]}]},{"title":"Aop","level":"1.5.1.2","depth":3,"ref":"","articles":[{"title":"Aop","level":"1.5.1.2.1","depth":4,"path":"Spring/源码/Aop/Aop.md","ref":"Spring/源码/Aop/Aop.md","articles":[]}]},{"title":"Transaction","level":"1.5.1.3","depth":3,"ref":"","articles":[]}]},{"title":"解析类型工具——ResolvableType","level":"1.5.2","depth":2,"path":"Spring/工具方法/spring_core_ResolvableType_2019-06-26.md","ref":"Spring/工具方法/spring_core_ResolvableType_2019-06-26.md","articles":[]},{"title":"泛型类型解析工具——GenericTypeResolver","level":"1.5.3","depth":2,"path":"Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.md","ref":"Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.md","articles":[]},{"title":"类型描述工具——TypeDescriptor","level":"1.5.4","depth":2,"path":"Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.md","ref":"Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.md","articles":[]},{"title":"类型描述工具——TypeDescriptor2","level":"1.5.5","depth":2,"path":"Spring/工具方法/spring_core_TypeDescriptor_2020-09-25.md","ref":"Spring/工具方法/spring_core_TypeDescriptor_2020-09-25.md","articles":[]},{"title":"Bridge方法解析工具——BridgeMethodResolver","level":"1.5.6","depth":2,"path":"Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.md","ref":"Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.md","articles":[]},{"title":"应用","level":"1.5.7","depth":2,"ref":"","articles":[{"title":"SpEL 表达式","level":"1.5.7.1","depth":3,"path":"Spring/转载/Spel.md","ref":"Spring/转载/Spel.md","articles":[]},{"title":"Spring事务的传播","level":"1.5.7.2","depth":3,"path":"Spring/转载/Spring_transactional_propagation.md","ref":"Spring/转载/Spring_transactional_propagation.md","articles":[]},{"title":"(转)spring源码分析(一)IOC管理Bean","level":"1.5.7.3","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_78368930.md","articles":[]},{"title":"(转)Sring源码解析(一)Spring是怎么读取配置Xml文件的","level":"1.5.7.4","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_1_80138425.md","articles":[]},{"title":"(转)Spring源码分析(二)Spring怎么扩展解析xml接口的","level":"1.5.7.5","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_2_80169701.md","articles":[]},{"title":"(转)Spring源码分析(三)Spring是如何把元素解析成BeanDefinition对象的","level":"1.5.7.6","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_3_80223871.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_3_80223871.md","articles":[]},{"title":"(转)Spring源码解析(四)Spring是怎么处理BeanDefinition的？","level":"1.5.7.7","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_4_80226375.md","articles":[]},{"title":"(转)Spring源码解析(五)Spring 加载bean 依赖注入","level":"1.5.7.8","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_5_80238746.md","articles":[]},{"title":"(转)Spring源码分析(六)FactoryBean 接口解析","level":"1.5.7.9","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_6_80287736.md","articles":[]},{"title":"(转)Spring源码分析(七)扩展接口BeanPostProcessors源码分析","level":"1.5.7.10","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_7_80289441.md","articles":[]},{"title":"(转)Spring源码分析(八)Spring 所有BeanFactoryPostProcessor扩展接口","level":"1.5.7.11","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_8_80291728.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_8_80291728.md","articles":[]},{"title":"(转)Spring源码分析(九)lazy-init 在Spring中是怎么控制加载的","level":"1.5.7.12","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_9_80299451.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_9_80299451.md","articles":[]},{"title":"(转)Spring源码解析(十)分析一个Spring循环引用失败的问题","level":"1.5.7.13","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_10_80301135.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_10_80301135.md","articles":[]},{"title":"(转)Spring源码解析(十一)Spring扩展接口InstantiationAwareBeanPostProcessor解析","level":"1.5.7.14","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_11_80321854.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_11_80321854.md","articles":[]},{"title":"(转)Spring源码解析(十二)Spring扩展接口SmartInstantiationAwareBeanPostProcessor解析","level":"1.5.7.15","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_12_80348253.md","articles":[]},{"title":"(转)Spring源码解析(十四)Spring调用初始化方法initializeBean","level":"1.5.7.16","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_14_80363793.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_14_80363793.md","articles":[]},{"title":"(转)Spring源码分析(十五)Spring中常用注解使用以及源码分析","level":"1.5.7.17","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_15_80385067.md","articles":[]},{"title":"(转)Spring源码解析(十六)Spring是如何利用注解管理IOC容器的","level":"1.5.7.18","depth":3,"path":"Spring/转载/Spring源代码分析/springSourceCode_analysis_16_80389286.md","ref":"Spring/转载/Spring源代码分析/springSourceCode_analysis_16_80389286.md","articles":[]}]}]},"previous":{"title":"mysql/mariadb知识点总结：事务隔离级别","level":"1.4.1.1","depth":3,"path":"数据库/MySql/转载/mysql_isolation_2019-07-12.md","ref":"数据库/MySql/转载/mysql_isolation_2019-07-12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据库/MySql/转载/mysql_undo_redo_log_2019-07-15.md","mtime":"2019-07-15T07:35:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-25T09:59:36.899Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

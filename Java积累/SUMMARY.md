@@ -29,6 +29,7 @@
     * [解析类型工具——ResolvableType](Spring/工具方法/spring_core_ResolvableType_2019-06-26.md)
     * [泛型类型解析工具——GenericTypeResolver](Spring/工具方法/spring_core_GenericTypeResolver_2019-06-26.md)
     * [类型描述工具——TypeDescriptor](Spring/工具方法/spring_core_TypeDescriptor_2019-07-04.md)
+    * [类型描述工具——TypeDescriptor2](Spring/工具方法/spring_core_TypeDescriptor_2020-09-25.md)
     * [Bridge方法解析工具——BridgeMethodResolver](Spring/工具方法/spring_core_BridgeMethodResolver_2019-07-08.md)
     * 应用
         * [SpEL 表达式](Spring/转载/Spel.md)
